@@ -27,10 +27,23 @@ interface CurriedFn4<A, B, C, D, R> {
 // Type Aliases
 
 type Interval = {
-  start: Date | number
-  end: Date | number
+  start: Date | string | number
+  end: Date | string | number
 }
 type IntervalAliased = Interval
+
+type Options = {
+  weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
+  firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7
+  additionalDigits?: 0 | 1 | 2
+  locale?: Locale
+  includeSeconds?: boolean
+  addSuffix?: boolean
+  unit?: 'second' | 'minute' | 'hour' | 'day' | 'month' | 'year'
+  roundingMethod?: 'floor' | 'ceil' | 'round'
+  awareOfUnicodeTokens?: boolean
+}
+type OptionsAliased = Options
 
 type Locale = {
   formatDistance: Function
@@ -67,4099 +80,5725 @@ type LocaleAliased = Locale
 declare module 'date-fns' {
   export type Interval = IntervalAliased
 
+  export type Options = OptionsAliased
+
   export type Locale = LocaleAliased
 }
 
 // Regular Functions
 
 declare module 'date-fns' {
-  function addBusinessDays(date: Date | number, amount: number): Date
-  namespace addBusinessDays {}
+  function addDays(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
+  namespace addDays {
 
-  function addDays(date: Date | number, amount: number): Date
-  namespace addDays {}
+  }
 
-  function addHours(date: Date | number, amount: number): Date
-  namespace addHours {}
+  function addHours(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
+  namespace addHours {
 
-  function addISOWeekYears(date: Date | number, amount: number): Date
-  namespace addISOWeekYears {}
+  }
 
-  function addMilliseconds(date: Date | number, amount: number): Date
-  namespace addMilliseconds {}
+  function addISOWeekYears(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
+  namespace addISOWeekYears {
 
-  function addMinutes(date: Date | number, amount: number): Date
-  namespace addMinutes {}
+  }
 
-  function addMonths(date: Date | number, amount: number): Date
-  namespace addMonths {}
+  function addMilliseconds(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
+  namespace addMilliseconds {
 
-  function addQuarters(date: Date | number, amount: number): Date
-  namespace addQuarters {}
+  }
 
-  function addSeconds(date: Date | number, amount: number): Date
-  namespace addSeconds {}
+  function addMinutes(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
+  namespace addMinutes {
 
-  function addWeeks(date: Date | number, amount: number): Date
-  namespace addWeeks {}
+  }
 
-  function addYears(date: Date | number, amount: number): Date
-  namespace addYears {}
+  function addMonths(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
+  namespace addMonths {
+
+  }
+
+  function addQuarters(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
+  namespace addQuarters {
+
+  }
+
+  function addSeconds(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
+  namespace addSeconds {
+
+  }
+
+  function addWeeks(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
+  namespace addWeeks {
+
+  }
+
+  function addYears(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
+  namespace addYears {
+
+  }
 
   function areIntervalsOverlapping(
     intervalLeft: Interval,
-    intervalRight: Interval
+    intervalRight: Interval,
+    options?: Options
   ): boolean
-  namespace areIntervalsOverlapping {}
+  namespace areIntervalsOverlapping {
+
+  }
 
   function closestIndexTo(
-    dateToCompare: Date | number,
-    datesArray: (Date | number)[]
+    dateToCompare: Date | string | number,
+    datesArray: (Date | string | number)[],
+    options?: Options
   ): number
-  namespace closestIndexTo {}
+  namespace closestIndexTo {
+
+  }
 
   function closestTo(
-    dateToCompare: Date | number,
-    datesArray: (Date | number)[]
+    dateToCompare: Date | string | number,
+    datesArray: (Date | string | number)[],
+    options?: Options
   ): Date
-  namespace closestTo {}
+  namespace closestTo {
 
-  function compareAsc(dateLeft: Date | number, dateRight: Date | number): number
-  namespace compareAsc {}
+  }
+
+  function compareAsc(
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
+  ): number
+  namespace compareAsc {
+
+  }
 
   function compareDesc(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): number
-  namespace compareDesc {}
+  namespace compareDesc {
 
-  function differenceInBusinessDays(
-    dateLeft: Date | number,
-    dateRight: Date | number
-  ): number
-  namespace differenceInBusinessDays {}
+  }
 
   function differenceInCalendarDays(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): number
-  namespace differenceInCalendarDays {}
+  namespace differenceInCalendarDays {
+
+  }
 
   function differenceInCalendarISOWeeks(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): number
-  namespace differenceInCalendarISOWeeks {}
+  namespace differenceInCalendarISOWeeks {
+
+  }
 
   function differenceInCalendarISOWeekYears(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): number
-  namespace differenceInCalendarISOWeekYears {}
+  namespace differenceInCalendarISOWeekYears {
+
+  }
 
   function differenceInCalendarMonths(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): number
-  namespace differenceInCalendarMonths {}
+  namespace differenceInCalendarMonths {
+
+  }
 
   function differenceInCalendarQuarters(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): number
-  namespace differenceInCalendarQuarters {}
+  namespace differenceInCalendarQuarters {
+
+  }
 
   function differenceInCalendarWeeks(
-    dateLeft: Date | number,
-    dateRight: Date | number,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-    }
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): number
-  namespace differenceInCalendarWeeks {}
+  namespace differenceInCalendarWeeks {
+
+  }
 
   function differenceInCalendarYears(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): number
-  namespace differenceInCalendarYears {}
+  namespace differenceInCalendarYears {
+
+  }
 
   function differenceInDays(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): number
-  namespace differenceInDays {}
+  namespace differenceInDays {
+
+  }
 
   function differenceInHours(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): number
-  namespace differenceInHours {}
+  namespace differenceInHours {
+
+  }
 
   function differenceInISOWeekYears(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): number
-  namespace differenceInISOWeekYears {}
+  namespace differenceInISOWeekYears {
+
+  }
 
   function differenceInMilliseconds(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): number
-  namespace differenceInMilliseconds {}
+  namespace differenceInMilliseconds {
+
+  }
 
   function differenceInMinutes(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): number
-  namespace differenceInMinutes {}
+  namespace differenceInMinutes {
+
+  }
 
   function differenceInMonths(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): number
-  namespace differenceInMonths {}
+  namespace differenceInMonths {
+
+  }
 
   function differenceInQuarters(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): number
-  namespace differenceInQuarters {}
+  namespace differenceInQuarters {
+
+  }
 
   function differenceInSeconds(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): number
-  namespace differenceInSeconds {}
+  namespace differenceInSeconds {
+
+  }
 
   function differenceInWeeks(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): number
-  namespace differenceInWeeks {}
+  namespace differenceInWeeks {
+
+  }
 
   function differenceInYears(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): number
-  namespace differenceInYears {}
+  namespace differenceInYears {
 
-  function eachDayOfInterval(
-    interval: Interval,
-    options?: {
-      step?: number
-    }
+  }
+
+  function eachDayOfInterval(interval: Interval, options?: Options): Date[]
+  namespace eachDayOfInterval {
+
+  }
+
+  function eachWeekendOfInterval(interval: Interval, options?: Options): Date[]
+  namespace eachWeekendOfInterval {
+
+  }
+
+  function eachWeekendOfMonth(
+    date: Date | string | number,
+    options?: Options
   ): Date[]
-  namespace eachDayOfInterval {}
+  namespace eachWeekendOfMonth {
 
-  function eachWeekendOfInterval(interval: Interval): Date[]
-  namespace eachWeekendOfInterval {}
+  }
 
-  function eachWeekendOfMonth(date: Date | number): Date[]
-  namespace eachWeekendOfMonth {}
-
-  function eachWeekendOfYear(date: Date | number): Date[]
-  namespace eachWeekendOfYear {}
-
-  function eachWeekOfInterval(
-    interval: Interval,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-    }
+  function eachWeekendOfYear(
+    date: Date | string | number,
+    options?: Options
   ): Date[]
-  namespace eachWeekOfInterval {}
+  namespace eachWeekendOfYear {
 
-  function endOfDay(date: Date | number): Date
-  namespace endOfDay {}
+  }
 
-  function endOfDecade(
-    date: Date | number,
-    options?: {
-      additionalDigits?: 0 | 1 | 2
-    }
+  function eachWeekOfInterval(interval: Interval, options?: Options): Date[]
+  namespace eachWeekOfInterval {
+
+  }
+
+  function endOfDay(date: Date | string | number, options?: Options): Date
+  namespace endOfDay {
+
+  }
+
+  function endOfDecade(date: Date | string | number, options?: Options): Date
+  namespace endOfDecade {
+
+  }
+
+  function endOfHour(date: Date | string | number, options?: Options): Date
+  namespace endOfHour {
+
+  }
+
+  function endOfISOWeek(date: Date | string | number, options?: Options): Date
+  namespace endOfISOWeek {
+
+  }
+
+  function endOfISOWeekYear(
+    date: Date | string | number,
+    options?: Options
   ): Date
-  namespace endOfDecade {}
+  namespace endOfISOWeekYear {
 
-  function endOfHour(date: Date | number): Date
-  namespace endOfHour {}
+  }
 
-  function endOfISOWeek(date: Date | number): Date
-  namespace endOfISOWeek {}
+  function endOfMinute(date: Date | string | number, options?: Options): Date
+  namespace endOfMinute {
 
-  function endOfISOWeekYear(date: Date | number): Date
-  namespace endOfISOWeekYear {}
+  }
 
-  function endOfMinute(date: Date | number): Date
-  namespace endOfMinute {}
+  function endOfMonth(date: Date | string | number, options?: Options): Date
+  namespace endOfMonth {
 
-  function endOfMonth(date: Date | number): Date
-  namespace endOfMonth {}
+  }
 
-  function endOfQuarter(date: Date | number): Date
-  namespace endOfQuarter {}
+  function endOfQuarter(date: Date | string | number, options?: Options): Date
+  namespace endOfQuarter {
 
-  function endOfSecond(date: Date | number): Date
-  namespace endOfSecond {}
+  }
 
-  function endOfToday(): Date
-  namespace endOfToday {}
+  function endOfSecond(date: Date | string | number, options?: Options): Date
+  namespace endOfSecond {
 
-  function endOfTomorrow(): Date
-  namespace endOfTomorrow {}
+  }
 
-  function endOfWeek(
-    date: Date | number,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-    }
-  ): Date
-  namespace endOfWeek {}
+  function endOfWeek(date: Date | string | number, options?: Options): Date
+  namespace endOfWeek {
 
-  function endOfYear(date: Date | number): Date
-  namespace endOfYear {}
+  }
 
-  function endOfYesterday(): Date
-  namespace endOfYesterday {}
+  function endOfYear(date: Date | string | number, options?: Options): Date
+  namespace endOfYear {
+
+  }
 
   function format(
-    date: Date | number,
+    date: Date | string | number,
     format: string,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-      firstWeekContainsDate?: number
-      useAdditionalWeekYearTokens?: boolean
-      useAdditionalDayOfYearTokens?: boolean
-    }
+    options?: Options
   ): string
-  namespace format {}
+  namespace format {
+
+  }
 
   function formatDistance(
-    date: Date | number,
-    baseDate: Date | number,
-    options?: {
-      includeSeconds?: boolean
-      addSuffix?: boolean
-      locale?: Locale
-    }
+    date: Date | string | number,
+    baseDate: Date | string | number,
+    options?: Options
   ): string
-  namespace formatDistance {}
+  namespace formatDistance {
+
+  }
 
   function formatDistanceStrict(
-    date: Date | number,
-    baseDate: Date | number,
-    options?: {
-      addSuffix?: boolean
-      unit?: 'second' | 'minute' | 'hour' | 'day' | 'month' | 'year'
-      roundingMethod?: 'floor' | 'ceil' | 'round'
-      locale?: Locale
-    }
+    date: Date | string | number,
+    baseDate: Date | string | number,
+    options?: Options
   ): string
-  namespace formatDistanceStrict {}
+  namespace formatDistanceStrict {
 
-  function formatDistanceToNow(
-    date: Date | number,
-    options?: {
-      includeSeconds?: boolean
-      addSuffix?: boolean
-      locale?: Locale
-    }
-  ): string
-  namespace formatDistanceToNow {}
+  }
 
   function formatRelative(
-    date: Date | number,
-    baseDate: Date | number,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-    }
+    date: Date | string | number,
+    baseDate: Date | string | number,
+    options?: Options
   ): string
-  namespace formatRelative {}
+  namespace formatRelative {
 
-  function fromUnixTime(unixTime: number): Date
-  namespace fromUnixTime {}
+  }
 
-  function getDate(date: Date | number): number
-  namespace getDate {}
+  function fromUnixTime(unixTime: number, options?: Options): Date
+  namespace fromUnixTime {
 
-  function getDay(date: Date | number): number
-  namespace getDay {}
+  }
 
-  function getDayOfYear(date: Date | number): number
-  namespace getDayOfYear {}
+  function getDate(date: Date | string | number, options?: Options): number
+  namespace getDate {
 
-  function getDaysInMonth(date: Date | number): number
-  namespace getDaysInMonth {}
+  }
 
-  function getDaysInYear(date: Date | number): number
-  namespace getDaysInYear {}
+  function getDay(date: Date | string | number, options?: Options): number
+  namespace getDay {
 
-  function getDecade(date: Date | number): number
-  namespace getDecade {}
+  }
 
-  function getHours(date: Date | number): number
-  namespace getHours {}
+  function getDayOfYear(date: Date | string | number, options?: Options): number
+  namespace getDayOfYear {
 
-  function getISODay(date: Date | number): number
-  namespace getISODay {}
+  }
 
-  function getISOWeek(date: Date | number): number
-  namespace getISOWeek {}
+  function getDaysInMonth(
+    date: Date | string | number,
+    options?: Options
+  ): number
+  namespace getDaysInMonth {
 
-  function getISOWeeksInYear(date: Date | number): number
-  namespace getISOWeeksInYear {}
+  }
 
-  function getISOWeekYear(date: Date | number): number
-  namespace getISOWeekYear {}
+  function getDaysInYear(
+    date: Date | string | number,
+    options?: Options
+  ): number
+  namespace getDaysInYear {
 
-  function getMilliseconds(date: Date | number): number
-  namespace getMilliseconds {}
+  }
 
-  function getMinutes(date: Date | number): number
-  namespace getMinutes {}
+  function getDecade(date: Date | string | number, options?: Options): number
+  namespace getDecade {
 
-  function getMonth(date: Date | number): number
-  namespace getMonth {}
+  }
+
+  function getHours(date: Date | string | number, options?: Options): number
+  namespace getHours {
+
+  }
+
+  function getISODay(date: Date | string | number, options?: Options): number
+  namespace getISODay {
+
+  }
+
+  function getISOWeek(date: Date | string | number, options?: Options): number
+  namespace getISOWeek {
+
+  }
+
+  function getISOWeeksInYear(
+    date: Date | string | number,
+    options?: Options
+  ): number
+  namespace getISOWeeksInYear {
+
+  }
+
+  function getISOWeekYear(
+    date: Date | string | number,
+    options?: Options
+  ): number
+  namespace getISOWeekYear {
+
+  }
+
+  function getMilliseconds(
+    date: Date | string | number,
+    options?: Options
+  ): number
+  namespace getMilliseconds {
+
+  }
+
+  function getMinutes(date: Date | string | number, options?: Options): number
+  namespace getMinutes {
+
+  }
+
+  function getMonth(date: Date | string | number, options?: Options): number
+  namespace getMonth {
+
+  }
 
   function getOverlappingDaysInIntervals(
     intervalLeft: Interval,
-    intervalRight: Interval
+    intervalRight: Interval,
+    options?: Options
   ): number
-  namespace getOverlappingDaysInIntervals {}
+  namespace getOverlappingDaysInIntervals {
 
-  function getQuarter(date: Date | number): number
-  namespace getQuarter {}
+  }
 
-  function getSeconds(date: Date | number): number
-  namespace getSeconds {}
+  function getQuarter(date: Date | string | number, options?: Options): number
+  namespace getQuarter {
 
-  function getTime(date: Date | number): number
-  namespace getTime {}
+  }
 
-  function getUnixTime(date: Date | number): number
-  namespace getUnixTime {}
+  function getSeconds(date: Date | string | number, options?: Options): number
+  namespace getSeconds {
 
-  function getWeek(
-    date: Date | number,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-      firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7
-    }
-  ): number
-  namespace getWeek {}
+  }
+
+  function getTime(date: Date | string | number, options?: Options): number
+  namespace getTime {
+
+  }
+
+  function getUnixTime(date: Date | string | number, options?: Options): number
+  namespace getUnixTime {
+
+  }
+
+  function getWeek(date: Date | string | number, options?: Options): number
+  namespace getWeek {
+
+  }
 
   function getWeekOfMonth(
-    date: Date | number,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-    }
+    date: Date | string | number,
+    options?: Options
   ): number
-  namespace getWeekOfMonth {}
+  namespace getWeekOfMonth {
+
+  }
 
   function getWeeksInMonth(
-    date: Date | number,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-    }
+    date: Date | string | number,
+    options?: Options
   ): number
-  namespace getWeeksInMonth {}
+  namespace getWeeksInMonth {
 
-  function getWeekYear(
-    date: Date | number,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-      firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7
-    }
-  ): number
-  namespace getWeekYear {}
+  }
 
-  function getYear(date: Date | number): number
-  namespace getYear {}
+  function getWeekYear(date: Date | string | number, options?: Options): number
+  namespace getWeekYear {
 
-  function isAfter(date: Date | number, dateToCompare: Date | number): boolean
-  namespace isAfter {}
+  }
 
-  function isBefore(date: Date | number, dateToCompare: Date | number): boolean
-  namespace isBefore {}
+  function getYear(date: Date | string | number, options?: Options): number
+  namespace getYear {
 
-  function isDate(value: any): boolean
-  namespace isDate {}
+  }
 
-  function isEqual(dateLeft: Date | number, dateRight: Date | number): boolean
-  namespace isEqual {}
+  function isAfter(
+    date: Date | string | number,
+    dateToCompare: Date | string | number,
+    options?: Options
+  ): boolean
+  namespace isAfter {
 
-  function isFirstDayOfMonth(date: Date | number): boolean
-  namespace isFirstDayOfMonth {}
+  }
 
-  function isFriday(date: Date | number): boolean
-  namespace isFriday {}
+  function isBefore(
+    date: Date | string | number,
+    dateToCompare: Date | string | number,
+    options?: Options
+  ): boolean
+  namespace isBefore {
 
-  function isFuture(date: Date | number): boolean
-  namespace isFuture {}
+  }
 
-  function isLastDayOfMonth(date: Date | number): boolean
-  namespace isLastDayOfMonth {}
+  function isDate(value: any, options?: Options): boolean
+  namespace isDate {
 
-  function isLeapYear(date: Date | number): boolean
-  namespace isLeapYear {}
+  }
 
-  function isMonday(date: Date | number): boolean
-  namespace isMonday {}
+  function isEqual(
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
+  ): boolean
+  namespace isEqual {
 
-  function isPast(date: Date | number): boolean
-  namespace isPast {}
+  }
 
-  function isSameDay(dateLeft: Date | number, dateRight: Date | number): boolean
-  namespace isSameDay {}
+  function isFirstDayOfMonth(
+    date: Date | string | number,
+    options?: Options
+  ): boolean
+  namespace isFirstDayOfMonth {
+
+  }
+
+  function isFriday(date: Date | string | number, options?: Options): boolean
+  namespace isFriday {
+
+  }
+
+  function isLastDayOfMonth(
+    date: Date | string | number,
+    options?: Options
+  ): boolean
+  namespace isLastDayOfMonth {
+
+  }
+
+  function isLeapYear(date: Date | string | number, options?: Options): boolean
+  namespace isLeapYear {
+
+  }
+
+  function isMonday(date: Date | string | number, options?: Options): boolean
+  namespace isMonday {
+
+  }
+
+  function isSameDay(
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
+  ): boolean
+  namespace isSameDay {
+
+  }
 
   function isSameHour(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): boolean
-  namespace isSameHour {}
+  namespace isSameHour {
+
+  }
 
   function isSameISOWeek(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): boolean
-  namespace isSameISOWeek {}
+  namespace isSameISOWeek {
+
+  }
 
   function isSameISOWeekYear(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): boolean
-  namespace isSameISOWeekYear {}
+  namespace isSameISOWeekYear {
+
+  }
 
   function isSameMinute(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): boolean
-  namespace isSameMinute {}
+  namespace isSameMinute {
+
+  }
 
   function isSameMonth(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): boolean
-  namespace isSameMonth {}
+  namespace isSameMonth {
+
+  }
 
   function isSameQuarter(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): boolean
-  namespace isSameQuarter {}
+  namespace isSameQuarter {
+
+  }
 
   function isSameSecond(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): boolean
-  namespace isSameSecond {}
+  namespace isSameSecond {
+
+  }
 
   function isSameWeek(
-    dateLeft: Date | number,
-    dateRight: Date | number,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-    }
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): boolean
-  namespace isSameWeek {}
+  namespace isSameWeek {
+
+  }
 
   function isSameYear(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): boolean
-  namespace isSameYear {}
+  namespace isSameYear {
 
-  function isSaturday(date: Date | number): boolean
-  namespace isSaturday {}
+  }
 
-  function isSunday(date: Date | number): boolean
-  namespace isSunday {}
+  function isSaturday(date: Date | string | number, options?: Options): boolean
+  namespace isSaturday {
 
-  function isThisHour(date: Date | number): boolean
-  namespace isThisHour {}
+  }
 
-  function isThisISOWeek(date: Date | number): boolean
-  namespace isThisISOWeek {}
+  function isSunday(date: Date | string | number, options?: Options): boolean
+  namespace isSunday {
 
-  function isThisMinute(date: Date | number): boolean
-  namespace isThisMinute {}
+  }
 
-  function isThisMonth(date: Date | number): boolean
-  namespace isThisMonth {}
+  function isThursday(date: Date | string | number, options?: Options): boolean
+  namespace isThursday {
 
-  function isThisQuarter(date: Date | number): boolean
-  namespace isThisQuarter {}
+  }
 
-  function isThisSecond(date: Date | number): boolean
-  namespace isThisSecond {}
+  function isTuesday(date: Date | string | number, options?: Options): boolean
+  namespace isTuesday {
 
-  function isThisWeek(
-    date: Date | number,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-    }
+  }
+
+  function isValid(date: any, options?: Options): boolean
+  namespace isValid {
+
+  }
+
+  function isWednesday(date: Date | string | number, options?: Options): boolean
+  namespace isWednesday {
+
+  }
+
+  function isWeekend(date: Date | string | number, options?: Options): boolean
+  namespace isWeekend {
+
+  }
+
+  function isWithinInterval(
+    date: Date | string | number,
+    interval: Interval,
+    options?: Options
   ): boolean
-  namespace isThisWeek {}
+  namespace isWithinInterval {
 
-  function isThisYear(date: Date | number): boolean
-  namespace isThisYear {}
+  }
 
-  function isThursday(date: Date | number): boolean
-  namespace isThursday {}
+  function lastDayOfDecade(
+    date: Date | string | number,
+    options?: Options
+  ): Date
+  namespace lastDayOfDecade {
 
-  function isToday(date: Date | number): boolean
-  namespace isToday {}
+  }
 
-  function isTomorrow(date: Date | number): boolean
-  namespace isTomorrow {}
+  function lastDayOfISOWeek(
+    date: Date | string | number,
+    options?: Options
+  ): Date
+  namespace lastDayOfISOWeek {
 
-  function isTuesday(date: Date | number): boolean
-  namespace isTuesday {}
+  }
 
-  function isValid(date: any): boolean
-  namespace isValid {}
+  function lastDayOfISOWeekYear(
+    date: Date | string | number,
+    options?: Options
+  ): Date
+  namespace lastDayOfISOWeekYear {
 
-  function isWednesday(date: Date | number): boolean
-  namespace isWednesday {}
+  }
 
-  function isWeekend(date: Date | number): boolean
-  namespace isWeekend {}
+  function lastDayOfMonth(date: Date | string | number, options?: Options): Date
+  namespace lastDayOfMonth {
 
-  function isWithinInterval(date: Date | number, interval: Interval): boolean
-  namespace isWithinInterval {}
-
-  function isYesterday(date: Date | number): boolean
-  namespace isYesterday {}
-
-  function lastDayOfDecade(date: Date | number): Date
-  namespace lastDayOfDecade {}
-
-  function lastDayOfISOWeek(date: Date | number): Date
-  namespace lastDayOfISOWeek {}
-
-  function lastDayOfISOWeekYear(date: Date | number): Date
-  namespace lastDayOfISOWeekYear {}
-
-  function lastDayOfMonth(date: Date | number): Date
-  namespace lastDayOfMonth {}
+  }
 
   function lastDayOfQuarter(
-    date: Date | number,
-    options?: {
-      additionalDigits?: 0 | 1 | 2
-    }
+    date: Date | string | number,
+    options?: Options
   ): Date
-  namespace lastDayOfQuarter {}
+  namespace lastDayOfQuarter {
 
-  function lastDayOfWeek(
-    date: Date | number,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-    }
-  ): Date
-  namespace lastDayOfWeek {}
+  }
 
-  function lastDayOfYear(date: Date | number): Date
-  namespace lastDayOfYear {}
+  function lastDayOfWeek(date: Date | string | number, options?: Options): Date
+  namespace lastDayOfWeek {
 
-  function lightFormat(date: Date | number, format: string): string
-  namespace lightFormat {}
+  }
 
-  function max(datesArray: (Date | number)[]): Date
-  namespace max {}
+  function lastDayOfYear(date: Date | string | number, options?: Options): Date
+  namespace lastDayOfYear {
 
-  function min(datesArray: (Date | number)[]): Date
-  namespace min {}
+  }
+
+  function max(datesArray: (Date | string | number)[], options?: Options): Date
+  namespace max {
+
+  }
+
+  function min(datesArray: (Date | string | number)[], options?: Options): Date
+  namespace min {
+
+  }
 
   function parse(
     dateString: string,
     formatString: string,
-    baseDate: Date | number,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-      firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7
-      useAdditionalWeekYearTokens?: boolean
-      useAdditionalDayOfYearTokens?: boolean
-    }
+    baseDate: Date | string | number,
+    options?: Options
   ): Date
-  namespace parse {}
+  namespace parse {
 
-  function parseISO(
-    argument: string,
-    options?: {
-      additionalDigits?: 0 | 1 | 2
-    }
-  ): Date
-  namespace parseISO {}
+  }
 
   function roundToNearestMinutes(
-    date: Date | number,
-    options?: {
-      nearestTo?: number
-    }
+    date: Date | string | number,
+    nearestTo?: number,
+    options?: Options
   ): Date
-  namespace roundToNearestMinutes {}
+  namespace roundToNearestMinutes {
 
-  function setDate(date: Date | number, dayOfMonth: number): Date
-  namespace setDate {}
+  }
+
+  function setDate(
+    date: Date | string | number,
+    dayOfMonth: number,
+    options?: Options
+  ): Date
+  namespace setDate {
+
+  }
 
   function setDay(
-    date: Date | number,
+    date: Date | string | number,
     day: number,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-    }
+    options?: Options
   ): Date
-  namespace setDay {}
+  namespace setDay {
 
-  function setDayOfYear(date: Date | number, dayOfYear: number): Date
-  namespace setDayOfYear {}
+  }
 
-  function setHours(date: Date | number, hours: number): Date
-  namespace setHours {}
+  function setDayOfYear(
+    date: Date | string | number,
+    dayOfYear: number,
+    options?: Options
+  ): Date
+  namespace setDayOfYear {
 
-  function setISODay(date: Date | number, day: number): Date
-  namespace setISODay {}
+  }
 
-  function setISOWeek(date: Date | number, isoWeek: number): Date
-  namespace setISOWeek {}
+  function setHours(
+    date: Date | string | number,
+    hours: number,
+    options?: Options
+  ): Date
+  namespace setHours {
 
-  function setISOWeekYear(date: Date | number, isoWeekYear: number): Date
-  namespace setISOWeekYear {}
+  }
 
-  function setMilliseconds(date: Date | number, milliseconds: number): Date
-  namespace setMilliseconds {}
+  function setISODay(
+    date: Date | string | number,
+    day: number,
+    options?: Options
+  ): Date
+  namespace setISODay {
 
-  function setMinutes(date: Date | number, minutes: number): Date
-  namespace setMinutes {}
+  }
 
-  function setMonth(date: Date | number, month: number): Date
-  namespace setMonth {}
+  function setISOWeek(
+    date: Date | string | number,
+    isoWeek: number,
+    options?: Options
+  ): Date
+  namespace setISOWeek {
 
-  function setQuarter(date: Date | number, quarter: number): Date
-  namespace setQuarter {}
+  }
 
-  function setSeconds(date: Date | number, seconds: number): Date
-  namespace setSeconds {}
+  function setISOWeekYear(
+    date: Date | string | number,
+    isoWeekYear: number,
+    options?: Options
+  ): Date
+  namespace setISOWeekYear {
+
+  }
+
+  function setMilliseconds(
+    date: Date | string | number,
+    milliseconds: number,
+    options?: Options
+  ): Date
+  namespace setMilliseconds {
+
+  }
+
+  function setMinutes(
+    date: Date | string | number,
+    minutes: number,
+    options?: Options
+  ): Date
+  namespace setMinutes {
+
+  }
+
+  function setMonth(
+    date: Date | string | number,
+    month: number,
+    options?: Options
+  ): Date
+  namespace setMonth {
+
+  }
+
+  function setQuarter(
+    date: Date | string | number,
+    quarter: number,
+    options?: Options
+  ): Date
+  namespace setQuarter {
+
+  }
+
+  function setSeconds(
+    date: Date | string | number,
+    seconds: number,
+    options?: Options
+  ): Date
+  namespace setSeconds {
+
+  }
 
   function setWeek(
-    date: Date | number,
+    date: Date | string | number,
     week: number,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-      firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7
-    }
+    options?: Options
   ): Date
-  namespace setWeek {}
+  namespace setWeek {
+
+  }
 
   function setWeekYear(
-    date: Date | number,
+    date: Date | string | number,
     weekYear: number,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-      firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7
-    }
+    options?: Options
   ): Date
-  namespace setWeekYear {}
+  namespace setWeekYear {
 
-  function setYear(date: Date | number, year: number): Date
-  namespace setYear {}
+  }
 
-  function startOfDay(date: Date | number): Date
-  namespace startOfDay {}
-
-  function startOfDecade(date: Date | number): Date
-  namespace startOfDecade {}
-
-  function startOfHour(date: Date | number): Date
-  namespace startOfHour {}
-
-  function startOfISOWeek(date: Date | number): Date
-  namespace startOfISOWeek {}
-
-  function startOfISOWeekYear(date: Date | number): Date
-  namespace startOfISOWeekYear {}
-
-  function startOfMinute(date: Date | number): Date
-  namespace startOfMinute {}
-
-  function startOfMonth(date: Date | number): Date
-  namespace startOfMonth {}
-
-  function startOfQuarter(date: Date | number): Date
-  namespace startOfQuarter {}
-
-  function startOfSecond(date: Date | number): Date
-  namespace startOfSecond {}
-
-  function startOfToday(): Date
-  namespace startOfToday {}
-
-  function startOfTomorrow(): Date
-  namespace startOfTomorrow {}
-
-  function startOfWeek(
-    date: Date | number,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-    }
+  function setYear(
+    date: Date | string | number,
+    year: number,
+    options?: Options
   ): Date
-  namespace startOfWeek {}
+  namespace setYear {
+
+  }
+
+  function startOfDay(date: Date | string | number, options?: Options): Date
+  namespace startOfDay {
+
+  }
+
+  function startOfDecade(date: Date | string | number, options?: Options): Date
+  namespace startOfDecade {
+
+  }
+
+  function startOfHour(date: Date | string | number, options?: Options): Date
+  namespace startOfHour {
+
+  }
+
+  function startOfISOWeek(date: Date | string | number, options?: Options): Date
+  namespace startOfISOWeek {
+
+  }
+
+  function startOfISOWeekYear(
+    date: Date | string | number,
+    options?: Options
+  ): Date
+  namespace startOfISOWeekYear {
+
+  }
+
+  function startOfMinute(date: Date | string | number, options?: Options): Date
+  namespace startOfMinute {
+
+  }
+
+  function startOfMonth(date: Date | string | number, options?: Options): Date
+  namespace startOfMonth {
+
+  }
+
+  function startOfQuarter(date: Date | string | number, options?: Options): Date
+  namespace startOfQuarter {
+
+  }
+
+  function startOfSecond(date: Date | string | number, options?: Options): Date
+  namespace startOfSecond {
+
+  }
+
+  function startOfWeek(date: Date | string | number, options?: Options): Date
+  namespace startOfWeek {
+
+  }
 
   function startOfWeekYear(
-    date: Date | number,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-      firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7
-    }
+    date: Date | string | number,
+    options?: Options
   ): Date
-  namespace startOfWeekYear {}
+  namespace startOfWeekYear {
 
-  function startOfYear(date: Date | number): Date
-  namespace startOfYear {}
+  }
 
-  function startOfYesterday(): Date
-  namespace startOfYesterday {}
+  function startOfYear(date: Date | string | number, options?: Options): Date
+  namespace startOfYear {
 
-  function subDays(date: Date | number, amount: number): Date
-  namespace subDays {}
+  }
 
-  function subHours(date: Date | number, amount: number): Date
-  namespace subHours {}
+  function subDays(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
+  namespace subDays {
 
-  function subISOWeekYears(date: Date | number, amount: number): Date
-  namespace subISOWeekYears {}
+  }
 
-  function subMilliseconds(date: Date | number, amount: number): Date
-  namespace subMilliseconds {}
+  function subHours(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
+  namespace subHours {
 
-  function subMinutes(date: Date | number, amount: number): Date
-  namespace subMinutes {}
+  }
 
-  function subMonths(date: Date | number, amount: number): Date
-  namespace subMonths {}
+  function subISOWeekYears(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
+  namespace subISOWeekYears {
 
-  function subQuarters(date: Date | number, amount: number): Date
-  namespace subQuarters {}
+  }
 
-  function subSeconds(date: Date | number, amount: number): Date
-  namespace subSeconds {}
+  function subMilliseconds(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
+  namespace subMilliseconds {
 
-  function subWeeks(date: Date | number, amount: number): Date
-  namespace subWeeks {}
+  }
 
-  function subYears(date: Date | number, amount: number): Date
-  namespace subYears {}
+  function subMinutes(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
+  namespace subMinutes {
 
-  function toDate(argument: Date | number): Date
-  namespace toDate {}
+  }
 
-  const maxTime: number
+  function subMonths(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
+  namespace subMonths {
 
-  const minTime: number
-}
+  }
 
-declare module 'date-fns/addBusinessDays' {
-  import { addBusinessDays } from 'date-fns'
-  export default addBusinessDays
+  function subQuarters(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
+  namespace subQuarters {
+
+  }
+
+  function subSeconds(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
+  namespace subSeconds {
+
+  }
+
+  function subWeeks(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
+  namespace subWeeks {
+
+  }
+
+  function subYears(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
+  namespace subYears {
+
+  }
+
+  function toDate(argument: Date | string | number, options?: Options): Date
+  namespace toDate {
+
+  }
 }
 
 declare module 'date-fns/addDays' {
   import { addDays } from 'date-fns'
-  export default addDays
+  export = addDays
 }
 
 declare module 'date-fns/addHours' {
   import { addHours } from 'date-fns'
-  export default addHours
+  export = addHours
 }
 
 declare module 'date-fns/addISOWeekYears' {
   import { addISOWeekYears } from 'date-fns'
-  export default addISOWeekYears
+  export = addISOWeekYears
 }
 
 declare module 'date-fns/addMilliseconds' {
   import { addMilliseconds } from 'date-fns'
-  export default addMilliseconds
+  export = addMilliseconds
 }
 
 declare module 'date-fns/addMinutes' {
   import { addMinutes } from 'date-fns'
-  export default addMinutes
+  export = addMinutes
 }
 
 declare module 'date-fns/addMonths' {
   import { addMonths } from 'date-fns'
-  export default addMonths
+  export = addMonths
 }
 
 declare module 'date-fns/addQuarters' {
   import { addQuarters } from 'date-fns'
-  export default addQuarters
+  export = addQuarters
 }
 
 declare module 'date-fns/addSeconds' {
   import { addSeconds } from 'date-fns'
-  export default addSeconds
+  export = addSeconds
 }
 
 declare module 'date-fns/addWeeks' {
   import { addWeeks } from 'date-fns'
-  export default addWeeks
+  export = addWeeks
 }
 
 declare module 'date-fns/addYears' {
   import { addYears } from 'date-fns'
-  export default addYears
+  export = addYears
 }
 
 declare module 'date-fns/areIntervalsOverlapping' {
   import { areIntervalsOverlapping } from 'date-fns'
-  export default areIntervalsOverlapping
+  export = areIntervalsOverlapping
 }
 
 declare module 'date-fns/closestIndexTo' {
   import { closestIndexTo } from 'date-fns'
-  export default closestIndexTo
+  export = closestIndexTo
 }
 
 declare module 'date-fns/closestTo' {
   import { closestTo } from 'date-fns'
-  export default closestTo
+  export = closestTo
 }
 
 declare module 'date-fns/compareAsc' {
   import { compareAsc } from 'date-fns'
-  export default compareAsc
+  export = compareAsc
 }
 
 declare module 'date-fns/compareDesc' {
   import { compareDesc } from 'date-fns'
-  export default compareDesc
-}
-
-declare module 'date-fns/differenceInBusinessDays' {
-  import { differenceInBusinessDays } from 'date-fns'
-  export default differenceInBusinessDays
+  export = compareDesc
 }
 
 declare module 'date-fns/differenceInCalendarDays' {
   import { differenceInCalendarDays } from 'date-fns'
-  export default differenceInCalendarDays
+  export = differenceInCalendarDays
 }
 
 declare module 'date-fns/differenceInCalendarISOWeeks' {
   import { differenceInCalendarISOWeeks } from 'date-fns'
-  export default differenceInCalendarISOWeeks
+  export = differenceInCalendarISOWeeks
 }
 
 declare module 'date-fns/differenceInCalendarISOWeekYears' {
   import { differenceInCalendarISOWeekYears } from 'date-fns'
-  export default differenceInCalendarISOWeekYears
+  export = differenceInCalendarISOWeekYears
 }
 
 declare module 'date-fns/differenceInCalendarMonths' {
   import { differenceInCalendarMonths } from 'date-fns'
-  export default differenceInCalendarMonths
+  export = differenceInCalendarMonths
 }
 
 declare module 'date-fns/differenceInCalendarQuarters' {
   import { differenceInCalendarQuarters } from 'date-fns'
-  export default differenceInCalendarQuarters
+  export = differenceInCalendarQuarters
 }
 
 declare module 'date-fns/differenceInCalendarWeeks' {
   import { differenceInCalendarWeeks } from 'date-fns'
-  export default differenceInCalendarWeeks
+  export = differenceInCalendarWeeks
 }
 
 declare module 'date-fns/differenceInCalendarYears' {
   import { differenceInCalendarYears } from 'date-fns'
-  export default differenceInCalendarYears
+  export = differenceInCalendarYears
 }
 
 declare module 'date-fns/differenceInDays' {
   import { differenceInDays } from 'date-fns'
-  export default differenceInDays
+  export = differenceInDays
 }
 
 declare module 'date-fns/differenceInHours' {
   import { differenceInHours } from 'date-fns'
-  export default differenceInHours
+  export = differenceInHours
 }
 
 declare module 'date-fns/differenceInISOWeekYears' {
   import { differenceInISOWeekYears } from 'date-fns'
-  export default differenceInISOWeekYears
+  export = differenceInISOWeekYears
 }
 
 declare module 'date-fns/differenceInMilliseconds' {
   import { differenceInMilliseconds } from 'date-fns'
-  export default differenceInMilliseconds
+  export = differenceInMilliseconds
 }
 
 declare module 'date-fns/differenceInMinutes' {
   import { differenceInMinutes } from 'date-fns'
-  export default differenceInMinutes
+  export = differenceInMinutes
 }
 
 declare module 'date-fns/differenceInMonths' {
   import { differenceInMonths } from 'date-fns'
-  export default differenceInMonths
+  export = differenceInMonths
 }
 
 declare module 'date-fns/differenceInQuarters' {
   import { differenceInQuarters } from 'date-fns'
-  export default differenceInQuarters
+  export = differenceInQuarters
 }
 
 declare module 'date-fns/differenceInSeconds' {
   import { differenceInSeconds } from 'date-fns'
-  export default differenceInSeconds
+  export = differenceInSeconds
 }
 
 declare module 'date-fns/differenceInWeeks' {
   import { differenceInWeeks } from 'date-fns'
-  export default differenceInWeeks
+  export = differenceInWeeks
 }
 
 declare module 'date-fns/differenceInYears' {
   import { differenceInYears } from 'date-fns'
-  export default differenceInYears
+  export = differenceInYears
 }
 
 declare module 'date-fns/eachDayOfInterval' {
   import { eachDayOfInterval } from 'date-fns'
-  export default eachDayOfInterval
+  export = eachDayOfInterval
 }
 
 declare module 'date-fns/eachWeekendOfInterval' {
   import { eachWeekendOfInterval } from 'date-fns'
-  export default eachWeekendOfInterval
+  export = eachWeekendOfInterval
 }
 
 declare module 'date-fns/eachWeekendOfMonth' {
   import { eachWeekendOfMonth } from 'date-fns'
-  export default eachWeekendOfMonth
+  export = eachWeekendOfMonth
 }
 
 declare module 'date-fns/eachWeekendOfYear' {
   import { eachWeekendOfYear } from 'date-fns'
-  export default eachWeekendOfYear
+  export = eachWeekendOfYear
 }
 
 declare module 'date-fns/eachWeekOfInterval' {
   import { eachWeekOfInterval } from 'date-fns'
-  export default eachWeekOfInterval
+  export = eachWeekOfInterval
 }
 
 declare module 'date-fns/endOfDay' {
   import { endOfDay } from 'date-fns'
-  export default endOfDay
+  export = endOfDay
 }
 
 declare module 'date-fns/endOfDecade' {
   import { endOfDecade } from 'date-fns'
-  export default endOfDecade
+  export = endOfDecade
 }
 
 declare module 'date-fns/endOfHour' {
   import { endOfHour } from 'date-fns'
-  export default endOfHour
+  export = endOfHour
 }
 
 declare module 'date-fns/endOfISOWeek' {
   import { endOfISOWeek } from 'date-fns'
-  export default endOfISOWeek
+  export = endOfISOWeek
 }
 
 declare module 'date-fns/endOfISOWeekYear' {
   import { endOfISOWeekYear } from 'date-fns'
-  export default endOfISOWeekYear
+  export = endOfISOWeekYear
 }
 
 declare module 'date-fns/endOfMinute' {
   import { endOfMinute } from 'date-fns'
-  export default endOfMinute
+  export = endOfMinute
 }
 
 declare module 'date-fns/endOfMonth' {
   import { endOfMonth } from 'date-fns'
-  export default endOfMonth
+  export = endOfMonth
 }
 
 declare module 'date-fns/endOfQuarter' {
   import { endOfQuarter } from 'date-fns'
-  export default endOfQuarter
+  export = endOfQuarter
 }
 
 declare module 'date-fns/endOfSecond' {
   import { endOfSecond } from 'date-fns'
-  export default endOfSecond
-}
-
-declare module 'date-fns/endOfToday' {
-  import { endOfToday } from 'date-fns'
-  export default endOfToday
-}
-
-declare module 'date-fns/endOfTomorrow' {
-  import { endOfTomorrow } from 'date-fns'
-  export default endOfTomorrow
+  export = endOfSecond
 }
 
 declare module 'date-fns/endOfWeek' {
   import { endOfWeek } from 'date-fns'
-  export default endOfWeek
+  export = endOfWeek
 }
 
 declare module 'date-fns/endOfYear' {
   import { endOfYear } from 'date-fns'
-  export default endOfYear
-}
-
-declare module 'date-fns/endOfYesterday' {
-  import { endOfYesterday } from 'date-fns'
-  export default endOfYesterday
+  export = endOfYear
 }
 
 declare module 'date-fns/format' {
   import { format } from 'date-fns'
-  export default format
+  export = format
 }
 
 declare module 'date-fns/formatDistance' {
   import { formatDistance } from 'date-fns'
-  export default formatDistance
+  export = formatDistance
 }
 
 declare module 'date-fns/formatDistanceStrict' {
   import { formatDistanceStrict } from 'date-fns'
-  export default formatDistanceStrict
-}
-
-declare module 'date-fns/formatDistanceToNow' {
-  import { formatDistanceToNow } from 'date-fns'
-  export default formatDistanceToNow
+  export = formatDistanceStrict
 }
 
 declare module 'date-fns/formatRelative' {
   import { formatRelative } from 'date-fns'
-  export default formatRelative
+  export = formatRelative
 }
 
 declare module 'date-fns/fromUnixTime' {
   import { fromUnixTime } from 'date-fns'
-  export default fromUnixTime
+  export = fromUnixTime
 }
 
 declare module 'date-fns/getDate' {
   import { getDate } from 'date-fns'
-  export default getDate
+  export = getDate
 }
 
 declare module 'date-fns/getDay' {
   import { getDay } from 'date-fns'
-  export default getDay
+  export = getDay
 }
 
 declare module 'date-fns/getDayOfYear' {
   import { getDayOfYear } from 'date-fns'
-  export default getDayOfYear
+  export = getDayOfYear
 }
 
 declare module 'date-fns/getDaysInMonth' {
   import { getDaysInMonth } from 'date-fns'
-  export default getDaysInMonth
+  export = getDaysInMonth
 }
 
 declare module 'date-fns/getDaysInYear' {
   import { getDaysInYear } from 'date-fns'
-  export default getDaysInYear
+  export = getDaysInYear
 }
 
 declare module 'date-fns/getDecade' {
   import { getDecade } from 'date-fns'
-  export default getDecade
+  export = getDecade
 }
 
 declare module 'date-fns/getHours' {
   import { getHours } from 'date-fns'
-  export default getHours
+  export = getHours
 }
 
 declare module 'date-fns/getISODay' {
   import { getISODay } from 'date-fns'
-  export default getISODay
+  export = getISODay
 }
 
 declare module 'date-fns/getISOWeek' {
   import { getISOWeek } from 'date-fns'
-  export default getISOWeek
+  export = getISOWeek
 }
 
 declare module 'date-fns/getISOWeeksInYear' {
   import { getISOWeeksInYear } from 'date-fns'
-  export default getISOWeeksInYear
+  export = getISOWeeksInYear
 }
 
 declare module 'date-fns/getISOWeekYear' {
   import { getISOWeekYear } from 'date-fns'
-  export default getISOWeekYear
+  export = getISOWeekYear
 }
 
 declare module 'date-fns/getMilliseconds' {
   import { getMilliseconds } from 'date-fns'
-  export default getMilliseconds
+  export = getMilliseconds
 }
 
 declare module 'date-fns/getMinutes' {
   import { getMinutes } from 'date-fns'
-  export default getMinutes
+  export = getMinutes
 }
 
 declare module 'date-fns/getMonth' {
   import { getMonth } from 'date-fns'
-  export default getMonth
+  export = getMonth
 }
 
 declare module 'date-fns/getOverlappingDaysInIntervals' {
   import { getOverlappingDaysInIntervals } from 'date-fns'
-  export default getOverlappingDaysInIntervals
+  export = getOverlappingDaysInIntervals
 }
 
 declare module 'date-fns/getQuarter' {
   import { getQuarter } from 'date-fns'
-  export default getQuarter
+  export = getQuarter
 }
 
 declare module 'date-fns/getSeconds' {
   import { getSeconds } from 'date-fns'
-  export default getSeconds
+  export = getSeconds
 }
 
 declare module 'date-fns/getTime' {
   import { getTime } from 'date-fns'
-  export default getTime
+  export = getTime
 }
 
 declare module 'date-fns/getUnixTime' {
   import { getUnixTime } from 'date-fns'
-  export default getUnixTime
+  export = getUnixTime
 }
 
 declare module 'date-fns/getWeek' {
   import { getWeek } from 'date-fns'
-  export default getWeek
+  export = getWeek
 }
 
 declare module 'date-fns/getWeekOfMonth' {
   import { getWeekOfMonth } from 'date-fns'
-  export default getWeekOfMonth
+  export = getWeekOfMonth
 }
 
 declare module 'date-fns/getWeeksInMonth' {
   import { getWeeksInMonth } from 'date-fns'
-  export default getWeeksInMonth
+  export = getWeeksInMonth
 }
 
 declare module 'date-fns/getWeekYear' {
   import { getWeekYear } from 'date-fns'
-  export default getWeekYear
+  export = getWeekYear
 }
 
 declare module 'date-fns/getYear' {
   import { getYear } from 'date-fns'
-  export default getYear
+  export = getYear
 }
 
 declare module 'date-fns/isAfter' {
   import { isAfter } from 'date-fns'
-  export default isAfter
+  export = isAfter
 }
 
 declare module 'date-fns/isBefore' {
   import { isBefore } from 'date-fns'
-  export default isBefore
+  export = isBefore
 }
 
 declare module 'date-fns/isDate' {
   import { isDate } from 'date-fns'
-  export default isDate
+  export = isDate
 }
 
 declare module 'date-fns/isEqual' {
   import { isEqual } from 'date-fns'
-  export default isEqual
+  export = isEqual
 }
 
 declare module 'date-fns/isFirstDayOfMonth' {
   import { isFirstDayOfMonth } from 'date-fns'
-  export default isFirstDayOfMonth
+  export = isFirstDayOfMonth
 }
 
 declare module 'date-fns/isFriday' {
   import { isFriday } from 'date-fns'
-  export default isFriday
-}
-
-declare module 'date-fns/isFuture' {
-  import { isFuture } from 'date-fns'
-  export default isFuture
+  export = isFriday
 }
 
 declare module 'date-fns/isLastDayOfMonth' {
   import { isLastDayOfMonth } from 'date-fns'
-  export default isLastDayOfMonth
+  export = isLastDayOfMonth
 }
 
 declare module 'date-fns/isLeapYear' {
   import { isLeapYear } from 'date-fns'
-  export default isLeapYear
+  export = isLeapYear
 }
 
 declare module 'date-fns/isMonday' {
   import { isMonday } from 'date-fns'
-  export default isMonday
-}
-
-declare module 'date-fns/isPast' {
-  import { isPast } from 'date-fns'
-  export default isPast
+  export = isMonday
 }
 
 declare module 'date-fns/isSameDay' {
   import { isSameDay } from 'date-fns'
-  export default isSameDay
+  export = isSameDay
 }
 
 declare module 'date-fns/isSameHour' {
   import { isSameHour } from 'date-fns'
-  export default isSameHour
+  export = isSameHour
 }
 
 declare module 'date-fns/isSameISOWeek' {
   import { isSameISOWeek } from 'date-fns'
-  export default isSameISOWeek
+  export = isSameISOWeek
 }
 
 declare module 'date-fns/isSameISOWeekYear' {
   import { isSameISOWeekYear } from 'date-fns'
-  export default isSameISOWeekYear
+  export = isSameISOWeekYear
 }
 
 declare module 'date-fns/isSameMinute' {
   import { isSameMinute } from 'date-fns'
-  export default isSameMinute
+  export = isSameMinute
 }
 
 declare module 'date-fns/isSameMonth' {
   import { isSameMonth } from 'date-fns'
-  export default isSameMonth
+  export = isSameMonth
 }
 
 declare module 'date-fns/isSameQuarter' {
   import { isSameQuarter } from 'date-fns'
-  export default isSameQuarter
+  export = isSameQuarter
 }
 
 declare module 'date-fns/isSameSecond' {
   import { isSameSecond } from 'date-fns'
-  export default isSameSecond
+  export = isSameSecond
 }
 
 declare module 'date-fns/isSameWeek' {
   import { isSameWeek } from 'date-fns'
-  export default isSameWeek
+  export = isSameWeek
 }
 
 declare module 'date-fns/isSameYear' {
   import { isSameYear } from 'date-fns'
-  export default isSameYear
+  export = isSameYear
 }
 
 declare module 'date-fns/isSaturday' {
   import { isSaturday } from 'date-fns'
-  export default isSaturday
+  export = isSaturday
 }
 
 declare module 'date-fns/isSunday' {
   import { isSunday } from 'date-fns'
-  export default isSunday
-}
-
-declare module 'date-fns/isThisHour' {
-  import { isThisHour } from 'date-fns'
-  export default isThisHour
-}
-
-declare module 'date-fns/isThisISOWeek' {
-  import { isThisISOWeek } from 'date-fns'
-  export default isThisISOWeek
-}
-
-declare module 'date-fns/isThisMinute' {
-  import { isThisMinute } from 'date-fns'
-  export default isThisMinute
-}
-
-declare module 'date-fns/isThisMonth' {
-  import { isThisMonth } from 'date-fns'
-  export default isThisMonth
-}
-
-declare module 'date-fns/isThisQuarter' {
-  import { isThisQuarter } from 'date-fns'
-  export default isThisQuarter
-}
-
-declare module 'date-fns/isThisSecond' {
-  import { isThisSecond } from 'date-fns'
-  export default isThisSecond
-}
-
-declare module 'date-fns/isThisWeek' {
-  import { isThisWeek } from 'date-fns'
-  export default isThisWeek
-}
-
-declare module 'date-fns/isThisYear' {
-  import { isThisYear } from 'date-fns'
-  export default isThisYear
+  export = isSunday
 }
 
 declare module 'date-fns/isThursday' {
   import { isThursday } from 'date-fns'
-  export default isThursday
-}
-
-declare module 'date-fns/isToday' {
-  import { isToday } from 'date-fns'
-  export default isToday
-}
-
-declare module 'date-fns/isTomorrow' {
-  import { isTomorrow } from 'date-fns'
-  export default isTomorrow
+  export = isThursday
 }
 
 declare module 'date-fns/isTuesday' {
   import { isTuesday } from 'date-fns'
-  export default isTuesday
+  export = isTuesday
 }
 
 declare module 'date-fns/isValid' {
   import { isValid } from 'date-fns'
-  export default isValid
+  export = isValid
 }
 
 declare module 'date-fns/isWednesday' {
   import { isWednesday } from 'date-fns'
-  export default isWednesday
+  export = isWednesday
 }
 
 declare module 'date-fns/isWeekend' {
   import { isWeekend } from 'date-fns'
-  export default isWeekend
+  export = isWeekend
 }
 
 declare module 'date-fns/isWithinInterval' {
   import { isWithinInterval } from 'date-fns'
-  export default isWithinInterval
-}
-
-declare module 'date-fns/isYesterday' {
-  import { isYesterday } from 'date-fns'
-  export default isYesterday
+  export = isWithinInterval
 }
 
 declare module 'date-fns/lastDayOfDecade' {
   import { lastDayOfDecade } from 'date-fns'
-  export default lastDayOfDecade
+  export = lastDayOfDecade
 }
 
 declare module 'date-fns/lastDayOfISOWeek' {
   import { lastDayOfISOWeek } from 'date-fns'
-  export default lastDayOfISOWeek
+  export = lastDayOfISOWeek
 }
 
 declare module 'date-fns/lastDayOfISOWeekYear' {
   import { lastDayOfISOWeekYear } from 'date-fns'
-  export default lastDayOfISOWeekYear
+  export = lastDayOfISOWeekYear
 }
 
 declare module 'date-fns/lastDayOfMonth' {
   import { lastDayOfMonth } from 'date-fns'
-  export default lastDayOfMonth
+  export = lastDayOfMonth
 }
 
 declare module 'date-fns/lastDayOfQuarter' {
   import { lastDayOfQuarter } from 'date-fns'
-  export default lastDayOfQuarter
+  export = lastDayOfQuarter
 }
 
 declare module 'date-fns/lastDayOfWeek' {
   import { lastDayOfWeek } from 'date-fns'
-  export default lastDayOfWeek
+  export = lastDayOfWeek
 }
 
 declare module 'date-fns/lastDayOfYear' {
   import { lastDayOfYear } from 'date-fns'
-  export default lastDayOfYear
-}
-
-declare module 'date-fns/lightFormat' {
-  import { lightFormat } from 'date-fns'
-  export default lightFormat
+  export = lastDayOfYear
 }
 
 declare module 'date-fns/max' {
   import { max } from 'date-fns'
-  export default max
+  export = max
 }
 
 declare module 'date-fns/min' {
   import { min } from 'date-fns'
-  export default min
+  export = min
 }
 
 declare module 'date-fns/parse' {
   import { parse } from 'date-fns'
-  export default parse
-}
-
-declare module 'date-fns/parseISO' {
-  import { parseISO } from 'date-fns'
-  export default parseISO
+  export = parse
 }
 
 declare module 'date-fns/roundToNearestMinutes' {
   import { roundToNearestMinutes } from 'date-fns'
-  export default roundToNearestMinutes
+  export = roundToNearestMinutes
 }
 
 declare module 'date-fns/setDate' {
   import { setDate } from 'date-fns'
-  export default setDate
+  export = setDate
 }
 
 declare module 'date-fns/setDay' {
   import { setDay } from 'date-fns'
-  export default setDay
+  export = setDay
 }
 
 declare module 'date-fns/setDayOfYear' {
   import { setDayOfYear } from 'date-fns'
-  export default setDayOfYear
+  export = setDayOfYear
 }
 
 declare module 'date-fns/setHours' {
   import { setHours } from 'date-fns'
-  export default setHours
+  export = setHours
 }
 
 declare module 'date-fns/setISODay' {
   import { setISODay } from 'date-fns'
-  export default setISODay
+  export = setISODay
 }
 
 declare module 'date-fns/setISOWeek' {
   import { setISOWeek } from 'date-fns'
-  export default setISOWeek
+  export = setISOWeek
 }
 
 declare module 'date-fns/setISOWeekYear' {
   import { setISOWeekYear } from 'date-fns'
-  export default setISOWeekYear
+  export = setISOWeekYear
 }
 
 declare module 'date-fns/setMilliseconds' {
   import { setMilliseconds } from 'date-fns'
-  export default setMilliseconds
+  export = setMilliseconds
 }
 
 declare module 'date-fns/setMinutes' {
   import { setMinutes } from 'date-fns'
-  export default setMinutes
+  export = setMinutes
 }
 
 declare module 'date-fns/setMonth' {
   import { setMonth } from 'date-fns'
-  export default setMonth
+  export = setMonth
 }
 
 declare module 'date-fns/setQuarter' {
   import { setQuarter } from 'date-fns'
-  export default setQuarter
+  export = setQuarter
 }
 
 declare module 'date-fns/setSeconds' {
   import { setSeconds } from 'date-fns'
-  export default setSeconds
+  export = setSeconds
 }
 
 declare module 'date-fns/setWeek' {
   import { setWeek } from 'date-fns'
-  export default setWeek
+  export = setWeek
 }
 
 declare module 'date-fns/setWeekYear' {
   import { setWeekYear } from 'date-fns'
-  export default setWeekYear
+  export = setWeekYear
 }
 
 declare module 'date-fns/setYear' {
   import { setYear } from 'date-fns'
-  export default setYear
+  export = setYear
 }
 
 declare module 'date-fns/startOfDay' {
   import { startOfDay } from 'date-fns'
-  export default startOfDay
+  export = startOfDay
 }
 
 declare module 'date-fns/startOfDecade' {
   import { startOfDecade } from 'date-fns'
-  export default startOfDecade
+  export = startOfDecade
 }
 
 declare module 'date-fns/startOfHour' {
   import { startOfHour } from 'date-fns'
-  export default startOfHour
+  export = startOfHour
 }
 
 declare module 'date-fns/startOfISOWeek' {
   import { startOfISOWeek } from 'date-fns'
-  export default startOfISOWeek
+  export = startOfISOWeek
 }
 
 declare module 'date-fns/startOfISOWeekYear' {
   import { startOfISOWeekYear } from 'date-fns'
-  export default startOfISOWeekYear
+  export = startOfISOWeekYear
 }
 
 declare module 'date-fns/startOfMinute' {
   import { startOfMinute } from 'date-fns'
-  export default startOfMinute
+  export = startOfMinute
 }
 
 declare module 'date-fns/startOfMonth' {
   import { startOfMonth } from 'date-fns'
-  export default startOfMonth
+  export = startOfMonth
 }
 
 declare module 'date-fns/startOfQuarter' {
   import { startOfQuarter } from 'date-fns'
-  export default startOfQuarter
+  export = startOfQuarter
 }
 
 declare module 'date-fns/startOfSecond' {
   import { startOfSecond } from 'date-fns'
-  export default startOfSecond
-}
-
-declare module 'date-fns/startOfToday' {
-  import { startOfToday } from 'date-fns'
-  export default startOfToday
-}
-
-declare module 'date-fns/startOfTomorrow' {
-  import { startOfTomorrow } from 'date-fns'
-  export default startOfTomorrow
+  export = startOfSecond
 }
 
 declare module 'date-fns/startOfWeek' {
   import { startOfWeek } from 'date-fns'
-  export default startOfWeek
+  export = startOfWeek
 }
 
 declare module 'date-fns/startOfWeekYear' {
   import { startOfWeekYear } from 'date-fns'
-  export default startOfWeekYear
+  export = startOfWeekYear
 }
 
 declare module 'date-fns/startOfYear' {
   import { startOfYear } from 'date-fns'
-  export default startOfYear
-}
-
-declare module 'date-fns/startOfYesterday' {
-  import { startOfYesterday } from 'date-fns'
-  export default startOfYesterday
+  export = startOfYear
 }
 
 declare module 'date-fns/subDays' {
   import { subDays } from 'date-fns'
-  export default subDays
+  export = subDays
 }
 
 declare module 'date-fns/subHours' {
   import { subHours } from 'date-fns'
-  export default subHours
+  export = subHours
 }
 
 declare module 'date-fns/subISOWeekYears' {
   import { subISOWeekYears } from 'date-fns'
-  export default subISOWeekYears
+  export = subISOWeekYears
 }
 
 declare module 'date-fns/subMilliseconds' {
   import { subMilliseconds } from 'date-fns'
-  export default subMilliseconds
+  export = subMilliseconds
 }
 
 declare module 'date-fns/subMinutes' {
   import { subMinutes } from 'date-fns'
-  export default subMinutes
+  export = subMinutes
 }
 
 declare module 'date-fns/subMonths' {
   import { subMonths } from 'date-fns'
-  export default subMonths
+  export = subMonths
 }
 
 declare module 'date-fns/subQuarters' {
   import { subQuarters } from 'date-fns'
-  export default subQuarters
+  export = subQuarters
 }
 
 declare module 'date-fns/subSeconds' {
   import { subSeconds } from 'date-fns'
-  export default subSeconds
+  export = subSeconds
 }
 
 declare module 'date-fns/subWeeks' {
   import { subWeeks } from 'date-fns'
-  export default subWeeks
+  export = subWeeks
 }
 
 declare module 'date-fns/subYears' {
   import { subYears } from 'date-fns'
-  export default subYears
+  export = subYears
 }
 
 declare module 'date-fns/toDate' {
   import { toDate } from 'date-fns'
-  export default toDate
-}
-
-declare module 'date-fns/addBusinessDays/index' {
-  import { addBusinessDays } from 'date-fns'
-  export default addBusinessDays
+  export = toDate
 }
 
 declare module 'date-fns/addDays/index' {
   import { addDays } from 'date-fns'
-  export default addDays
+  export = addDays
 }
 
 declare module 'date-fns/addHours/index' {
   import { addHours } from 'date-fns'
-  export default addHours
+  export = addHours
 }
 
 declare module 'date-fns/addISOWeekYears/index' {
   import { addISOWeekYears } from 'date-fns'
-  export default addISOWeekYears
+  export = addISOWeekYears
 }
 
 declare module 'date-fns/addMilliseconds/index' {
   import { addMilliseconds } from 'date-fns'
-  export default addMilliseconds
+  export = addMilliseconds
 }
 
 declare module 'date-fns/addMinutes/index' {
   import { addMinutes } from 'date-fns'
-  export default addMinutes
+  export = addMinutes
 }
 
 declare module 'date-fns/addMonths/index' {
   import { addMonths } from 'date-fns'
-  export default addMonths
+  export = addMonths
 }
 
 declare module 'date-fns/addQuarters/index' {
   import { addQuarters } from 'date-fns'
-  export default addQuarters
+  export = addQuarters
 }
 
 declare module 'date-fns/addSeconds/index' {
   import { addSeconds } from 'date-fns'
-  export default addSeconds
+  export = addSeconds
 }
 
 declare module 'date-fns/addWeeks/index' {
   import { addWeeks } from 'date-fns'
-  export default addWeeks
+  export = addWeeks
 }
 
 declare module 'date-fns/addYears/index' {
   import { addYears } from 'date-fns'
-  export default addYears
+  export = addYears
 }
 
 declare module 'date-fns/areIntervalsOverlapping/index' {
   import { areIntervalsOverlapping } from 'date-fns'
-  export default areIntervalsOverlapping
+  export = areIntervalsOverlapping
 }
 
 declare module 'date-fns/closestIndexTo/index' {
   import { closestIndexTo } from 'date-fns'
-  export default closestIndexTo
+  export = closestIndexTo
 }
 
 declare module 'date-fns/closestTo/index' {
   import { closestTo } from 'date-fns'
-  export default closestTo
+  export = closestTo
 }
 
 declare module 'date-fns/compareAsc/index' {
   import { compareAsc } from 'date-fns'
-  export default compareAsc
+  export = compareAsc
 }
 
 declare module 'date-fns/compareDesc/index' {
   import { compareDesc } from 'date-fns'
-  export default compareDesc
-}
-
-declare module 'date-fns/differenceInBusinessDays/index' {
-  import { differenceInBusinessDays } from 'date-fns'
-  export default differenceInBusinessDays
+  export = compareDesc
 }
 
 declare module 'date-fns/differenceInCalendarDays/index' {
   import { differenceInCalendarDays } from 'date-fns'
-  export default differenceInCalendarDays
+  export = differenceInCalendarDays
 }
 
 declare module 'date-fns/differenceInCalendarISOWeeks/index' {
   import { differenceInCalendarISOWeeks } from 'date-fns'
-  export default differenceInCalendarISOWeeks
+  export = differenceInCalendarISOWeeks
 }
 
 declare module 'date-fns/differenceInCalendarISOWeekYears/index' {
   import { differenceInCalendarISOWeekYears } from 'date-fns'
-  export default differenceInCalendarISOWeekYears
+  export = differenceInCalendarISOWeekYears
 }
 
 declare module 'date-fns/differenceInCalendarMonths/index' {
   import { differenceInCalendarMonths } from 'date-fns'
-  export default differenceInCalendarMonths
+  export = differenceInCalendarMonths
 }
 
 declare module 'date-fns/differenceInCalendarQuarters/index' {
   import { differenceInCalendarQuarters } from 'date-fns'
-  export default differenceInCalendarQuarters
+  export = differenceInCalendarQuarters
 }
 
 declare module 'date-fns/differenceInCalendarWeeks/index' {
   import { differenceInCalendarWeeks } from 'date-fns'
-  export default differenceInCalendarWeeks
+  export = differenceInCalendarWeeks
 }
 
 declare module 'date-fns/differenceInCalendarYears/index' {
   import { differenceInCalendarYears } from 'date-fns'
-  export default differenceInCalendarYears
+  export = differenceInCalendarYears
 }
 
 declare module 'date-fns/differenceInDays/index' {
   import { differenceInDays } from 'date-fns'
-  export default differenceInDays
+  export = differenceInDays
 }
 
 declare module 'date-fns/differenceInHours/index' {
   import { differenceInHours } from 'date-fns'
-  export default differenceInHours
+  export = differenceInHours
 }
 
 declare module 'date-fns/differenceInISOWeekYears/index' {
   import { differenceInISOWeekYears } from 'date-fns'
-  export default differenceInISOWeekYears
+  export = differenceInISOWeekYears
 }
 
 declare module 'date-fns/differenceInMilliseconds/index' {
   import { differenceInMilliseconds } from 'date-fns'
-  export default differenceInMilliseconds
+  export = differenceInMilliseconds
 }
 
 declare module 'date-fns/differenceInMinutes/index' {
   import { differenceInMinutes } from 'date-fns'
-  export default differenceInMinutes
+  export = differenceInMinutes
 }
 
 declare module 'date-fns/differenceInMonths/index' {
   import { differenceInMonths } from 'date-fns'
-  export default differenceInMonths
+  export = differenceInMonths
 }
 
 declare module 'date-fns/differenceInQuarters/index' {
   import { differenceInQuarters } from 'date-fns'
-  export default differenceInQuarters
+  export = differenceInQuarters
 }
 
 declare module 'date-fns/differenceInSeconds/index' {
   import { differenceInSeconds } from 'date-fns'
-  export default differenceInSeconds
+  export = differenceInSeconds
 }
 
 declare module 'date-fns/differenceInWeeks/index' {
   import { differenceInWeeks } from 'date-fns'
-  export default differenceInWeeks
+  export = differenceInWeeks
 }
 
 declare module 'date-fns/differenceInYears/index' {
   import { differenceInYears } from 'date-fns'
-  export default differenceInYears
+  export = differenceInYears
 }
 
 declare module 'date-fns/eachDayOfInterval/index' {
   import { eachDayOfInterval } from 'date-fns'
-  export default eachDayOfInterval
+  export = eachDayOfInterval
 }
 
 declare module 'date-fns/eachWeekendOfInterval/index' {
   import { eachWeekendOfInterval } from 'date-fns'
-  export default eachWeekendOfInterval
+  export = eachWeekendOfInterval
 }
 
 declare module 'date-fns/eachWeekendOfMonth/index' {
   import { eachWeekendOfMonth } from 'date-fns'
-  export default eachWeekendOfMonth
+  export = eachWeekendOfMonth
 }
 
 declare module 'date-fns/eachWeekendOfYear/index' {
   import { eachWeekendOfYear } from 'date-fns'
-  export default eachWeekendOfYear
+  export = eachWeekendOfYear
 }
 
 declare module 'date-fns/eachWeekOfInterval/index' {
   import { eachWeekOfInterval } from 'date-fns'
-  export default eachWeekOfInterval
+  export = eachWeekOfInterval
 }
 
 declare module 'date-fns/endOfDay/index' {
   import { endOfDay } from 'date-fns'
-  export default endOfDay
+  export = endOfDay
 }
 
 declare module 'date-fns/endOfDecade/index' {
   import { endOfDecade } from 'date-fns'
-  export default endOfDecade
+  export = endOfDecade
 }
 
 declare module 'date-fns/endOfHour/index' {
   import { endOfHour } from 'date-fns'
-  export default endOfHour
+  export = endOfHour
 }
 
 declare module 'date-fns/endOfISOWeek/index' {
   import { endOfISOWeek } from 'date-fns'
-  export default endOfISOWeek
+  export = endOfISOWeek
 }
 
 declare module 'date-fns/endOfISOWeekYear/index' {
   import { endOfISOWeekYear } from 'date-fns'
-  export default endOfISOWeekYear
+  export = endOfISOWeekYear
 }
 
 declare module 'date-fns/endOfMinute/index' {
   import { endOfMinute } from 'date-fns'
-  export default endOfMinute
+  export = endOfMinute
 }
 
 declare module 'date-fns/endOfMonth/index' {
   import { endOfMonth } from 'date-fns'
-  export default endOfMonth
+  export = endOfMonth
 }
 
 declare module 'date-fns/endOfQuarter/index' {
   import { endOfQuarter } from 'date-fns'
-  export default endOfQuarter
+  export = endOfQuarter
 }
 
 declare module 'date-fns/endOfSecond/index' {
   import { endOfSecond } from 'date-fns'
-  export default endOfSecond
-}
-
-declare module 'date-fns/endOfToday/index' {
-  import { endOfToday } from 'date-fns'
-  export default endOfToday
-}
-
-declare module 'date-fns/endOfTomorrow/index' {
-  import { endOfTomorrow } from 'date-fns'
-  export default endOfTomorrow
+  export = endOfSecond
 }
 
 declare module 'date-fns/endOfWeek/index' {
   import { endOfWeek } from 'date-fns'
-  export default endOfWeek
+  export = endOfWeek
 }
 
 declare module 'date-fns/endOfYear/index' {
   import { endOfYear } from 'date-fns'
-  export default endOfYear
-}
-
-declare module 'date-fns/endOfYesterday/index' {
-  import { endOfYesterday } from 'date-fns'
-  export default endOfYesterday
+  export = endOfYear
 }
 
 declare module 'date-fns/format/index' {
   import { format } from 'date-fns'
-  export default format
+  export = format
 }
 
 declare module 'date-fns/formatDistance/index' {
   import { formatDistance } from 'date-fns'
-  export default formatDistance
+  export = formatDistance
 }
 
 declare module 'date-fns/formatDistanceStrict/index' {
   import { formatDistanceStrict } from 'date-fns'
-  export default formatDistanceStrict
-}
-
-declare module 'date-fns/formatDistanceToNow/index' {
-  import { formatDistanceToNow } from 'date-fns'
-  export default formatDistanceToNow
+  export = formatDistanceStrict
 }
 
 declare module 'date-fns/formatRelative/index' {
   import { formatRelative } from 'date-fns'
-  export default formatRelative
+  export = formatRelative
 }
 
 declare module 'date-fns/fromUnixTime/index' {
   import { fromUnixTime } from 'date-fns'
-  export default fromUnixTime
+  export = fromUnixTime
 }
 
 declare module 'date-fns/getDate/index' {
   import { getDate } from 'date-fns'
-  export default getDate
+  export = getDate
 }
 
 declare module 'date-fns/getDay/index' {
   import { getDay } from 'date-fns'
-  export default getDay
+  export = getDay
 }
 
 declare module 'date-fns/getDayOfYear/index' {
   import { getDayOfYear } from 'date-fns'
-  export default getDayOfYear
+  export = getDayOfYear
 }
 
 declare module 'date-fns/getDaysInMonth/index' {
   import { getDaysInMonth } from 'date-fns'
-  export default getDaysInMonth
+  export = getDaysInMonth
 }
 
 declare module 'date-fns/getDaysInYear/index' {
   import { getDaysInYear } from 'date-fns'
-  export default getDaysInYear
+  export = getDaysInYear
 }
 
 declare module 'date-fns/getDecade/index' {
   import { getDecade } from 'date-fns'
-  export default getDecade
+  export = getDecade
 }
 
 declare module 'date-fns/getHours/index' {
   import { getHours } from 'date-fns'
-  export default getHours
+  export = getHours
 }
 
 declare module 'date-fns/getISODay/index' {
   import { getISODay } from 'date-fns'
-  export default getISODay
+  export = getISODay
 }
 
 declare module 'date-fns/getISOWeek/index' {
   import { getISOWeek } from 'date-fns'
-  export default getISOWeek
+  export = getISOWeek
 }
 
 declare module 'date-fns/getISOWeeksInYear/index' {
   import { getISOWeeksInYear } from 'date-fns'
-  export default getISOWeeksInYear
+  export = getISOWeeksInYear
 }
 
 declare module 'date-fns/getISOWeekYear/index' {
   import { getISOWeekYear } from 'date-fns'
-  export default getISOWeekYear
+  export = getISOWeekYear
 }
 
 declare module 'date-fns/getMilliseconds/index' {
   import { getMilliseconds } from 'date-fns'
-  export default getMilliseconds
+  export = getMilliseconds
 }
 
 declare module 'date-fns/getMinutes/index' {
   import { getMinutes } from 'date-fns'
-  export default getMinutes
+  export = getMinutes
 }
 
 declare module 'date-fns/getMonth/index' {
   import { getMonth } from 'date-fns'
-  export default getMonth
+  export = getMonth
 }
 
 declare module 'date-fns/getOverlappingDaysInIntervals/index' {
   import { getOverlappingDaysInIntervals } from 'date-fns'
-  export default getOverlappingDaysInIntervals
+  export = getOverlappingDaysInIntervals
 }
 
 declare module 'date-fns/getQuarter/index' {
   import { getQuarter } from 'date-fns'
-  export default getQuarter
+  export = getQuarter
 }
 
 declare module 'date-fns/getSeconds/index' {
   import { getSeconds } from 'date-fns'
-  export default getSeconds
+  export = getSeconds
 }
 
 declare module 'date-fns/getTime/index' {
   import { getTime } from 'date-fns'
-  export default getTime
+  export = getTime
 }
 
 declare module 'date-fns/getUnixTime/index' {
   import { getUnixTime } from 'date-fns'
-  export default getUnixTime
+  export = getUnixTime
 }
 
 declare module 'date-fns/getWeek/index' {
   import { getWeek } from 'date-fns'
-  export default getWeek
+  export = getWeek
 }
 
 declare module 'date-fns/getWeekOfMonth/index' {
   import { getWeekOfMonth } from 'date-fns'
-  export default getWeekOfMonth
+  export = getWeekOfMonth
 }
 
 declare module 'date-fns/getWeeksInMonth/index' {
   import { getWeeksInMonth } from 'date-fns'
-  export default getWeeksInMonth
+  export = getWeeksInMonth
 }
 
 declare module 'date-fns/getWeekYear/index' {
   import { getWeekYear } from 'date-fns'
-  export default getWeekYear
+  export = getWeekYear
 }
 
 declare module 'date-fns/getYear/index' {
   import { getYear } from 'date-fns'
-  export default getYear
+  export = getYear
 }
 
 declare module 'date-fns/isAfter/index' {
   import { isAfter } from 'date-fns'
-  export default isAfter
+  export = isAfter
 }
 
 declare module 'date-fns/isBefore/index' {
   import { isBefore } from 'date-fns'
-  export default isBefore
+  export = isBefore
 }
 
 declare module 'date-fns/isDate/index' {
   import { isDate } from 'date-fns'
-  export default isDate
+  export = isDate
 }
 
 declare module 'date-fns/isEqual/index' {
   import { isEqual } from 'date-fns'
-  export default isEqual
+  export = isEqual
 }
 
 declare module 'date-fns/isFirstDayOfMonth/index' {
   import { isFirstDayOfMonth } from 'date-fns'
-  export default isFirstDayOfMonth
+  export = isFirstDayOfMonth
 }
 
 declare module 'date-fns/isFriday/index' {
   import { isFriday } from 'date-fns'
-  export default isFriday
-}
-
-declare module 'date-fns/isFuture/index' {
-  import { isFuture } from 'date-fns'
-  export default isFuture
+  export = isFriday
 }
 
 declare module 'date-fns/isLastDayOfMonth/index' {
   import { isLastDayOfMonth } from 'date-fns'
-  export default isLastDayOfMonth
+  export = isLastDayOfMonth
 }
 
 declare module 'date-fns/isLeapYear/index' {
   import { isLeapYear } from 'date-fns'
-  export default isLeapYear
+  export = isLeapYear
 }
 
 declare module 'date-fns/isMonday/index' {
   import { isMonday } from 'date-fns'
-  export default isMonday
-}
-
-declare module 'date-fns/isPast/index' {
-  import { isPast } from 'date-fns'
-  export default isPast
+  export = isMonday
 }
 
 declare module 'date-fns/isSameDay/index' {
   import { isSameDay } from 'date-fns'
-  export default isSameDay
+  export = isSameDay
 }
 
 declare module 'date-fns/isSameHour/index' {
   import { isSameHour } from 'date-fns'
-  export default isSameHour
+  export = isSameHour
 }
 
 declare module 'date-fns/isSameISOWeek/index' {
   import { isSameISOWeek } from 'date-fns'
-  export default isSameISOWeek
+  export = isSameISOWeek
 }
 
 declare module 'date-fns/isSameISOWeekYear/index' {
   import { isSameISOWeekYear } from 'date-fns'
-  export default isSameISOWeekYear
+  export = isSameISOWeekYear
 }
 
 declare module 'date-fns/isSameMinute/index' {
   import { isSameMinute } from 'date-fns'
-  export default isSameMinute
+  export = isSameMinute
 }
 
 declare module 'date-fns/isSameMonth/index' {
   import { isSameMonth } from 'date-fns'
-  export default isSameMonth
+  export = isSameMonth
 }
 
 declare module 'date-fns/isSameQuarter/index' {
   import { isSameQuarter } from 'date-fns'
-  export default isSameQuarter
+  export = isSameQuarter
 }
 
 declare module 'date-fns/isSameSecond/index' {
   import { isSameSecond } from 'date-fns'
-  export default isSameSecond
+  export = isSameSecond
 }
 
 declare module 'date-fns/isSameWeek/index' {
   import { isSameWeek } from 'date-fns'
-  export default isSameWeek
+  export = isSameWeek
 }
 
 declare module 'date-fns/isSameYear/index' {
   import { isSameYear } from 'date-fns'
-  export default isSameYear
+  export = isSameYear
 }
 
 declare module 'date-fns/isSaturday/index' {
   import { isSaturday } from 'date-fns'
-  export default isSaturday
+  export = isSaturday
 }
 
 declare module 'date-fns/isSunday/index' {
   import { isSunday } from 'date-fns'
-  export default isSunday
-}
-
-declare module 'date-fns/isThisHour/index' {
-  import { isThisHour } from 'date-fns'
-  export default isThisHour
-}
-
-declare module 'date-fns/isThisISOWeek/index' {
-  import { isThisISOWeek } from 'date-fns'
-  export default isThisISOWeek
-}
-
-declare module 'date-fns/isThisMinute/index' {
-  import { isThisMinute } from 'date-fns'
-  export default isThisMinute
-}
-
-declare module 'date-fns/isThisMonth/index' {
-  import { isThisMonth } from 'date-fns'
-  export default isThisMonth
-}
-
-declare module 'date-fns/isThisQuarter/index' {
-  import { isThisQuarter } from 'date-fns'
-  export default isThisQuarter
-}
-
-declare module 'date-fns/isThisSecond/index' {
-  import { isThisSecond } from 'date-fns'
-  export default isThisSecond
-}
-
-declare module 'date-fns/isThisWeek/index' {
-  import { isThisWeek } from 'date-fns'
-  export default isThisWeek
-}
-
-declare module 'date-fns/isThisYear/index' {
-  import { isThisYear } from 'date-fns'
-  export default isThisYear
+  export = isSunday
 }
 
 declare module 'date-fns/isThursday/index' {
   import { isThursday } from 'date-fns'
-  export default isThursday
-}
-
-declare module 'date-fns/isToday/index' {
-  import { isToday } from 'date-fns'
-  export default isToday
-}
-
-declare module 'date-fns/isTomorrow/index' {
-  import { isTomorrow } from 'date-fns'
-  export default isTomorrow
+  export = isThursday
 }
 
 declare module 'date-fns/isTuesday/index' {
   import { isTuesday } from 'date-fns'
-  export default isTuesday
+  export = isTuesday
 }
 
 declare module 'date-fns/isValid/index' {
   import { isValid } from 'date-fns'
-  export default isValid
+  export = isValid
 }
 
 declare module 'date-fns/isWednesday/index' {
   import { isWednesday } from 'date-fns'
-  export default isWednesday
+  export = isWednesday
 }
 
 declare module 'date-fns/isWeekend/index' {
   import { isWeekend } from 'date-fns'
-  export default isWeekend
+  export = isWeekend
 }
 
 declare module 'date-fns/isWithinInterval/index' {
   import { isWithinInterval } from 'date-fns'
-  export default isWithinInterval
-}
-
-declare module 'date-fns/isYesterday/index' {
-  import { isYesterday } from 'date-fns'
-  export default isYesterday
+  export = isWithinInterval
 }
 
 declare module 'date-fns/lastDayOfDecade/index' {
   import { lastDayOfDecade } from 'date-fns'
-  export default lastDayOfDecade
+  export = lastDayOfDecade
 }
 
 declare module 'date-fns/lastDayOfISOWeek/index' {
   import { lastDayOfISOWeek } from 'date-fns'
-  export default lastDayOfISOWeek
+  export = lastDayOfISOWeek
 }
 
 declare module 'date-fns/lastDayOfISOWeekYear/index' {
   import { lastDayOfISOWeekYear } from 'date-fns'
-  export default lastDayOfISOWeekYear
+  export = lastDayOfISOWeekYear
 }
 
 declare module 'date-fns/lastDayOfMonth/index' {
   import { lastDayOfMonth } from 'date-fns'
-  export default lastDayOfMonth
+  export = lastDayOfMonth
 }
 
 declare module 'date-fns/lastDayOfQuarter/index' {
   import { lastDayOfQuarter } from 'date-fns'
-  export default lastDayOfQuarter
+  export = lastDayOfQuarter
 }
 
 declare module 'date-fns/lastDayOfWeek/index' {
   import { lastDayOfWeek } from 'date-fns'
-  export default lastDayOfWeek
+  export = lastDayOfWeek
 }
 
 declare module 'date-fns/lastDayOfYear/index' {
   import { lastDayOfYear } from 'date-fns'
-  export default lastDayOfYear
-}
-
-declare module 'date-fns/lightFormat/index' {
-  import { lightFormat } from 'date-fns'
-  export default lightFormat
+  export = lastDayOfYear
 }
 
 declare module 'date-fns/max/index' {
   import { max } from 'date-fns'
-  export default max
+  export = max
 }
 
 declare module 'date-fns/min/index' {
   import { min } from 'date-fns'
-  export default min
+  export = min
 }
 
 declare module 'date-fns/parse/index' {
   import { parse } from 'date-fns'
-  export default parse
-}
-
-declare module 'date-fns/parseISO/index' {
-  import { parseISO } from 'date-fns'
-  export default parseISO
+  export = parse
 }
 
 declare module 'date-fns/roundToNearestMinutes/index' {
   import { roundToNearestMinutes } from 'date-fns'
-  export default roundToNearestMinutes
+  export = roundToNearestMinutes
 }
 
 declare module 'date-fns/setDate/index' {
   import { setDate } from 'date-fns'
-  export default setDate
+  export = setDate
 }
 
 declare module 'date-fns/setDay/index' {
   import { setDay } from 'date-fns'
-  export default setDay
+  export = setDay
 }
 
 declare module 'date-fns/setDayOfYear/index' {
   import { setDayOfYear } from 'date-fns'
-  export default setDayOfYear
+  export = setDayOfYear
 }
 
 declare module 'date-fns/setHours/index' {
   import { setHours } from 'date-fns'
-  export default setHours
+  export = setHours
 }
 
 declare module 'date-fns/setISODay/index' {
   import { setISODay } from 'date-fns'
-  export default setISODay
+  export = setISODay
 }
 
 declare module 'date-fns/setISOWeek/index' {
   import { setISOWeek } from 'date-fns'
-  export default setISOWeek
+  export = setISOWeek
 }
 
 declare module 'date-fns/setISOWeekYear/index' {
   import { setISOWeekYear } from 'date-fns'
-  export default setISOWeekYear
+  export = setISOWeekYear
 }
 
 declare module 'date-fns/setMilliseconds/index' {
   import { setMilliseconds } from 'date-fns'
-  export default setMilliseconds
+  export = setMilliseconds
 }
 
 declare module 'date-fns/setMinutes/index' {
   import { setMinutes } from 'date-fns'
-  export default setMinutes
+  export = setMinutes
 }
 
 declare module 'date-fns/setMonth/index' {
   import { setMonth } from 'date-fns'
-  export default setMonth
+  export = setMonth
 }
 
 declare module 'date-fns/setQuarter/index' {
   import { setQuarter } from 'date-fns'
-  export default setQuarter
+  export = setQuarter
 }
 
 declare module 'date-fns/setSeconds/index' {
   import { setSeconds } from 'date-fns'
-  export default setSeconds
+  export = setSeconds
 }
 
 declare module 'date-fns/setWeek/index' {
   import { setWeek } from 'date-fns'
-  export default setWeek
+  export = setWeek
 }
 
 declare module 'date-fns/setWeekYear/index' {
   import { setWeekYear } from 'date-fns'
-  export default setWeekYear
+  export = setWeekYear
 }
 
 declare module 'date-fns/setYear/index' {
   import { setYear } from 'date-fns'
-  export default setYear
+  export = setYear
 }
 
 declare module 'date-fns/startOfDay/index' {
   import { startOfDay } from 'date-fns'
-  export default startOfDay
+  export = startOfDay
 }
 
 declare module 'date-fns/startOfDecade/index' {
   import { startOfDecade } from 'date-fns'
-  export default startOfDecade
+  export = startOfDecade
 }
 
 declare module 'date-fns/startOfHour/index' {
   import { startOfHour } from 'date-fns'
-  export default startOfHour
+  export = startOfHour
 }
 
 declare module 'date-fns/startOfISOWeek/index' {
   import { startOfISOWeek } from 'date-fns'
-  export default startOfISOWeek
+  export = startOfISOWeek
 }
 
 declare module 'date-fns/startOfISOWeekYear/index' {
   import { startOfISOWeekYear } from 'date-fns'
-  export default startOfISOWeekYear
+  export = startOfISOWeekYear
 }
 
 declare module 'date-fns/startOfMinute/index' {
   import { startOfMinute } from 'date-fns'
-  export default startOfMinute
+  export = startOfMinute
 }
 
 declare module 'date-fns/startOfMonth/index' {
   import { startOfMonth } from 'date-fns'
-  export default startOfMonth
+  export = startOfMonth
 }
 
 declare module 'date-fns/startOfQuarter/index' {
   import { startOfQuarter } from 'date-fns'
-  export default startOfQuarter
+  export = startOfQuarter
 }
 
 declare module 'date-fns/startOfSecond/index' {
   import { startOfSecond } from 'date-fns'
-  export default startOfSecond
-}
-
-declare module 'date-fns/startOfToday/index' {
-  import { startOfToday } from 'date-fns'
-  export default startOfToday
-}
-
-declare module 'date-fns/startOfTomorrow/index' {
-  import { startOfTomorrow } from 'date-fns'
-  export default startOfTomorrow
+  export = startOfSecond
 }
 
 declare module 'date-fns/startOfWeek/index' {
   import { startOfWeek } from 'date-fns'
-  export default startOfWeek
+  export = startOfWeek
 }
 
 declare module 'date-fns/startOfWeekYear/index' {
   import { startOfWeekYear } from 'date-fns'
-  export default startOfWeekYear
+  export = startOfWeekYear
 }
 
 declare module 'date-fns/startOfYear/index' {
   import { startOfYear } from 'date-fns'
-  export default startOfYear
-}
-
-declare module 'date-fns/startOfYesterday/index' {
-  import { startOfYesterday } from 'date-fns'
-  export default startOfYesterday
+  export = startOfYear
 }
 
 declare module 'date-fns/subDays/index' {
   import { subDays } from 'date-fns'
-  export default subDays
+  export = subDays
 }
 
 declare module 'date-fns/subHours/index' {
   import { subHours } from 'date-fns'
-  export default subHours
+  export = subHours
 }
 
 declare module 'date-fns/subISOWeekYears/index' {
   import { subISOWeekYears } from 'date-fns'
-  export default subISOWeekYears
+  export = subISOWeekYears
 }
 
 declare module 'date-fns/subMilliseconds/index' {
   import { subMilliseconds } from 'date-fns'
-  export default subMilliseconds
+  export = subMilliseconds
 }
 
 declare module 'date-fns/subMinutes/index' {
   import { subMinutes } from 'date-fns'
-  export default subMinutes
+  export = subMinutes
 }
 
 declare module 'date-fns/subMonths/index' {
   import { subMonths } from 'date-fns'
-  export default subMonths
+  export = subMonths
 }
 
 declare module 'date-fns/subQuarters/index' {
   import { subQuarters } from 'date-fns'
-  export default subQuarters
+  export = subQuarters
 }
 
 declare module 'date-fns/subSeconds/index' {
   import { subSeconds } from 'date-fns'
-  export default subSeconds
+  export = subSeconds
 }
 
 declare module 'date-fns/subWeeks/index' {
   import { subWeeks } from 'date-fns'
-  export default subWeeks
+  export = subWeeks
 }
 
 declare module 'date-fns/subYears/index' {
   import { subYears } from 'date-fns'
-  export default subYears
+  export = subYears
 }
 
 declare module 'date-fns/toDate/index' {
   import { toDate } from 'date-fns'
-  export default toDate
-}
-
-declare module 'date-fns/addBusinessDays/index.js' {
-  import { addBusinessDays } from 'date-fns'
-  export default addBusinessDays
+  export = toDate
 }
 
 declare module 'date-fns/addDays/index.js' {
   import { addDays } from 'date-fns'
-  export default addDays
+  export = addDays
 }
 
 declare module 'date-fns/addHours/index.js' {
   import { addHours } from 'date-fns'
-  export default addHours
+  export = addHours
 }
 
 declare module 'date-fns/addISOWeekYears/index.js' {
   import { addISOWeekYears } from 'date-fns'
-  export default addISOWeekYears
+  export = addISOWeekYears
 }
 
 declare module 'date-fns/addMilliseconds/index.js' {
   import { addMilliseconds } from 'date-fns'
-  export default addMilliseconds
+  export = addMilliseconds
 }
 
 declare module 'date-fns/addMinutes/index.js' {
   import { addMinutes } from 'date-fns'
-  export default addMinutes
+  export = addMinutes
 }
 
 declare module 'date-fns/addMonths/index.js' {
   import { addMonths } from 'date-fns'
-  export default addMonths
+  export = addMonths
 }
 
 declare module 'date-fns/addQuarters/index.js' {
   import { addQuarters } from 'date-fns'
-  export default addQuarters
+  export = addQuarters
 }
 
 declare module 'date-fns/addSeconds/index.js' {
   import { addSeconds } from 'date-fns'
-  export default addSeconds
+  export = addSeconds
 }
 
 declare module 'date-fns/addWeeks/index.js' {
   import { addWeeks } from 'date-fns'
-  export default addWeeks
+  export = addWeeks
 }
 
 declare module 'date-fns/addYears/index.js' {
   import { addYears } from 'date-fns'
-  export default addYears
+  export = addYears
 }
 
 declare module 'date-fns/areIntervalsOverlapping/index.js' {
   import { areIntervalsOverlapping } from 'date-fns'
-  export default areIntervalsOverlapping
+  export = areIntervalsOverlapping
 }
 
 declare module 'date-fns/closestIndexTo/index.js' {
   import { closestIndexTo } from 'date-fns'
-  export default closestIndexTo
+  export = closestIndexTo
 }
 
 declare module 'date-fns/closestTo/index.js' {
   import { closestTo } from 'date-fns'
-  export default closestTo
+  export = closestTo
 }
 
 declare module 'date-fns/compareAsc/index.js' {
   import { compareAsc } from 'date-fns'
-  export default compareAsc
+  export = compareAsc
 }
 
 declare module 'date-fns/compareDesc/index.js' {
   import { compareDesc } from 'date-fns'
-  export default compareDesc
-}
-
-declare module 'date-fns/differenceInBusinessDays/index.js' {
-  import { differenceInBusinessDays } from 'date-fns'
-  export default differenceInBusinessDays
+  export = compareDesc
 }
 
 declare module 'date-fns/differenceInCalendarDays/index.js' {
   import { differenceInCalendarDays } from 'date-fns'
-  export default differenceInCalendarDays
+  export = differenceInCalendarDays
 }
 
 declare module 'date-fns/differenceInCalendarISOWeeks/index.js' {
   import { differenceInCalendarISOWeeks } from 'date-fns'
-  export default differenceInCalendarISOWeeks
+  export = differenceInCalendarISOWeeks
 }
 
 declare module 'date-fns/differenceInCalendarISOWeekYears/index.js' {
   import { differenceInCalendarISOWeekYears } from 'date-fns'
-  export default differenceInCalendarISOWeekYears
+  export = differenceInCalendarISOWeekYears
 }
 
 declare module 'date-fns/differenceInCalendarMonths/index.js' {
   import { differenceInCalendarMonths } from 'date-fns'
-  export default differenceInCalendarMonths
+  export = differenceInCalendarMonths
 }
 
 declare module 'date-fns/differenceInCalendarQuarters/index.js' {
   import { differenceInCalendarQuarters } from 'date-fns'
-  export default differenceInCalendarQuarters
+  export = differenceInCalendarQuarters
 }
 
 declare module 'date-fns/differenceInCalendarWeeks/index.js' {
   import { differenceInCalendarWeeks } from 'date-fns'
-  export default differenceInCalendarWeeks
+  export = differenceInCalendarWeeks
 }
 
 declare module 'date-fns/differenceInCalendarYears/index.js' {
   import { differenceInCalendarYears } from 'date-fns'
-  export default differenceInCalendarYears
+  export = differenceInCalendarYears
 }
 
 declare module 'date-fns/differenceInDays/index.js' {
   import { differenceInDays } from 'date-fns'
-  export default differenceInDays
+  export = differenceInDays
 }
 
 declare module 'date-fns/differenceInHours/index.js' {
   import { differenceInHours } from 'date-fns'
-  export default differenceInHours
+  export = differenceInHours
 }
 
 declare module 'date-fns/differenceInISOWeekYears/index.js' {
   import { differenceInISOWeekYears } from 'date-fns'
-  export default differenceInISOWeekYears
+  export = differenceInISOWeekYears
 }
 
 declare module 'date-fns/differenceInMilliseconds/index.js' {
   import { differenceInMilliseconds } from 'date-fns'
-  export default differenceInMilliseconds
+  export = differenceInMilliseconds
 }
 
 declare module 'date-fns/differenceInMinutes/index.js' {
   import { differenceInMinutes } from 'date-fns'
-  export default differenceInMinutes
+  export = differenceInMinutes
 }
 
 declare module 'date-fns/differenceInMonths/index.js' {
   import { differenceInMonths } from 'date-fns'
-  export default differenceInMonths
+  export = differenceInMonths
 }
 
 declare module 'date-fns/differenceInQuarters/index.js' {
   import { differenceInQuarters } from 'date-fns'
-  export default differenceInQuarters
+  export = differenceInQuarters
 }
 
 declare module 'date-fns/differenceInSeconds/index.js' {
   import { differenceInSeconds } from 'date-fns'
-  export default differenceInSeconds
+  export = differenceInSeconds
 }
 
 declare module 'date-fns/differenceInWeeks/index.js' {
   import { differenceInWeeks } from 'date-fns'
-  export default differenceInWeeks
+  export = differenceInWeeks
 }
 
 declare module 'date-fns/differenceInYears/index.js' {
   import { differenceInYears } from 'date-fns'
-  export default differenceInYears
+  export = differenceInYears
 }
 
 declare module 'date-fns/eachDayOfInterval/index.js' {
   import { eachDayOfInterval } from 'date-fns'
-  export default eachDayOfInterval
+  export = eachDayOfInterval
 }
 
 declare module 'date-fns/eachWeekendOfInterval/index.js' {
   import { eachWeekendOfInterval } from 'date-fns'
-  export default eachWeekendOfInterval
+  export = eachWeekendOfInterval
 }
 
 declare module 'date-fns/eachWeekendOfMonth/index.js' {
   import { eachWeekendOfMonth } from 'date-fns'
-  export default eachWeekendOfMonth
+  export = eachWeekendOfMonth
 }
 
 declare module 'date-fns/eachWeekendOfYear/index.js' {
   import { eachWeekendOfYear } from 'date-fns'
-  export default eachWeekendOfYear
+  export = eachWeekendOfYear
 }
 
 declare module 'date-fns/eachWeekOfInterval/index.js' {
   import { eachWeekOfInterval } from 'date-fns'
-  export default eachWeekOfInterval
+  export = eachWeekOfInterval
 }
 
 declare module 'date-fns/endOfDay/index.js' {
   import { endOfDay } from 'date-fns'
-  export default endOfDay
+  export = endOfDay
 }
 
 declare module 'date-fns/endOfDecade/index.js' {
   import { endOfDecade } from 'date-fns'
-  export default endOfDecade
+  export = endOfDecade
 }
 
 declare module 'date-fns/endOfHour/index.js' {
   import { endOfHour } from 'date-fns'
-  export default endOfHour
+  export = endOfHour
 }
 
 declare module 'date-fns/endOfISOWeek/index.js' {
   import { endOfISOWeek } from 'date-fns'
-  export default endOfISOWeek
+  export = endOfISOWeek
 }
 
 declare module 'date-fns/endOfISOWeekYear/index.js' {
   import { endOfISOWeekYear } from 'date-fns'
-  export default endOfISOWeekYear
+  export = endOfISOWeekYear
 }
 
 declare module 'date-fns/endOfMinute/index.js' {
   import { endOfMinute } from 'date-fns'
-  export default endOfMinute
+  export = endOfMinute
 }
 
 declare module 'date-fns/endOfMonth/index.js' {
   import { endOfMonth } from 'date-fns'
-  export default endOfMonth
+  export = endOfMonth
 }
 
 declare module 'date-fns/endOfQuarter/index.js' {
   import { endOfQuarter } from 'date-fns'
-  export default endOfQuarter
+  export = endOfQuarter
 }
 
 declare module 'date-fns/endOfSecond/index.js' {
   import { endOfSecond } from 'date-fns'
-  export default endOfSecond
-}
-
-declare module 'date-fns/endOfToday/index.js' {
-  import { endOfToday } from 'date-fns'
-  export default endOfToday
-}
-
-declare module 'date-fns/endOfTomorrow/index.js' {
-  import { endOfTomorrow } from 'date-fns'
-  export default endOfTomorrow
+  export = endOfSecond
 }
 
 declare module 'date-fns/endOfWeek/index.js' {
   import { endOfWeek } from 'date-fns'
-  export default endOfWeek
+  export = endOfWeek
 }
 
 declare module 'date-fns/endOfYear/index.js' {
   import { endOfYear } from 'date-fns'
-  export default endOfYear
-}
-
-declare module 'date-fns/endOfYesterday/index.js' {
-  import { endOfYesterday } from 'date-fns'
-  export default endOfYesterday
+  export = endOfYear
 }
 
 declare module 'date-fns/format/index.js' {
   import { format } from 'date-fns'
-  export default format
+  export = format
 }
 
 declare module 'date-fns/formatDistance/index.js' {
   import { formatDistance } from 'date-fns'
-  export default formatDistance
+  export = formatDistance
 }
 
 declare module 'date-fns/formatDistanceStrict/index.js' {
   import { formatDistanceStrict } from 'date-fns'
-  export default formatDistanceStrict
-}
-
-declare module 'date-fns/formatDistanceToNow/index.js' {
-  import { formatDistanceToNow } from 'date-fns'
-  export default formatDistanceToNow
+  export = formatDistanceStrict
 }
 
 declare module 'date-fns/formatRelative/index.js' {
   import { formatRelative } from 'date-fns'
-  export default formatRelative
+  export = formatRelative
 }
 
 declare module 'date-fns/fromUnixTime/index.js' {
   import { fromUnixTime } from 'date-fns'
-  export default fromUnixTime
+  export = fromUnixTime
 }
 
 declare module 'date-fns/getDate/index.js' {
   import { getDate } from 'date-fns'
-  export default getDate
+  export = getDate
 }
 
 declare module 'date-fns/getDay/index.js' {
   import { getDay } from 'date-fns'
-  export default getDay
+  export = getDay
 }
 
 declare module 'date-fns/getDayOfYear/index.js' {
   import { getDayOfYear } from 'date-fns'
-  export default getDayOfYear
+  export = getDayOfYear
 }
 
 declare module 'date-fns/getDaysInMonth/index.js' {
   import { getDaysInMonth } from 'date-fns'
-  export default getDaysInMonth
+  export = getDaysInMonth
 }
 
 declare module 'date-fns/getDaysInYear/index.js' {
   import { getDaysInYear } from 'date-fns'
-  export default getDaysInYear
+  export = getDaysInYear
 }
 
 declare module 'date-fns/getDecade/index.js' {
   import { getDecade } from 'date-fns'
-  export default getDecade
+  export = getDecade
 }
 
 declare module 'date-fns/getHours/index.js' {
   import { getHours } from 'date-fns'
-  export default getHours
+  export = getHours
 }
 
 declare module 'date-fns/getISODay/index.js' {
   import { getISODay } from 'date-fns'
-  export default getISODay
+  export = getISODay
 }
 
 declare module 'date-fns/getISOWeek/index.js' {
   import { getISOWeek } from 'date-fns'
-  export default getISOWeek
+  export = getISOWeek
 }
 
 declare module 'date-fns/getISOWeeksInYear/index.js' {
   import { getISOWeeksInYear } from 'date-fns'
-  export default getISOWeeksInYear
+  export = getISOWeeksInYear
 }
 
 declare module 'date-fns/getISOWeekYear/index.js' {
   import { getISOWeekYear } from 'date-fns'
-  export default getISOWeekYear
+  export = getISOWeekYear
 }
 
 declare module 'date-fns/getMilliseconds/index.js' {
   import { getMilliseconds } from 'date-fns'
-  export default getMilliseconds
+  export = getMilliseconds
 }
 
 declare module 'date-fns/getMinutes/index.js' {
   import { getMinutes } from 'date-fns'
-  export default getMinutes
+  export = getMinutes
 }
 
 declare module 'date-fns/getMonth/index.js' {
   import { getMonth } from 'date-fns'
-  export default getMonth
+  export = getMonth
 }
 
 declare module 'date-fns/getOverlappingDaysInIntervals/index.js' {
   import { getOverlappingDaysInIntervals } from 'date-fns'
-  export default getOverlappingDaysInIntervals
+  export = getOverlappingDaysInIntervals
 }
 
 declare module 'date-fns/getQuarter/index.js' {
   import { getQuarter } from 'date-fns'
-  export default getQuarter
+  export = getQuarter
 }
 
 declare module 'date-fns/getSeconds/index.js' {
   import { getSeconds } from 'date-fns'
-  export default getSeconds
+  export = getSeconds
 }
 
 declare module 'date-fns/getTime/index.js' {
   import { getTime } from 'date-fns'
-  export default getTime
+  export = getTime
 }
 
 declare module 'date-fns/getUnixTime/index.js' {
   import { getUnixTime } from 'date-fns'
-  export default getUnixTime
+  export = getUnixTime
 }
 
 declare module 'date-fns/getWeek/index.js' {
   import { getWeek } from 'date-fns'
-  export default getWeek
+  export = getWeek
 }
 
 declare module 'date-fns/getWeekOfMonth/index.js' {
   import { getWeekOfMonth } from 'date-fns'
-  export default getWeekOfMonth
+  export = getWeekOfMonth
 }
 
 declare module 'date-fns/getWeeksInMonth/index.js' {
   import { getWeeksInMonth } from 'date-fns'
-  export default getWeeksInMonth
+  export = getWeeksInMonth
 }
 
 declare module 'date-fns/getWeekYear/index.js' {
   import { getWeekYear } from 'date-fns'
-  export default getWeekYear
+  export = getWeekYear
 }
 
 declare module 'date-fns/getYear/index.js' {
   import { getYear } from 'date-fns'
-  export default getYear
+  export = getYear
 }
 
 declare module 'date-fns/isAfter/index.js' {
   import { isAfter } from 'date-fns'
-  export default isAfter
+  export = isAfter
 }
 
 declare module 'date-fns/isBefore/index.js' {
   import { isBefore } from 'date-fns'
-  export default isBefore
+  export = isBefore
 }
 
 declare module 'date-fns/isDate/index.js' {
   import { isDate } from 'date-fns'
-  export default isDate
+  export = isDate
 }
 
 declare module 'date-fns/isEqual/index.js' {
   import { isEqual } from 'date-fns'
-  export default isEqual
+  export = isEqual
 }
 
 declare module 'date-fns/isFirstDayOfMonth/index.js' {
   import { isFirstDayOfMonth } from 'date-fns'
-  export default isFirstDayOfMonth
+  export = isFirstDayOfMonth
 }
 
 declare module 'date-fns/isFriday/index.js' {
   import { isFriday } from 'date-fns'
-  export default isFriday
-}
-
-declare module 'date-fns/isFuture/index.js' {
-  import { isFuture } from 'date-fns'
-  export default isFuture
+  export = isFriday
 }
 
 declare module 'date-fns/isLastDayOfMonth/index.js' {
   import { isLastDayOfMonth } from 'date-fns'
-  export default isLastDayOfMonth
+  export = isLastDayOfMonth
 }
 
 declare module 'date-fns/isLeapYear/index.js' {
   import { isLeapYear } from 'date-fns'
-  export default isLeapYear
+  export = isLeapYear
 }
 
 declare module 'date-fns/isMonday/index.js' {
   import { isMonday } from 'date-fns'
-  export default isMonday
-}
-
-declare module 'date-fns/isPast/index.js' {
-  import { isPast } from 'date-fns'
-  export default isPast
+  export = isMonday
 }
 
 declare module 'date-fns/isSameDay/index.js' {
   import { isSameDay } from 'date-fns'
-  export default isSameDay
+  export = isSameDay
 }
 
 declare module 'date-fns/isSameHour/index.js' {
   import { isSameHour } from 'date-fns'
-  export default isSameHour
+  export = isSameHour
 }
 
 declare module 'date-fns/isSameISOWeek/index.js' {
   import { isSameISOWeek } from 'date-fns'
-  export default isSameISOWeek
+  export = isSameISOWeek
 }
 
 declare module 'date-fns/isSameISOWeekYear/index.js' {
   import { isSameISOWeekYear } from 'date-fns'
-  export default isSameISOWeekYear
+  export = isSameISOWeekYear
 }
 
 declare module 'date-fns/isSameMinute/index.js' {
   import { isSameMinute } from 'date-fns'
-  export default isSameMinute
+  export = isSameMinute
 }
 
 declare module 'date-fns/isSameMonth/index.js' {
   import { isSameMonth } from 'date-fns'
-  export default isSameMonth
+  export = isSameMonth
 }
 
 declare module 'date-fns/isSameQuarter/index.js' {
   import { isSameQuarter } from 'date-fns'
-  export default isSameQuarter
+  export = isSameQuarter
 }
 
 declare module 'date-fns/isSameSecond/index.js' {
   import { isSameSecond } from 'date-fns'
-  export default isSameSecond
+  export = isSameSecond
 }
 
 declare module 'date-fns/isSameWeek/index.js' {
   import { isSameWeek } from 'date-fns'
-  export default isSameWeek
+  export = isSameWeek
 }
 
 declare module 'date-fns/isSameYear/index.js' {
   import { isSameYear } from 'date-fns'
-  export default isSameYear
+  export = isSameYear
 }
 
 declare module 'date-fns/isSaturday/index.js' {
   import { isSaturday } from 'date-fns'
-  export default isSaturday
+  export = isSaturday
 }
 
 declare module 'date-fns/isSunday/index.js' {
   import { isSunday } from 'date-fns'
-  export default isSunday
-}
-
-declare module 'date-fns/isThisHour/index.js' {
-  import { isThisHour } from 'date-fns'
-  export default isThisHour
-}
-
-declare module 'date-fns/isThisISOWeek/index.js' {
-  import { isThisISOWeek } from 'date-fns'
-  export default isThisISOWeek
-}
-
-declare module 'date-fns/isThisMinute/index.js' {
-  import { isThisMinute } from 'date-fns'
-  export default isThisMinute
-}
-
-declare module 'date-fns/isThisMonth/index.js' {
-  import { isThisMonth } from 'date-fns'
-  export default isThisMonth
-}
-
-declare module 'date-fns/isThisQuarter/index.js' {
-  import { isThisQuarter } from 'date-fns'
-  export default isThisQuarter
-}
-
-declare module 'date-fns/isThisSecond/index.js' {
-  import { isThisSecond } from 'date-fns'
-  export default isThisSecond
-}
-
-declare module 'date-fns/isThisWeek/index.js' {
-  import { isThisWeek } from 'date-fns'
-  export default isThisWeek
-}
-
-declare module 'date-fns/isThisYear/index.js' {
-  import { isThisYear } from 'date-fns'
-  export default isThisYear
+  export = isSunday
 }
 
 declare module 'date-fns/isThursday/index.js' {
   import { isThursday } from 'date-fns'
-  export default isThursday
-}
-
-declare module 'date-fns/isToday/index.js' {
-  import { isToday } from 'date-fns'
-  export default isToday
-}
-
-declare module 'date-fns/isTomorrow/index.js' {
-  import { isTomorrow } from 'date-fns'
-  export default isTomorrow
+  export = isThursday
 }
 
 declare module 'date-fns/isTuesday/index.js' {
   import { isTuesday } from 'date-fns'
-  export default isTuesday
+  export = isTuesday
 }
 
 declare module 'date-fns/isValid/index.js' {
   import { isValid } from 'date-fns'
-  export default isValid
+  export = isValid
 }
 
 declare module 'date-fns/isWednesday/index.js' {
   import { isWednesday } from 'date-fns'
-  export default isWednesday
+  export = isWednesday
 }
 
 declare module 'date-fns/isWeekend/index.js' {
   import { isWeekend } from 'date-fns'
-  export default isWeekend
+  export = isWeekend
 }
 
 declare module 'date-fns/isWithinInterval/index.js' {
   import { isWithinInterval } from 'date-fns'
-  export default isWithinInterval
-}
-
-declare module 'date-fns/isYesterday/index.js' {
-  import { isYesterday } from 'date-fns'
-  export default isYesterday
+  export = isWithinInterval
 }
 
 declare module 'date-fns/lastDayOfDecade/index.js' {
   import { lastDayOfDecade } from 'date-fns'
-  export default lastDayOfDecade
+  export = lastDayOfDecade
 }
 
 declare module 'date-fns/lastDayOfISOWeek/index.js' {
   import { lastDayOfISOWeek } from 'date-fns'
-  export default lastDayOfISOWeek
+  export = lastDayOfISOWeek
 }
 
 declare module 'date-fns/lastDayOfISOWeekYear/index.js' {
   import { lastDayOfISOWeekYear } from 'date-fns'
-  export default lastDayOfISOWeekYear
+  export = lastDayOfISOWeekYear
 }
 
 declare module 'date-fns/lastDayOfMonth/index.js' {
   import { lastDayOfMonth } from 'date-fns'
-  export default lastDayOfMonth
+  export = lastDayOfMonth
 }
 
 declare module 'date-fns/lastDayOfQuarter/index.js' {
   import { lastDayOfQuarter } from 'date-fns'
-  export default lastDayOfQuarter
+  export = lastDayOfQuarter
 }
 
 declare module 'date-fns/lastDayOfWeek/index.js' {
   import { lastDayOfWeek } from 'date-fns'
-  export default lastDayOfWeek
+  export = lastDayOfWeek
 }
 
 declare module 'date-fns/lastDayOfYear/index.js' {
   import { lastDayOfYear } from 'date-fns'
-  export default lastDayOfYear
-}
-
-declare module 'date-fns/lightFormat/index.js' {
-  import { lightFormat } from 'date-fns'
-  export default lightFormat
+  export = lastDayOfYear
 }
 
 declare module 'date-fns/max/index.js' {
   import { max } from 'date-fns'
-  export default max
+  export = max
 }
 
 declare module 'date-fns/min/index.js' {
   import { min } from 'date-fns'
-  export default min
+  export = min
 }
 
 declare module 'date-fns/parse/index.js' {
   import { parse } from 'date-fns'
-  export default parse
-}
-
-declare module 'date-fns/parseISO/index.js' {
-  import { parseISO } from 'date-fns'
-  export default parseISO
+  export = parse
 }
 
 declare module 'date-fns/roundToNearestMinutes/index.js' {
   import { roundToNearestMinutes } from 'date-fns'
-  export default roundToNearestMinutes
+  export = roundToNearestMinutes
 }
 
 declare module 'date-fns/setDate/index.js' {
   import { setDate } from 'date-fns'
-  export default setDate
+  export = setDate
 }
 
 declare module 'date-fns/setDay/index.js' {
   import { setDay } from 'date-fns'
-  export default setDay
+  export = setDay
 }
 
 declare module 'date-fns/setDayOfYear/index.js' {
   import { setDayOfYear } from 'date-fns'
-  export default setDayOfYear
+  export = setDayOfYear
 }
 
 declare module 'date-fns/setHours/index.js' {
   import { setHours } from 'date-fns'
-  export default setHours
+  export = setHours
 }
 
 declare module 'date-fns/setISODay/index.js' {
   import { setISODay } from 'date-fns'
-  export default setISODay
+  export = setISODay
 }
 
 declare module 'date-fns/setISOWeek/index.js' {
   import { setISOWeek } from 'date-fns'
-  export default setISOWeek
+  export = setISOWeek
 }
 
 declare module 'date-fns/setISOWeekYear/index.js' {
   import { setISOWeekYear } from 'date-fns'
-  export default setISOWeekYear
+  export = setISOWeekYear
 }
 
 declare module 'date-fns/setMilliseconds/index.js' {
   import { setMilliseconds } from 'date-fns'
-  export default setMilliseconds
+  export = setMilliseconds
 }
 
 declare module 'date-fns/setMinutes/index.js' {
   import { setMinutes } from 'date-fns'
-  export default setMinutes
+  export = setMinutes
 }
 
 declare module 'date-fns/setMonth/index.js' {
   import { setMonth } from 'date-fns'
-  export default setMonth
+  export = setMonth
 }
 
 declare module 'date-fns/setQuarter/index.js' {
   import { setQuarter } from 'date-fns'
-  export default setQuarter
+  export = setQuarter
 }
 
 declare module 'date-fns/setSeconds/index.js' {
   import { setSeconds } from 'date-fns'
-  export default setSeconds
+  export = setSeconds
 }
 
 declare module 'date-fns/setWeek/index.js' {
   import { setWeek } from 'date-fns'
-  export default setWeek
+  export = setWeek
 }
 
 declare module 'date-fns/setWeekYear/index.js' {
   import { setWeekYear } from 'date-fns'
-  export default setWeekYear
+  export = setWeekYear
 }
 
 declare module 'date-fns/setYear/index.js' {
   import { setYear } from 'date-fns'
-  export default setYear
+  export = setYear
 }
 
 declare module 'date-fns/startOfDay/index.js' {
   import { startOfDay } from 'date-fns'
-  export default startOfDay
+  export = startOfDay
 }
 
 declare module 'date-fns/startOfDecade/index.js' {
   import { startOfDecade } from 'date-fns'
-  export default startOfDecade
+  export = startOfDecade
 }
 
 declare module 'date-fns/startOfHour/index.js' {
   import { startOfHour } from 'date-fns'
-  export default startOfHour
+  export = startOfHour
 }
 
 declare module 'date-fns/startOfISOWeek/index.js' {
   import { startOfISOWeek } from 'date-fns'
-  export default startOfISOWeek
+  export = startOfISOWeek
 }
 
 declare module 'date-fns/startOfISOWeekYear/index.js' {
   import { startOfISOWeekYear } from 'date-fns'
-  export default startOfISOWeekYear
+  export = startOfISOWeekYear
 }
 
 declare module 'date-fns/startOfMinute/index.js' {
   import { startOfMinute } from 'date-fns'
-  export default startOfMinute
+  export = startOfMinute
 }
 
 declare module 'date-fns/startOfMonth/index.js' {
   import { startOfMonth } from 'date-fns'
-  export default startOfMonth
+  export = startOfMonth
 }
 
 declare module 'date-fns/startOfQuarter/index.js' {
   import { startOfQuarter } from 'date-fns'
-  export default startOfQuarter
+  export = startOfQuarter
 }
 
 declare module 'date-fns/startOfSecond/index.js' {
   import { startOfSecond } from 'date-fns'
-  export default startOfSecond
-}
-
-declare module 'date-fns/startOfToday/index.js' {
-  import { startOfToday } from 'date-fns'
-  export default startOfToday
-}
-
-declare module 'date-fns/startOfTomorrow/index.js' {
-  import { startOfTomorrow } from 'date-fns'
-  export default startOfTomorrow
+  export = startOfSecond
 }
 
 declare module 'date-fns/startOfWeek/index.js' {
   import { startOfWeek } from 'date-fns'
-  export default startOfWeek
+  export = startOfWeek
 }
 
 declare module 'date-fns/startOfWeekYear/index.js' {
   import { startOfWeekYear } from 'date-fns'
-  export default startOfWeekYear
+  export = startOfWeekYear
 }
 
 declare module 'date-fns/startOfYear/index.js' {
   import { startOfYear } from 'date-fns'
-  export default startOfYear
-}
-
-declare module 'date-fns/startOfYesterday/index.js' {
-  import { startOfYesterday } from 'date-fns'
-  export default startOfYesterday
+  export = startOfYear
 }
 
 declare module 'date-fns/subDays/index.js' {
   import { subDays } from 'date-fns'
-  export default subDays
+  export = subDays
 }
 
 declare module 'date-fns/subHours/index.js' {
   import { subHours } from 'date-fns'
-  export default subHours
+  export = subHours
 }
 
 declare module 'date-fns/subISOWeekYears/index.js' {
   import { subISOWeekYears } from 'date-fns'
-  export default subISOWeekYears
+  export = subISOWeekYears
 }
 
 declare module 'date-fns/subMilliseconds/index.js' {
   import { subMilliseconds } from 'date-fns'
-  export default subMilliseconds
+  export = subMilliseconds
 }
 
 declare module 'date-fns/subMinutes/index.js' {
   import { subMinutes } from 'date-fns'
-  export default subMinutes
+  export = subMinutes
 }
 
 declare module 'date-fns/subMonths/index.js' {
   import { subMonths } from 'date-fns'
-  export default subMonths
+  export = subMonths
 }
 
 declare module 'date-fns/subQuarters/index.js' {
   import { subQuarters } from 'date-fns'
-  export default subQuarters
+  export = subQuarters
 }
 
 declare module 'date-fns/subSeconds/index.js' {
   import { subSeconds } from 'date-fns'
-  export default subSeconds
+  export = subSeconds
 }
 
 declare module 'date-fns/subWeeks/index.js' {
   import { subWeeks } from 'date-fns'
-  export default subWeeks
+  export = subWeeks
 }
 
 declare module 'date-fns/subYears/index.js' {
   import { subYears } from 'date-fns'
-  export default subYears
+  export = subYears
 }
 
 declare module 'date-fns/toDate/index.js' {
   import { toDate } from 'date-fns'
-  export default toDate
+  export = toDate
 }
 
 // FP Functions
 
 declare module 'date-fns/fp' {
-  const addBusinessDays: CurriedFn2<number, Date | number, Date>
-  namespace addBusinessDays {}
+  const addDays: CurriedFn2<number, Date | string | number, Date>
+  namespace addDays {
 
-  const addDays: CurriedFn2<number, Date | number, Date>
-  namespace addDays {}
+  }
 
-  const addHours: CurriedFn2<number, Date | number, Date>
-  namespace addHours {}
+  const addDaysWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace addDaysWithOptions {
 
-  const addISOWeekYears: CurriedFn2<number, Date | number, Date>
-  namespace addISOWeekYears {}
+  }
 
-  const addMilliseconds: CurriedFn2<number, Date | number, Date>
-  namespace addMilliseconds {}
+  const addHours: CurriedFn2<number, Date | string | number, Date>
+  namespace addHours {
 
-  const addMinutes: CurriedFn2<number, Date | number, Date>
-  namespace addMinutes {}
+  }
 
-  const addMonths: CurriedFn2<number, Date | number, Date>
-  namespace addMonths {}
+  const addHoursWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace addHoursWithOptions {
 
-  const addQuarters: CurriedFn2<number, Date | number, Date>
-  namespace addQuarters {}
+  }
 
-  const addSeconds: CurriedFn2<number, Date | number, Date>
-  namespace addSeconds {}
+  const addISOWeekYears: CurriedFn2<number, Date | string | number, Date>
+  namespace addISOWeekYears {
 
-  const addWeeks: CurriedFn2<number, Date | number, Date>
-  namespace addWeeks {}
+  }
 
-  const addYears: CurriedFn2<number, Date | number, Date>
-  namespace addYears {}
+  const addISOWeekYearsWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace addISOWeekYearsWithOptions {
+
+  }
+
+  const addMilliseconds: CurriedFn2<number, Date | string | number, Date>
+  namespace addMilliseconds {
+
+  }
+
+  const addMillisecondsWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace addMillisecondsWithOptions {
+
+  }
+
+  const addMinutes: CurriedFn2<number, Date | string | number, Date>
+  namespace addMinutes {
+
+  }
+
+  const addMinutesWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace addMinutesWithOptions {
+
+  }
+
+  const addMonths: CurriedFn2<number, Date | string | number, Date>
+  namespace addMonths {
+
+  }
+
+  const addMonthsWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace addMonthsWithOptions {
+
+  }
+
+  const addQuarters: CurriedFn2<number, Date | string | number, Date>
+  namespace addQuarters {
+
+  }
+
+  const addQuartersWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace addQuartersWithOptions {
+
+  }
+
+  const addSeconds: CurriedFn2<number, Date | string | number, Date>
+  namespace addSeconds {
+
+  }
+
+  const addSecondsWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace addSecondsWithOptions {
+
+  }
+
+  const addWeeks: CurriedFn2<number, Date | string | number, Date>
+  namespace addWeeks {
+
+  }
+
+  const addWeeksWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace addWeeksWithOptions {
+
+  }
+
+  const addYears: CurriedFn2<number, Date | string | number, Date>
+  namespace addYears {
+
+  }
+
+  const addYearsWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace addYearsWithOptions {
+
+  }
 
   const areIntervalsOverlapping: CurriedFn2<Interval, Interval, boolean>
-  namespace areIntervalsOverlapping {}
+  namespace areIntervalsOverlapping {
 
-  const closestIndexTo: CurriedFn2<(Date | number)[], Date | number, number>
-  namespace closestIndexTo {}
+  }
 
-  const closestTo: CurriedFn2<(Date | number)[], Date | number, Date>
-  namespace closestTo {}
-
-  const compareAsc: CurriedFn2<Date | number, Date | number, number>
-  namespace compareAsc {}
-
-  const compareDesc: CurriedFn2<Date | number, Date | number, number>
-  namespace compareDesc {}
-
-  const differenceInBusinessDays: CurriedFn2<
-    Date | number,
-    Date | number,
-    number
-  >
-  namespace differenceInBusinessDays {}
-
-  const differenceInCalendarDays: CurriedFn2<
-    Date | number,
-    Date | number,
-    number
-  >
-  namespace differenceInCalendarDays {}
-
-  const differenceInCalendarISOWeeks: CurriedFn2<
-    Date | number,
-    Date | number,
-    number
-  >
-  namespace differenceInCalendarISOWeeks {}
-
-  const differenceInCalendarISOWeekYears: CurriedFn2<
-    Date | number,
-    Date | number,
-    number
-  >
-  namespace differenceInCalendarISOWeekYears {}
-
-  const differenceInCalendarMonths: CurriedFn2<
-    Date | number,
-    Date | number,
-    number
-  >
-  namespace differenceInCalendarMonths {}
-
-  const differenceInCalendarQuarters: CurriedFn2<
-    Date | number,
-    Date | number,
-    number
-  >
-  namespace differenceInCalendarQuarters {}
-
-  const differenceInCalendarWeeks: CurriedFn2<
-    Date | number,
-    Date | number,
-    number
-  >
-  namespace differenceInCalendarWeeks {}
-
-  const differenceInCalendarWeeksWithOptions: CurriedFn3<
-    Object,
-    Date | number,
-    Date | number,
-    number
-  >
-  namespace differenceInCalendarWeeksWithOptions {}
-
-  const differenceInCalendarYears: CurriedFn2<
-    Date | number,
-    Date | number,
-    number
-  >
-  namespace differenceInCalendarYears {}
-
-  const differenceInDays: CurriedFn2<Date | number, Date | number, number>
-  namespace differenceInDays {}
-
-  const differenceInHours: CurriedFn2<Date | number, Date | number, number>
-  namespace differenceInHours {}
-
-  const differenceInISOWeekYears: CurriedFn2<
-    Date | number,
-    Date | number,
-    number
-  >
-  namespace differenceInISOWeekYears {}
-
-  const differenceInMilliseconds: CurriedFn2<
-    Date | number,
-    Date | number,
-    number
-  >
-  namespace differenceInMilliseconds {}
-
-  const differenceInMinutes: CurriedFn2<Date | number, Date | number, number>
-  namespace differenceInMinutes {}
-
-  const differenceInMonths: CurriedFn2<Date | number, Date | number, number>
-  namespace differenceInMonths {}
-
-  const differenceInQuarters: CurriedFn2<Date | number, Date | number, number>
-  namespace differenceInQuarters {}
-
-  const differenceInSeconds: CurriedFn2<Date | number, Date | number, number>
-  namespace differenceInSeconds {}
-
-  const differenceInWeeks: CurriedFn2<Date | number, Date | number, number>
-  namespace differenceInWeeks {}
-
-  const differenceInYears: CurriedFn2<Date | number, Date | number, number>
-  namespace differenceInYears {}
-
-  const eachDayOfInterval: CurriedFn1<Interval, Date[]>
-  namespace eachDayOfInterval {}
-
-  const eachDayOfIntervalWithOptions: CurriedFn2<Object, Interval, Date[]>
-  namespace eachDayOfIntervalWithOptions {}
-
-  const eachWeekendOfInterval: CurriedFn1<Interval, Date[]>
-  namespace eachWeekendOfInterval {}
-
-  const eachWeekendOfMonth: CurriedFn1<Date | number, Date[]>
-  namespace eachWeekendOfMonth {}
-
-  const eachWeekendOfYear: CurriedFn1<Date | number, Date[]>
-  namespace eachWeekendOfYear {}
-
-  const eachWeekOfInterval: CurriedFn1<Interval, Date[]>
-  namespace eachWeekOfInterval {}
-
-  const eachWeekOfIntervalWithOptions: CurriedFn2<Object, Interval, Date[]>
-  namespace eachWeekOfIntervalWithOptions {}
-
-  const endOfDay: CurriedFn1<Date | number, Date>
-  namespace endOfDay {}
-
-  const endOfDecade: CurriedFn1<Date | number, Date>
-  namespace endOfDecade {}
-
-  const endOfDecadeWithOptions: CurriedFn2<Object, Date | number, Date>
-  namespace endOfDecadeWithOptions {}
-
-  const endOfHour: CurriedFn1<Date | number, Date>
-  namespace endOfHour {}
-
-  const endOfISOWeek: CurriedFn1<Date | number, Date>
-  namespace endOfISOWeek {}
-
-  const endOfISOWeekYear: CurriedFn1<Date | number, Date>
-  namespace endOfISOWeekYear {}
-
-  const endOfMinute: CurriedFn1<Date | number, Date>
-  namespace endOfMinute {}
-
-  const endOfMonth: CurriedFn1<Date | number, Date>
-  namespace endOfMonth {}
-
-  const endOfQuarter: CurriedFn1<Date | number, Date>
-  namespace endOfQuarter {}
-
-  const endOfSecond: CurriedFn1<Date | number, Date>
-  namespace endOfSecond {}
-
-  const endOfWeek: CurriedFn1<Date | number, Date>
-  namespace endOfWeek {}
-
-  const endOfWeekWithOptions: CurriedFn2<Object, Date | number, Date>
-  namespace endOfWeekWithOptions {}
-
-  const endOfYear: CurriedFn1<Date | number, Date>
-  namespace endOfYear {}
-
-  const format: CurriedFn2<string, Date | number, string>
-  namespace format {}
-
-  const formatDistance: CurriedFn2<Date | number, Date | number, string>
-  namespace formatDistance {}
-
-  const formatDistanceStrict: CurriedFn2<Date | number, Date | number, string>
-  namespace formatDistanceStrict {}
-
-  const formatDistanceStrictWithOptions: CurriedFn3<
-    Object,
-    Date | number,
-    Date | number,
-    string
-  >
-  namespace formatDistanceStrictWithOptions {}
-
-  const formatDistanceWithOptions: CurriedFn3<
-    Object,
-    Date | number,
-    Date | number,
-    string
-  >
-  namespace formatDistanceWithOptions {}
-
-  const formatRelative: CurriedFn2<Date | number, Date | number, string>
-  namespace formatRelative {}
-
-  const formatRelativeWithOptions: CurriedFn3<
-    Object,
-    Date | number,
-    Date | number,
-    string
-  >
-  namespace formatRelativeWithOptions {}
-
-  const formatWithOptions: CurriedFn3<Object, string, Date | number, string>
-  namespace formatWithOptions {}
-
-  const fromUnixTime: CurriedFn1<number, Date>
-  namespace fromUnixTime {}
-
-  const getDate: CurriedFn1<Date | number, number>
-  namespace getDate {}
-
-  const getDay: CurriedFn1<Date | number, number>
-  namespace getDay {}
-
-  const getDayOfYear: CurriedFn1<Date | number, number>
-  namespace getDayOfYear {}
-
-  const getDaysInMonth: CurriedFn1<Date | number, number>
-  namespace getDaysInMonth {}
-
-  const getDaysInYear: CurriedFn1<Date | number, number>
-  namespace getDaysInYear {}
-
-  const getDecade: CurriedFn1<Date | number, number>
-  namespace getDecade {}
-
-  const getHours: CurriedFn1<Date | number, number>
-  namespace getHours {}
-
-  const getISODay: CurriedFn1<Date | number, number>
-  namespace getISODay {}
-
-  const getISOWeek: CurriedFn1<Date | number, number>
-  namespace getISOWeek {}
-
-  const getISOWeeksInYear: CurriedFn1<Date | number, number>
-  namespace getISOWeeksInYear {}
-
-  const getISOWeekYear: CurriedFn1<Date | number, number>
-  namespace getISOWeekYear {}
-
-  const getMilliseconds: CurriedFn1<Date | number, number>
-  namespace getMilliseconds {}
-
-  const getMinutes: CurriedFn1<Date | number, number>
-  namespace getMinutes {}
-
-  const getMonth: CurriedFn1<Date | number, number>
-  namespace getMonth {}
-
-  const getOverlappingDaysInIntervals: CurriedFn2<Interval, Interval, number>
-  namespace getOverlappingDaysInIntervals {}
-
-  const getQuarter: CurriedFn1<Date | number, number>
-  namespace getQuarter {}
-
-  const getSeconds: CurriedFn1<Date | number, number>
-  namespace getSeconds {}
-
-  const getTime: CurriedFn1<Date | number, number>
-  namespace getTime {}
-
-  const getUnixTime: CurriedFn1<Date | number, number>
-  namespace getUnixTime {}
-
-  const getWeek: CurriedFn1<Date | number, number>
-  namespace getWeek {}
-
-  const getWeekOfMonth: CurriedFn1<Date | number, number>
-  namespace getWeekOfMonth {}
-
-  const getWeekOfMonthWithOptions: CurriedFn2<Object, Date | number, number>
-  namespace getWeekOfMonthWithOptions {}
-
-  const getWeeksInMonth: CurriedFn1<Date | number, number>
-  namespace getWeeksInMonth {}
-
-  const getWeeksInMonthWithOptions: CurriedFn2<Object, Date | number, number>
-  namespace getWeeksInMonthWithOptions {}
-
-  const getWeekWithOptions: CurriedFn2<Object, Date | number, number>
-  namespace getWeekWithOptions {}
-
-  const getWeekYear: CurriedFn1<Date | number, number>
-  namespace getWeekYear {}
-
-  const getWeekYearWithOptions: CurriedFn2<Object, Date | number, number>
-  namespace getWeekYearWithOptions {}
-
-  const getYear: CurriedFn1<Date | number, number>
-  namespace getYear {}
-
-  const isAfter: CurriedFn2<Date | number, Date | number, boolean>
-  namespace isAfter {}
-
-  const isBefore: CurriedFn2<Date | number, Date | number, boolean>
-  namespace isBefore {}
-
-  const isDate: CurriedFn1<any, boolean>
-  namespace isDate {}
-
-  const isEqual: CurriedFn2<Date | number, Date | number, boolean>
-  namespace isEqual {}
-
-  const isFirstDayOfMonth: CurriedFn1<Date | number, boolean>
-  namespace isFirstDayOfMonth {}
-
-  const isFriday: CurriedFn1<Date | number, boolean>
-  namespace isFriday {}
-
-  const isLastDayOfMonth: CurriedFn1<Date | number, boolean>
-  namespace isLastDayOfMonth {}
-
-  const isLeapYear: CurriedFn1<Date | number, boolean>
-  namespace isLeapYear {}
-
-  const isMonday: CurriedFn1<Date | number, boolean>
-  namespace isMonday {}
-
-  const isSameDay: CurriedFn2<Date | number, Date | number, boolean>
-  namespace isSameDay {}
-
-  const isSameHour: CurriedFn2<Date | number, Date | number, boolean>
-  namespace isSameHour {}
-
-  const isSameISOWeek: CurriedFn2<Date | number, Date | number, boolean>
-  namespace isSameISOWeek {}
-
-  const isSameISOWeekYear: CurriedFn2<Date | number, Date | number, boolean>
-  namespace isSameISOWeekYear {}
-
-  const isSameMinute: CurriedFn2<Date | number, Date | number, boolean>
-  namespace isSameMinute {}
-
-  const isSameMonth: CurriedFn2<Date | number, Date | number, boolean>
-  namespace isSameMonth {}
-
-  const isSameQuarter: CurriedFn2<Date | number, Date | number, boolean>
-  namespace isSameQuarter {}
-
-  const isSameSecond: CurriedFn2<Date | number, Date | number, boolean>
-  namespace isSameSecond {}
-
-  const isSameWeek: CurriedFn2<Date | number, Date | number, boolean>
-  namespace isSameWeek {}
-
-  const isSameWeekWithOptions: CurriedFn3<
-    Object,
-    Date | number,
-    Date | number,
+  const areIntervalsOverlappingWithOptions: CurriedFn3<
+    Options,
+    Interval,
+    Interval,
     boolean
   >
-  namespace isSameWeekWithOptions {}
+  namespace areIntervalsOverlappingWithOptions {
 
-  const isSameYear: CurriedFn2<Date | number, Date | number, boolean>
-  namespace isSameYear {}
+  }
 
-  const isSaturday: CurriedFn1<Date | number, boolean>
-  namespace isSaturday {}
+  const closestIndexTo: CurriedFn2<
+    (Date | string | number)[],
+    Date | string | number,
+    number
+  >
+  namespace closestIndexTo {
 
-  const isSunday: CurriedFn1<Date | number, boolean>
-  namespace isSunday {}
+  }
 
-  const isThursday: CurriedFn1<Date | number, boolean>
-  namespace isThursday {}
+  const closestIndexToWithOptions: CurriedFn3<
+    Options,
+    (Date | string | number)[],
+    Date | string | number,
+    number
+  >
+  namespace closestIndexToWithOptions {
 
-  const isTuesday: CurriedFn1<Date | number, boolean>
-  namespace isTuesday {}
+  }
+
+  const closestTo: CurriedFn2<
+    (Date | string | number)[],
+    Date | string | number,
+    Date
+  >
+  namespace closestTo {
+
+  }
+
+  const closestToWithOptions: CurriedFn3<
+    Options,
+    (Date | string | number)[],
+    Date | string | number,
+    Date
+  >
+  namespace closestToWithOptions {
+
+  }
+
+  const compareAsc: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace compareAsc {
+
+  }
+
+  const compareAscWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace compareAscWithOptions {
+
+  }
+
+  const compareDesc: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace compareDesc {
+
+  }
+
+  const compareDescWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace compareDescWithOptions {
+
+  }
+
+  const differenceInCalendarDays: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInCalendarDays {
+
+  }
+
+  const differenceInCalendarDaysWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInCalendarDaysWithOptions {
+
+  }
+
+  const differenceInCalendarISOWeeks: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInCalendarISOWeeks {
+
+  }
+
+  const differenceInCalendarISOWeeksWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInCalendarISOWeeksWithOptions {
+
+  }
+
+  const differenceInCalendarISOWeekYears: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInCalendarISOWeekYears {
+
+  }
+
+  const differenceInCalendarISOWeekYearsWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInCalendarISOWeekYearsWithOptions {
+
+  }
+
+  const differenceInCalendarMonths: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInCalendarMonths {
+
+  }
+
+  const differenceInCalendarMonthsWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInCalendarMonthsWithOptions {
+
+  }
+
+  const differenceInCalendarQuarters: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInCalendarQuarters {
+
+  }
+
+  const differenceInCalendarQuartersWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInCalendarQuartersWithOptions {
+
+  }
+
+  const differenceInCalendarWeeks: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInCalendarWeeks {
+
+  }
+
+  const differenceInCalendarWeeksWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInCalendarWeeksWithOptions {
+
+  }
+
+  const differenceInCalendarYears: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInCalendarYears {
+
+  }
+
+  const differenceInCalendarYearsWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInCalendarYearsWithOptions {
+
+  }
+
+  const differenceInDays: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInDays {
+
+  }
+
+  const differenceInDaysWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInDaysWithOptions {
+
+  }
+
+  const differenceInHours: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInHours {
+
+  }
+
+  const differenceInHoursWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInHoursWithOptions {
+
+  }
+
+  const differenceInISOWeekYears: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInISOWeekYears {
+
+  }
+
+  const differenceInISOWeekYearsWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInISOWeekYearsWithOptions {
+
+  }
+
+  const differenceInMilliseconds: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInMilliseconds {
+
+  }
+
+  const differenceInMillisecondsWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInMillisecondsWithOptions {
+
+  }
+
+  const differenceInMinutes: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInMinutes {
+
+  }
+
+  const differenceInMinutesWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInMinutesWithOptions {
+
+  }
+
+  const differenceInMonths: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInMonths {
+
+  }
+
+  const differenceInMonthsWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInMonthsWithOptions {
+
+  }
+
+  const differenceInQuarters: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInQuarters {
+
+  }
+
+  const differenceInQuartersWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInQuartersWithOptions {
+
+  }
+
+  const differenceInSeconds: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInSeconds {
+
+  }
+
+  const differenceInSecondsWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInSecondsWithOptions {
+
+  }
+
+  const differenceInWeeks: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInWeeks {
+
+  }
+
+  const differenceInWeeksWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInWeeksWithOptions {
+
+  }
+
+  const differenceInYears: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInYears {
+
+  }
+
+  const differenceInYearsWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInYearsWithOptions {
+
+  }
+
+  const eachDayOfInterval: CurriedFn1<Interval, Date[]>
+  namespace eachDayOfInterval {
+
+  }
+
+  const eachDayOfIntervalWithOptions: CurriedFn2<Options, Interval, Date[]>
+  namespace eachDayOfIntervalWithOptions {
+
+  }
+
+  const eachWeekendOfInterval: CurriedFn1<Interval, Date[]>
+  namespace eachWeekendOfInterval {
+
+  }
+
+  const eachWeekendOfIntervalWithOptions: CurriedFn2<Options, Interval, Date[]>
+  namespace eachWeekendOfIntervalWithOptions {
+
+  }
+
+  const eachWeekendOfMonth: CurriedFn1<Date | string | number, Date[]>
+  namespace eachWeekendOfMonth {
+
+  }
+
+  const eachWeekendOfMonthWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date[]
+  >
+  namespace eachWeekendOfMonthWithOptions {
+
+  }
+
+  const eachWeekendOfYear: CurriedFn1<Date | string | number, Date[]>
+  namespace eachWeekendOfYear {
+
+  }
+
+  const eachWeekendOfYearWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date[]
+  >
+  namespace eachWeekendOfYearWithOptions {
+
+  }
+
+  const eachWeekOfInterval: CurriedFn1<Interval, Date[]>
+  namespace eachWeekOfInterval {
+
+  }
+
+  const eachWeekOfIntervalWithOptions: CurriedFn2<Options, Interval, Date[]>
+  namespace eachWeekOfIntervalWithOptions {
+
+  }
+
+  const endOfDay: CurriedFn1<Date | string | number, Date>
+  namespace endOfDay {
+
+  }
+
+  const endOfDayWithOptions: CurriedFn2<Options, Date | string | number, Date>
+  namespace endOfDayWithOptions {
+
+  }
+
+  const endOfDecade: CurriedFn1<Date | string | number, Date>
+  namespace endOfDecade {
+
+  }
+
+  const endOfDecadeWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date
+  >
+  namespace endOfDecadeWithOptions {
+
+  }
+
+  const endOfHour: CurriedFn1<Date | string | number, Date>
+  namespace endOfHour {
+
+  }
+
+  const endOfHourWithOptions: CurriedFn2<Options, Date | string | number, Date>
+  namespace endOfHourWithOptions {
+
+  }
+
+  const endOfISOWeek: CurriedFn1<Date | string | number, Date>
+  namespace endOfISOWeek {
+
+  }
+
+  const endOfISOWeekWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date
+  >
+  namespace endOfISOWeekWithOptions {
+
+  }
+
+  const endOfISOWeekYear: CurriedFn1<Date | string | number, Date>
+  namespace endOfISOWeekYear {
+
+  }
+
+  const endOfISOWeekYearWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date
+  >
+  namespace endOfISOWeekYearWithOptions {
+
+  }
+
+  const endOfMinute: CurriedFn1<Date | string | number, Date>
+  namespace endOfMinute {
+
+  }
+
+  const endOfMinuteWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date
+  >
+  namespace endOfMinuteWithOptions {
+
+  }
+
+  const endOfMonth: CurriedFn1<Date | string | number, Date>
+  namespace endOfMonth {
+
+  }
+
+  const endOfMonthWithOptions: CurriedFn2<Options, Date | string | number, Date>
+  namespace endOfMonthWithOptions {
+
+  }
+
+  const endOfQuarter: CurriedFn1<Date | string | number, Date>
+  namespace endOfQuarter {
+
+  }
+
+  const endOfQuarterWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date
+  >
+  namespace endOfQuarterWithOptions {
+
+  }
+
+  const endOfSecond: CurriedFn1<Date | string | number, Date>
+  namespace endOfSecond {
+
+  }
+
+  const endOfSecondWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date
+  >
+  namespace endOfSecondWithOptions {
+
+  }
+
+  const endOfWeek: CurriedFn1<Date | string | number, Date>
+  namespace endOfWeek {
+
+  }
+
+  const endOfWeekWithOptions: CurriedFn2<Options, Date | string | number, Date>
+  namespace endOfWeekWithOptions {
+
+  }
+
+  const endOfYear: CurriedFn1<Date | string | number, Date>
+  namespace endOfYear {
+
+  }
+
+  const endOfYearWithOptions: CurriedFn2<Options, Date | string | number, Date>
+  namespace endOfYearWithOptions {
+
+  }
+
+  const format: CurriedFn2<string, Date | string | number, string>
+  namespace format {
+
+  }
+
+  const formatDistance: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    string
+  >
+  namespace formatDistance {
+
+  }
+
+  const formatDistanceStrict: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    string
+  >
+  namespace formatDistanceStrict {
+
+  }
+
+  const formatDistanceStrictWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    string
+  >
+  namespace formatDistanceStrictWithOptions {
+
+  }
+
+  const formatDistanceWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    string
+  >
+  namespace formatDistanceWithOptions {
+
+  }
+
+  const formatRelative: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    string
+  >
+  namespace formatRelative {
+
+  }
+
+  const formatRelativeWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    string
+  >
+  namespace formatRelativeWithOptions {
+
+  }
+
+  const formatWithOptions: CurriedFn3<
+    Options,
+    string,
+    Date | string | number,
+    string
+  >
+  namespace formatWithOptions {
+
+  }
+
+  const fromUnixTime: CurriedFn1<number, Date>
+  namespace fromUnixTime {
+
+  }
+
+  const fromUnixTimeWithOptions: CurriedFn2<Options, number, Date>
+  namespace fromUnixTimeWithOptions {
+
+  }
+
+  const getDate: CurriedFn1<Date | string | number, number>
+  namespace getDate {
+
+  }
+
+  const getDateWithOptions: CurriedFn2<Options, Date | string | number, number>
+  namespace getDateWithOptions {
+
+  }
+
+  const getDay: CurriedFn1<Date | string | number, number>
+  namespace getDay {
+
+  }
+
+  const getDayOfYear: CurriedFn1<Date | string | number, number>
+  namespace getDayOfYear {
+
+  }
+
+  const getDayOfYearWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    number
+  >
+  namespace getDayOfYearWithOptions {
+
+  }
+
+  const getDaysInMonth: CurriedFn1<Date | string | number, number>
+  namespace getDaysInMonth {
+
+  }
+
+  const getDaysInMonthWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    number
+  >
+  namespace getDaysInMonthWithOptions {
+
+  }
+
+  const getDaysInYear: CurriedFn1<Date | string | number, number>
+  namespace getDaysInYear {
+
+  }
+
+  const getDaysInYearWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    number
+  >
+  namespace getDaysInYearWithOptions {
+
+  }
+
+  const getDayWithOptions: CurriedFn2<Options, Date | string | number, number>
+  namespace getDayWithOptions {
+
+  }
+
+  const getDecade: CurriedFn1<Date | string | number, number>
+  namespace getDecade {
+
+  }
+
+  const getDecadeWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    number
+  >
+  namespace getDecadeWithOptions {
+
+  }
+
+  const getHours: CurriedFn1<Date | string | number, number>
+  namespace getHours {
+
+  }
+
+  const getHoursWithOptions: CurriedFn2<Options, Date | string | number, number>
+  namespace getHoursWithOptions {
+
+  }
+
+  const getISODay: CurriedFn1<Date | string | number, number>
+  namespace getISODay {
+
+  }
+
+  const getISODayWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    number
+  >
+  namespace getISODayWithOptions {
+
+  }
+
+  const getISOWeek: CurriedFn1<Date | string | number, number>
+  namespace getISOWeek {
+
+  }
+
+  const getISOWeeksInYear: CurriedFn1<Date | string | number, number>
+  namespace getISOWeeksInYear {
+
+  }
+
+  const getISOWeeksInYearWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    number
+  >
+  namespace getISOWeeksInYearWithOptions {
+
+  }
+
+  const getISOWeekWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    number
+  >
+  namespace getISOWeekWithOptions {
+
+  }
+
+  const getISOWeekYear: CurriedFn1<Date | string | number, number>
+  namespace getISOWeekYear {
+
+  }
+
+  const getISOWeekYearWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    number
+  >
+  namespace getISOWeekYearWithOptions {
+
+  }
+
+  const getMilliseconds: CurriedFn1<Date | string | number, number>
+  namespace getMilliseconds {
+
+  }
+
+  const getMillisecondsWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    number
+  >
+  namespace getMillisecondsWithOptions {
+
+  }
+
+  const getMinutes: CurriedFn1<Date | string | number, number>
+  namespace getMinutes {
+
+  }
+
+  const getMinutesWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    number
+  >
+  namespace getMinutesWithOptions {
+
+  }
+
+  const getMonth: CurriedFn1<Date | string | number, number>
+  namespace getMonth {
+
+  }
+
+  const getMonthWithOptions: CurriedFn2<Options, Date | string | number, number>
+  namespace getMonthWithOptions {
+
+  }
+
+  const getOverlappingDaysInIntervals: CurriedFn2<Interval, Interval, number>
+  namespace getOverlappingDaysInIntervals {
+
+  }
+
+  const getOverlappingDaysInIntervalsWithOptions: CurriedFn3<
+    Options,
+    Interval,
+    Interval,
+    number
+  >
+  namespace getOverlappingDaysInIntervalsWithOptions {
+
+  }
+
+  const getQuarter: CurriedFn1<Date | string | number, number>
+  namespace getQuarter {
+
+  }
+
+  const getQuarterWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    number
+  >
+  namespace getQuarterWithOptions {
+
+  }
+
+  const getSeconds: CurriedFn1<Date | string | number, number>
+  namespace getSeconds {
+
+  }
+
+  const getSecondsWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    number
+  >
+  namespace getSecondsWithOptions {
+
+  }
+
+  const getTime: CurriedFn1<Date | string | number, number>
+  namespace getTime {
+
+  }
+
+  const getTimeWithOptions: CurriedFn2<Options, Date | string | number, number>
+  namespace getTimeWithOptions {
+
+  }
+
+  const getUnixTime: CurriedFn1<Date | string | number, number>
+  namespace getUnixTime {
+
+  }
+
+  const getUnixTimeWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    number
+  >
+  namespace getUnixTimeWithOptions {
+
+  }
+
+  const getWeek: CurriedFn1<Date | string | number, number>
+  namespace getWeek {
+
+  }
+
+  const getWeekOfMonth: CurriedFn1<Date | string | number, number>
+  namespace getWeekOfMonth {
+
+  }
+
+  const getWeekOfMonthWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    number
+  >
+  namespace getWeekOfMonthWithOptions {
+
+  }
+
+  const getWeeksInMonth: CurriedFn1<Date | string | number, number>
+  namespace getWeeksInMonth {
+
+  }
+
+  const getWeeksInMonthWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    number
+  >
+  namespace getWeeksInMonthWithOptions {
+
+  }
+
+  const getWeekWithOptions: CurriedFn2<Options, Date | string | number, number>
+  namespace getWeekWithOptions {
+
+  }
+
+  const getWeekYear: CurriedFn1<Date | string | number, number>
+  namespace getWeekYear {
+
+  }
+
+  const getWeekYearWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    number
+  >
+  namespace getWeekYearWithOptions {
+
+  }
+
+  const getYear: CurriedFn1<Date | string | number, number>
+  namespace getYear {
+
+  }
+
+  const getYearWithOptions: CurriedFn2<Options, Date | string | number, number>
+  namespace getYearWithOptions {
+
+  }
+
+  const isAfter: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isAfter {
+
+  }
+
+  const isAfterWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isAfterWithOptions {
+
+  }
+
+  const isBefore: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isBefore {
+
+  }
+
+  const isBeforeWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isBeforeWithOptions {
+
+  }
+
+  const isDate: CurriedFn1<any, boolean>
+  namespace isDate {
+
+  }
+
+  const isDateWithOptions: CurriedFn2<Options, any, boolean>
+  namespace isDateWithOptions {
+
+  }
+
+  const isEqual: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isEqual {
+
+  }
+
+  const isEqualWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isEqualWithOptions {
+
+  }
+
+  const isFirstDayOfMonth: CurriedFn1<Date | string | number, boolean>
+  namespace isFirstDayOfMonth {
+
+  }
+
+  const isFirstDayOfMonthWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    boolean
+  >
+  namespace isFirstDayOfMonthWithOptions {
+
+  }
+
+  const isFriday: CurriedFn1<Date | string | number, boolean>
+  namespace isFriday {
+
+  }
+
+  const isFridayWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    boolean
+  >
+  namespace isFridayWithOptions {
+
+  }
+
+  const isLastDayOfMonth: CurriedFn1<Date | string | number, boolean>
+  namespace isLastDayOfMonth {
+
+  }
+
+  const isLastDayOfMonthWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    boolean
+  >
+  namespace isLastDayOfMonthWithOptions {
+
+  }
+
+  const isLeapYear: CurriedFn1<Date | string | number, boolean>
+  namespace isLeapYear {
+
+  }
+
+  const isLeapYearWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    boolean
+  >
+  namespace isLeapYearWithOptions {
+
+  }
+
+  const isMonday: CurriedFn1<Date | string | number, boolean>
+  namespace isMonday {
+
+  }
+
+  const isMondayWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    boolean
+  >
+  namespace isMondayWithOptions {
+
+  }
+
+  const isSameDay: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isSameDay {
+
+  }
+
+  const isSameDayWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isSameDayWithOptions {
+
+  }
+
+  const isSameHour: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isSameHour {
+
+  }
+
+  const isSameHourWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isSameHourWithOptions {
+
+  }
+
+  const isSameISOWeek: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isSameISOWeek {
+
+  }
+
+  const isSameISOWeekWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isSameISOWeekWithOptions {
+
+  }
+
+  const isSameISOWeekYear: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isSameISOWeekYear {
+
+  }
+
+  const isSameISOWeekYearWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isSameISOWeekYearWithOptions {
+
+  }
+
+  const isSameMinute: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isSameMinute {
+
+  }
+
+  const isSameMinuteWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isSameMinuteWithOptions {
+
+  }
+
+  const isSameMonth: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isSameMonth {
+
+  }
+
+  const isSameMonthWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isSameMonthWithOptions {
+
+  }
+
+  const isSameQuarter: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isSameQuarter {
+
+  }
+
+  const isSameQuarterWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isSameQuarterWithOptions {
+
+  }
+
+  const isSameSecond: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isSameSecond {
+
+  }
+
+  const isSameSecondWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isSameSecondWithOptions {
+
+  }
+
+  const isSameWeek: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isSameWeek {
+
+  }
+
+  const isSameWeekWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isSameWeekWithOptions {
+
+  }
+
+  const isSameYear: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isSameYear {
+
+  }
+
+  const isSameYearWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isSameYearWithOptions {
+
+  }
+
+  const isSaturday: CurriedFn1<Date | string | number, boolean>
+  namespace isSaturday {
+
+  }
+
+  const isSaturdayWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    boolean
+  >
+  namespace isSaturdayWithOptions {
+
+  }
+
+  const isSunday: CurriedFn1<Date | string | number, boolean>
+  namespace isSunday {
+
+  }
+
+  const isSundayWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    boolean
+  >
+  namespace isSundayWithOptions {
+
+  }
+
+  const isThursday: CurriedFn1<Date | string | number, boolean>
+  namespace isThursday {
+
+  }
+
+  const isThursdayWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    boolean
+  >
+  namespace isThursdayWithOptions {
+
+  }
+
+  const isTuesday: CurriedFn1<Date | string | number, boolean>
+  namespace isTuesday {
+
+  }
+
+  const isTuesdayWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    boolean
+  >
+  namespace isTuesdayWithOptions {
+
+  }
 
   const isValid: CurriedFn1<any, boolean>
-  namespace isValid {}
+  namespace isValid {
 
-  const isWednesday: CurriedFn1<Date | number, boolean>
-  namespace isWednesday {}
+  }
 
-  const isWeekend: CurriedFn1<Date | number, boolean>
-  namespace isWeekend {}
+  const isValidWithOptions: CurriedFn2<Options, any, boolean>
+  namespace isValidWithOptions {
 
-  const isWithinInterval: CurriedFn2<Interval, Date | number, boolean>
-  namespace isWithinInterval {}
+  }
 
-  const lastDayOfDecade: CurriedFn1<Date | number, Date>
-  namespace lastDayOfDecade {}
+  const isWednesday: CurriedFn1<Date | string | number, boolean>
+  namespace isWednesday {
 
-  const lastDayOfISOWeek: CurriedFn1<Date | number, Date>
-  namespace lastDayOfISOWeek {}
+  }
 
-  const lastDayOfISOWeekYear: CurriedFn1<Date | number, Date>
-  namespace lastDayOfISOWeekYear {}
+  const isWednesdayWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    boolean
+  >
+  namespace isWednesdayWithOptions {
 
-  const lastDayOfMonth: CurriedFn1<Date | number, Date>
-  namespace lastDayOfMonth {}
+  }
 
-  const lastDayOfQuarter: CurriedFn1<Date | number, Date>
-  namespace lastDayOfQuarter {}
+  const isWeekend: CurriedFn1<Date | string | number, boolean>
+  namespace isWeekend {
 
-  const lastDayOfQuarterWithOptions: CurriedFn2<Object, Date | number, Date>
-  namespace lastDayOfQuarterWithOptions {}
+  }
 
-  const lastDayOfWeek: CurriedFn1<Date | number, Date>
-  namespace lastDayOfWeek {}
+  const isWeekendWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    boolean
+  >
+  namespace isWeekendWithOptions {
 
-  const lastDayOfWeekWithOptions: CurriedFn2<Object, Date | number, Date>
-  namespace lastDayOfWeekWithOptions {}
+  }
 
-  const lastDayOfYear: CurriedFn1<Date | number, Date>
-  namespace lastDayOfYear {}
+  const isWithinInterval: CurriedFn2<Interval, Date | string | number, boolean>
+  namespace isWithinInterval {
 
-  const lightFormat: CurriedFn2<string, Date | number, string>
-  namespace lightFormat {}
+  }
 
-  const max: CurriedFn1<(Date | number)[], Date>
-  namespace max {}
+  const isWithinIntervalWithOptions: CurriedFn3<
+    Options,
+    Interval,
+    Date | string | number,
+    boolean
+  >
+  namespace isWithinIntervalWithOptions {
 
-  const min: CurriedFn1<(Date | number)[], Date>
-  namespace min {}
+  }
 
-  const parse: CurriedFn3<Date | number, string, string, Date>
-  namespace parse {}
+  const lastDayOfDecade: CurriedFn1<Date | string | number, Date>
+  namespace lastDayOfDecade {
 
-  const parseISO: CurriedFn1<string, Date>
-  namespace parseISO {}
+  }
 
-  const parseISOWithOptions: CurriedFn2<Object, string, Date>
-  namespace parseISOWithOptions {}
+  const lastDayOfDecadeWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date
+  >
+  namespace lastDayOfDecadeWithOptions {
+
+  }
+
+  const lastDayOfISOWeek: CurriedFn1<Date | string | number, Date>
+  namespace lastDayOfISOWeek {
+
+  }
+
+  const lastDayOfISOWeekWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date
+  >
+  namespace lastDayOfISOWeekWithOptions {
+
+  }
+
+  const lastDayOfISOWeekYear: CurriedFn1<Date | string | number, Date>
+  namespace lastDayOfISOWeekYear {
+
+  }
+
+  const lastDayOfISOWeekYearWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date
+  >
+  namespace lastDayOfISOWeekYearWithOptions {
+
+  }
+
+  const lastDayOfMonth: CurriedFn1<Date | string | number, Date>
+  namespace lastDayOfMonth {
+
+  }
+
+  const lastDayOfMonthWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date
+  >
+  namespace lastDayOfMonthWithOptions {
+
+  }
+
+  const lastDayOfQuarter: CurriedFn1<Date | string | number, Date>
+  namespace lastDayOfQuarter {
+
+  }
+
+  const lastDayOfQuarterWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date
+  >
+  namespace lastDayOfQuarterWithOptions {
+
+  }
+
+  const lastDayOfWeek: CurriedFn1<Date | string | number, Date>
+  namespace lastDayOfWeek {
+
+  }
+
+  const lastDayOfWeekWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date
+  >
+  namespace lastDayOfWeekWithOptions {
+
+  }
+
+  const lastDayOfYear: CurriedFn1<Date | string | number, Date>
+  namespace lastDayOfYear {
+
+  }
+
+  const lastDayOfYearWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date
+  >
+  namespace lastDayOfYearWithOptions {
+
+  }
+
+  const max: CurriedFn1<(Date | string | number)[], Date>
+  namespace max {
+
+  }
+
+  const maxWithOptions: CurriedFn2<Options, (Date | string | number)[], Date>
+  namespace maxWithOptions {
+
+  }
+
+  const min: CurriedFn1<(Date | string | number)[], Date>
+  namespace min {
+
+  }
+
+  const minWithOptions: CurriedFn2<Options, (Date | string | number)[], Date>
+  namespace minWithOptions {
+
+  }
+
+  const parse: CurriedFn3<Date | string | number, string, string, Date>
+  namespace parse {
+
+  }
 
   const parseWithOptions: CurriedFn4<
-    Object,
-    Date | number,
+    Options,
+    Date | string | number,
     string,
     string,
     Date
   >
-  namespace parseWithOptions {}
+  namespace parseWithOptions {
 
-  const roundToNearestMinutes: CurriedFn1<Date | number, Date>
-  namespace roundToNearestMinutes {}
+  }
 
-  const roundToNearestMinutesWithOptions: CurriedFn2<
-    Object,
-    Date | number,
+  const roundToNearestMinutes: CurriedFn2<number, Date | string | number, Date>
+  namespace roundToNearestMinutes {
+
+  }
+
+  const roundToNearestMinutesWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
     Date
   >
-  namespace roundToNearestMinutesWithOptions {}
+  namespace roundToNearestMinutesWithOptions {
 
-  const setDate: CurriedFn2<number, Date | number, Date>
-  namespace setDate {}
+  }
 
-  const setDay: CurriedFn2<number, Date | number, Date>
-  namespace setDay {}
+  const setDate: CurriedFn2<number, Date | string | number, Date>
+  namespace setDate {
 
-  const setDayOfYear: CurriedFn2<number, Date | number, Date>
-  namespace setDayOfYear {}
+  }
 
-  const setDayWithOptions: CurriedFn3<Object, number, Date | number, Date>
-  namespace setDayWithOptions {}
+  const setDateWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace setDateWithOptions {
 
-  const setHours: CurriedFn2<number, Date | number, Date>
-  namespace setHours {}
+  }
 
-  const setISODay: CurriedFn2<number, Date | number, Date>
-  namespace setISODay {}
+  const setDay: CurriedFn2<number, Date | string | number, Date>
+  namespace setDay {
 
-  const setISOWeek: CurriedFn2<number, Date | number, Date>
-  namespace setISOWeek {}
+  }
 
-  const setISOWeekYear: CurriedFn2<number, Date | number, Date>
-  namespace setISOWeekYear {}
+  const setDayOfYear: CurriedFn2<number, Date | string | number, Date>
+  namespace setDayOfYear {
 
-  const setMilliseconds: CurriedFn2<number, Date | number, Date>
-  namespace setMilliseconds {}
+  }
 
-  const setMinutes: CurriedFn2<number, Date | number, Date>
-  namespace setMinutes {}
+  const setDayOfYearWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace setDayOfYearWithOptions {
 
-  const setMonth: CurriedFn2<number, Date | number, Date>
-  namespace setMonth {}
+  }
 
-  const setQuarter: CurriedFn2<number, Date | number, Date>
-  namespace setQuarter {}
+  const setDayWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace setDayWithOptions {
 
-  const setSeconds: CurriedFn2<number, Date | number, Date>
-  namespace setSeconds {}
+  }
 
-  const setWeek: CurriedFn2<number, Date | number, Date>
-  namespace setWeek {}
+  const setHours: CurriedFn2<number, Date | string | number, Date>
+  namespace setHours {
 
-  const setWeekWithOptions: CurriedFn3<Object, number, Date | number, Date>
-  namespace setWeekWithOptions {}
+  }
 
-  const setWeekYear: CurriedFn2<number, Date | number, Date>
-  namespace setWeekYear {}
+  const setHoursWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace setHoursWithOptions {
 
-  const setWeekYearWithOptions: CurriedFn3<Object, number, Date | number, Date>
-  namespace setWeekYearWithOptions {}
+  }
 
-  const setYear: CurriedFn2<number, Date | number, Date>
-  namespace setYear {}
+  const setISODay: CurriedFn2<number, Date | string | number, Date>
+  namespace setISODay {
 
-  const startOfDay: CurriedFn1<Date | number, Date>
-  namespace startOfDay {}
+  }
 
-  const startOfDecade: CurriedFn1<Date | number, Date>
-  namespace startOfDecade {}
+  const setISODayWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace setISODayWithOptions {
 
-  const startOfHour: CurriedFn1<Date | number, Date>
-  namespace startOfHour {}
+  }
 
-  const startOfISOWeek: CurriedFn1<Date | number, Date>
-  namespace startOfISOWeek {}
+  const setISOWeek: CurriedFn2<number, Date | string | number, Date>
+  namespace setISOWeek {
 
-  const startOfISOWeekYear: CurriedFn1<Date | number, Date>
-  namespace startOfISOWeekYear {}
+  }
 
-  const startOfMinute: CurriedFn1<Date | number, Date>
-  namespace startOfMinute {}
+  const setISOWeekWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace setISOWeekWithOptions {
 
-  const startOfMonth: CurriedFn1<Date | number, Date>
-  namespace startOfMonth {}
+  }
 
-  const startOfQuarter: CurriedFn1<Date | number, Date>
-  namespace startOfQuarter {}
+  const setISOWeekYear: CurriedFn2<number, Date | string | number, Date>
+  namespace setISOWeekYear {
 
-  const startOfSecond: CurriedFn1<Date | number, Date>
-  namespace startOfSecond {}
+  }
 
-  const startOfWeek: CurriedFn1<Date | number, Date>
-  namespace startOfWeek {}
+  const setISOWeekYearWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace setISOWeekYearWithOptions {
 
-  const startOfWeekWithOptions: CurriedFn2<Object, Date | number, Date>
-  namespace startOfWeekWithOptions {}
+  }
 
-  const startOfWeekYear: CurriedFn1<Date | number, Date>
-  namespace startOfWeekYear {}
+  const setMilliseconds: CurriedFn2<number, Date | string | number, Date>
+  namespace setMilliseconds {
 
-  const startOfWeekYearWithOptions: CurriedFn2<Object, Date | number, Date>
-  namespace startOfWeekYearWithOptions {}
+  }
 
-  const startOfYear: CurriedFn1<Date | number, Date>
-  namespace startOfYear {}
+  const setMillisecondsWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace setMillisecondsWithOptions {
 
-  const subDays: CurriedFn2<number, Date | number, Date>
-  namespace subDays {}
+  }
 
-  const subHours: CurriedFn2<number, Date | number, Date>
-  namespace subHours {}
+  const setMinutes: CurriedFn2<number, Date | string | number, Date>
+  namespace setMinutes {
 
-  const subISOWeekYears: CurriedFn2<number, Date | number, Date>
-  namespace subISOWeekYears {}
+  }
 
-  const subMilliseconds: CurriedFn2<number, Date | number, Date>
-  namespace subMilliseconds {}
+  const setMinutesWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace setMinutesWithOptions {
 
-  const subMinutes: CurriedFn2<number, Date | number, Date>
-  namespace subMinutes {}
+  }
 
-  const subMonths: CurriedFn2<number, Date | number, Date>
-  namespace subMonths {}
+  const setMonth: CurriedFn2<number, Date | string | number, Date>
+  namespace setMonth {
 
-  const subQuarters: CurriedFn2<number, Date | number, Date>
-  namespace subQuarters {}
+  }
 
-  const subSeconds: CurriedFn2<number, Date | number, Date>
-  namespace subSeconds {}
+  const setMonthWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace setMonthWithOptions {
 
-  const subWeeks: CurriedFn2<number, Date | number, Date>
-  namespace subWeeks {}
+  }
 
-  const subYears: CurriedFn2<number, Date | number, Date>
-  namespace subYears {}
+  const setQuarter: CurriedFn2<number, Date | string | number, Date>
+  namespace setQuarter {
 
-  const toDate: CurriedFn1<Date | number, Date>
-  namespace toDate {}
+  }
 
-  const maxTime: number
+  const setQuarterWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace setQuarterWithOptions {
 
-  const minTime: number
-}
+  }
 
-declare module 'date-fns/fp/addBusinessDays' {
-  import { addBusinessDays } from 'date-fns/fp'
-  export = addBusinessDays
+  const setSeconds: CurriedFn2<number, Date | string | number, Date>
+  namespace setSeconds {
+
+  }
+
+  const setSecondsWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace setSecondsWithOptions {
+
+  }
+
+  const setWeek: CurriedFn2<number, Date | string | number, Date>
+  namespace setWeek {
+
+  }
+
+  const setWeekWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace setWeekWithOptions {
+
+  }
+
+  const setWeekYear: CurriedFn2<number, Date | string | number, Date>
+  namespace setWeekYear {
+
+  }
+
+  const setWeekYearWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace setWeekYearWithOptions {
+
+  }
+
+  const setYear: CurriedFn2<number, Date | string | number, Date>
+  namespace setYear {
+
+  }
+
+  const setYearWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace setYearWithOptions {
+
+  }
+
+  const startOfDay: CurriedFn1<Date | string | number, Date>
+  namespace startOfDay {
+
+  }
+
+  const startOfDayWithOptions: CurriedFn2<Options, Date | string | number, Date>
+  namespace startOfDayWithOptions {
+
+  }
+
+  const startOfDecade: CurriedFn1<Date | string | number, Date>
+  namespace startOfDecade {
+
+  }
+
+  const startOfDecadeWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date
+  >
+  namespace startOfDecadeWithOptions {
+
+  }
+
+  const startOfHour: CurriedFn1<Date | string | number, Date>
+  namespace startOfHour {
+
+  }
+
+  const startOfHourWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date
+  >
+  namespace startOfHourWithOptions {
+
+  }
+
+  const startOfISOWeek: CurriedFn1<Date | string | number, Date>
+  namespace startOfISOWeek {
+
+  }
+
+  const startOfISOWeekWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date
+  >
+  namespace startOfISOWeekWithOptions {
+
+  }
+
+  const startOfISOWeekYear: CurriedFn1<Date | string | number, Date>
+  namespace startOfISOWeekYear {
+
+  }
+
+  const startOfISOWeekYearWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date
+  >
+  namespace startOfISOWeekYearWithOptions {
+
+  }
+
+  const startOfMinute: CurriedFn1<Date | string | number, Date>
+  namespace startOfMinute {
+
+  }
+
+  const startOfMinuteWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date
+  >
+  namespace startOfMinuteWithOptions {
+
+  }
+
+  const startOfMonth: CurriedFn1<Date | string | number, Date>
+  namespace startOfMonth {
+
+  }
+
+  const startOfMonthWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date
+  >
+  namespace startOfMonthWithOptions {
+
+  }
+
+  const startOfQuarter: CurriedFn1<Date | string | number, Date>
+  namespace startOfQuarter {
+
+  }
+
+  const startOfQuarterWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date
+  >
+  namespace startOfQuarterWithOptions {
+
+  }
+
+  const startOfSecond: CurriedFn1<Date | string | number, Date>
+  namespace startOfSecond {
+
+  }
+
+  const startOfSecondWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date
+  >
+  namespace startOfSecondWithOptions {
+
+  }
+
+  const startOfWeek: CurriedFn1<Date | string | number, Date>
+  namespace startOfWeek {
+
+  }
+
+  const startOfWeekWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date
+  >
+  namespace startOfWeekWithOptions {
+
+  }
+
+  const startOfWeekYear: CurriedFn1<Date | string | number, Date>
+  namespace startOfWeekYear {
+
+  }
+
+  const startOfWeekYearWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date
+  >
+  namespace startOfWeekYearWithOptions {
+
+  }
+
+  const startOfYear: CurriedFn1<Date | string | number, Date>
+  namespace startOfYear {
+
+  }
+
+  const startOfYearWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date
+  >
+  namespace startOfYearWithOptions {
+
+  }
+
+  const subDays: CurriedFn2<number, Date | string | number, Date>
+  namespace subDays {
+
+  }
+
+  const subDaysWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace subDaysWithOptions {
+
+  }
+
+  const subHours: CurriedFn2<number, Date | string | number, Date>
+  namespace subHours {
+
+  }
+
+  const subHoursWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace subHoursWithOptions {
+
+  }
+
+  const subISOWeekYears: CurriedFn2<number, Date | string | number, Date>
+  namespace subISOWeekYears {
+
+  }
+
+  const subISOWeekYearsWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace subISOWeekYearsWithOptions {
+
+  }
+
+  const subMilliseconds: CurriedFn2<number, Date | string | number, Date>
+  namespace subMilliseconds {
+
+  }
+
+  const subMillisecondsWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace subMillisecondsWithOptions {
+
+  }
+
+  const subMinutes: CurriedFn2<number, Date | string | number, Date>
+  namespace subMinutes {
+
+  }
+
+  const subMinutesWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace subMinutesWithOptions {
+
+  }
+
+  const subMonths: CurriedFn2<number, Date | string | number, Date>
+  namespace subMonths {
+
+  }
+
+  const subMonthsWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace subMonthsWithOptions {
+
+  }
+
+  const subQuarters: CurriedFn2<number, Date | string | number, Date>
+  namespace subQuarters {
+
+  }
+
+  const subQuartersWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace subQuartersWithOptions {
+
+  }
+
+  const subSeconds: CurriedFn2<number, Date | string | number, Date>
+  namespace subSeconds {
+
+  }
+
+  const subSecondsWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace subSecondsWithOptions {
+
+  }
+
+  const subWeeks: CurriedFn2<number, Date | string | number, Date>
+  namespace subWeeks {
+
+  }
+
+  const subWeeksWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace subWeeksWithOptions {
+
+  }
+
+  const subYears: CurriedFn2<number, Date | string | number, Date>
+  namespace subYears {
+
+  }
+
+  const subYearsWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace subYearsWithOptions {
+
+  }
+
+  const toDate: CurriedFn1<Date | string | number, Date>
+  namespace toDate {
+
+  }
+
+  const toDateWithOptions: CurriedFn2<Options, Date | string | number, Date>
+  namespace toDateWithOptions {
+
+  }
 }
 
 declare module 'date-fns/fp/addDays' {
@@ -4167,9 +5806,19 @@ declare module 'date-fns/fp/addDays' {
   export = addDays
 }
 
+declare module 'date-fns/fp/addDaysWithOptions' {
+  import { addDaysWithOptions } from 'date-fns/fp'
+  export = addDaysWithOptions
+}
+
 declare module 'date-fns/fp/addHours' {
   import { addHours } from 'date-fns/fp'
   export = addHours
+}
+
+declare module 'date-fns/fp/addHoursWithOptions' {
+  import { addHoursWithOptions } from 'date-fns/fp'
+  export = addHoursWithOptions
 }
 
 declare module 'date-fns/fp/addISOWeekYears' {
@@ -4177,9 +5826,19 @@ declare module 'date-fns/fp/addISOWeekYears' {
   export = addISOWeekYears
 }
 
+declare module 'date-fns/fp/addISOWeekYearsWithOptions' {
+  import { addISOWeekYearsWithOptions } from 'date-fns/fp'
+  export = addISOWeekYearsWithOptions
+}
+
 declare module 'date-fns/fp/addMilliseconds' {
   import { addMilliseconds } from 'date-fns/fp'
   export = addMilliseconds
+}
+
+declare module 'date-fns/fp/addMillisecondsWithOptions' {
+  import { addMillisecondsWithOptions } from 'date-fns/fp'
+  export = addMillisecondsWithOptions
 }
 
 declare module 'date-fns/fp/addMinutes' {
@@ -4187,9 +5846,19 @@ declare module 'date-fns/fp/addMinutes' {
   export = addMinutes
 }
 
+declare module 'date-fns/fp/addMinutesWithOptions' {
+  import { addMinutesWithOptions } from 'date-fns/fp'
+  export = addMinutesWithOptions
+}
+
 declare module 'date-fns/fp/addMonths' {
   import { addMonths } from 'date-fns/fp'
   export = addMonths
+}
+
+declare module 'date-fns/fp/addMonthsWithOptions' {
+  import { addMonthsWithOptions } from 'date-fns/fp'
+  export = addMonthsWithOptions
 }
 
 declare module 'date-fns/fp/addQuarters' {
@@ -4197,9 +5866,19 @@ declare module 'date-fns/fp/addQuarters' {
   export = addQuarters
 }
 
+declare module 'date-fns/fp/addQuartersWithOptions' {
+  import { addQuartersWithOptions } from 'date-fns/fp'
+  export = addQuartersWithOptions
+}
+
 declare module 'date-fns/fp/addSeconds' {
   import { addSeconds } from 'date-fns/fp'
   export = addSeconds
+}
+
+declare module 'date-fns/fp/addSecondsWithOptions' {
+  import { addSecondsWithOptions } from 'date-fns/fp'
+  export = addSecondsWithOptions
 }
 
 declare module 'date-fns/fp/addWeeks' {
@@ -4207,9 +5886,19 @@ declare module 'date-fns/fp/addWeeks' {
   export = addWeeks
 }
 
+declare module 'date-fns/fp/addWeeksWithOptions' {
+  import { addWeeksWithOptions } from 'date-fns/fp'
+  export = addWeeksWithOptions
+}
+
 declare module 'date-fns/fp/addYears' {
   import { addYears } from 'date-fns/fp'
   export = addYears
+}
+
+declare module 'date-fns/fp/addYearsWithOptions' {
+  import { addYearsWithOptions } from 'date-fns/fp'
+  export = addYearsWithOptions
 }
 
 declare module 'date-fns/fp/areIntervalsOverlapping' {
@@ -4217,9 +5906,19 @@ declare module 'date-fns/fp/areIntervalsOverlapping' {
   export = areIntervalsOverlapping
 }
 
+declare module 'date-fns/fp/areIntervalsOverlappingWithOptions' {
+  import { areIntervalsOverlappingWithOptions } from 'date-fns/fp'
+  export = areIntervalsOverlappingWithOptions
+}
+
 declare module 'date-fns/fp/closestIndexTo' {
   import { closestIndexTo } from 'date-fns/fp'
   export = closestIndexTo
+}
+
+declare module 'date-fns/fp/closestIndexToWithOptions' {
+  import { closestIndexToWithOptions } from 'date-fns/fp'
+  export = closestIndexToWithOptions
 }
 
 declare module 'date-fns/fp/closestTo' {
@@ -4227,9 +5926,19 @@ declare module 'date-fns/fp/closestTo' {
   export = closestTo
 }
 
+declare module 'date-fns/fp/closestToWithOptions' {
+  import { closestToWithOptions } from 'date-fns/fp'
+  export = closestToWithOptions
+}
+
 declare module 'date-fns/fp/compareAsc' {
   import { compareAsc } from 'date-fns/fp'
   export = compareAsc
+}
+
+declare module 'date-fns/fp/compareAscWithOptions' {
+  import { compareAscWithOptions } from 'date-fns/fp'
+  export = compareAscWithOptions
 }
 
 declare module 'date-fns/fp/compareDesc' {
@@ -4237,9 +5946,9 @@ declare module 'date-fns/fp/compareDesc' {
   export = compareDesc
 }
 
-declare module 'date-fns/fp/differenceInBusinessDays' {
-  import { differenceInBusinessDays } from 'date-fns/fp'
-  export = differenceInBusinessDays
+declare module 'date-fns/fp/compareDescWithOptions' {
+  import { compareDescWithOptions } from 'date-fns/fp'
+  export = compareDescWithOptions
 }
 
 declare module 'date-fns/fp/differenceInCalendarDays' {
@@ -4247,9 +5956,19 @@ declare module 'date-fns/fp/differenceInCalendarDays' {
   export = differenceInCalendarDays
 }
 
+declare module 'date-fns/fp/differenceInCalendarDaysWithOptions' {
+  import { differenceInCalendarDaysWithOptions } from 'date-fns/fp'
+  export = differenceInCalendarDaysWithOptions
+}
+
 declare module 'date-fns/fp/differenceInCalendarISOWeeks' {
   import { differenceInCalendarISOWeeks } from 'date-fns/fp'
   export = differenceInCalendarISOWeeks
+}
+
+declare module 'date-fns/fp/differenceInCalendarISOWeeksWithOptions' {
+  import { differenceInCalendarISOWeeksWithOptions } from 'date-fns/fp'
+  export = differenceInCalendarISOWeeksWithOptions
 }
 
 declare module 'date-fns/fp/differenceInCalendarISOWeekYears' {
@@ -4257,14 +5976,29 @@ declare module 'date-fns/fp/differenceInCalendarISOWeekYears' {
   export = differenceInCalendarISOWeekYears
 }
 
+declare module 'date-fns/fp/differenceInCalendarISOWeekYearsWithOptions' {
+  import { differenceInCalendarISOWeekYearsWithOptions } from 'date-fns/fp'
+  export = differenceInCalendarISOWeekYearsWithOptions
+}
+
 declare module 'date-fns/fp/differenceInCalendarMonths' {
   import { differenceInCalendarMonths } from 'date-fns/fp'
   export = differenceInCalendarMonths
 }
 
+declare module 'date-fns/fp/differenceInCalendarMonthsWithOptions' {
+  import { differenceInCalendarMonthsWithOptions } from 'date-fns/fp'
+  export = differenceInCalendarMonthsWithOptions
+}
+
 declare module 'date-fns/fp/differenceInCalendarQuarters' {
   import { differenceInCalendarQuarters } from 'date-fns/fp'
   export = differenceInCalendarQuarters
+}
+
+declare module 'date-fns/fp/differenceInCalendarQuartersWithOptions' {
+  import { differenceInCalendarQuartersWithOptions } from 'date-fns/fp'
+  export = differenceInCalendarQuartersWithOptions
 }
 
 declare module 'date-fns/fp/differenceInCalendarWeeks' {
@@ -4282,9 +6016,19 @@ declare module 'date-fns/fp/differenceInCalendarYears' {
   export = differenceInCalendarYears
 }
 
+declare module 'date-fns/fp/differenceInCalendarYearsWithOptions' {
+  import { differenceInCalendarYearsWithOptions } from 'date-fns/fp'
+  export = differenceInCalendarYearsWithOptions
+}
+
 declare module 'date-fns/fp/differenceInDays' {
   import { differenceInDays } from 'date-fns/fp'
   export = differenceInDays
+}
+
+declare module 'date-fns/fp/differenceInDaysWithOptions' {
+  import { differenceInDaysWithOptions } from 'date-fns/fp'
+  export = differenceInDaysWithOptions
 }
 
 declare module 'date-fns/fp/differenceInHours' {
@@ -4292,9 +6036,19 @@ declare module 'date-fns/fp/differenceInHours' {
   export = differenceInHours
 }
 
+declare module 'date-fns/fp/differenceInHoursWithOptions' {
+  import { differenceInHoursWithOptions } from 'date-fns/fp'
+  export = differenceInHoursWithOptions
+}
+
 declare module 'date-fns/fp/differenceInISOWeekYears' {
   import { differenceInISOWeekYears } from 'date-fns/fp'
   export = differenceInISOWeekYears
+}
+
+declare module 'date-fns/fp/differenceInISOWeekYearsWithOptions' {
+  import { differenceInISOWeekYearsWithOptions } from 'date-fns/fp'
+  export = differenceInISOWeekYearsWithOptions
 }
 
 declare module 'date-fns/fp/differenceInMilliseconds' {
@@ -4302,9 +6056,19 @@ declare module 'date-fns/fp/differenceInMilliseconds' {
   export = differenceInMilliseconds
 }
 
+declare module 'date-fns/fp/differenceInMillisecondsWithOptions' {
+  import { differenceInMillisecondsWithOptions } from 'date-fns/fp'
+  export = differenceInMillisecondsWithOptions
+}
+
 declare module 'date-fns/fp/differenceInMinutes' {
   import { differenceInMinutes } from 'date-fns/fp'
   export = differenceInMinutes
+}
+
+declare module 'date-fns/fp/differenceInMinutesWithOptions' {
+  import { differenceInMinutesWithOptions } from 'date-fns/fp'
+  export = differenceInMinutesWithOptions
 }
 
 declare module 'date-fns/fp/differenceInMonths' {
@@ -4312,9 +6076,19 @@ declare module 'date-fns/fp/differenceInMonths' {
   export = differenceInMonths
 }
 
+declare module 'date-fns/fp/differenceInMonthsWithOptions' {
+  import { differenceInMonthsWithOptions } from 'date-fns/fp'
+  export = differenceInMonthsWithOptions
+}
+
 declare module 'date-fns/fp/differenceInQuarters' {
   import { differenceInQuarters } from 'date-fns/fp'
   export = differenceInQuarters
+}
+
+declare module 'date-fns/fp/differenceInQuartersWithOptions' {
+  import { differenceInQuartersWithOptions } from 'date-fns/fp'
+  export = differenceInQuartersWithOptions
 }
 
 declare module 'date-fns/fp/differenceInSeconds' {
@@ -4322,14 +6096,29 @@ declare module 'date-fns/fp/differenceInSeconds' {
   export = differenceInSeconds
 }
 
+declare module 'date-fns/fp/differenceInSecondsWithOptions' {
+  import { differenceInSecondsWithOptions } from 'date-fns/fp'
+  export = differenceInSecondsWithOptions
+}
+
 declare module 'date-fns/fp/differenceInWeeks' {
   import { differenceInWeeks } from 'date-fns/fp'
   export = differenceInWeeks
 }
 
+declare module 'date-fns/fp/differenceInWeeksWithOptions' {
+  import { differenceInWeeksWithOptions } from 'date-fns/fp'
+  export = differenceInWeeksWithOptions
+}
+
 declare module 'date-fns/fp/differenceInYears' {
   import { differenceInYears } from 'date-fns/fp'
   export = differenceInYears
+}
+
+declare module 'date-fns/fp/differenceInYearsWithOptions' {
+  import { differenceInYearsWithOptions } from 'date-fns/fp'
+  export = differenceInYearsWithOptions
 }
 
 declare module 'date-fns/fp/eachDayOfInterval' {
@@ -4347,14 +6136,29 @@ declare module 'date-fns/fp/eachWeekendOfInterval' {
   export = eachWeekendOfInterval
 }
 
+declare module 'date-fns/fp/eachWeekendOfIntervalWithOptions' {
+  import { eachWeekendOfIntervalWithOptions } from 'date-fns/fp'
+  export = eachWeekendOfIntervalWithOptions
+}
+
 declare module 'date-fns/fp/eachWeekendOfMonth' {
   import { eachWeekendOfMonth } from 'date-fns/fp'
   export = eachWeekendOfMonth
 }
 
+declare module 'date-fns/fp/eachWeekendOfMonthWithOptions' {
+  import { eachWeekendOfMonthWithOptions } from 'date-fns/fp'
+  export = eachWeekendOfMonthWithOptions
+}
+
 declare module 'date-fns/fp/eachWeekendOfYear' {
   import { eachWeekendOfYear } from 'date-fns/fp'
   export = eachWeekendOfYear
+}
+
+declare module 'date-fns/fp/eachWeekendOfYearWithOptions' {
+  import { eachWeekendOfYearWithOptions } from 'date-fns/fp'
+  export = eachWeekendOfYearWithOptions
 }
 
 declare module 'date-fns/fp/eachWeekOfInterval' {
@@ -4372,6 +6176,11 @@ declare module 'date-fns/fp/endOfDay' {
   export = endOfDay
 }
 
+declare module 'date-fns/fp/endOfDayWithOptions' {
+  import { endOfDayWithOptions } from 'date-fns/fp'
+  export = endOfDayWithOptions
+}
+
 declare module 'date-fns/fp/endOfDecade' {
   import { endOfDecade } from 'date-fns/fp'
   export = endOfDecade
@@ -4387,9 +6196,19 @@ declare module 'date-fns/fp/endOfHour' {
   export = endOfHour
 }
 
+declare module 'date-fns/fp/endOfHourWithOptions' {
+  import { endOfHourWithOptions } from 'date-fns/fp'
+  export = endOfHourWithOptions
+}
+
 declare module 'date-fns/fp/endOfISOWeek' {
   import { endOfISOWeek } from 'date-fns/fp'
   export = endOfISOWeek
+}
+
+declare module 'date-fns/fp/endOfISOWeekWithOptions' {
+  import { endOfISOWeekWithOptions } from 'date-fns/fp'
+  export = endOfISOWeekWithOptions
 }
 
 declare module 'date-fns/fp/endOfISOWeekYear' {
@@ -4397,9 +6216,19 @@ declare module 'date-fns/fp/endOfISOWeekYear' {
   export = endOfISOWeekYear
 }
 
+declare module 'date-fns/fp/endOfISOWeekYearWithOptions' {
+  import { endOfISOWeekYearWithOptions } from 'date-fns/fp'
+  export = endOfISOWeekYearWithOptions
+}
+
 declare module 'date-fns/fp/endOfMinute' {
   import { endOfMinute } from 'date-fns/fp'
   export = endOfMinute
+}
+
+declare module 'date-fns/fp/endOfMinuteWithOptions' {
+  import { endOfMinuteWithOptions } from 'date-fns/fp'
+  export = endOfMinuteWithOptions
 }
 
 declare module 'date-fns/fp/endOfMonth' {
@@ -4407,14 +6236,29 @@ declare module 'date-fns/fp/endOfMonth' {
   export = endOfMonth
 }
 
+declare module 'date-fns/fp/endOfMonthWithOptions' {
+  import { endOfMonthWithOptions } from 'date-fns/fp'
+  export = endOfMonthWithOptions
+}
+
 declare module 'date-fns/fp/endOfQuarter' {
   import { endOfQuarter } from 'date-fns/fp'
   export = endOfQuarter
 }
 
+declare module 'date-fns/fp/endOfQuarterWithOptions' {
+  import { endOfQuarterWithOptions } from 'date-fns/fp'
+  export = endOfQuarterWithOptions
+}
+
 declare module 'date-fns/fp/endOfSecond' {
   import { endOfSecond } from 'date-fns/fp'
   export = endOfSecond
+}
+
+declare module 'date-fns/fp/endOfSecondWithOptions' {
+  import { endOfSecondWithOptions } from 'date-fns/fp'
+  export = endOfSecondWithOptions
 }
 
 declare module 'date-fns/fp/endOfWeek' {
@@ -4430,6 +6274,11 @@ declare module 'date-fns/fp/endOfWeekWithOptions' {
 declare module 'date-fns/fp/endOfYear' {
   import { endOfYear } from 'date-fns/fp'
   export = endOfYear
+}
+
+declare module 'date-fns/fp/endOfYearWithOptions' {
+  import { endOfYearWithOptions } from 'date-fns/fp'
+  export = endOfYearWithOptions
 }
 
 declare module 'date-fns/fp/format' {
@@ -4477,9 +6326,19 @@ declare module 'date-fns/fp/fromUnixTime' {
   export = fromUnixTime
 }
 
+declare module 'date-fns/fp/fromUnixTimeWithOptions' {
+  import { fromUnixTimeWithOptions } from 'date-fns/fp'
+  export = fromUnixTimeWithOptions
+}
+
 declare module 'date-fns/fp/getDate' {
   import { getDate } from 'date-fns/fp'
   export = getDate
+}
+
+declare module 'date-fns/fp/getDateWithOptions' {
+  import { getDateWithOptions } from 'date-fns/fp'
+  export = getDateWithOptions
 }
 
 declare module 'date-fns/fp/getDay' {
@@ -4492,9 +6351,19 @@ declare module 'date-fns/fp/getDayOfYear' {
   export = getDayOfYear
 }
 
+declare module 'date-fns/fp/getDayOfYearWithOptions' {
+  import { getDayOfYearWithOptions } from 'date-fns/fp'
+  export = getDayOfYearWithOptions
+}
+
 declare module 'date-fns/fp/getDaysInMonth' {
   import { getDaysInMonth } from 'date-fns/fp'
   export = getDaysInMonth
+}
+
+declare module 'date-fns/fp/getDaysInMonthWithOptions' {
+  import { getDaysInMonthWithOptions } from 'date-fns/fp'
+  export = getDaysInMonthWithOptions
 }
 
 declare module 'date-fns/fp/getDaysInYear' {
@@ -4502,9 +6371,24 @@ declare module 'date-fns/fp/getDaysInYear' {
   export = getDaysInYear
 }
 
+declare module 'date-fns/fp/getDaysInYearWithOptions' {
+  import { getDaysInYearWithOptions } from 'date-fns/fp'
+  export = getDaysInYearWithOptions
+}
+
+declare module 'date-fns/fp/getDayWithOptions' {
+  import { getDayWithOptions } from 'date-fns/fp'
+  export = getDayWithOptions
+}
+
 declare module 'date-fns/fp/getDecade' {
   import { getDecade } from 'date-fns/fp'
   export = getDecade
+}
+
+declare module 'date-fns/fp/getDecadeWithOptions' {
+  import { getDecadeWithOptions } from 'date-fns/fp'
+  export = getDecadeWithOptions
 }
 
 declare module 'date-fns/fp/getHours' {
@@ -4512,9 +6396,19 @@ declare module 'date-fns/fp/getHours' {
   export = getHours
 }
 
+declare module 'date-fns/fp/getHoursWithOptions' {
+  import { getHoursWithOptions } from 'date-fns/fp'
+  export = getHoursWithOptions
+}
+
 declare module 'date-fns/fp/getISODay' {
   import { getISODay } from 'date-fns/fp'
   export = getISODay
+}
+
+declare module 'date-fns/fp/getISODayWithOptions' {
+  import { getISODayWithOptions } from 'date-fns/fp'
+  export = getISODayWithOptions
 }
 
 declare module 'date-fns/fp/getISOWeek' {
@@ -4527,9 +6421,24 @@ declare module 'date-fns/fp/getISOWeeksInYear' {
   export = getISOWeeksInYear
 }
 
+declare module 'date-fns/fp/getISOWeeksInYearWithOptions' {
+  import { getISOWeeksInYearWithOptions } from 'date-fns/fp'
+  export = getISOWeeksInYearWithOptions
+}
+
+declare module 'date-fns/fp/getISOWeekWithOptions' {
+  import { getISOWeekWithOptions } from 'date-fns/fp'
+  export = getISOWeekWithOptions
+}
+
 declare module 'date-fns/fp/getISOWeekYear' {
   import { getISOWeekYear } from 'date-fns/fp'
   export = getISOWeekYear
+}
+
+declare module 'date-fns/fp/getISOWeekYearWithOptions' {
+  import { getISOWeekYearWithOptions } from 'date-fns/fp'
+  export = getISOWeekYearWithOptions
 }
 
 declare module 'date-fns/fp/getMilliseconds' {
@@ -4537,9 +6446,19 @@ declare module 'date-fns/fp/getMilliseconds' {
   export = getMilliseconds
 }
 
+declare module 'date-fns/fp/getMillisecondsWithOptions' {
+  import { getMillisecondsWithOptions } from 'date-fns/fp'
+  export = getMillisecondsWithOptions
+}
+
 declare module 'date-fns/fp/getMinutes' {
   import { getMinutes } from 'date-fns/fp'
   export = getMinutes
+}
+
+declare module 'date-fns/fp/getMinutesWithOptions' {
+  import { getMinutesWithOptions } from 'date-fns/fp'
+  export = getMinutesWithOptions
 }
 
 declare module 'date-fns/fp/getMonth' {
@@ -4547,9 +6466,19 @@ declare module 'date-fns/fp/getMonth' {
   export = getMonth
 }
 
+declare module 'date-fns/fp/getMonthWithOptions' {
+  import { getMonthWithOptions } from 'date-fns/fp'
+  export = getMonthWithOptions
+}
+
 declare module 'date-fns/fp/getOverlappingDaysInIntervals' {
   import { getOverlappingDaysInIntervals } from 'date-fns/fp'
   export = getOverlappingDaysInIntervals
+}
+
+declare module 'date-fns/fp/getOverlappingDaysInIntervalsWithOptions' {
+  import { getOverlappingDaysInIntervalsWithOptions } from 'date-fns/fp'
+  export = getOverlappingDaysInIntervalsWithOptions
 }
 
 declare module 'date-fns/fp/getQuarter' {
@@ -4557,9 +6486,19 @@ declare module 'date-fns/fp/getQuarter' {
   export = getQuarter
 }
 
+declare module 'date-fns/fp/getQuarterWithOptions' {
+  import { getQuarterWithOptions } from 'date-fns/fp'
+  export = getQuarterWithOptions
+}
+
 declare module 'date-fns/fp/getSeconds' {
   import { getSeconds } from 'date-fns/fp'
   export = getSeconds
+}
+
+declare module 'date-fns/fp/getSecondsWithOptions' {
+  import { getSecondsWithOptions } from 'date-fns/fp'
+  export = getSecondsWithOptions
 }
 
 declare module 'date-fns/fp/getTime' {
@@ -4567,9 +6506,19 @@ declare module 'date-fns/fp/getTime' {
   export = getTime
 }
 
+declare module 'date-fns/fp/getTimeWithOptions' {
+  import { getTimeWithOptions } from 'date-fns/fp'
+  export = getTimeWithOptions
+}
+
 declare module 'date-fns/fp/getUnixTime' {
   import { getUnixTime } from 'date-fns/fp'
   export = getUnixTime
+}
+
+declare module 'date-fns/fp/getUnixTimeWithOptions' {
+  import { getUnixTimeWithOptions } from 'date-fns/fp'
+  export = getUnixTimeWithOptions
 }
 
 declare module 'date-fns/fp/getWeek' {
@@ -4617,9 +6566,19 @@ declare module 'date-fns/fp/getYear' {
   export = getYear
 }
 
+declare module 'date-fns/fp/getYearWithOptions' {
+  import { getYearWithOptions } from 'date-fns/fp'
+  export = getYearWithOptions
+}
+
 declare module 'date-fns/fp/isAfter' {
   import { isAfter } from 'date-fns/fp'
   export = isAfter
+}
+
+declare module 'date-fns/fp/isAfterWithOptions' {
+  import { isAfterWithOptions } from 'date-fns/fp'
+  export = isAfterWithOptions
 }
 
 declare module 'date-fns/fp/isBefore' {
@@ -4627,9 +6586,19 @@ declare module 'date-fns/fp/isBefore' {
   export = isBefore
 }
 
+declare module 'date-fns/fp/isBeforeWithOptions' {
+  import { isBeforeWithOptions } from 'date-fns/fp'
+  export = isBeforeWithOptions
+}
+
 declare module 'date-fns/fp/isDate' {
   import { isDate } from 'date-fns/fp'
   export = isDate
+}
+
+declare module 'date-fns/fp/isDateWithOptions' {
+  import { isDateWithOptions } from 'date-fns/fp'
+  export = isDateWithOptions
 }
 
 declare module 'date-fns/fp/isEqual' {
@@ -4637,9 +6606,19 @@ declare module 'date-fns/fp/isEqual' {
   export = isEqual
 }
 
+declare module 'date-fns/fp/isEqualWithOptions' {
+  import { isEqualWithOptions } from 'date-fns/fp'
+  export = isEqualWithOptions
+}
+
 declare module 'date-fns/fp/isFirstDayOfMonth' {
   import { isFirstDayOfMonth } from 'date-fns/fp'
   export = isFirstDayOfMonth
+}
+
+declare module 'date-fns/fp/isFirstDayOfMonthWithOptions' {
+  import { isFirstDayOfMonthWithOptions } from 'date-fns/fp'
+  export = isFirstDayOfMonthWithOptions
 }
 
 declare module 'date-fns/fp/isFriday' {
@@ -4647,9 +6626,19 @@ declare module 'date-fns/fp/isFriday' {
   export = isFriday
 }
 
+declare module 'date-fns/fp/isFridayWithOptions' {
+  import { isFridayWithOptions } from 'date-fns/fp'
+  export = isFridayWithOptions
+}
+
 declare module 'date-fns/fp/isLastDayOfMonth' {
   import { isLastDayOfMonth } from 'date-fns/fp'
   export = isLastDayOfMonth
+}
+
+declare module 'date-fns/fp/isLastDayOfMonthWithOptions' {
+  import { isLastDayOfMonthWithOptions } from 'date-fns/fp'
+  export = isLastDayOfMonthWithOptions
 }
 
 declare module 'date-fns/fp/isLeapYear' {
@@ -4657,9 +6646,19 @@ declare module 'date-fns/fp/isLeapYear' {
   export = isLeapYear
 }
 
+declare module 'date-fns/fp/isLeapYearWithOptions' {
+  import { isLeapYearWithOptions } from 'date-fns/fp'
+  export = isLeapYearWithOptions
+}
+
 declare module 'date-fns/fp/isMonday' {
   import { isMonday } from 'date-fns/fp'
   export = isMonday
+}
+
+declare module 'date-fns/fp/isMondayWithOptions' {
+  import { isMondayWithOptions } from 'date-fns/fp'
+  export = isMondayWithOptions
 }
 
 declare module 'date-fns/fp/isSameDay' {
@@ -4667,9 +6666,19 @@ declare module 'date-fns/fp/isSameDay' {
   export = isSameDay
 }
 
+declare module 'date-fns/fp/isSameDayWithOptions' {
+  import { isSameDayWithOptions } from 'date-fns/fp'
+  export = isSameDayWithOptions
+}
+
 declare module 'date-fns/fp/isSameHour' {
   import { isSameHour } from 'date-fns/fp'
   export = isSameHour
+}
+
+declare module 'date-fns/fp/isSameHourWithOptions' {
+  import { isSameHourWithOptions } from 'date-fns/fp'
+  export = isSameHourWithOptions
 }
 
 declare module 'date-fns/fp/isSameISOWeek' {
@@ -4677,9 +6686,19 @@ declare module 'date-fns/fp/isSameISOWeek' {
   export = isSameISOWeek
 }
 
+declare module 'date-fns/fp/isSameISOWeekWithOptions' {
+  import { isSameISOWeekWithOptions } from 'date-fns/fp'
+  export = isSameISOWeekWithOptions
+}
+
 declare module 'date-fns/fp/isSameISOWeekYear' {
   import { isSameISOWeekYear } from 'date-fns/fp'
   export = isSameISOWeekYear
+}
+
+declare module 'date-fns/fp/isSameISOWeekYearWithOptions' {
+  import { isSameISOWeekYearWithOptions } from 'date-fns/fp'
+  export = isSameISOWeekYearWithOptions
 }
 
 declare module 'date-fns/fp/isSameMinute' {
@@ -4687,9 +6706,19 @@ declare module 'date-fns/fp/isSameMinute' {
   export = isSameMinute
 }
 
+declare module 'date-fns/fp/isSameMinuteWithOptions' {
+  import { isSameMinuteWithOptions } from 'date-fns/fp'
+  export = isSameMinuteWithOptions
+}
+
 declare module 'date-fns/fp/isSameMonth' {
   import { isSameMonth } from 'date-fns/fp'
   export = isSameMonth
+}
+
+declare module 'date-fns/fp/isSameMonthWithOptions' {
+  import { isSameMonthWithOptions } from 'date-fns/fp'
+  export = isSameMonthWithOptions
 }
 
 declare module 'date-fns/fp/isSameQuarter' {
@@ -4697,9 +6726,19 @@ declare module 'date-fns/fp/isSameQuarter' {
   export = isSameQuarter
 }
 
+declare module 'date-fns/fp/isSameQuarterWithOptions' {
+  import { isSameQuarterWithOptions } from 'date-fns/fp'
+  export = isSameQuarterWithOptions
+}
+
 declare module 'date-fns/fp/isSameSecond' {
   import { isSameSecond } from 'date-fns/fp'
   export = isSameSecond
+}
+
+declare module 'date-fns/fp/isSameSecondWithOptions' {
+  import { isSameSecondWithOptions } from 'date-fns/fp'
+  export = isSameSecondWithOptions
 }
 
 declare module 'date-fns/fp/isSameWeek' {
@@ -4717,9 +6756,19 @@ declare module 'date-fns/fp/isSameYear' {
   export = isSameYear
 }
 
+declare module 'date-fns/fp/isSameYearWithOptions' {
+  import { isSameYearWithOptions } from 'date-fns/fp'
+  export = isSameYearWithOptions
+}
+
 declare module 'date-fns/fp/isSaturday' {
   import { isSaturday } from 'date-fns/fp'
   export = isSaturday
+}
+
+declare module 'date-fns/fp/isSaturdayWithOptions' {
+  import { isSaturdayWithOptions } from 'date-fns/fp'
+  export = isSaturdayWithOptions
 }
 
 declare module 'date-fns/fp/isSunday' {
@@ -4727,9 +6776,19 @@ declare module 'date-fns/fp/isSunday' {
   export = isSunday
 }
 
+declare module 'date-fns/fp/isSundayWithOptions' {
+  import { isSundayWithOptions } from 'date-fns/fp'
+  export = isSundayWithOptions
+}
+
 declare module 'date-fns/fp/isThursday' {
   import { isThursday } from 'date-fns/fp'
   export = isThursday
+}
+
+declare module 'date-fns/fp/isThursdayWithOptions' {
+  import { isThursdayWithOptions } from 'date-fns/fp'
+  export = isThursdayWithOptions
 }
 
 declare module 'date-fns/fp/isTuesday' {
@@ -4737,9 +6796,19 @@ declare module 'date-fns/fp/isTuesday' {
   export = isTuesday
 }
 
+declare module 'date-fns/fp/isTuesdayWithOptions' {
+  import { isTuesdayWithOptions } from 'date-fns/fp'
+  export = isTuesdayWithOptions
+}
+
 declare module 'date-fns/fp/isValid' {
   import { isValid } from 'date-fns/fp'
   export = isValid
+}
+
+declare module 'date-fns/fp/isValidWithOptions' {
+  import { isValidWithOptions } from 'date-fns/fp'
+  export = isValidWithOptions
 }
 
 declare module 'date-fns/fp/isWednesday' {
@@ -4747,9 +6816,19 @@ declare module 'date-fns/fp/isWednesday' {
   export = isWednesday
 }
 
+declare module 'date-fns/fp/isWednesdayWithOptions' {
+  import { isWednesdayWithOptions } from 'date-fns/fp'
+  export = isWednesdayWithOptions
+}
+
 declare module 'date-fns/fp/isWeekend' {
   import { isWeekend } from 'date-fns/fp'
   export = isWeekend
+}
+
+declare module 'date-fns/fp/isWeekendWithOptions' {
+  import { isWeekendWithOptions } from 'date-fns/fp'
+  export = isWeekendWithOptions
 }
 
 declare module 'date-fns/fp/isWithinInterval' {
@@ -4757,9 +6836,19 @@ declare module 'date-fns/fp/isWithinInterval' {
   export = isWithinInterval
 }
 
+declare module 'date-fns/fp/isWithinIntervalWithOptions' {
+  import { isWithinIntervalWithOptions } from 'date-fns/fp'
+  export = isWithinIntervalWithOptions
+}
+
 declare module 'date-fns/fp/lastDayOfDecade' {
   import { lastDayOfDecade } from 'date-fns/fp'
   export = lastDayOfDecade
+}
+
+declare module 'date-fns/fp/lastDayOfDecadeWithOptions' {
+  import { lastDayOfDecadeWithOptions } from 'date-fns/fp'
+  export = lastDayOfDecadeWithOptions
 }
 
 declare module 'date-fns/fp/lastDayOfISOWeek' {
@@ -4767,14 +6856,29 @@ declare module 'date-fns/fp/lastDayOfISOWeek' {
   export = lastDayOfISOWeek
 }
 
+declare module 'date-fns/fp/lastDayOfISOWeekWithOptions' {
+  import { lastDayOfISOWeekWithOptions } from 'date-fns/fp'
+  export = lastDayOfISOWeekWithOptions
+}
+
 declare module 'date-fns/fp/lastDayOfISOWeekYear' {
   import { lastDayOfISOWeekYear } from 'date-fns/fp'
   export = lastDayOfISOWeekYear
 }
 
+declare module 'date-fns/fp/lastDayOfISOWeekYearWithOptions' {
+  import { lastDayOfISOWeekYearWithOptions } from 'date-fns/fp'
+  export = lastDayOfISOWeekYearWithOptions
+}
+
 declare module 'date-fns/fp/lastDayOfMonth' {
   import { lastDayOfMonth } from 'date-fns/fp'
   export = lastDayOfMonth
+}
+
+declare module 'date-fns/fp/lastDayOfMonthWithOptions' {
+  import { lastDayOfMonthWithOptions } from 'date-fns/fp'
+  export = lastDayOfMonthWithOptions
 }
 
 declare module 'date-fns/fp/lastDayOfQuarter' {
@@ -4802,9 +6906,9 @@ declare module 'date-fns/fp/lastDayOfYear' {
   export = lastDayOfYear
 }
 
-declare module 'date-fns/fp/lightFormat' {
-  import { lightFormat } from 'date-fns/fp'
-  export = lightFormat
+declare module 'date-fns/fp/lastDayOfYearWithOptions' {
+  import { lastDayOfYearWithOptions } from 'date-fns/fp'
+  export = lastDayOfYearWithOptions
 }
 
 declare module 'date-fns/fp/max' {
@@ -4812,24 +6916,24 @@ declare module 'date-fns/fp/max' {
   export = max
 }
 
+declare module 'date-fns/fp/maxWithOptions' {
+  import { maxWithOptions } from 'date-fns/fp'
+  export = maxWithOptions
+}
+
 declare module 'date-fns/fp/min' {
   import { min } from 'date-fns/fp'
   export = min
 }
 
+declare module 'date-fns/fp/minWithOptions' {
+  import { minWithOptions } from 'date-fns/fp'
+  export = minWithOptions
+}
+
 declare module 'date-fns/fp/parse' {
   import { parse } from 'date-fns/fp'
   export = parse
-}
-
-declare module 'date-fns/fp/parseISO' {
-  import { parseISO } from 'date-fns/fp'
-  export = parseISO
-}
-
-declare module 'date-fns/fp/parseISOWithOptions' {
-  import { parseISOWithOptions } from 'date-fns/fp'
-  export = parseISOWithOptions
 }
 
 declare module 'date-fns/fp/parseWithOptions' {
@@ -4852,6 +6956,11 @@ declare module 'date-fns/fp/setDate' {
   export = setDate
 }
 
+declare module 'date-fns/fp/setDateWithOptions' {
+  import { setDateWithOptions } from 'date-fns/fp'
+  export = setDateWithOptions
+}
+
 declare module 'date-fns/fp/setDay' {
   import { setDay } from 'date-fns/fp'
   export = setDay
@@ -4860,6 +6969,11 @@ declare module 'date-fns/fp/setDay' {
 declare module 'date-fns/fp/setDayOfYear' {
   import { setDayOfYear } from 'date-fns/fp'
   export = setDayOfYear
+}
+
+declare module 'date-fns/fp/setDayOfYearWithOptions' {
+  import { setDayOfYearWithOptions } from 'date-fns/fp'
+  export = setDayOfYearWithOptions
 }
 
 declare module 'date-fns/fp/setDayWithOptions' {
@@ -4872,9 +6986,19 @@ declare module 'date-fns/fp/setHours' {
   export = setHours
 }
 
+declare module 'date-fns/fp/setHoursWithOptions' {
+  import { setHoursWithOptions } from 'date-fns/fp'
+  export = setHoursWithOptions
+}
+
 declare module 'date-fns/fp/setISODay' {
   import { setISODay } from 'date-fns/fp'
   export = setISODay
+}
+
+declare module 'date-fns/fp/setISODayWithOptions' {
+  import { setISODayWithOptions } from 'date-fns/fp'
+  export = setISODayWithOptions
 }
 
 declare module 'date-fns/fp/setISOWeek' {
@@ -4882,9 +7006,19 @@ declare module 'date-fns/fp/setISOWeek' {
   export = setISOWeek
 }
 
+declare module 'date-fns/fp/setISOWeekWithOptions' {
+  import { setISOWeekWithOptions } from 'date-fns/fp'
+  export = setISOWeekWithOptions
+}
+
 declare module 'date-fns/fp/setISOWeekYear' {
   import { setISOWeekYear } from 'date-fns/fp'
   export = setISOWeekYear
+}
+
+declare module 'date-fns/fp/setISOWeekYearWithOptions' {
+  import { setISOWeekYearWithOptions } from 'date-fns/fp'
+  export = setISOWeekYearWithOptions
 }
 
 declare module 'date-fns/fp/setMilliseconds' {
@@ -4892,9 +7026,19 @@ declare module 'date-fns/fp/setMilliseconds' {
   export = setMilliseconds
 }
 
+declare module 'date-fns/fp/setMillisecondsWithOptions' {
+  import { setMillisecondsWithOptions } from 'date-fns/fp'
+  export = setMillisecondsWithOptions
+}
+
 declare module 'date-fns/fp/setMinutes' {
   import { setMinutes } from 'date-fns/fp'
   export = setMinutes
+}
+
+declare module 'date-fns/fp/setMinutesWithOptions' {
+  import { setMinutesWithOptions } from 'date-fns/fp'
+  export = setMinutesWithOptions
 }
 
 declare module 'date-fns/fp/setMonth' {
@@ -4902,14 +7046,29 @@ declare module 'date-fns/fp/setMonth' {
   export = setMonth
 }
 
+declare module 'date-fns/fp/setMonthWithOptions' {
+  import { setMonthWithOptions } from 'date-fns/fp'
+  export = setMonthWithOptions
+}
+
 declare module 'date-fns/fp/setQuarter' {
   import { setQuarter } from 'date-fns/fp'
   export = setQuarter
 }
 
+declare module 'date-fns/fp/setQuarterWithOptions' {
+  import { setQuarterWithOptions } from 'date-fns/fp'
+  export = setQuarterWithOptions
+}
+
 declare module 'date-fns/fp/setSeconds' {
   import { setSeconds } from 'date-fns/fp'
   export = setSeconds
+}
+
+declare module 'date-fns/fp/setSecondsWithOptions' {
+  import { setSecondsWithOptions } from 'date-fns/fp'
+  export = setSecondsWithOptions
 }
 
 declare module 'date-fns/fp/setWeek' {
@@ -4937,9 +7096,19 @@ declare module 'date-fns/fp/setYear' {
   export = setYear
 }
 
+declare module 'date-fns/fp/setYearWithOptions' {
+  import { setYearWithOptions } from 'date-fns/fp'
+  export = setYearWithOptions
+}
+
 declare module 'date-fns/fp/startOfDay' {
   import { startOfDay } from 'date-fns/fp'
   export = startOfDay
+}
+
+declare module 'date-fns/fp/startOfDayWithOptions' {
+  import { startOfDayWithOptions } from 'date-fns/fp'
+  export = startOfDayWithOptions
 }
 
 declare module 'date-fns/fp/startOfDecade' {
@@ -4947,9 +7116,19 @@ declare module 'date-fns/fp/startOfDecade' {
   export = startOfDecade
 }
 
+declare module 'date-fns/fp/startOfDecadeWithOptions' {
+  import { startOfDecadeWithOptions } from 'date-fns/fp'
+  export = startOfDecadeWithOptions
+}
+
 declare module 'date-fns/fp/startOfHour' {
   import { startOfHour } from 'date-fns/fp'
   export = startOfHour
+}
+
+declare module 'date-fns/fp/startOfHourWithOptions' {
+  import { startOfHourWithOptions } from 'date-fns/fp'
+  export = startOfHourWithOptions
 }
 
 declare module 'date-fns/fp/startOfISOWeek' {
@@ -4957,9 +7136,19 @@ declare module 'date-fns/fp/startOfISOWeek' {
   export = startOfISOWeek
 }
 
+declare module 'date-fns/fp/startOfISOWeekWithOptions' {
+  import { startOfISOWeekWithOptions } from 'date-fns/fp'
+  export = startOfISOWeekWithOptions
+}
+
 declare module 'date-fns/fp/startOfISOWeekYear' {
   import { startOfISOWeekYear } from 'date-fns/fp'
   export = startOfISOWeekYear
+}
+
+declare module 'date-fns/fp/startOfISOWeekYearWithOptions' {
+  import { startOfISOWeekYearWithOptions } from 'date-fns/fp'
+  export = startOfISOWeekYearWithOptions
 }
 
 declare module 'date-fns/fp/startOfMinute' {
@@ -4967,9 +7156,19 @@ declare module 'date-fns/fp/startOfMinute' {
   export = startOfMinute
 }
 
+declare module 'date-fns/fp/startOfMinuteWithOptions' {
+  import { startOfMinuteWithOptions } from 'date-fns/fp'
+  export = startOfMinuteWithOptions
+}
+
 declare module 'date-fns/fp/startOfMonth' {
   import { startOfMonth } from 'date-fns/fp'
   export = startOfMonth
+}
+
+declare module 'date-fns/fp/startOfMonthWithOptions' {
+  import { startOfMonthWithOptions } from 'date-fns/fp'
+  export = startOfMonthWithOptions
 }
 
 declare module 'date-fns/fp/startOfQuarter' {
@@ -4977,9 +7176,19 @@ declare module 'date-fns/fp/startOfQuarter' {
   export = startOfQuarter
 }
 
+declare module 'date-fns/fp/startOfQuarterWithOptions' {
+  import { startOfQuarterWithOptions } from 'date-fns/fp'
+  export = startOfQuarterWithOptions
+}
+
 declare module 'date-fns/fp/startOfSecond' {
   import { startOfSecond } from 'date-fns/fp'
   export = startOfSecond
+}
+
+declare module 'date-fns/fp/startOfSecondWithOptions' {
+  import { startOfSecondWithOptions } from 'date-fns/fp'
+  export = startOfSecondWithOptions
 }
 
 declare module 'date-fns/fp/startOfWeek' {
@@ -5007,9 +7216,19 @@ declare module 'date-fns/fp/startOfYear' {
   export = startOfYear
 }
 
+declare module 'date-fns/fp/startOfYearWithOptions' {
+  import { startOfYearWithOptions } from 'date-fns/fp'
+  export = startOfYearWithOptions
+}
+
 declare module 'date-fns/fp/subDays' {
   import { subDays } from 'date-fns/fp'
   export = subDays
+}
+
+declare module 'date-fns/fp/subDaysWithOptions' {
+  import { subDaysWithOptions } from 'date-fns/fp'
+  export = subDaysWithOptions
 }
 
 declare module 'date-fns/fp/subHours' {
@@ -5017,9 +7236,19 @@ declare module 'date-fns/fp/subHours' {
   export = subHours
 }
 
+declare module 'date-fns/fp/subHoursWithOptions' {
+  import { subHoursWithOptions } from 'date-fns/fp'
+  export = subHoursWithOptions
+}
+
 declare module 'date-fns/fp/subISOWeekYears' {
   import { subISOWeekYears } from 'date-fns/fp'
   export = subISOWeekYears
+}
+
+declare module 'date-fns/fp/subISOWeekYearsWithOptions' {
+  import { subISOWeekYearsWithOptions } from 'date-fns/fp'
+  export = subISOWeekYearsWithOptions
 }
 
 declare module 'date-fns/fp/subMilliseconds' {
@@ -5027,9 +7256,19 @@ declare module 'date-fns/fp/subMilliseconds' {
   export = subMilliseconds
 }
 
+declare module 'date-fns/fp/subMillisecondsWithOptions' {
+  import { subMillisecondsWithOptions } from 'date-fns/fp'
+  export = subMillisecondsWithOptions
+}
+
 declare module 'date-fns/fp/subMinutes' {
   import { subMinutes } from 'date-fns/fp'
   export = subMinutes
+}
+
+declare module 'date-fns/fp/subMinutesWithOptions' {
+  import { subMinutesWithOptions } from 'date-fns/fp'
+  export = subMinutesWithOptions
 }
 
 declare module 'date-fns/fp/subMonths' {
@@ -5037,9 +7276,19 @@ declare module 'date-fns/fp/subMonths' {
   export = subMonths
 }
 
+declare module 'date-fns/fp/subMonthsWithOptions' {
+  import { subMonthsWithOptions } from 'date-fns/fp'
+  export = subMonthsWithOptions
+}
+
 declare module 'date-fns/fp/subQuarters' {
   import { subQuarters } from 'date-fns/fp'
   export = subQuarters
+}
+
+declare module 'date-fns/fp/subQuartersWithOptions' {
+  import { subQuartersWithOptions } from 'date-fns/fp'
+  export = subQuartersWithOptions
 }
 
 declare module 'date-fns/fp/subSeconds' {
@@ -5047,9 +7296,19 @@ declare module 'date-fns/fp/subSeconds' {
   export = subSeconds
 }
 
+declare module 'date-fns/fp/subSecondsWithOptions' {
+  import { subSecondsWithOptions } from 'date-fns/fp'
+  export = subSecondsWithOptions
+}
+
 declare module 'date-fns/fp/subWeeks' {
   import { subWeeks } from 'date-fns/fp'
   export = subWeeks
+}
+
+declare module 'date-fns/fp/subWeeksWithOptions' {
+  import { subWeeksWithOptions } from 'date-fns/fp'
+  export = subWeeksWithOptions
 }
 
 declare module 'date-fns/fp/subYears' {
@@ -5057,14 +7316,19 @@ declare module 'date-fns/fp/subYears' {
   export = subYears
 }
 
+declare module 'date-fns/fp/subYearsWithOptions' {
+  import { subYearsWithOptions } from 'date-fns/fp'
+  export = subYearsWithOptions
+}
+
 declare module 'date-fns/fp/toDate' {
   import { toDate } from 'date-fns/fp'
   export = toDate
 }
 
-declare module 'date-fns/fp/addBusinessDays/index' {
-  import { addBusinessDays } from 'date-fns/fp'
-  export = addBusinessDays
+declare module 'date-fns/fp/toDateWithOptions' {
+  import { toDateWithOptions } from 'date-fns/fp'
+  export = toDateWithOptions
 }
 
 declare module 'date-fns/fp/addDays/index' {
@@ -5072,9 +7336,19 @@ declare module 'date-fns/fp/addDays/index' {
   export = addDays
 }
 
+declare module 'date-fns/fp/addDaysWithOptions/index' {
+  import { addDaysWithOptions } from 'date-fns/fp'
+  export = addDaysWithOptions
+}
+
 declare module 'date-fns/fp/addHours/index' {
   import { addHours } from 'date-fns/fp'
   export = addHours
+}
+
+declare module 'date-fns/fp/addHoursWithOptions/index' {
+  import { addHoursWithOptions } from 'date-fns/fp'
+  export = addHoursWithOptions
 }
 
 declare module 'date-fns/fp/addISOWeekYears/index' {
@@ -5082,9 +7356,19 @@ declare module 'date-fns/fp/addISOWeekYears/index' {
   export = addISOWeekYears
 }
 
+declare module 'date-fns/fp/addISOWeekYearsWithOptions/index' {
+  import { addISOWeekYearsWithOptions } from 'date-fns/fp'
+  export = addISOWeekYearsWithOptions
+}
+
 declare module 'date-fns/fp/addMilliseconds/index' {
   import { addMilliseconds } from 'date-fns/fp'
   export = addMilliseconds
+}
+
+declare module 'date-fns/fp/addMillisecondsWithOptions/index' {
+  import { addMillisecondsWithOptions } from 'date-fns/fp'
+  export = addMillisecondsWithOptions
 }
 
 declare module 'date-fns/fp/addMinutes/index' {
@@ -5092,9 +7376,19 @@ declare module 'date-fns/fp/addMinutes/index' {
   export = addMinutes
 }
 
+declare module 'date-fns/fp/addMinutesWithOptions/index' {
+  import { addMinutesWithOptions } from 'date-fns/fp'
+  export = addMinutesWithOptions
+}
+
 declare module 'date-fns/fp/addMonths/index' {
   import { addMonths } from 'date-fns/fp'
   export = addMonths
+}
+
+declare module 'date-fns/fp/addMonthsWithOptions/index' {
+  import { addMonthsWithOptions } from 'date-fns/fp'
+  export = addMonthsWithOptions
 }
 
 declare module 'date-fns/fp/addQuarters/index' {
@@ -5102,9 +7396,19 @@ declare module 'date-fns/fp/addQuarters/index' {
   export = addQuarters
 }
 
+declare module 'date-fns/fp/addQuartersWithOptions/index' {
+  import { addQuartersWithOptions } from 'date-fns/fp'
+  export = addQuartersWithOptions
+}
+
 declare module 'date-fns/fp/addSeconds/index' {
   import { addSeconds } from 'date-fns/fp'
   export = addSeconds
+}
+
+declare module 'date-fns/fp/addSecondsWithOptions/index' {
+  import { addSecondsWithOptions } from 'date-fns/fp'
+  export = addSecondsWithOptions
 }
 
 declare module 'date-fns/fp/addWeeks/index' {
@@ -5112,9 +7416,19 @@ declare module 'date-fns/fp/addWeeks/index' {
   export = addWeeks
 }
 
+declare module 'date-fns/fp/addWeeksWithOptions/index' {
+  import { addWeeksWithOptions } from 'date-fns/fp'
+  export = addWeeksWithOptions
+}
+
 declare module 'date-fns/fp/addYears/index' {
   import { addYears } from 'date-fns/fp'
   export = addYears
+}
+
+declare module 'date-fns/fp/addYearsWithOptions/index' {
+  import { addYearsWithOptions } from 'date-fns/fp'
+  export = addYearsWithOptions
 }
 
 declare module 'date-fns/fp/areIntervalsOverlapping/index' {
@@ -5122,9 +7436,19 @@ declare module 'date-fns/fp/areIntervalsOverlapping/index' {
   export = areIntervalsOverlapping
 }
 
+declare module 'date-fns/fp/areIntervalsOverlappingWithOptions/index' {
+  import { areIntervalsOverlappingWithOptions } from 'date-fns/fp'
+  export = areIntervalsOverlappingWithOptions
+}
+
 declare module 'date-fns/fp/closestIndexTo/index' {
   import { closestIndexTo } from 'date-fns/fp'
   export = closestIndexTo
+}
+
+declare module 'date-fns/fp/closestIndexToWithOptions/index' {
+  import { closestIndexToWithOptions } from 'date-fns/fp'
+  export = closestIndexToWithOptions
 }
 
 declare module 'date-fns/fp/closestTo/index' {
@@ -5132,9 +7456,19 @@ declare module 'date-fns/fp/closestTo/index' {
   export = closestTo
 }
 
+declare module 'date-fns/fp/closestToWithOptions/index' {
+  import { closestToWithOptions } from 'date-fns/fp'
+  export = closestToWithOptions
+}
+
 declare module 'date-fns/fp/compareAsc/index' {
   import { compareAsc } from 'date-fns/fp'
   export = compareAsc
+}
+
+declare module 'date-fns/fp/compareAscWithOptions/index' {
+  import { compareAscWithOptions } from 'date-fns/fp'
+  export = compareAscWithOptions
 }
 
 declare module 'date-fns/fp/compareDesc/index' {
@@ -5142,9 +7476,9 @@ declare module 'date-fns/fp/compareDesc/index' {
   export = compareDesc
 }
 
-declare module 'date-fns/fp/differenceInBusinessDays/index' {
-  import { differenceInBusinessDays } from 'date-fns/fp'
-  export = differenceInBusinessDays
+declare module 'date-fns/fp/compareDescWithOptions/index' {
+  import { compareDescWithOptions } from 'date-fns/fp'
+  export = compareDescWithOptions
 }
 
 declare module 'date-fns/fp/differenceInCalendarDays/index' {
@@ -5152,9 +7486,19 @@ declare module 'date-fns/fp/differenceInCalendarDays/index' {
   export = differenceInCalendarDays
 }
 
+declare module 'date-fns/fp/differenceInCalendarDaysWithOptions/index' {
+  import { differenceInCalendarDaysWithOptions } from 'date-fns/fp'
+  export = differenceInCalendarDaysWithOptions
+}
+
 declare module 'date-fns/fp/differenceInCalendarISOWeeks/index' {
   import { differenceInCalendarISOWeeks } from 'date-fns/fp'
   export = differenceInCalendarISOWeeks
+}
+
+declare module 'date-fns/fp/differenceInCalendarISOWeeksWithOptions/index' {
+  import { differenceInCalendarISOWeeksWithOptions } from 'date-fns/fp'
+  export = differenceInCalendarISOWeeksWithOptions
 }
 
 declare module 'date-fns/fp/differenceInCalendarISOWeekYears/index' {
@@ -5162,14 +7506,29 @@ declare module 'date-fns/fp/differenceInCalendarISOWeekYears/index' {
   export = differenceInCalendarISOWeekYears
 }
 
+declare module 'date-fns/fp/differenceInCalendarISOWeekYearsWithOptions/index' {
+  import { differenceInCalendarISOWeekYearsWithOptions } from 'date-fns/fp'
+  export = differenceInCalendarISOWeekYearsWithOptions
+}
+
 declare module 'date-fns/fp/differenceInCalendarMonths/index' {
   import { differenceInCalendarMonths } from 'date-fns/fp'
   export = differenceInCalendarMonths
 }
 
+declare module 'date-fns/fp/differenceInCalendarMonthsWithOptions/index' {
+  import { differenceInCalendarMonthsWithOptions } from 'date-fns/fp'
+  export = differenceInCalendarMonthsWithOptions
+}
+
 declare module 'date-fns/fp/differenceInCalendarQuarters/index' {
   import { differenceInCalendarQuarters } from 'date-fns/fp'
   export = differenceInCalendarQuarters
+}
+
+declare module 'date-fns/fp/differenceInCalendarQuartersWithOptions/index' {
+  import { differenceInCalendarQuartersWithOptions } from 'date-fns/fp'
+  export = differenceInCalendarQuartersWithOptions
 }
 
 declare module 'date-fns/fp/differenceInCalendarWeeks/index' {
@@ -5187,9 +7546,19 @@ declare module 'date-fns/fp/differenceInCalendarYears/index' {
   export = differenceInCalendarYears
 }
 
+declare module 'date-fns/fp/differenceInCalendarYearsWithOptions/index' {
+  import { differenceInCalendarYearsWithOptions } from 'date-fns/fp'
+  export = differenceInCalendarYearsWithOptions
+}
+
 declare module 'date-fns/fp/differenceInDays/index' {
   import { differenceInDays } from 'date-fns/fp'
   export = differenceInDays
+}
+
+declare module 'date-fns/fp/differenceInDaysWithOptions/index' {
+  import { differenceInDaysWithOptions } from 'date-fns/fp'
+  export = differenceInDaysWithOptions
 }
 
 declare module 'date-fns/fp/differenceInHours/index' {
@@ -5197,9 +7566,19 @@ declare module 'date-fns/fp/differenceInHours/index' {
   export = differenceInHours
 }
 
+declare module 'date-fns/fp/differenceInHoursWithOptions/index' {
+  import { differenceInHoursWithOptions } from 'date-fns/fp'
+  export = differenceInHoursWithOptions
+}
+
 declare module 'date-fns/fp/differenceInISOWeekYears/index' {
   import { differenceInISOWeekYears } from 'date-fns/fp'
   export = differenceInISOWeekYears
+}
+
+declare module 'date-fns/fp/differenceInISOWeekYearsWithOptions/index' {
+  import { differenceInISOWeekYearsWithOptions } from 'date-fns/fp'
+  export = differenceInISOWeekYearsWithOptions
 }
 
 declare module 'date-fns/fp/differenceInMilliseconds/index' {
@@ -5207,9 +7586,19 @@ declare module 'date-fns/fp/differenceInMilliseconds/index' {
   export = differenceInMilliseconds
 }
 
+declare module 'date-fns/fp/differenceInMillisecondsWithOptions/index' {
+  import { differenceInMillisecondsWithOptions } from 'date-fns/fp'
+  export = differenceInMillisecondsWithOptions
+}
+
 declare module 'date-fns/fp/differenceInMinutes/index' {
   import { differenceInMinutes } from 'date-fns/fp'
   export = differenceInMinutes
+}
+
+declare module 'date-fns/fp/differenceInMinutesWithOptions/index' {
+  import { differenceInMinutesWithOptions } from 'date-fns/fp'
+  export = differenceInMinutesWithOptions
 }
 
 declare module 'date-fns/fp/differenceInMonths/index' {
@@ -5217,9 +7606,19 @@ declare module 'date-fns/fp/differenceInMonths/index' {
   export = differenceInMonths
 }
 
+declare module 'date-fns/fp/differenceInMonthsWithOptions/index' {
+  import { differenceInMonthsWithOptions } from 'date-fns/fp'
+  export = differenceInMonthsWithOptions
+}
+
 declare module 'date-fns/fp/differenceInQuarters/index' {
   import { differenceInQuarters } from 'date-fns/fp'
   export = differenceInQuarters
+}
+
+declare module 'date-fns/fp/differenceInQuartersWithOptions/index' {
+  import { differenceInQuartersWithOptions } from 'date-fns/fp'
+  export = differenceInQuartersWithOptions
 }
 
 declare module 'date-fns/fp/differenceInSeconds/index' {
@@ -5227,14 +7626,29 @@ declare module 'date-fns/fp/differenceInSeconds/index' {
   export = differenceInSeconds
 }
 
+declare module 'date-fns/fp/differenceInSecondsWithOptions/index' {
+  import { differenceInSecondsWithOptions } from 'date-fns/fp'
+  export = differenceInSecondsWithOptions
+}
+
 declare module 'date-fns/fp/differenceInWeeks/index' {
   import { differenceInWeeks } from 'date-fns/fp'
   export = differenceInWeeks
 }
 
+declare module 'date-fns/fp/differenceInWeeksWithOptions/index' {
+  import { differenceInWeeksWithOptions } from 'date-fns/fp'
+  export = differenceInWeeksWithOptions
+}
+
 declare module 'date-fns/fp/differenceInYears/index' {
   import { differenceInYears } from 'date-fns/fp'
   export = differenceInYears
+}
+
+declare module 'date-fns/fp/differenceInYearsWithOptions/index' {
+  import { differenceInYearsWithOptions } from 'date-fns/fp'
+  export = differenceInYearsWithOptions
 }
 
 declare module 'date-fns/fp/eachDayOfInterval/index' {
@@ -5252,14 +7666,29 @@ declare module 'date-fns/fp/eachWeekendOfInterval/index' {
   export = eachWeekendOfInterval
 }
 
+declare module 'date-fns/fp/eachWeekendOfIntervalWithOptions/index' {
+  import { eachWeekendOfIntervalWithOptions } from 'date-fns/fp'
+  export = eachWeekendOfIntervalWithOptions
+}
+
 declare module 'date-fns/fp/eachWeekendOfMonth/index' {
   import { eachWeekendOfMonth } from 'date-fns/fp'
   export = eachWeekendOfMonth
 }
 
+declare module 'date-fns/fp/eachWeekendOfMonthWithOptions/index' {
+  import { eachWeekendOfMonthWithOptions } from 'date-fns/fp'
+  export = eachWeekendOfMonthWithOptions
+}
+
 declare module 'date-fns/fp/eachWeekendOfYear/index' {
   import { eachWeekendOfYear } from 'date-fns/fp'
   export = eachWeekendOfYear
+}
+
+declare module 'date-fns/fp/eachWeekendOfYearWithOptions/index' {
+  import { eachWeekendOfYearWithOptions } from 'date-fns/fp'
+  export = eachWeekendOfYearWithOptions
 }
 
 declare module 'date-fns/fp/eachWeekOfInterval/index' {
@@ -5277,6 +7706,11 @@ declare module 'date-fns/fp/endOfDay/index' {
   export = endOfDay
 }
 
+declare module 'date-fns/fp/endOfDayWithOptions/index' {
+  import { endOfDayWithOptions } from 'date-fns/fp'
+  export = endOfDayWithOptions
+}
+
 declare module 'date-fns/fp/endOfDecade/index' {
   import { endOfDecade } from 'date-fns/fp'
   export = endOfDecade
@@ -5292,9 +7726,19 @@ declare module 'date-fns/fp/endOfHour/index' {
   export = endOfHour
 }
 
+declare module 'date-fns/fp/endOfHourWithOptions/index' {
+  import { endOfHourWithOptions } from 'date-fns/fp'
+  export = endOfHourWithOptions
+}
+
 declare module 'date-fns/fp/endOfISOWeek/index' {
   import { endOfISOWeek } from 'date-fns/fp'
   export = endOfISOWeek
+}
+
+declare module 'date-fns/fp/endOfISOWeekWithOptions/index' {
+  import { endOfISOWeekWithOptions } from 'date-fns/fp'
+  export = endOfISOWeekWithOptions
 }
 
 declare module 'date-fns/fp/endOfISOWeekYear/index' {
@@ -5302,9 +7746,19 @@ declare module 'date-fns/fp/endOfISOWeekYear/index' {
   export = endOfISOWeekYear
 }
 
+declare module 'date-fns/fp/endOfISOWeekYearWithOptions/index' {
+  import { endOfISOWeekYearWithOptions } from 'date-fns/fp'
+  export = endOfISOWeekYearWithOptions
+}
+
 declare module 'date-fns/fp/endOfMinute/index' {
   import { endOfMinute } from 'date-fns/fp'
   export = endOfMinute
+}
+
+declare module 'date-fns/fp/endOfMinuteWithOptions/index' {
+  import { endOfMinuteWithOptions } from 'date-fns/fp'
+  export = endOfMinuteWithOptions
 }
 
 declare module 'date-fns/fp/endOfMonth/index' {
@@ -5312,14 +7766,29 @@ declare module 'date-fns/fp/endOfMonth/index' {
   export = endOfMonth
 }
 
+declare module 'date-fns/fp/endOfMonthWithOptions/index' {
+  import { endOfMonthWithOptions } from 'date-fns/fp'
+  export = endOfMonthWithOptions
+}
+
 declare module 'date-fns/fp/endOfQuarter/index' {
   import { endOfQuarter } from 'date-fns/fp'
   export = endOfQuarter
 }
 
+declare module 'date-fns/fp/endOfQuarterWithOptions/index' {
+  import { endOfQuarterWithOptions } from 'date-fns/fp'
+  export = endOfQuarterWithOptions
+}
+
 declare module 'date-fns/fp/endOfSecond/index' {
   import { endOfSecond } from 'date-fns/fp'
   export = endOfSecond
+}
+
+declare module 'date-fns/fp/endOfSecondWithOptions/index' {
+  import { endOfSecondWithOptions } from 'date-fns/fp'
+  export = endOfSecondWithOptions
 }
 
 declare module 'date-fns/fp/endOfWeek/index' {
@@ -5335,6 +7804,11 @@ declare module 'date-fns/fp/endOfWeekWithOptions/index' {
 declare module 'date-fns/fp/endOfYear/index' {
   import { endOfYear } from 'date-fns/fp'
   export = endOfYear
+}
+
+declare module 'date-fns/fp/endOfYearWithOptions/index' {
+  import { endOfYearWithOptions } from 'date-fns/fp'
+  export = endOfYearWithOptions
 }
 
 declare module 'date-fns/fp/format/index' {
@@ -5382,9 +7856,19 @@ declare module 'date-fns/fp/fromUnixTime/index' {
   export = fromUnixTime
 }
 
+declare module 'date-fns/fp/fromUnixTimeWithOptions/index' {
+  import { fromUnixTimeWithOptions } from 'date-fns/fp'
+  export = fromUnixTimeWithOptions
+}
+
 declare module 'date-fns/fp/getDate/index' {
   import { getDate } from 'date-fns/fp'
   export = getDate
+}
+
+declare module 'date-fns/fp/getDateWithOptions/index' {
+  import { getDateWithOptions } from 'date-fns/fp'
+  export = getDateWithOptions
 }
 
 declare module 'date-fns/fp/getDay/index' {
@@ -5397,9 +7881,19 @@ declare module 'date-fns/fp/getDayOfYear/index' {
   export = getDayOfYear
 }
 
+declare module 'date-fns/fp/getDayOfYearWithOptions/index' {
+  import { getDayOfYearWithOptions } from 'date-fns/fp'
+  export = getDayOfYearWithOptions
+}
+
 declare module 'date-fns/fp/getDaysInMonth/index' {
   import { getDaysInMonth } from 'date-fns/fp'
   export = getDaysInMonth
+}
+
+declare module 'date-fns/fp/getDaysInMonthWithOptions/index' {
+  import { getDaysInMonthWithOptions } from 'date-fns/fp'
+  export = getDaysInMonthWithOptions
 }
 
 declare module 'date-fns/fp/getDaysInYear/index' {
@@ -5407,9 +7901,24 @@ declare module 'date-fns/fp/getDaysInYear/index' {
   export = getDaysInYear
 }
 
+declare module 'date-fns/fp/getDaysInYearWithOptions/index' {
+  import { getDaysInYearWithOptions } from 'date-fns/fp'
+  export = getDaysInYearWithOptions
+}
+
+declare module 'date-fns/fp/getDayWithOptions/index' {
+  import { getDayWithOptions } from 'date-fns/fp'
+  export = getDayWithOptions
+}
+
 declare module 'date-fns/fp/getDecade/index' {
   import { getDecade } from 'date-fns/fp'
   export = getDecade
+}
+
+declare module 'date-fns/fp/getDecadeWithOptions/index' {
+  import { getDecadeWithOptions } from 'date-fns/fp'
+  export = getDecadeWithOptions
 }
 
 declare module 'date-fns/fp/getHours/index' {
@@ -5417,9 +7926,19 @@ declare module 'date-fns/fp/getHours/index' {
   export = getHours
 }
 
+declare module 'date-fns/fp/getHoursWithOptions/index' {
+  import { getHoursWithOptions } from 'date-fns/fp'
+  export = getHoursWithOptions
+}
+
 declare module 'date-fns/fp/getISODay/index' {
   import { getISODay } from 'date-fns/fp'
   export = getISODay
+}
+
+declare module 'date-fns/fp/getISODayWithOptions/index' {
+  import { getISODayWithOptions } from 'date-fns/fp'
+  export = getISODayWithOptions
 }
 
 declare module 'date-fns/fp/getISOWeek/index' {
@@ -5432,9 +7951,24 @@ declare module 'date-fns/fp/getISOWeeksInYear/index' {
   export = getISOWeeksInYear
 }
 
+declare module 'date-fns/fp/getISOWeeksInYearWithOptions/index' {
+  import { getISOWeeksInYearWithOptions } from 'date-fns/fp'
+  export = getISOWeeksInYearWithOptions
+}
+
+declare module 'date-fns/fp/getISOWeekWithOptions/index' {
+  import { getISOWeekWithOptions } from 'date-fns/fp'
+  export = getISOWeekWithOptions
+}
+
 declare module 'date-fns/fp/getISOWeekYear/index' {
   import { getISOWeekYear } from 'date-fns/fp'
   export = getISOWeekYear
+}
+
+declare module 'date-fns/fp/getISOWeekYearWithOptions/index' {
+  import { getISOWeekYearWithOptions } from 'date-fns/fp'
+  export = getISOWeekYearWithOptions
 }
 
 declare module 'date-fns/fp/getMilliseconds/index' {
@@ -5442,9 +7976,19 @@ declare module 'date-fns/fp/getMilliseconds/index' {
   export = getMilliseconds
 }
 
+declare module 'date-fns/fp/getMillisecondsWithOptions/index' {
+  import { getMillisecondsWithOptions } from 'date-fns/fp'
+  export = getMillisecondsWithOptions
+}
+
 declare module 'date-fns/fp/getMinutes/index' {
   import { getMinutes } from 'date-fns/fp'
   export = getMinutes
+}
+
+declare module 'date-fns/fp/getMinutesWithOptions/index' {
+  import { getMinutesWithOptions } from 'date-fns/fp'
+  export = getMinutesWithOptions
 }
 
 declare module 'date-fns/fp/getMonth/index' {
@@ -5452,9 +7996,19 @@ declare module 'date-fns/fp/getMonth/index' {
   export = getMonth
 }
 
+declare module 'date-fns/fp/getMonthWithOptions/index' {
+  import { getMonthWithOptions } from 'date-fns/fp'
+  export = getMonthWithOptions
+}
+
 declare module 'date-fns/fp/getOverlappingDaysInIntervals/index' {
   import { getOverlappingDaysInIntervals } from 'date-fns/fp'
   export = getOverlappingDaysInIntervals
+}
+
+declare module 'date-fns/fp/getOverlappingDaysInIntervalsWithOptions/index' {
+  import { getOverlappingDaysInIntervalsWithOptions } from 'date-fns/fp'
+  export = getOverlappingDaysInIntervalsWithOptions
 }
 
 declare module 'date-fns/fp/getQuarter/index' {
@@ -5462,9 +8016,19 @@ declare module 'date-fns/fp/getQuarter/index' {
   export = getQuarter
 }
 
+declare module 'date-fns/fp/getQuarterWithOptions/index' {
+  import { getQuarterWithOptions } from 'date-fns/fp'
+  export = getQuarterWithOptions
+}
+
 declare module 'date-fns/fp/getSeconds/index' {
   import { getSeconds } from 'date-fns/fp'
   export = getSeconds
+}
+
+declare module 'date-fns/fp/getSecondsWithOptions/index' {
+  import { getSecondsWithOptions } from 'date-fns/fp'
+  export = getSecondsWithOptions
 }
 
 declare module 'date-fns/fp/getTime/index' {
@@ -5472,9 +8036,19 @@ declare module 'date-fns/fp/getTime/index' {
   export = getTime
 }
 
+declare module 'date-fns/fp/getTimeWithOptions/index' {
+  import { getTimeWithOptions } from 'date-fns/fp'
+  export = getTimeWithOptions
+}
+
 declare module 'date-fns/fp/getUnixTime/index' {
   import { getUnixTime } from 'date-fns/fp'
   export = getUnixTime
+}
+
+declare module 'date-fns/fp/getUnixTimeWithOptions/index' {
+  import { getUnixTimeWithOptions } from 'date-fns/fp'
+  export = getUnixTimeWithOptions
 }
 
 declare module 'date-fns/fp/getWeek/index' {
@@ -5522,9 +8096,19 @@ declare module 'date-fns/fp/getYear/index' {
   export = getYear
 }
 
+declare module 'date-fns/fp/getYearWithOptions/index' {
+  import { getYearWithOptions } from 'date-fns/fp'
+  export = getYearWithOptions
+}
+
 declare module 'date-fns/fp/isAfter/index' {
   import { isAfter } from 'date-fns/fp'
   export = isAfter
+}
+
+declare module 'date-fns/fp/isAfterWithOptions/index' {
+  import { isAfterWithOptions } from 'date-fns/fp'
+  export = isAfterWithOptions
 }
 
 declare module 'date-fns/fp/isBefore/index' {
@@ -5532,9 +8116,19 @@ declare module 'date-fns/fp/isBefore/index' {
   export = isBefore
 }
 
+declare module 'date-fns/fp/isBeforeWithOptions/index' {
+  import { isBeforeWithOptions } from 'date-fns/fp'
+  export = isBeforeWithOptions
+}
+
 declare module 'date-fns/fp/isDate/index' {
   import { isDate } from 'date-fns/fp'
   export = isDate
+}
+
+declare module 'date-fns/fp/isDateWithOptions/index' {
+  import { isDateWithOptions } from 'date-fns/fp'
+  export = isDateWithOptions
 }
 
 declare module 'date-fns/fp/isEqual/index' {
@@ -5542,9 +8136,19 @@ declare module 'date-fns/fp/isEqual/index' {
   export = isEqual
 }
 
+declare module 'date-fns/fp/isEqualWithOptions/index' {
+  import { isEqualWithOptions } from 'date-fns/fp'
+  export = isEqualWithOptions
+}
+
 declare module 'date-fns/fp/isFirstDayOfMonth/index' {
   import { isFirstDayOfMonth } from 'date-fns/fp'
   export = isFirstDayOfMonth
+}
+
+declare module 'date-fns/fp/isFirstDayOfMonthWithOptions/index' {
+  import { isFirstDayOfMonthWithOptions } from 'date-fns/fp'
+  export = isFirstDayOfMonthWithOptions
 }
 
 declare module 'date-fns/fp/isFriday/index' {
@@ -5552,9 +8156,19 @@ declare module 'date-fns/fp/isFriday/index' {
   export = isFriday
 }
 
+declare module 'date-fns/fp/isFridayWithOptions/index' {
+  import { isFridayWithOptions } from 'date-fns/fp'
+  export = isFridayWithOptions
+}
+
 declare module 'date-fns/fp/isLastDayOfMonth/index' {
   import { isLastDayOfMonth } from 'date-fns/fp'
   export = isLastDayOfMonth
+}
+
+declare module 'date-fns/fp/isLastDayOfMonthWithOptions/index' {
+  import { isLastDayOfMonthWithOptions } from 'date-fns/fp'
+  export = isLastDayOfMonthWithOptions
 }
 
 declare module 'date-fns/fp/isLeapYear/index' {
@@ -5562,9 +8176,19 @@ declare module 'date-fns/fp/isLeapYear/index' {
   export = isLeapYear
 }
 
+declare module 'date-fns/fp/isLeapYearWithOptions/index' {
+  import { isLeapYearWithOptions } from 'date-fns/fp'
+  export = isLeapYearWithOptions
+}
+
 declare module 'date-fns/fp/isMonday/index' {
   import { isMonday } from 'date-fns/fp'
   export = isMonday
+}
+
+declare module 'date-fns/fp/isMondayWithOptions/index' {
+  import { isMondayWithOptions } from 'date-fns/fp'
+  export = isMondayWithOptions
 }
 
 declare module 'date-fns/fp/isSameDay/index' {
@@ -5572,9 +8196,19 @@ declare module 'date-fns/fp/isSameDay/index' {
   export = isSameDay
 }
 
+declare module 'date-fns/fp/isSameDayWithOptions/index' {
+  import { isSameDayWithOptions } from 'date-fns/fp'
+  export = isSameDayWithOptions
+}
+
 declare module 'date-fns/fp/isSameHour/index' {
   import { isSameHour } from 'date-fns/fp'
   export = isSameHour
+}
+
+declare module 'date-fns/fp/isSameHourWithOptions/index' {
+  import { isSameHourWithOptions } from 'date-fns/fp'
+  export = isSameHourWithOptions
 }
 
 declare module 'date-fns/fp/isSameISOWeek/index' {
@@ -5582,9 +8216,19 @@ declare module 'date-fns/fp/isSameISOWeek/index' {
   export = isSameISOWeek
 }
 
+declare module 'date-fns/fp/isSameISOWeekWithOptions/index' {
+  import { isSameISOWeekWithOptions } from 'date-fns/fp'
+  export = isSameISOWeekWithOptions
+}
+
 declare module 'date-fns/fp/isSameISOWeekYear/index' {
   import { isSameISOWeekYear } from 'date-fns/fp'
   export = isSameISOWeekYear
+}
+
+declare module 'date-fns/fp/isSameISOWeekYearWithOptions/index' {
+  import { isSameISOWeekYearWithOptions } from 'date-fns/fp'
+  export = isSameISOWeekYearWithOptions
 }
 
 declare module 'date-fns/fp/isSameMinute/index' {
@@ -5592,9 +8236,19 @@ declare module 'date-fns/fp/isSameMinute/index' {
   export = isSameMinute
 }
 
+declare module 'date-fns/fp/isSameMinuteWithOptions/index' {
+  import { isSameMinuteWithOptions } from 'date-fns/fp'
+  export = isSameMinuteWithOptions
+}
+
 declare module 'date-fns/fp/isSameMonth/index' {
   import { isSameMonth } from 'date-fns/fp'
   export = isSameMonth
+}
+
+declare module 'date-fns/fp/isSameMonthWithOptions/index' {
+  import { isSameMonthWithOptions } from 'date-fns/fp'
+  export = isSameMonthWithOptions
 }
 
 declare module 'date-fns/fp/isSameQuarter/index' {
@@ -5602,9 +8256,19 @@ declare module 'date-fns/fp/isSameQuarter/index' {
   export = isSameQuarter
 }
 
+declare module 'date-fns/fp/isSameQuarterWithOptions/index' {
+  import { isSameQuarterWithOptions } from 'date-fns/fp'
+  export = isSameQuarterWithOptions
+}
+
 declare module 'date-fns/fp/isSameSecond/index' {
   import { isSameSecond } from 'date-fns/fp'
   export = isSameSecond
+}
+
+declare module 'date-fns/fp/isSameSecondWithOptions/index' {
+  import { isSameSecondWithOptions } from 'date-fns/fp'
+  export = isSameSecondWithOptions
 }
 
 declare module 'date-fns/fp/isSameWeek/index' {
@@ -5622,9 +8286,19 @@ declare module 'date-fns/fp/isSameYear/index' {
   export = isSameYear
 }
 
+declare module 'date-fns/fp/isSameYearWithOptions/index' {
+  import { isSameYearWithOptions } from 'date-fns/fp'
+  export = isSameYearWithOptions
+}
+
 declare module 'date-fns/fp/isSaturday/index' {
   import { isSaturday } from 'date-fns/fp'
   export = isSaturday
+}
+
+declare module 'date-fns/fp/isSaturdayWithOptions/index' {
+  import { isSaturdayWithOptions } from 'date-fns/fp'
+  export = isSaturdayWithOptions
 }
 
 declare module 'date-fns/fp/isSunday/index' {
@@ -5632,9 +8306,19 @@ declare module 'date-fns/fp/isSunday/index' {
   export = isSunday
 }
 
+declare module 'date-fns/fp/isSundayWithOptions/index' {
+  import { isSundayWithOptions } from 'date-fns/fp'
+  export = isSundayWithOptions
+}
+
 declare module 'date-fns/fp/isThursday/index' {
   import { isThursday } from 'date-fns/fp'
   export = isThursday
+}
+
+declare module 'date-fns/fp/isThursdayWithOptions/index' {
+  import { isThursdayWithOptions } from 'date-fns/fp'
+  export = isThursdayWithOptions
 }
 
 declare module 'date-fns/fp/isTuesday/index' {
@@ -5642,9 +8326,19 @@ declare module 'date-fns/fp/isTuesday/index' {
   export = isTuesday
 }
 
+declare module 'date-fns/fp/isTuesdayWithOptions/index' {
+  import { isTuesdayWithOptions } from 'date-fns/fp'
+  export = isTuesdayWithOptions
+}
+
 declare module 'date-fns/fp/isValid/index' {
   import { isValid } from 'date-fns/fp'
   export = isValid
+}
+
+declare module 'date-fns/fp/isValidWithOptions/index' {
+  import { isValidWithOptions } from 'date-fns/fp'
+  export = isValidWithOptions
 }
 
 declare module 'date-fns/fp/isWednesday/index' {
@@ -5652,9 +8346,19 @@ declare module 'date-fns/fp/isWednesday/index' {
   export = isWednesday
 }
 
+declare module 'date-fns/fp/isWednesdayWithOptions/index' {
+  import { isWednesdayWithOptions } from 'date-fns/fp'
+  export = isWednesdayWithOptions
+}
+
 declare module 'date-fns/fp/isWeekend/index' {
   import { isWeekend } from 'date-fns/fp'
   export = isWeekend
+}
+
+declare module 'date-fns/fp/isWeekendWithOptions/index' {
+  import { isWeekendWithOptions } from 'date-fns/fp'
+  export = isWeekendWithOptions
 }
 
 declare module 'date-fns/fp/isWithinInterval/index' {
@@ -5662,9 +8366,19 @@ declare module 'date-fns/fp/isWithinInterval/index' {
   export = isWithinInterval
 }
 
+declare module 'date-fns/fp/isWithinIntervalWithOptions/index' {
+  import { isWithinIntervalWithOptions } from 'date-fns/fp'
+  export = isWithinIntervalWithOptions
+}
+
 declare module 'date-fns/fp/lastDayOfDecade/index' {
   import { lastDayOfDecade } from 'date-fns/fp'
   export = lastDayOfDecade
+}
+
+declare module 'date-fns/fp/lastDayOfDecadeWithOptions/index' {
+  import { lastDayOfDecadeWithOptions } from 'date-fns/fp'
+  export = lastDayOfDecadeWithOptions
 }
 
 declare module 'date-fns/fp/lastDayOfISOWeek/index' {
@@ -5672,14 +8386,29 @@ declare module 'date-fns/fp/lastDayOfISOWeek/index' {
   export = lastDayOfISOWeek
 }
 
+declare module 'date-fns/fp/lastDayOfISOWeekWithOptions/index' {
+  import { lastDayOfISOWeekWithOptions } from 'date-fns/fp'
+  export = lastDayOfISOWeekWithOptions
+}
+
 declare module 'date-fns/fp/lastDayOfISOWeekYear/index' {
   import { lastDayOfISOWeekYear } from 'date-fns/fp'
   export = lastDayOfISOWeekYear
 }
 
+declare module 'date-fns/fp/lastDayOfISOWeekYearWithOptions/index' {
+  import { lastDayOfISOWeekYearWithOptions } from 'date-fns/fp'
+  export = lastDayOfISOWeekYearWithOptions
+}
+
 declare module 'date-fns/fp/lastDayOfMonth/index' {
   import { lastDayOfMonth } from 'date-fns/fp'
   export = lastDayOfMonth
+}
+
+declare module 'date-fns/fp/lastDayOfMonthWithOptions/index' {
+  import { lastDayOfMonthWithOptions } from 'date-fns/fp'
+  export = lastDayOfMonthWithOptions
 }
 
 declare module 'date-fns/fp/lastDayOfQuarter/index' {
@@ -5707,9 +8436,9 @@ declare module 'date-fns/fp/lastDayOfYear/index' {
   export = lastDayOfYear
 }
 
-declare module 'date-fns/fp/lightFormat/index' {
-  import { lightFormat } from 'date-fns/fp'
-  export = lightFormat
+declare module 'date-fns/fp/lastDayOfYearWithOptions/index' {
+  import { lastDayOfYearWithOptions } from 'date-fns/fp'
+  export = lastDayOfYearWithOptions
 }
 
 declare module 'date-fns/fp/max/index' {
@@ -5717,24 +8446,24 @@ declare module 'date-fns/fp/max/index' {
   export = max
 }
 
+declare module 'date-fns/fp/maxWithOptions/index' {
+  import { maxWithOptions } from 'date-fns/fp'
+  export = maxWithOptions
+}
+
 declare module 'date-fns/fp/min/index' {
   import { min } from 'date-fns/fp'
   export = min
 }
 
+declare module 'date-fns/fp/minWithOptions/index' {
+  import { minWithOptions } from 'date-fns/fp'
+  export = minWithOptions
+}
+
 declare module 'date-fns/fp/parse/index' {
   import { parse } from 'date-fns/fp'
   export = parse
-}
-
-declare module 'date-fns/fp/parseISO/index' {
-  import { parseISO } from 'date-fns/fp'
-  export = parseISO
-}
-
-declare module 'date-fns/fp/parseISOWithOptions/index' {
-  import { parseISOWithOptions } from 'date-fns/fp'
-  export = parseISOWithOptions
 }
 
 declare module 'date-fns/fp/parseWithOptions/index' {
@@ -5757,6 +8486,11 @@ declare module 'date-fns/fp/setDate/index' {
   export = setDate
 }
 
+declare module 'date-fns/fp/setDateWithOptions/index' {
+  import { setDateWithOptions } from 'date-fns/fp'
+  export = setDateWithOptions
+}
+
 declare module 'date-fns/fp/setDay/index' {
   import { setDay } from 'date-fns/fp'
   export = setDay
@@ -5765,6 +8499,11 @@ declare module 'date-fns/fp/setDay/index' {
 declare module 'date-fns/fp/setDayOfYear/index' {
   import { setDayOfYear } from 'date-fns/fp'
   export = setDayOfYear
+}
+
+declare module 'date-fns/fp/setDayOfYearWithOptions/index' {
+  import { setDayOfYearWithOptions } from 'date-fns/fp'
+  export = setDayOfYearWithOptions
 }
 
 declare module 'date-fns/fp/setDayWithOptions/index' {
@@ -5777,9 +8516,19 @@ declare module 'date-fns/fp/setHours/index' {
   export = setHours
 }
 
+declare module 'date-fns/fp/setHoursWithOptions/index' {
+  import { setHoursWithOptions } from 'date-fns/fp'
+  export = setHoursWithOptions
+}
+
 declare module 'date-fns/fp/setISODay/index' {
   import { setISODay } from 'date-fns/fp'
   export = setISODay
+}
+
+declare module 'date-fns/fp/setISODayWithOptions/index' {
+  import { setISODayWithOptions } from 'date-fns/fp'
+  export = setISODayWithOptions
 }
 
 declare module 'date-fns/fp/setISOWeek/index' {
@@ -5787,9 +8536,19 @@ declare module 'date-fns/fp/setISOWeek/index' {
   export = setISOWeek
 }
 
+declare module 'date-fns/fp/setISOWeekWithOptions/index' {
+  import { setISOWeekWithOptions } from 'date-fns/fp'
+  export = setISOWeekWithOptions
+}
+
 declare module 'date-fns/fp/setISOWeekYear/index' {
   import { setISOWeekYear } from 'date-fns/fp'
   export = setISOWeekYear
+}
+
+declare module 'date-fns/fp/setISOWeekYearWithOptions/index' {
+  import { setISOWeekYearWithOptions } from 'date-fns/fp'
+  export = setISOWeekYearWithOptions
 }
 
 declare module 'date-fns/fp/setMilliseconds/index' {
@@ -5797,9 +8556,19 @@ declare module 'date-fns/fp/setMilliseconds/index' {
   export = setMilliseconds
 }
 
+declare module 'date-fns/fp/setMillisecondsWithOptions/index' {
+  import { setMillisecondsWithOptions } from 'date-fns/fp'
+  export = setMillisecondsWithOptions
+}
+
 declare module 'date-fns/fp/setMinutes/index' {
   import { setMinutes } from 'date-fns/fp'
   export = setMinutes
+}
+
+declare module 'date-fns/fp/setMinutesWithOptions/index' {
+  import { setMinutesWithOptions } from 'date-fns/fp'
+  export = setMinutesWithOptions
 }
 
 declare module 'date-fns/fp/setMonth/index' {
@@ -5807,14 +8576,29 @@ declare module 'date-fns/fp/setMonth/index' {
   export = setMonth
 }
 
+declare module 'date-fns/fp/setMonthWithOptions/index' {
+  import { setMonthWithOptions } from 'date-fns/fp'
+  export = setMonthWithOptions
+}
+
 declare module 'date-fns/fp/setQuarter/index' {
   import { setQuarter } from 'date-fns/fp'
   export = setQuarter
 }
 
+declare module 'date-fns/fp/setQuarterWithOptions/index' {
+  import { setQuarterWithOptions } from 'date-fns/fp'
+  export = setQuarterWithOptions
+}
+
 declare module 'date-fns/fp/setSeconds/index' {
   import { setSeconds } from 'date-fns/fp'
   export = setSeconds
+}
+
+declare module 'date-fns/fp/setSecondsWithOptions/index' {
+  import { setSecondsWithOptions } from 'date-fns/fp'
+  export = setSecondsWithOptions
 }
 
 declare module 'date-fns/fp/setWeek/index' {
@@ -5842,9 +8626,19 @@ declare module 'date-fns/fp/setYear/index' {
   export = setYear
 }
 
+declare module 'date-fns/fp/setYearWithOptions/index' {
+  import { setYearWithOptions } from 'date-fns/fp'
+  export = setYearWithOptions
+}
+
 declare module 'date-fns/fp/startOfDay/index' {
   import { startOfDay } from 'date-fns/fp'
   export = startOfDay
+}
+
+declare module 'date-fns/fp/startOfDayWithOptions/index' {
+  import { startOfDayWithOptions } from 'date-fns/fp'
+  export = startOfDayWithOptions
 }
 
 declare module 'date-fns/fp/startOfDecade/index' {
@@ -5852,9 +8646,19 @@ declare module 'date-fns/fp/startOfDecade/index' {
   export = startOfDecade
 }
 
+declare module 'date-fns/fp/startOfDecadeWithOptions/index' {
+  import { startOfDecadeWithOptions } from 'date-fns/fp'
+  export = startOfDecadeWithOptions
+}
+
 declare module 'date-fns/fp/startOfHour/index' {
   import { startOfHour } from 'date-fns/fp'
   export = startOfHour
+}
+
+declare module 'date-fns/fp/startOfHourWithOptions/index' {
+  import { startOfHourWithOptions } from 'date-fns/fp'
+  export = startOfHourWithOptions
 }
 
 declare module 'date-fns/fp/startOfISOWeek/index' {
@@ -5862,9 +8666,19 @@ declare module 'date-fns/fp/startOfISOWeek/index' {
   export = startOfISOWeek
 }
 
+declare module 'date-fns/fp/startOfISOWeekWithOptions/index' {
+  import { startOfISOWeekWithOptions } from 'date-fns/fp'
+  export = startOfISOWeekWithOptions
+}
+
 declare module 'date-fns/fp/startOfISOWeekYear/index' {
   import { startOfISOWeekYear } from 'date-fns/fp'
   export = startOfISOWeekYear
+}
+
+declare module 'date-fns/fp/startOfISOWeekYearWithOptions/index' {
+  import { startOfISOWeekYearWithOptions } from 'date-fns/fp'
+  export = startOfISOWeekYearWithOptions
 }
 
 declare module 'date-fns/fp/startOfMinute/index' {
@@ -5872,9 +8686,19 @@ declare module 'date-fns/fp/startOfMinute/index' {
   export = startOfMinute
 }
 
+declare module 'date-fns/fp/startOfMinuteWithOptions/index' {
+  import { startOfMinuteWithOptions } from 'date-fns/fp'
+  export = startOfMinuteWithOptions
+}
+
 declare module 'date-fns/fp/startOfMonth/index' {
   import { startOfMonth } from 'date-fns/fp'
   export = startOfMonth
+}
+
+declare module 'date-fns/fp/startOfMonthWithOptions/index' {
+  import { startOfMonthWithOptions } from 'date-fns/fp'
+  export = startOfMonthWithOptions
 }
 
 declare module 'date-fns/fp/startOfQuarter/index' {
@@ -5882,9 +8706,19 @@ declare module 'date-fns/fp/startOfQuarter/index' {
   export = startOfQuarter
 }
 
+declare module 'date-fns/fp/startOfQuarterWithOptions/index' {
+  import { startOfQuarterWithOptions } from 'date-fns/fp'
+  export = startOfQuarterWithOptions
+}
+
 declare module 'date-fns/fp/startOfSecond/index' {
   import { startOfSecond } from 'date-fns/fp'
   export = startOfSecond
+}
+
+declare module 'date-fns/fp/startOfSecondWithOptions/index' {
+  import { startOfSecondWithOptions } from 'date-fns/fp'
+  export = startOfSecondWithOptions
 }
 
 declare module 'date-fns/fp/startOfWeek/index' {
@@ -5912,9 +8746,19 @@ declare module 'date-fns/fp/startOfYear/index' {
   export = startOfYear
 }
 
+declare module 'date-fns/fp/startOfYearWithOptions/index' {
+  import { startOfYearWithOptions } from 'date-fns/fp'
+  export = startOfYearWithOptions
+}
+
 declare module 'date-fns/fp/subDays/index' {
   import { subDays } from 'date-fns/fp'
   export = subDays
+}
+
+declare module 'date-fns/fp/subDaysWithOptions/index' {
+  import { subDaysWithOptions } from 'date-fns/fp'
+  export = subDaysWithOptions
 }
 
 declare module 'date-fns/fp/subHours/index' {
@@ -5922,9 +8766,19 @@ declare module 'date-fns/fp/subHours/index' {
   export = subHours
 }
 
+declare module 'date-fns/fp/subHoursWithOptions/index' {
+  import { subHoursWithOptions } from 'date-fns/fp'
+  export = subHoursWithOptions
+}
+
 declare module 'date-fns/fp/subISOWeekYears/index' {
   import { subISOWeekYears } from 'date-fns/fp'
   export = subISOWeekYears
+}
+
+declare module 'date-fns/fp/subISOWeekYearsWithOptions/index' {
+  import { subISOWeekYearsWithOptions } from 'date-fns/fp'
+  export = subISOWeekYearsWithOptions
 }
 
 declare module 'date-fns/fp/subMilliseconds/index' {
@@ -5932,9 +8786,19 @@ declare module 'date-fns/fp/subMilliseconds/index' {
   export = subMilliseconds
 }
 
+declare module 'date-fns/fp/subMillisecondsWithOptions/index' {
+  import { subMillisecondsWithOptions } from 'date-fns/fp'
+  export = subMillisecondsWithOptions
+}
+
 declare module 'date-fns/fp/subMinutes/index' {
   import { subMinutes } from 'date-fns/fp'
   export = subMinutes
+}
+
+declare module 'date-fns/fp/subMinutesWithOptions/index' {
+  import { subMinutesWithOptions } from 'date-fns/fp'
+  export = subMinutesWithOptions
 }
 
 declare module 'date-fns/fp/subMonths/index' {
@@ -5942,9 +8806,19 @@ declare module 'date-fns/fp/subMonths/index' {
   export = subMonths
 }
 
+declare module 'date-fns/fp/subMonthsWithOptions/index' {
+  import { subMonthsWithOptions } from 'date-fns/fp'
+  export = subMonthsWithOptions
+}
+
 declare module 'date-fns/fp/subQuarters/index' {
   import { subQuarters } from 'date-fns/fp'
   export = subQuarters
+}
+
+declare module 'date-fns/fp/subQuartersWithOptions/index' {
+  import { subQuartersWithOptions } from 'date-fns/fp'
+  export = subQuartersWithOptions
 }
 
 declare module 'date-fns/fp/subSeconds/index' {
@@ -5952,9 +8826,19 @@ declare module 'date-fns/fp/subSeconds/index' {
   export = subSeconds
 }
 
+declare module 'date-fns/fp/subSecondsWithOptions/index' {
+  import { subSecondsWithOptions } from 'date-fns/fp'
+  export = subSecondsWithOptions
+}
+
 declare module 'date-fns/fp/subWeeks/index' {
   import { subWeeks } from 'date-fns/fp'
   export = subWeeks
+}
+
+declare module 'date-fns/fp/subWeeksWithOptions/index' {
+  import { subWeeksWithOptions } from 'date-fns/fp'
+  export = subWeeksWithOptions
 }
 
 declare module 'date-fns/fp/subYears/index' {
@@ -5962,14 +8846,19 @@ declare module 'date-fns/fp/subYears/index' {
   export = subYears
 }
 
+declare module 'date-fns/fp/subYearsWithOptions/index' {
+  import { subYearsWithOptions } from 'date-fns/fp'
+  export = subYearsWithOptions
+}
+
 declare module 'date-fns/fp/toDate/index' {
   import { toDate } from 'date-fns/fp'
   export = toDate
 }
 
-declare module 'date-fns/fp/addBusinessDays/index.js' {
-  import { addBusinessDays } from 'date-fns/fp'
-  export = addBusinessDays
+declare module 'date-fns/fp/toDateWithOptions/index' {
+  import { toDateWithOptions } from 'date-fns/fp'
+  export = toDateWithOptions
 }
 
 declare module 'date-fns/fp/addDays/index.js' {
@@ -5977,9 +8866,19 @@ declare module 'date-fns/fp/addDays/index.js' {
   export = addDays
 }
 
+declare module 'date-fns/fp/addDaysWithOptions/index.js' {
+  import { addDaysWithOptions } from 'date-fns/fp'
+  export = addDaysWithOptions
+}
+
 declare module 'date-fns/fp/addHours/index.js' {
   import { addHours } from 'date-fns/fp'
   export = addHours
+}
+
+declare module 'date-fns/fp/addHoursWithOptions/index.js' {
+  import { addHoursWithOptions } from 'date-fns/fp'
+  export = addHoursWithOptions
 }
 
 declare module 'date-fns/fp/addISOWeekYears/index.js' {
@@ -5987,9 +8886,19 @@ declare module 'date-fns/fp/addISOWeekYears/index.js' {
   export = addISOWeekYears
 }
 
+declare module 'date-fns/fp/addISOWeekYearsWithOptions/index.js' {
+  import { addISOWeekYearsWithOptions } from 'date-fns/fp'
+  export = addISOWeekYearsWithOptions
+}
+
 declare module 'date-fns/fp/addMilliseconds/index.js' {
   import { addMilliseconds } from 'date-fns/fp'
   export = addMilliseconds
+}
+
+declare module 'date-fns/fp/addMillisecondsWithOptions/index.js' {
+  import { addMillisecondsWithOptions } from 'date-fns/fp'
+  export = addMillisecondsWithOptions
 }
 
 declare module 'date-fns/fp/addMinutes/index.js' {
@@ -5997,9 +8906,19 @@ declare module 'date-fns/fp/addMinutes/index.js' {
   export = addMinutes
 }
 
+declare module 'date-fns/fp/addMinutesWithOptions/index.js' {
+  import { addMinutesWithOptions } from 'date-fns/fp'
+  export = addMinutesWithOptions
+}
+
 declare module 'date-fns/fp/addMonths/index.js' {
   import { addMonths } from 'date-fns/fp'
   export = addMonths
+}
+
+declare module 'date-fns/fp/addMonthsWithOptions/index.js' {
+  import { addMonthsWithOptions } from 'date-fns/fp'
+  export = addMonthsWithOptions
 }
 
 declare module 'date-fns/fp/addQuarters/index.js' {
@@ -6007,9 +8926,19 @@ declare module 'date-fns/fp/addQuarters/index.js' {
   export = addQuarters
 }
 
+declare module 'date-fns/fp/addQuartersWithOptions/index.js' {
+  import { addQuartersWithOptions } from 'date-fns/fp'
+  export = addQuartersWithOptions
+}
+
 declare module 'date-fns/fp/addSeconds/index.js' {
   import { addSeconds } from 'date-fns/fp'
   export = addSeconds
+}
+
+declare module 'date-fns/fp/addSecondsWithOptions/index.js' {
+  import { addSecondsWithOptions } from 'date-fns/fp'
+  export = addSecondsWithOptions
 }
 
 declare module 'date-fns/fp/addWeeks/index.js' {
@@ -6017,9 +8946,19 @@ declare module 'date-fns/fp/addWeeks/index.js' {
   export = addWeeks
 }
 
+declare module 'date-fns/fp/addWeeksWithOptions/index.js' {
+  import { addWeeksWithOptions } from 'date-fns/fp'
+  export = addWeeksWithOptions
+}
+
 declare module 'date-fns/fp/addYears/index.js' {
   import { addYears } from 'date-fns/fp'
   export = addYears
+}
+
+declare module 'date-fns/fp/addYearsWithOptions/index.js' {
+  import { addYearsWithOptions } from 'date-fns/fp'
+  export = addYearsWithOptions
 }
 
 declare module 'date-fns/fp/areIntervalsOverlapping/index.js' {
@@ -6027,9 +8966,19 @@ declare module 'date-fns/fp/areIntervalsOverlapping/index.js' {
   export = areIntervalsOverlapping
 }
 
+declare module 'date-fns/fp/areIntervalsOverlappingWithOptions/index.js' {
+  import { areIntervalsOverlappingWithOptions } from 'date-fns/fp'
+  export = areIntervalsOverlappingWithOptions
+}
+
 declare module 'date-fns/fp/closestIndexTo/index.js' {
   import { closestIndexTo } from 'date-fns/fp'
   export = closestIndexTo
+}
+
+declare module 'date-fns/fp/closestIndexToWithOptions/index.js' {
+  import { closestIndexToWithOptions } from 'date-fns/fp'
+  export = closestIndexToWithOptions
 }
 
 declare module 'date-fns/fp/closestTo/index.js' {
@@ -6037,9 +8986,19 @@ declare module 'date-fns/fp/closestTo/index.js' {
   export = closestTo
 }
 
+declare module 'date-fns/fp/closestToWithOptions/index.js' {
+  import { closestToWithOptions } from 'date-fns/fp'
+  export = closestToWithOptions
+}
+
 declare module 'date-fns/fp/compareAsc/index.js' {
   import { compareAsc } from 'date-fns/fp'
   export = compareAsc
+}
+
+declare module 'date-fns/fp/compareAscWithOptions/index.js' {
+  import { compareAscWithOptions } from 'date-fns/fp'
+  export = compareAscWithOptions
 }
 
 declare module 'date-fns/fp/compareDesc/index.js' {
@@ -6047,9 +9006,9 @@ declare module 'date-fns/fp/compareDesc/index.js' {
   export = compareDesc
 }
 
-declare module 'date-fns/fp/differenceInBusinessDays/index.js' {
-  import { differenceInBusinessDays } from 'date-fns/fp'
-  export = differenceInBusinessDays
+declare module 'date-fns/fp/compareDescWithOptions/index.js' {
+  import { compareDescWithOptions } from 'date-fns/fp'
+  export = compareDescWithOptions
 }
 
 declare module 'date-fns/fp/differenceInCalendarDays/index.js' {
@@ -6057,9 +9016,19 @@ declare module 'date-fns/fp/differenceInCalendarDays/index.js' {
   export = differenceInCalendarDays
 }
 
+declare module 'date-fns/fp/differenceInCalendarDaysWithOptions/index.js' {
+  import { differenceInCalendarDaysWithOptions } from 'date-fns/fp'
+  export = differenceInCalendarDaysWithOptions
+}
+
 declare module 'date-fns/fp/differenceInCalendarISOWeeks/index.js' {
   import { differenceInCalendarISOWeeks } from 'date-fns/fp'
   export = differenceInCalendarISOWeeks
+}
+
+declare module 'date-fns/fp/differenceInCalendarISOWeeksWithOptions/index.js' {
+  import { differenceInCalendarISOWeeksWithOptions } from 'date-fns/fp'
+  export = differenceInCalendarISOWeeksWithOptions
 }
 
 declare module 'date-fns/fp/differenceInCalendarISOWeekYears/index.js' {
@@ -6067,14 +9036,29 @@ declare module 'date-fns/fp/differenceInCalendarISOWeekYears/index.js' {
   export = differenceInCalendarISOWeekYears
 }
 
+declare module 'date-fns/fp/differenceInCalendarISOWeekYearsWithOptions/index.js' {
+  import { differenceInCalendarISOWeekYearsWithOptions } from 'date-fns/fp'
+  export = differenceInCalendarISOWeekYearsWithOptions
+}
+
 declare module 'date-fns/fp/differenceInCalendarMonths/index.js' {
   import { differenceInCalendarMonths } from 'date-fns/fp'
   export = differenceInCalendarMonths
 }
 
+declare module 'date-fns/fp/differenceInCalendarMonthsWithOptions/index.js' {
+  import { differenceInCalendarMonthsWithOptions } from 'date-fns/fp'
+  export = differenceInCalendarMonthsWithOptions
+}
+
 declare module 'date-fns/fp/differenceInCalendarQuarters/index.js' {
   import { differenceInCalendarQuarters } from 'date-fns/fp'
   export = differenceInCalendarQuarters
+}
+
+declare module 'date-fns/fp/differenceInCalendarQuartersWithOptions/index.js' {
+  import { differenceInCalendarQuartersWithOptions } from 'date-fns/fp'
+  export = differenceInCalendarQuartersWithOptions
 }
 
 declare module 'date-fns/fp/differenceInCalendarWeeks/index.js' {
@@ -6092,9 +9076,19 @@ declare module 'date-fns/fp/differenceInCalendarYears/index.js' {
   export = differenceInCalendarYears
 }
 
+declare module 'date-fns/fp/differenceInCalendarYearsWithOptions/index.js' {
+  import { differenceInCalendarYearsWithOptions } from 'date-fns/fp'
+  export = differenceInCalendarYearsWithOptions
+}
+
 declare module 'date-fns/fp/differenceInDays/index.js' {
   import { differenceInDays } from 'date-fns/fp'
   export = differenceInDays
+}
+
+declare module 'date-fns/fp/differenceInDaysWithOptions/index.js' {
+  import { differenceInDaysWithOptions } from 'date-fns/fp'
+  export = differenceInDaysWithOptions
 }
 
 declare module 'date-fns/fp/differenceInHours/index.js' {
@@ -6102,9 +9096,19 @@ declare module 'date-fns/fp/differenceInHours/index.js' {
   export = differenceInHours
 }
 
+declare module 'date-fns/fp/differenceInHoursWithOptions/index.js' {
+  import { differenceInHoursWithOptions } from 'date-fns/fp'
+  export = differenceInHoursWithOptions
+}
+
 declare module 'date-fns/fp/differenceInISOWeekYears/index.js' {
   import { differenceInISOWeekYears } from 'date-fns/fp'
   export = differenceInISOWeekYears
+}
+
+declare module 'date-fns/fp/differenceInISOWeekYearsWithOptions/index.js' {
+  import { differenceInISOWeekYearsWithOptions } from 'date-fns/fp'
+  export = differenceInISOWeekYearsWithOptions
 }
 
 declare module 'date-fns/fp/differenceInMilliseconds/index.js' {
@@ -6112,9 +9116,19 @@ declare module 'date-fns/fp/differenceInMilliseconds/index.js' {
   export = differenceInMilliseconds
 }
 
+declare module 'date-fns/fp/differenceInMillisecondsWithOptions/index.js' {
+  import { differenceInMillisecondsWithOptions } from 'date-fns/fp'
+  export = differenceInMillisecondsWithOptions
+}
+
 declare module 'date-fns/fp/differenceInMinutes/index.js' {
   import { differenceInMinutes } from 'date-fns/fp'
   export = differenceInMinutes
+}
+
+declare module 'date-fns/fp/differenceInMinutesWithOptions/index.js' {
+  import { differenceInMinutesWithOptions } from 'date-fns/fp'
+  export = differenceInMinutesWithOptions
 }
 
 declare module 'date-fns/fp/differenceInMonths/index.js' {
@@ -6122,9 +9136,19 @@ declare module 'date-fns/fp/differenceInMonths/index.js' {
   export = differenceInMonths
 }
 
+declare module 'date-fns/fp/differenceInMonthsWithOptions/index.js' {
+  import { differenceInMonthsWithOptions } from 'date-fns/fp'
+  export = differenceInMonthsWithOptions
+}
+
 declare module 'date-fns/fp/differenceInQuarters/index.js' {
   import { differenceInQuarters } from 'date-fns/fp'
   export = differenceInQuarters
+}
+
+declare module 'date-fns/fp/differenceInQuartersWithOptions/index.js' {
+  import { differenceInQuartersWithOptions } from 'date-fns/fp'
+  export = differenceInQuartersWithOptions
 }
 
 declare module 'date-fns/fp/differenceInSeconds/index.js' {
@@ -6132,14 +9156,29 @@ declare module 'date-fns/fp/differenceInSeconds/index.js' {
   export = differenceInSeconds
 }
 
+declare module 'date-fns/fp/differenceInSecondsWithOptions/index.js' {
+  import { differenceInSecondsWithOptions } from 'date-fns/fp'
+  export = differenceInSecondsWithOptions
+}
+
 declare module 'date-fns/fp/differenceInWeeks/index.js' {
   import { differenceInWeeks } from 'date-fns/fp'
   export = differenceInWeeks
 }
 
+declare module 'date-fns/fp/differenceInWeeksWithOptions/index.js' {
+  import { differenceInWeeksWithOptions } from 'date-fns/fp'
+  export = differenceInWeeksWithOptions
+}
+
 declare module 'date-fns/fp/differenceInYears/index.js' {
   import { differenceInYears } from 'date-fns/fp'
   export = differenceInYears
+}
+
+declare module 'date-fns/fp/differenceInYearsWithOptions/index.js' {
+  import { differenceInYearsWithOptions } from 'date-fns/fp'
+  export = differenceInYearsWithOptions
 }
 
 declare module 'date-fns/fp/eachDayOfInterval/index.js' {
@@ -6157,14 +9196,29 @@ declare module 'date-fns/fp/eachWeekendOfInterval/index.js' {
   export = eachWeekendOfInterval
 }
 
+declare module 'date-fns/fp/eachWeekendOfIntervalWithOptions/index.js' {
+  import { eachWeekendOfIntervalWithOptions } from 'date-fns/fp'
+  export = eachWeekendOfIntervalWithOptions
+}
+
 declare module 'date-fns/fp/eachWeekendOfMonth/index.js' {
   import { eachWeekendOfMonth } from 'date-fns/fp'
   export = eachWeekendOfMonth
 }
 
+declare module 'date-fns/fp/eachWeekendOfMonthWithOptions/index.js' {
+  import { eachWeekendOfMonthWithOptions } from 'date-fns/fp'
+  export = eachWeekendOfMonthWithOptions
+}
+
 declare module 'date-fns/fp/eachWeekendOfYear/index.js' {
   import { eachWeekendOfYear } from 'date-fns/fp'
   export = eachWeekendOfYear
+}
+
+declare module 'date-fns/fp/eachWeekendOfYearWithOptions/index.js' {
+  import { eachWeekendOfYearWithOptions } from 'date-fns/fp'
+  export = eachWeekendOfYearWithOptions
 }
 
 declare module 'date-fns/fp/eachWeekOfInterval/index.js' {
@@ -6182,6 +9236,11 @@ declare module 'date-fns/fp/endOfDay/index.js' {
   export = endOfDay
 }
 
+declare module 'date-fns/fp/endOfDayWithOptions/index.js' {
+  import { endOfDayWithOptions } from 'date-fns/fp'
+  export = endOfDayWithOptions
+}
+
 declare module 'date-fns/fp/endOfDecade/index.js' {
   import { endOfDecade } from 'date-fns/fp'
   export = endOfDecade
@@ -6197,9 +9256,19 @@ declare module 'date-fns/fp/endOfHour/index.js' {
   export = endOfHour
 }
 
+declare module 'date-fns/fp/endOfHourWithOptions/index.js' {
+  import { endOfHourWithOptions } from 'date-fns/fp'
+  export = endOfHourWithOptions
+}
+
 declare module 'date-fns/fp/endOfISOWeek/index.js' {
   import { endOfISOWeek } from 'date-fns/fp'
   export = endOfISOWeek
+}
+
+declare module 'date-fns/fp/endOfISOWeekWithOptions/index.js' {
+  import { endOfISOWeekWithOptions } from 'date-fns/fp'
+  export = endOfISOWeekWithOptions
 }
 
 declare module 'date-fns/fp/endOfISOWeekYear/index.js' {
@@ -6207,9 +9276,19 @@ declare module 'date-fns/fp/endOfISOWeekYear/index.js' {
   export = endOfISOWeekYear
 }
 
+declare module 'date-fns/fp/endOfISOWeekYearWithOptions/index.js' {
+  import { endOfISOWeekYearWithOptions } from 'date-fns/fp'
+  export = endOfISOWeekYearWithOptions
+}
+
 declare module 'date-fns/fp/endOfMinute/index.js' {
   import { endOfMinute } from 'date-fns/fp'
   export = endOfMinute
+}
+
+declare module 'date-fns/fp/endOfMinuteWithOptions/index.js' {
+  import { endOfMinuteWithOptions } from 'date-fns/fp'
+  export = endOfMinuteWithOptions
 }
 
 declare module 'date-fns/fp/endOfMonth/index.js' {
@@ -6217,14 +9296,29 @@ declare module 'date-fns/fp/endOfMonth/index.js' {
   export = endOfMonth
 }
 
+declare module 'date-fns/fp/endOfMonthWithOptions/index.js' {
+  import { endOfMonthWithOptions } from 'date-fns/fp'
+  export = endOfMonthWithOptions
+}
+
 declare module 'date-fns/fp/endOfQuarter/index.js' {
   import { endOfQuarter } from 'date-fns/fp'
   export = endOfQuarter
 }
 
+declare module 'date-fns/fp/endOfQuarterWithOptions/index.js' {
+  import { endOfQuarterWithOptions } from 'date-fns/fp'
+  export = endOfQuarterWithOptions
+}
+
 declare module 'date-fns/fp/endOfSecond/index.js' {
   import { endOfSecond } from 'date-fns/fp'
   export = endOfSecond
+}
+
+declare module 'date-fns/fp/endOfSecondWithOptions/index.js' {
+  import { endOfSecondWithOptions } from 'date-fns/fp'
+  export = endOfSecondWithOptions
 }
 
 declare module 'date-fns/fp/endOfWeek/index.js' {
@@ -6240,6 +9334,11 @@ declare module 'date-fns/fp/endOfWeekWithOptions/index.js' {
 declare module 'date-fns/fp/endOfYear/index.js' {
   import { endOfYear } from 'date-fns/fp'
   export = endOfYear
+}
+
+declare module 'date-fns/fp/endOfYearWithOptions/index.js' {
+  import { endOfYearWithOptions } from 'date-fns/fp'
+  export = endOfYearWithOptions
 }
 
 declare module 'date-fns/fp/format/index.js' {
@@ -6287,9 +9386,19 @@ declare module 'date-fns/fp/fromUnixTime/index.js' {
   export = fromUnixTime
 }
 
+declare module 'date-fns/fp/fromUnixTimeWithOptions/index.js' {
+  import { fromUnixTimeWithOptions } from 'date-fns/fp'
+  export = fromUnixTimeWithOptions
+}
+
 declare module 'date-fns/fp/getDate/index.js' {
   import { getDate } from 'date-fns/fp'
   export = getDate
+}
+
+declare module 'date-fns/fp/getDateWithOptions/index.js' {
+  import { getDateWithOptions } from 'date-fns/fp'
+  export = getDateWithOptions
 }
 
 declare module 'date-fns/fp/getDay/index.js' {
@@ -6302,9 +9411,19 @@ declare module 'date-fns/fp/getDayOfYear/index.js' {
   export = getDayOfYear
 }
 
+declare module 'date-fns/fp/getDayOfYearWithOptions/index.js' {
+  import { getDayOfYearWithOptions } from 'date-fns/fp'
+  export = getDayOfYearWithOptions
+}
+
 declare module 'date-fns/fp/getDaysInMonth/index.js' {
   import { getDaysInMonth } from 'date-fns/fp'
   export = getDaysInMonth
+}
+
+declare module 'date-fns/fp/getDaysInMonthWithOptions/index.js' {
+  import { getDaysInMonthWithOptions } from 'date-fns/fp'
+  export = getDaysInMonthWithOptions
 }
 
 declare module 'date-fns/fp/getDaysInYear/index.js' {
@@ -6312,9 +9431,24 @@ declare module 'date-fns/fp/getDaysInYear/index.js' {
   export = getDaysInYear
 }
 
+declare module 'date-fns/fp/getDaysInYearWithOptions/index.js' {
+  import { getDaysInYearWithOptions } from 'date-fns/fp'
+  export = getDaysInYearWithOptions
+}
+
+declare module 'date-fns/fp/getDayWithOptions/index.js' {
+  import { getDayWithOptions } from 'date-fns/fp'
+  export = getDayWithOptions
+}
+
 declare module 'date-fns/fp/getDecade/index.js' {
   import { getDecade } from 'date-fns/fp'
   export = getDecade
+}
+
+declare module 'date-fns/fp/getDecadeWithOptions/index.js' {
+  import { getDecadeWithOptions } from 'date-fns/fp'
+  export = getDecadeWithOptions
 }
 
 declare module 'date-fns/fp/getHours/index.js' {
@@ -6322,9 +9456,19 @@ declare module 'date-fns/fp/getHours/index.js' {
   export = getHours
 }
 
+declare module 'date-fns/fp/getHoursWithOptions/index.js' {
+  import { getHoursWithOptions } from 'date-fns/fp'
+  export = getHoursWithOptions
+}
+
 declare module 'date-fns/fp/getISODay/index.js' {
   import { getISODay } from 'date-fns/fp'
   export = getISODay
+}
+
+declare module 'date-fns/fp/getISODayWithOptions/index.js' {
+  import { getISODayWithOptions } from 'date-fns/fp'
+  export = getISODayWithOptions
 }
 
 declare module 'date-fns/fp/getISOWeek/index.js' {
@@ -6337,9 +9481,24 @@ declare module 'date-fns/fp/getISOWeeksInYear/index.js' {
   export = getISOWeeksInYear
 }
 
+declare module 'date-fns/fp/getISOWeeksInYearWithOptions/index.js' {
+  import { getISOWeeksInYearWithOptions } from 'date-fns/fp'
+  export = getISOWeeksInYearWithOptions
+}
+
+declare module 'date-fns/fp/getISOWeekWithOptions/index.js' {
+  import { getISOWeekWithOptions } from 'date-fns/fp'
+  export = getISOWeekWithOptions
+}
+
 declare module 'date-fns/fp/getISOWeekYear/index.js' {
   import { getISOWeekYear } from 'date-fns/fp'
   export = getISOWeekYear
+}
+
+declare module 'date-fns/fp/getISOWeekYearWithOptions/index.js' {
+  import { getISOWeekYearWithOptions } from 'date-fns/fp'
+  export = getISOWeekYearWithOptions
 }
 
 declare module 'date-fns/fp/getMilliseconds/index.js' {
@@ -6347,9 +9506,19 @@ declare module 'date-fns/fp/getMilliseconds/index.js' {
   export = getMilliseconds
 }
 
+declare module 'date-fns/fp/getMillisecondsWithOptions/index.js' {
+  import { getMillisecondsWithOptions } from 'date-fns/fp'
+  export = getMillisecondsWithOptions
+}
+
 declare module 'date-fns/fp/getMinutes/index.js' {
   import { getMinutes } from 'date-fns/fp'
   export = getMinutes
+}
+
+declare module 'date-fns/fp/getMinutesWithOptions/index.js' {
+  import { getMinutesWithOptions } from 'date-fns/fp'
+  export = getMinutesWithOptions
 }
 
 declare module 'date-fns/fp/getMonth/index.js' {
@@ -6357,9 +9526,19 @@ declare module 'date-fns/fp/getMonth/index.js' {
   export = getMonth
 }
 
+declare module 'date-fns/fp/getMonthWithOptions/index.js' {
+  import { getMonthWithOptions } from 'date-fns/fp'
+  export = getMonthWithOptions
+}
+
 declare module 'date-fns/fp/getOverlappingDaysInIntervals/index.js' {
   import { getOverlappingDaysInIntervals } from 'date-fns/fp'
   export = getOverlappingDaysInIntervals
+}
+
+declare module 'date-fns/fp/getOverlappingDaysInIntervalsWithOptions/index.js' {
+  import { getOverlappingDaysInIntervalsWithOptions } from 'date-fns/fp'
+  export = getOverlappingDaysInIntervalsWithOptions
 }
 
 declare module 'date-fns/fp/getQuarter/index.js' {
@@ -6367,9 +9546,19 @@ declare module 'date-fns/fp/getQuarter/index.js' {
   export = getQuarter
 }
 
+declare module 'date-fns/fp/getQuarterWithOptions/index.js' {
+  import { getQuarterWithOptions } from 'date-fns/fp'
+  export = getQuarterWithOptions
+}
+
 declare module 'date-fns/fp/getSeconds/index.js' {
   import { getSeconds } from 'date-fns/fp'
   export = getSeconds
+}
+
+declare module 'date-fns/fp/getSecondsWithOptions/index.js' {
+  import { getSecondsWithOptions } from 'date-fns/fp'
+  export = getSecondsWithOptions
 }
 
 declare module 'date-fns/fp/getTime/index.js' {
@@ -6377,9 +9566,19 @@ declare module 'date-fns/fp/getTime/index.js' {
   export = getTime
 }
 
+declare module 'date-fns/fp/getTimeWithOptions/index.js' {
+  import { getTimeWithOptions } from 'date-fns/fp'
+  export = getTimeWithOptions
+}
+
 declare module 'date-fns/fp/getUnixTime/index.js' {
   import { getUnixTime } from 'date-fns/fp'
   export = getUnixTime
+}
+
+declare module 'date-fns/fp/getUnixTimeWithOptions/index.js' {
+  import { getUnixTimeWithOptions } from 'date-fns/fp'
+  export = getUnixTimeWithOptions
 }
 
 declare module 'date-fns/fp/getWeek/index.js' {
@@ -6427,9 +9626,19 @@ declare module 'date-fns/fp/getYear/index.js' {
   export = getYear
 }
 
+declare module 'date-fns/fp/getYearWithOptions/index.js' {
+  import { getYearWithOptions } from 'date-fns/fp'
+  export = getYearWithOptions
+}
+
 declare module 'date-fns/fp/isAfter/index.js' {
   import { isAfter } from 'date-fns/fp'
   export = isAfter
+}
+
+declare module 'date-fns/fp/isAfterWithOptions/index.js' {
+  import { isAfterWithOptions } from 'date-fns/fp'
+  export = isAfterWithOptions
 }
 
 declare module 'date-fns/fp/isBefore/index.js' {
@@ -6437,9 +9646,19 @@ declare module 'date-fns/fp/isBefore/index.js' {
   export = isBefore
 }
 
+declare module 'date-fns/fp/isBeforeWithOptions/index.js' {
+  import { isBeforeWithOptions } from 'date-fns/fp'
+  export = isBeforeWithOptions
+}
+
 declare module 'date-fns/fp/isDate/index.js' {
   import { isDate } from 'date-fns/fp'
   export = isDate
+}
+
+declare module 'date-fns/fp/isDateWithOptions/index.js' {
+  import { isDateWithOptions } from 'date-fns/fp'
+  export = isDateWithOptions
 }
 
 declare module 'date-fns/fp/isEqual/index.js' {
@@ -6447,9 +9666,19 @@ declare module 'date-fns/fp/isEqual/index.js' {
   export = isEqual
 }
 
+declare module 'date-fns/fp/isEqualWithOptions/index.js' {
+  import { isEqualWithOptions } from 'date-fns/fp'
+  export = isEqualWithOptions
+}
+
 declare module 'date-fns/fp/isFirstDayOfMonth/index.js' {
   import { isFirstDayOfMonth } from 'date-fns/fp'
   export = isFirstDayOfMonth
+}
+
+declare module 'date-fns/fp/isFirstDayOfMonthWithOptions/index.js' {
+  import { isFirstDayOfMonthWithOptions } from 'date-fns/fp'
+  export = isFirstDayOfMonthWithOptions
 }
 
 declare module 'date-fns/fp/isFriday/index.js' {
@@ -6457,9 +9686,19 @@ declare module 'date-fns/fp/isFriday/index.js' {
   export = isFriday
 }
 
+declare module 'date-fns/fp/isFridayWithOptions/index.js' {
+  import { isFridayWithOptions } from 'date-fns/fp'
+  export = isFridayWithOptions
+}
+
 declare module 'date-fns/fp/isLastDayOfMonth/index.js' {
   import { isLastDayOfMonth } from 'date-fns/fp'
   export = isLastDayOfMonth
+}
+
+declare module 'date-fns/fp/isLastDayOfMonthWithOptions/index.js' {
+  import { isLastDayOfMonthWithOptions } from 'date-fns/fp'
+  export = isLastDayOfMonthWithOptions
 }
 
 declare module 'date-fns/fp/isLeapYear/index.js' {
@@ -6467,9 +9706,19 @@ declare module 'date-fns/fp/isLeapYear/index.js' {
   export = isLeapYear
 }
 
+declare module 'date-fns/fp/isLeapYearWithOptions/index.js' {
+  import { isLeapYearWithOptions } from 'date-fns/fp'
+  export = isLeapYearWithOptions
+}
+
 declare module 'date-fns/fp/isMonday/index.js' {
   import { isMonday } from 'date-fns/fp'
   export = isMonday
+}
+
+declare module 'date-fns/fp/isMondayWithOptions/index.js' {
+  import { isMondayWithOptions } from 'date-fns/fp'
+  export = isMondayWithOptions
 }
 
 declare module 'date-fns/fp/isSameDay/index.js' {
@@ -6477,9 +9726,19 @@ declare module 'date-fns/fp/isSameDay/index.js' {
   export = isSameDay
 }
 
+declare module 'date-fns/fp/isSameDayWithOptions/index.js' {
+  import { isSameDayWithOptions } from 'date-fns/fp'
+  export = isSameDayWithOptions
+}
+
 declare module 'date-fns/fp/isSameHour/index.js' {
   import { isSameHour } from 'date-fns/fp'
   export = isSameHour
+}
+
+declare module 'date-fns/fp/isSameHourWithOptions/index.js' {
+  import { isSameHourWithOptions } from 'date-fns/fp'
+  export = isSameHourWithOptions
 }
 
 declare module 'date-fns/fp/isSameISOWeek/index.js' {
@@ -6487,9 +9746,19 @@ declare module 'date-fns/fp/isSameISOWeek/index.js' {
   export = isSameISOWeek
 }
 
+declare module 'date-fns/fp/isSameISOWeekWithOptions/index.js' {
+  import { isSameISOWeekWithOptions } from 'date-fns/fp'
+  export = isSameISOWeekWithOptions
+}
+
 declare module 'date-fns/fp/isSameISOWeekYear/index.js' {
   import { isSameISOWeekYear } from 'date-fns/fp'
   export = isSameISOWeekYear
+}
+
+declare module 'date-fns/fp/isSameISOWeekYearWithOptions/index.js' {
+  import { isSameISOWeekYearWithOptions } from 'date-fns/fp'
+  export = isSameISOWeekYearWithOptions
 }
 
 declare module 'date-fns/fp/isSameMinute/index.js' {
@@ -6497,9 +9766,19 @@ declare module 'date-fns/fp/isSameMinute/index.js' {
   export = isSameMinute
 }
 
+declare module 'date-fns/fp/isSameMinuteWithOptions/index.js' {
+  import { isSameMinuteWithOptions } from 'date-fns/fp'
+  export = isSameMinuteWithOptions
+}
+
 declare module 'date-fns/fp/isSameMonth/index.js' {
   import { isSameMonth } from 'date-fns/fp'
   export = isSameMonth
+}
+
+declare module 'date-fns/fp/isSameMonthWithOptions/index.js' {
+  import { isSameMonthWithOptions } from 'date-fns/fp'
+  export = isSameMonthWithOptions
 }
 
 declare module 'date-fns/fp/isSameQuarter/index.js' {
@@ -6507,9 +9786,19 @@ declare module 'date-fns/fp/isSameQuarter/index.js' {
   export = isSameQuarter
 }
 
+declare module 'date-fns/fp/isSameQuarterWithOptions/index.js' {
+  import { isSameQuarterWithOptions } from 'date-fns/fp'
+  export = isSameQuarterWithOptions
+}
+
 declare module 'date-fns/fp/isSameSecond/index.js' {
   import { isSameSecond } from 'date-fns/fp'
   export = isSameSecond
+}
+
+declare module 'date-fns/fp/isSameSecondWithOptions/index.js' {
+  import { isSameSecondWithOptions } from 'date-fns/fp'
+  export = isSameSecondWithOptions
 }
 
 declare module 'date-fns/fp/isSameWeek/index.js' {
@@ -6527,9 +9816,19 @@ declare module 'date-fns/fp/isSameYear/index.js' {
   export = isSameYear
 }
 
+declare module 'date-fns/fp/isSameYearWithOptions/index.js' {
+  import { isSameYearWithOptions } from 'date-fns/fp'
+  export = isSameYearWithOptions
+}
+
 declare module 'date-fns/fp/isSaturday/index.js' {
   import { isSaturday } from 'date-fns/fp'
   export = isSaturday
+}
+
+declare module 'date-fns/fp/isSaturdayWithOptions/index.js' {
+  import { isSaturdayWithOptions } from 'date-fns/fp'
+  export = isSaturdayWithOptions
 }
 
 declare module 'date-fns/fp/isSunday/index.js' {
@@ -6537,9 +9836,19 @@ declare module 'date-fns/fp/isSunday/index.js' {
   export = isSunday
 }
 
+declare module 'date-fns/fp/isSundayWithOptions/index.js' {
+  import { isSundayWithOptions } from 'date-fns/fp'
+  export = isSundayWithOptions
+}
+
 declare module 'date-fns/fp/isThursday/index.js' {
   import { isThursday } from 'date-fns/fp'
   export = isThursday
+}
+
+declare module 'date-fns/fp/isThursdayWithOptions/index.js' {
+  import { isThursdayWithOptions } from 'date-fns/fp'
+  export = isThursdayWithOptions
 }
 
 declare module 'date-fns/fp/isTuesday/index.js' {
@@ -6547,9 +9856,19 @@ declare module 'date-fns/fp/isTuesday/index.js' {
   export = isTuesday
 }
 
+declare module 'date-fns/fp/isTuesdayWithOptions/index.js' {
+  import { isTuesdayWithOptions } from 'date-fns/fp'
+  export = isTuesdayWithOptions
+}
+
 declare module 'date-fns/fp/isValid/index.js' {
   import { isValid } from 'date-fns/fp'
   export = isValid
+}
+
+declare module 'date-fns/fp/isValidWithOptions/index.js' {
+  import { isValidWithOptions } from 'date-fns/fp'
+  export = isValidWithOptions
 }
 
 declare module 'date-fns/fp/isWednesday/index.js' {
@@ -6557,9 +9876,19 @@ declare module 'date-fns/fp/isWednesday/index.js' {
   export = isWednesday
 }
 
+declare module 'date-fns/fp/isWednesdayWithOptions/index.js' {
+  import { isWednesdayWithOptions } from 'date-fns/fp'
+  export = isWednesdayWithOptions
+}
+
 declare module 'date-fns/fp/isWeekend/index.js' {
   import { isWeekend } from 'date-fns/fp'
   export = isWeekend
+}
+
+declare module 'date-fns/fp/isWeekendWithOptions/index.js' {
+  import { isWeekendWithOptions } from 'date-fns/fp'
+  export = isWeekendWithOptions
 }
 
 declare module 'date-fns/fp/isWithinInterval/index.js' {
@@ -6567,9 +9896,19 @@ declare module 'date-fns/fp/isWithinInterval/index.js' {
   export = isWithinInterval
 }
 
+declare module 'date-fns/fp/isWithinIntervalWithOptions/index.js' {
+  import { isWithinIntervalWithOptions } from 'date-fns/fp'
+  export = isWithinIntervalWithOptions
+}
+
 declare module 'date-fns/fp/lastDayOfDecade/index.js' {
   import { lastDayOfDecade } from 'date-fns/fp'
   export = lastDayOfDecade
+}
+
+declare module 'date-fns/fp/lastDayOfDecadeWithOptions/index.js' {
+  import { lastDayOfDecadeWithOptions } from 'date-fns/fp'
+  export = lastDayOfDecadeWithOptions
 }
 
 declare module 'date-fns/fp/lastDayOfISOWeek/index.js' {
@@ -6577,14 +9916,29 @@ declare module 'date-fns/fp/lastDayOfISOWeek/index.js' {
   export = lastDayOfISOWeek
 }
 
+declare module 'date-fns/fp/lastDayOfISOWeekWithOptions/index.js' {
+  import { lastDayOfISOWeekWithOptions } from 'date-fns/fp'
+  export = lastDayOfISOWeekWithOptions
+}
+
 declare module 'date-fns/fp/lastDayOfISOWeekYear/index.js' {
   import { lastDayOfISOWeekYear } from 'date-fns/fp'
   export = lastDayOfISOWeekYear
 }
 
+declare module 'date-fns/fp/lastDayOfISOWeekYearWithOptions/index.js' {
+  import { lastDayOfISOWeekYearWithOptions } from 'date-fns/fp'
+  export = lastDayOfISOWeekYearWithOptions
+}
+
 declare module 'date-fns/fp/lastDayOfMonth/index.js' {
   import { lastDayOfMonth } from 'date-fns/fp'
   export = lastDayOfMonth
+}
+
+declare module 'date-fns/fp/lastDayOfMonthWithOptions/index.js' {
+  import { lastDayOfMonthWithOptions } from 'date-fns/fp'
+  export = lastDayOfMonthWithOptions
 }
 
 declare module 'date-fns/fp/lastDayOfQuarter/index.js' {
@@ -6612,9 +9966,9 @@ declare module 'date-fns/fp/lastDayOfYear/index.js' {
   export = lastDayOfYear
 }
 
-declare module 'date-fns/fp/lightFormat/index.js' {
-  import { lightFormat } from 'date-fns/fp'
-  export = lightFormat
+declare module 'date-fns/fp/lastDayOfYearWithOptions/index.js' {
+  import { lastDayOfYearWithOptions } from 'date-fns/fp'
+  export = lastDayOfYearWithOptions
 }
 
 declare module 'date-fns/fp/max/index.js' {
@@ -6622,24 +9976,24 @@ declare module 'date-fns/fp/max/index.js' {
   export = max
 }
 
+declare module 'date-fns/fp/maxWithOptions/index.js' {
+  import { maxWithOptions } from 'date-fns/fp'
+  export = maxWithOptions
+}
+
 declare module 'date-fns/fp/min/index.js' {
   import { min } from 'date-fns/fp'
   export = min
 }
 
+declare module 'date-fns/fp/minWithOptions/index.js' {
+  import { minWithOptions } from 'date-fns/fp'
+  export = minWithOptions
+}
+
 declare module 'date-fns/fp/parse/index.js' {
   import { parse } from 'date-fns/fp'
   export = parse
-}
-
-declare module 'date-fns/fp/parseISO/index.js' {
-  import { parseISO } from 'date-fns/fp'
-  export = parseISO
-}
-
-declare module 'date-fns/fp/parseISOWithOptions/index.js' {
-  import { parseISOWithOptions } from 'date-fns/fp'
-  export = parseISOWithOptions
 }
 
 declare module 'date-fns/fp/parseWithOptions/index.js' {
@@ -6662,6 +10016,11 @@ declare module 'date-fns/fp/setDate/index.js' {
   export = setDate
 }
 
+declare module 'date-fns/fp/setDateWithOptions/index.js' {
+  import { setDateWithOptions } from 'date-fns/fp'
+  export = setDateWithOptions
+}
+
 declare module 'date-fns/fp/setDay/index.js' {
   import { setDay } from 'date-fns/fp'
   export = setDay
@@ -6670,6 +10029,11 @@ declare module 'date-fns/fp/setDay/index.js' {
 declare module 'date-fns/fp/setDayOfYear/index.js' {
   import { setDayOfYear } from 'date-fns/fp'
   export = setDayOfYear
+}
+
+declare module 'date-fns/fp/setDayOfYearWithOptions/index.js' {
+  import { setDayOfYearWithOptions } from 'date-fns/fp'
+  export = setDayOfYearWithOptions
 }
 
 declare module 'date-fns/fp/setDayWithOptions/index.js' {
@@ -6682,9 +10046,19 @@ declare module 'date-fns/fp/setHours/index.js' {
   export = setHours
 }
 
+declare module 'date-fns/fp/setHoursWithOptions/index.js' {
+  import { setHoursWithOptions } from 'date-fns/fp'
+  export = setHoursWithOptions
+}
+
 declare module 'date-fns/fp/setISODay/index.js' {
   import { setISODay } from 'date-fns/fp'
   export = setISODay
+}
+
+declare module 'date-fns/fp/setISODayWithOptions/index.js' {
+  import { setISODayWithOptions } from 'date-fns/fp'
+  export = setISODayWithOptions
 }
 
 declare module 'date-fns/fp/setISOWeek/index.js' {
@@ -6692,9 +10066,19 @@ declare module 'date-fns/fp/setISOWeek/index.js' {
   export = setISOWeek
 }
 
+declare module 'date-fns/fp/setISOWeekWithOptions/index.js' {
+  import { setISOWeekWithOptions } from 'date-fns/fp'
+  export = setISOWeekWithOptions
+}
+
 declare module 'date-fns/fp/setISOWeekYear/index.js' {
   import { setISOWeekYear } from 'date-fns/fp'
   export = setISOWeekYear
+}
+
+declare module 'date-fns/fp/setISOWeekYearWithOptions/index.js' {
+  import { setISOWeekYearWithOptions } from 'date-fns/fp'
+  export = setISOWeekYearWithOptions
 }
 
 declare module 'date-fns/fp/setMilliseconds/index.js' {
@@ -6702,9 +10086,19 @@ declare module 'date-fns/fp/setMilliseconds/index.js' {
   export = setMilliseconds
 }
 
+declare module 'date-fns/fp/setMillisecondsWithOptions/index.js' {
+  import { setMillisecondsWithOptions } from 'date-fns/fp'
+  export = setMillisecondsWithOptions
+}
+
 declare module 'date-fns/fp/setMinutes/index.js' {
   import { setMinutes } from 'date-fns/fp'
   export = setMinutes
+}
+
+declare module 'date-fns/fp/setMinutesWithOptions/index.js' {
+  import { setMinutesWithOptions } from 'date-fns/fp'
+  export = setMinutesWithOptions
 }
 
 declare module 'date-fns/fp/setMonth/index.js' {
@@ -6712,14 +10106,29 @@ declare module 'date-fns/fp/setMonth/index.js' {
   export = setMonth
 }
 
+declare module 'date-fns/fp/setMonthWithOptions/index.js' {
+  import { setMonthWithOptions } from 'date-fns/fp'
+  export = setMonthWithOptions
+}
+
 declare module 'date-fns/fp/setQuarter/index.js' {
   import { setQuarter } from 'date-fns/fp'
   export = setQuarter
 }
 
+declare module 'date-fns/fp/setQuarterWithOptions/index.js' {
+  import { setQuarterWithOptions } from 'date-fns/fp'
+  export = setQuarterWithOptions
+}
+
 declare module 'date-fns/fp/setSeconds/index.js' {
   import { setSeconds } from 'date-fns/fp'
   export = setSeconds
+}
+
+declare module 'date-fns/fp/setSecondsWithOptions/index.js' {
+  import { setSecondsWithOptions } from 'date-fns/fp'
+  export = setSecondsWithOptions
 }
 
 declare module 'date-fns/fp/setWeek/index.js' {
@@ -6747,9 +10156,19 @@ declare module 'date-fns/fp/setYear/index.js' {
   export = setYear
 }
 
+declare module 'date-fns/fp/setYearWithOptions/index.js' {
+  import { setYearWithOptions } from 'date-fns/fp'
+  export = setYearWithOptions
+}
+
 declare module 'date-fns/fp/startOfDay/index.js' {
   import { startOfDay } from 'date-fns/fp'
   export = startOfDay
+}
+
+declare module 'date-fns/fp/startOfDayWithOptions/index.js' {
+  import { startOfDayWithOptions } from 'date-fns/fp'
+  export = startOfDayWithOptions
 }
 
 declare module 'date-fns/fp/startOfDecade/index.js' {
@@ -6757,9 +10176,19 @@ declare module 'date-fns/fp/startOfDecade/index.js' {
   export = startOfDecade
 }
 
+declare module 'date-fns/fp/startOfDecadeWithOptions/index.js' {
+  import { startOfDecadeWithOptions } from 'date-fns/fp'
+  export = startOfDecadeWithOptions
+}
+
 declare module 'date-fns/fp/startOfHour/index.js' {
   import { startOfHour } from 'date-fns/fp'
   export = startOfHour
+}
+
+declare module 'date-fns/fp/startOfHourWithOptions/index.js' {
+  import { startOfHourWithOptions } from 'date-fns/fp'
+  export = startOfHourWithOptions
 }
 
 declare module 'date-fns/fp/startOfISOWeek/index.js' {
@@ -6767,9 +10196,19 @@ declare module 'date-fns/fp/startOfISOWeek/index.js' {
   export = startOfISOWeek
 }
 
+declare module 'date-fns/fp/startOfISOWeekWithOptions/index.js' {
+  import { startOfISOWeekWithOptions } from 'date-fns/fp'
+  export = startOfISOWeekWithOptions
+}
+
 declare module 'date-fns/fp/startOfISOWeekYear/index.js' {
   import { startOfISOWeekYear } from 'date-fns/fp'
   export = startOfISOWeekYear
+}
+
+declare module 'date-fns/fp/startOfISOWeekYearWithOptions/index.js' {
+  import { startOfISOWeekYearWithOptions } from 'date-fns/fp'
+  export = startOfISOWeekYearWithOptions
 }
 
 declare module 'date-fns/fp/startOfMinute/index.js' {
@@ -6777,9 +10216,19 @@ declare module 'date-fns/fp/startOfMinute/index.js' {
   export = startOfMinute
 }
 
+declare module 'date-fns/fp/startOfMinuteWithOptions/index.js' {
+  import { startOfMinuteWithOptions } from 'date-fns/fp'
+  export = startOfMinuteWithOptions
+}
+
 declare module 'date-fns/fp/startOfMonth/index.js' {
   import { startOfMonth } from 'date-fns/fp'
   export = startOfMonth
+}
+
+declare module 'date-fns/fp/startOfMonthWithOptions/index.js' {
+  import { startOfMonthWithOptions } from 'date-fns/fp'
+  export = startOfMonthWithOptions
 }
 
 declare module 'date-fns/fp/startOfQuarter/index.js' {
@@ -6787,9 +10236,19 @@ declare module 'date-fns/fp/startOfQuarter/index.js' {
   export = startOfQuarter
 }
 
+declare module 'date-fns/fp/startOfQuarterWithOptions/index.js' {
+  import { startOfQuarterWithOptions } from 'date-fns/fp'
+  export = startOfQuarterWithOptions
+}
+
 declare module 'date-fns/fp/startOfSecond/index.js' {
   import { startOfSecond } from 'date-fns/fp'
   export = startOfSecond
+}
+
+declare module 'date-fns/fp/startOfSecondWithOptions/index.js' {
+  import { startOfSecondWithOptions } from 'date-fns/fp'
+  export = startOfSecondWithOptions
 }
 
 declare module 'date-fns/fp/startOfWeek/index.js' {
@@ -6817,9 +10276,19 @@ declare module 'date-fns/fp/startOfYear/index.js' {
   export = startOfYear
 }
 
+declare module 'date-fns/fp/startOfYearWithOptions/index.js' {
+  import { startOfYearWithOptions } from 'date-fns/fp'
+  export = startOfYearWithOptions
+}
+
 declare module 'date-fns/fp/subDays/index.js' {
   import { subDays } from 'date-fns/fp'
   export = subDays
+}
+
+declare module 'date-fns/fp/subDaysWithOptions/index.js' {
+  import { subDaysWithOptions } from 'date-fns/fp'
+  export = subDaysWithOptions
 }
 
 declare module 'date-fns/fp/subHours/index.js' {
@@ -6827,9 +10296,19 @@ declare module 'date-fns/fp/subHours/index.js' {
   export = subHours
 }
 
+declare module 'date-fns/fp/subHoursWithOptions/index.js' {
+  import { subHoursWithOptions } from 'date-fns/fp'
+  export = subHoursWithOptions
+}
+
 declare module 'date-fns/fp/subISOWeekYears/index.js' {
   import { subISOWeekYears } from 'date-fns/fp'
   export = subISOWeekYears
+}
+
+declare module 'date-fns/fp/subISOWeekYearsWithOptions/index.js' {
+  import { subISOWeekYearsWithOptions } from 'date-fns/fp'
+  export = subISOWeekYearsWithOptions
 }
 
 declare module 'date-fns/fp/subMilliseconds/index.js' {
@@ -6837,9 +10316,19 @@ declare module 'date-fns/fp/subMilliseconds/index.js' {
   export = subMilliseconds
 }
 
+declare module 'date-fns/fp/subMillisecondsWithOptions/index.js' {
+  import { subMillisecondsWithOptions } from 'date-fns/fp'
+  export = subMillisecondsWithOptions
+}
+
 declare module 'date-fns/fp/subMinutes/index.js' {
   import { subMinutes } from 'date-fns/fp'
   export = subMinutes
+}
+
+declare module 'date-fns/fp/subMinutesWithOptions/index.js' {
+  import { subMinutesWithOptions } from 'date-fns/fp'
+  export = subMinutesWithOptions
 }
 
 declare module 'date-fns/fp/subMonths/index.js' {
@@ -6847,9 +10336,19 @@ declare module 'date-fns/fp/subMonths/index.js' {
   export = subMonths
 }
 
+declare module 'date-fns/fp/subMonthsWithOptions/index.js' {
+  import { subMonthsWithOptions } from 'date-fns/fp'
+  export = subMonthsWithOptions
+}
+
 declare module 'date-fns/fp/subQuarters/index.js' {
   import { subQuarters } from 'date-fns/fp'
   export = subQuarters
+}
+
+declare module 'date-fns/fp/subQuartersWithOptions/index.js' {
+  import { subQuartersWithOptions } from 'date-fns/fp'
+  export = subQuartersWithOptions
 }
 
 declare module 'date-fns/fp/subSeconds/index.js' {
@@ -6857,9 +10356,19 @@ declare module 'date-fns/fp/subSeconds/index.js' {
   export = subSeconds
 }
 
+declare module 'date-fns/fp/subSecondsWithOptions/index.js' {
+  import { subSecondsWithOptions } from 'date-fns/fp'
+  export = subSecondsWithOptions
+}
+
 declare module 'date-fns/fp/subWeeks/index.js' {
   import { subWeeks } from 'date-fns/fp'
   export = subWeeks
+}
+
+declare module 'date-fns/fp/subWeeksWithOptions/index.js' {
+  import { subWeeksWithOptions } from 'date-fns/fp'
+  export = subWeeksWithOptions
 }
 
 declare module 'date-fns/fp/subYears/index.js' {
@@ -6867,820 +10376,1155 @@ declare module 'date-fns/fp/subYears/index.js' {
   export = subYears
 }
 
+declare module 'date-fns/fp/subYearsWithOptions/index.js' {
+  import { subYearsWithOptions } from 'date-fns/fp'
+  export = subYearsWithOptions
+}
+
 declare module 'date-fns/fp/toDate/index.js' {
   import { toDate } from 'date-fns/fp'
   export = toDate
 }
 
+declare module 'date-fns/fp/toDateWithOptions/index.js' {
+  import { toDateWithOptions } from 'date-fns/fp'
+  export = toDateWithOptions
+}
+
 // ECMAScript Module Functions
 
 declare module 'date-fns/esm' {
-  function addBusinessDays(date: Date | number, amount: number): Date
-  namespace addBusinessDays {}
+  function addDays(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
+  namespace addDays {
 
-  function addDays(date: Date | number, amount: number): Date
-  namespace addDays {}
+  }
 
-  function addHours(date: Date | number, amount: number): Date
-  namespace addHours {}
+  function addHours(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
+  namespace addHours {
 
-  function addISOWeekYears(date: Date | number, amount: number): Date
-  namespace addISOWeekYears {}
+  }
 
-  function addMilliseconds(date: Date | number, amount: number): Date
-  namespace addMilliseconds {}
+  function addISOWeekYears(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
+  namespace addISOWeekYears {
 
-  function addMinutes(date: Date | number, amount: number): Date
-  namespace addMinutes {}
+  }
 
-  function addMonths(date: Date | number, amount: number): Date
-  namespace addMonths {}
+  function addMilliseconds(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
+  namespace addMilliseconds {
 
-  function addQuarters(date: Date | number, amount: number): Date
-  namespace addQuarters {}
+  }
 
-  function addSeconds(date: Date | number, amount: number): Date
-  namespace addSeconds {}
+  function addMinutes(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
+  namespace addMinutes {
 
-  function addWeeks(date: Date | number, amount: number): Date
-  namespace addWeeks {}
+  }
 
-  function addYears(date: Date | number, amount: number): Date
-  namespace addYears {}
+  function addMonths(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
+  namespace addMonths {
+
+  }
+
+  function addQuarters(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
+  namespace addQuarters {
+
+  }
+
+  function addSeconds(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
+  namespace addSeconds {
+
+  }
+
+  function addWeeks(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
+  namespace addWeeks {
+
+  }
+
+  function addYears(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
+  namespace addYears {
+
+  }
 
   function areIntervalsOverlapping(
     intervalLeft: Interval,
-    intervalRight: Interval
+    intervalRight: Interval,
+    options?: Options
   ): boolean
-  namespace areIntervalsOverlapping {}
+  namespace areIntervalsOverlapping {
+
+  }
 
   function closestIndexTo(
-    dateToCompare: Date | number,
-    datesArray: (Date | number)[]
+    dateToCompare: Date | string | number,
+    datesArray: (Date | string | number)[],
+    options?: Options
   ): number
-  namespace closestIndexTo {}
+  namespace closestIndexTo {
+
+  }
 
   function closestTo(
-    dateToCompare: Date | number,
-    datesArray: (Date | number)[]
+    dateToCompare: Date | string | number,
+    datesArray: (Date | string | number)[],
+    options?: Options
   ): Date
-  namespace closestTo {}
+  namespace closestTo {
 
-  function compareAsc(dateLeft: Date | number, dateRight: Date | number): number
-  namespace compareAsc {}
+  }
+
+  function compareAsc(
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
+  ): number
+  namespace compareAsc {
+
+  }
 
   function compareDesc(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): number
-  namespace compareDesc {}
+  namespace compareDesc {
 
-  function differenceInBusinessDays(
-    dateLeft: Date | number,
-    dateRight: Date | number
-  ): number
-  namespace differenceInBusinessDays {}
+  }
 
   function differenceInCalendarDays(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): number
-  namespace differenceInCalendarDays {}
+  namespace differenceInCalendarDays {
+
+  }
 
   function differenceInCalendarISOWeeks(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): number
-  namespace differenceInCalendarISOWeeks {}
+  namespace differenceInCalendarISOWeeks {
+
+  }
 
   function differenceInCalendarISOWeekYears(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): number
-  namespace differenceInCalendarISOWeekYears {}
+  namespace differenceInCalendarISOWeekYears {
+
+  }
 
   function differenceInCalendarMonths(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): number
-  namespace differenceInCalendarMonths {}
+  namespace differenceInCalendarMonths {
+
+  }
 
   function differenceInCalendarQuarters(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): number
-  namespace differenceInCalendarQuarters {}
+  namespace differenceInCalendarQuarters {
+
+  }
 
   function differenceInCalendarWeeks(
-    dateLeft: Date | number,
-    dateRight: Date | number,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-    }
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): number
-  namespace differenceInCalendarWeeks {}
+  namespace differenceInCalendarWeeks {
+
+  }
 
   function differenceInCalendarYears(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): number
-  namespace differenceInCalendarYears {}
+  namespace differenceInCalendarYears {
+
+  }
 
   function differenceInDays(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): number
-  namespace differenceInDays {}
+  namespace differenceInDays {
+
+  }
 
   function differenceInHours(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): number
-  namespace differenceInHours {}
+  namespace differenceInHours {
+
+  }
 
   function differenceInISOWeekYears(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): number
-  namespace differenceInISOWeekYears {}
+  namespace differenceInISOWeekYears {
+
+  }
 
   function differenceInMilliseconds(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): number
-  namespace differenceInMilliseconds {}
+  namespace differenceInMilliseconds {
+
+  }
 
   function differenceInMinutes(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): number
-  namespace differenceInMinutes {}
+  namespace differenceInMinutes {
+
+  }
 
   function differenceInMonths(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): number
-  namespace differenceInMonths {}
+  namespace differenceInMonths {
+
+  }
 
   function differenceInQuarters(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): number
-  namespace differenceInQuarters {}
+  namespace differenceInQuarters {
+
+  }
 
   function differenceInSeconds(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): number
-  namespace differenceInSeconds {}
+  namespace differenceInSeconds {
+
+  }
 
   function differenceInWeeks(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): number
-  namespace differenceInWeeks {}
+  namespace differenceInWeeks {
+
+  }
 
   function differenceInYears(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): number
-  namespace differenceInYears {}
+  namespace differenceInYears {
 
-  function eachDayOfInterval(
-    interval: Interval,
-    options?: {
-      step?: number
-    }
+  }
+
+  function eachDayOfInterval(interval: Interval, options?: Options): Date[]
+  namespace eachDayOfInterval {
+
+  }
+
+  function eachWeekendOfInterval(interval: Interval, options?: Options): Date[]
+  namespace eachWeekendOfInterval {
+
+  }
+
+  function eachWeekendOfMonth(
+    date: Date | string | number,
+    options?: Options
   ): Date[]
-  namespace eachDayOfInterval {}
+  namespace eachWeekendOfMonth {
 
-  function eachWeekendOfInterval(interval: Interval): Date[]
-  namespace eachWeekendOfInterval {}
+  }
 
-  function eachWeekendOfMonth(date: Date | number): Date[]
-  namespace eachWeekendOfMonth {}
-
-  function eachWeekendOfYear(date: Date | number): Date[]
-  namespace eachWeekendOfYear {}
-
-  function eachWeekOfInterval(
-    interval: Interval,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-    }
+  function eachWeekendOfYear(
+    date: Date | string | number,
+    options?: Options
   ): Date[]
-  namespace eachWeekOfInterval {}
+  namespace eachWeekendOfYear {
 
-  function endOfDay(date: Date | number): Date
-  namespace endOfDay {}
+  }
 
-  function endOfDecade(
-    date: Date | number,
-    options?: {
-      additionalDigits?: 0 | 1 | 2
-    }
+  function eachWeekOfInterval(interval: Interval, options?: Options): Date[]
+  namespace eachWeekOfInterval {
+
+  }
+
+  function endOfDay(date: Date | string | number, options?: Options): Date
+  namespace endOfDay {
+
+  }
+
+  function endOfDecade(date: Date | string | number, options?: Options): Date
+  namespace endOfDecade {
+
+  }
+
+  function endOfHour(date: Date | string | number, options?: Options): Date
+  namespace endOfHour {
+
+  }
+
+  function endOfISOWeek(date: Date | string | number, options?: Options): Date
+  namespace endOfISOWeek {
+
+  }
+
+  function endOfISOWeekYear(
+    date: Date | string | number,
+    options?: Options
   ): Date
-  namespace endOfDecade {}
+  namespace endOfISOWeekYear {
 
-  function endOfHour(date: Date | number): Date
-  namespace endOfHour {}
+  }
 
-  function endOfISOWeek(date: Date | number): Date
-  namespace endOfISOWeek {}
+  function endOfMinute(date: Date | string | number, options?: Options): Date
+  namespace endOfMinute {
 
-  function endOfISOWeekYear(date: Date | number): Date
-  namespace endOfISOWeekYear {}
+  }
 
-  function endOfMinute(date: Date | number): Date
-  namespace endOfMinute {}
+  function endOfMonth(date: Date | string | number, options?: Options): Date
+  namespace endOfMonth {
 
-  function endOfMonth(date: Date | number): Date
-  namespace endOfMonth {}
+  }
 
-  function endOfQuarter(date: Date | number): Date
-  namespace endOfQuarter {}
+  function endOfQuarter(date: Date | string | number, options?: Options): Date
+  namespace endOfQuarter {
 
-  function endOfSecond(date: Date | number): Date
-  namespace endOfSecond {}
+  }
 
-  function endOfToday(): Date
-  namespace endOfToday {}
+  function endOfSecond(date: Date | string | number, options?: Options): Date
+  namespace endOfSecond {
 
-  function endOfTomorrow(): Date
-  namespace endOfTomorrow {}
+  }
 
-  function endOfWeek(
-    date: Date | number,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-    }
-  ): Date
-  namespace endOfWeek {}
+  function endOfWeek(date: Date | string | number, options?: Options): Date
+  namespace endOfWeek {
 
-  function endOfYear(date: Date | number): Date
-  namespace endOfYear {}
+  }
 
-  function endOfYesterday(): Date
-  namespace endOfYesterday {}
+  function endOfYear(date: Date | string | number, options?: Options): Date
+  namespace endOfYear {
+
+  }
 
   function format(
-    date: Date | number,
+    date: Date | string | number,
     format: string,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-      firstWeekContainsDate?: number
-      useAdditionalWeekYearTokens?: boolean
-      useAdditionalDayOfYearTokens?: boolean
-    }
+    options?: Options
   ): string
-  namespace format {}
+  namespace format {
+
+  }
 
   function formatDistance(
-    date: Date | number,
-    baseDate: Date | number,
-    options?: {
-      includeSeconds?: boolean
-      addSuffix?: boolean
-      locale?: Locale
-    }
+    date: Date | string | number,
+    baseDate: Date | string | number,
+    options?: Options
   ): string
-  namespace formatDistance {}
+  namespace formatDistance {
+
+  }
 
   function formatDistanceStrict(
-    date: Date | number,
-    baseDate: Date | number,
-    options?: {
-      addSuffix?: boolean
-      unit?: 'second' | 'minute' | 'hour' | 'day' | 'month' | 'year'
-      roundingMethod?: 'floor' | 'ceil' | 'round'
-      locale?: Locale
-    }
+    date: Date | string | number,
+    baseDate: Date | string | number,
+    options?: Options
   ): string
-  namespace formatDistanceStrict {}
+  namespace formatDistanceStrict {
 
-  function formatDistanceToNow(
-    date: Date | number,
-    options?: {
-      includeSeconds?: boolean
-      addSuffix?: boolean
-      locale?: Locale
-    }
-  ): string
-  namespace formatDistanceToNow {}
+  }
 
   function formatRelative(
-    date: Date | number,
-    baseDate: Date | number,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-    }
+    date: Date | string | number,
+    baseDate: Date | string | number,
+    options?: Options
   ): string
-  namespace formatRelative {}
+  namespace formatRelative {
 
-  function fromUnixTime(unixTime: number): Date
-  namespace fromUnixTime {}
+  }
 
-  function getDate(date: Date | number): number
-  namespace getDate {}
+  function fromUnixTime(unixTime: number, options?: Options): Date
+  namespace fromUnixTime {
 
-  function getDay(date: Date | number): number
-  namespace getDay {}
+  }
 
-  function getDayOfYear(date: Date | number): number
-  namespace getDayOfYear {}
+  function getDate(date: Date | string | number, options?: Options): number
+  namespace getDate {
 
-  function getDaysInMonth(date: Date | number): number
-  namespace getDaysInMonth {}
+  }
 
-  function getDaysInYear(date: Date | number): number
-  namespace getDaysInYear {}
+  function getDay(date: Date | string | number, options?: Options): number
+  namespace getDay {
 
-  function getDecade(date: Date | number): number
-  namespace getDecade {}
+  }
 
-  function getHours(date: Date | number): number
-  namespace getHours {}
+  function getDayOfYear(date: Date | string | number, options?: Options): number
+  namespace getDayOfYear {
 
-  function getISODay(date: Date | number): number
-  namespace getISODay {}
+  }
 
-  function getISOWeek(date: Date | number): number
-  namespace getISOWeek {}
+  function getDaysInMonth(
+    date: Date | string | number,
+    options?: Options
+  ): number
+  namespace getDaysInMonth {
 
-  function getISOWeeksInYear(date: Date | number): number
-  namespace getISOWeeksInYear {}
+  }
 
-  function getISOWeekYear(date: Date | number): number
-  namespace getISOWeekYear {}
+  function getDaysInYear(
+    date: Date | string | number,
+    options?: Options
+  ): number
+  namespace getDaysInYear {
 
-  function getMilliseconds(date: Date | number): number
-  namespace getMilliseconds {}
+  }
 
-  function getMinutes(date: Date | number): number
-  namespace getMinutes {}
+  function getDecade(date: Date | string | number, options?: Options): number
+  namespace getDecade {
 
-  function getMonth(date: Date | number): number
-  namespace getMonth {}
+  }
+
+  function getHours(date: Date | string | number, options?: Options): number
+  namespace getHours {
+
+  }
+
+  function getISODay(date: Date | string | number, options?: Options): number
+  namespace getISODay {
+
+  }
+
+  function getISOWeek(date: Date | string | number, options?: Options): number
+  namespace getISOWeek {
+
+  }
+
+  function getISOWeeksInYear(
+    date: Date | string | number,
+    options?: Options
+  ): number
+  namespace getISOWeeksInYear {
+
+  }
+
+  function getISOWeekYear(
+    date: Date | string | number,
+    options?: Options
+  ): number
+  namespace getISOWeekYear {
+
+  }
+
+  function getMilliseconds(
+    date: Date | string | number,
+    options?: Options
+  ): number
+  namespace getMilliseconds {
+
+  }
+
+  function getMinutes(date: Date | string | number, options?: Options): number
+  namespace getMinutes {
+
+  }
+
+  function getMonth(date: Date | string | number, options?: Options): number
+  namespace getMonth {
+
+  }
 
   function getOverlappingDaysInIntervals(
     intervalLeft: Interval,
-    intervalRight: Interval
+    intervalRight: Interval,
+    options?: Options
   ): number
-  namespace getOverlappingDaysInIntervals {}
+  namespace getOverlappingDaysInIntervals {
 
-  function getQuarter(date: Date | number): number
-  namespace getQuarter {}
+  }
 
-  function getSeconds(date: Date | number): number
-  namespace getSeconds {}
+  function getQuarter(date: Date | string | number, options?: Options): number
+  namespace getQuarter {
 
-  function getTime(date: Date | number): number
-  namespace getTime {}
+  }
 
-  function getUnixTime(date: Date | number): number
-  namespace getUnixTime {}
+  function getSeconds(date: Date | string | number, options?: Options): number
+  namespace getSeconds {
 
-  function getWeek(
-    date: Date | number,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-      firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7
-    }
-  ): number
-  namespace getWeek {}
+  }
+
+  function getTime(date: Date | string | number, options?: Options): number
+  namespace getTime {
+
+  }
+
+  function getUnixTime(date: Date | string | number, options?: Options): number
+  namespace getUnixTime {
+
+  }
+
+  function getWeek(date: Date | string | number, options?: Options): number
+  namespace getWeek {
+
+  }
 
   function getWeekOfMonth(
-    date: Date | number,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-    }
+    date: Date | string | number,
+    options?: Options
   ): number
-  namespace getWeekOfMonth {}
+  namespace getWeekOfMonth {
+
+  }
 
   function getWeeksInMonth(
-    date: Date | number,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-    }
+    date: Date | string | number,
+    options?: Options
   ): number
-  namespace getWeeksInMonth {}
+  namespace getWeeksInMonth {
 
-  function getWeekYear(
-    date: Date | number,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-      firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7
-    }
-  ): number
-  namespace getWeekYear {}
+  }
 
-  function getYear(date: Date | number): number
-  namespace getYear {}
+  function getWeekYear(date: Date | string | number, options?: Options): number
+  namespace getWeekYear {
 
-  function isAfter(date: Date | number, dateToCompare: Date | number): boolean
-  namespace isAfter {}
+  }
 
-  function isBefore(date: Date | number, dateToCompare: Date | number): boolean
-  namespace isBefore {}
+  function getYear(date: Date | string | number, options?: Options): number
+  namespace getYear {
 
-  function isDate(value: any): boolean
-  namespace isDate {}
+  }
 
-  function isEqual(dateLeft: Date | number, dateRight: Date | number): boolean
-  namespace isEqual {}
+  function isAfter(
+    date: Date | string | number,
+    dateToCompare: Date | string | number,
+    options?: Options
+  ): boolean
+  namespace isAfter {
 
-  function isFirstDayOfMonth(date: Date | number): boolean
-  namespace isFirstDayOfMonth {}
+  }
 
-  function isFriday(date: Date | number): boolean
-  namespace isFriday {}
+  function isBefore(
+    date: Date | string | number,
+    dateToCompare: Date | string | number,
+    options?: Options
+  ): boolean
+  namespace isBefore {
 
-  function isFuture(date: Date | number): boolean
-  namespace isFuture {}
+  }
 
-  function isLastDayOfMonth(date: Date | number): boolean
-  namespace isLastDayOfMonth {}
+  function isDate(value: any, options?: Options): boolean
+  namespace isDate {
 
-  function isLeapYear(date: Date | number): boolean
-  namespace isLeapYear {}
+  }
 
-  function isMonday(date: Date | number): boolean
-  namespace isMonday {}
+  function isEqual(
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
+  ): boolean
+  namespace isEqual {
 
-  function isPast(date: Date | number): boolean
-  namespace isPast {}
+  }
 
-  function isSameDay(dateLeft: Date | number, dateRight: Date | number): boolean
-  namespace isSameDay {}
+  function isFirstDayOfMonth(
+    date: Date | string | number,
+    options?: Options
+  ): boolean
+  namespace isFirstDayOfMonth {
+
+  }
+
+  function isFriday(date: Date | string | number, options?: Options): boolean
+  namespace isFriday {
+
+  }
+
+  function isLastDayOfMonth(
+    date: Date | string | number,
+    options?: Options
+  ): boolean
+  namespace isLastDayOfMonth {
+
+  }
+
+  function isLeapYear(date: Date | string | number, options?: Options): boolean
+  namespace isLeapYear {
+
+  }
+
+  function isMonday(date: Date | string | number, options?: Options): boolean
+  namespace isMonday {
+
+  }
+
+  function isSameDay(
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
+  ): boolean
+  namespace isSameDay {
+
+  }
 
   function isSameHour(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): boolean
-  namespace isSameHour {}
+  namespace isSameHour {
+
+  }
 
   function isSameISOWeek(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): boolean
-  namespace isSameISOWeek {}
+  namespace isSameISOWeek {
+
+  }
 
   function isSameISOWeekYear(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): boolean
-  namespace isSameISOWeekYear {}
+  namespace isSameISOWeekYear {
+
+  }
 
   function isSameMinute(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): boolean
-  namespace isSameMinute {}
+  namespace isSameMinute {
+
+  }
 
   function isSameMonth(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): boolean
-  namespace isSameMonth {}
+  namespace isSameMonth {
+
+  }
 
   function isSameQuarter(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): boolean
-  namespace isSameQuarter {}
+  namespace isSameQuarter {
+
+  }
 
   function isSameSecond(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): boolean
-  namespace isSameSecond {}
+  namespace isSameSecond {
+
+  }
 
   function isSameWeek(
-    dateLeft: Date | number,
-    dateRight: Date | number,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-    }
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): boolean
-  namespace isSameWeek {}
+  namespace isSameWeek {
+
+  }
 
   function isSameYear(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): boolean
-  namespace isSameYear {}
+  namespace isSameYear {
 
-  function isSaturday(date: Date | number): boolean
-  namespace isSaturday {}
+  }
 
-  function isSunday(date: Date | number): boolean
-  namespace isSunday {}
+  function isSaturday(date: Date | string | number, options?: Options): boolean
+  namespace isSaturday {
 
-  function isThisHour(date: Date | number): boolean
-  namespace isThisHour {}
+  }
 
-  function isThisISOWeek(date: Date | number): boolean
-  namespace isThisISOWeek {}
+  function isSunday(date: Date | string | number, options?: Options): boolean
+  namespace isSunday {
 
-  function isThisMinute(date: Date | number): boolean
-  namespace isThisMinute {}
+  }
 
-  function isThisMonth(date: Date | number): boolean
-  namespace isThisMonth {}
+  function isThursday(date: Date | string | number, options?: Options): boolean
+  namespace isThursday {
 
-  function isThisQuarter(date: Date | number): boolean
-  namespace isThisQuarter {}
+  }
 
-  function isThisSecond(date: Date | number): boolean
-  namespace isThisSecond {}
+  function isTuesday(date: Date | string | number, options?: Options): boolean
+  namespace isTuesday {
 
-  function isThisWeek(
-    date: Date | number,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-    }
+  }
+
+  function isValid(date: any, options?: Options): boolean
+  namespace isValid {
+
+  }
+
+  function isWednesday(date: Date | string | number, options?: Options): boolean
+  namespace isWednesday {
+
+  }
+
+  function isWeekend(date: Date | string | number, options?: Options): boolean
+  namespace isWeekend {
+
+  }
+
+  function isWithinInterval(
+    date: Date | string | number,
+    interval: Interval,
+    options?: Options
   ): boolean
-  namespace isThisWeek {}
+  namespace isWithinInterval {
 
-  function isThisYear(date: Date | number): boolean
-  namespace isThisYear {}
+  }
 
-  function isThursday(date: Date | number): boolean
-  namespace isThursday {}
+  function lastDayOfDecade(
+    date: Date | string | number,
+    options?: Options
+  ): Date
+  namespace lastDayOfDecade {
 
-  function isToday(date: Date | number): boolean
-  namespace isToday {}
+  }
 
-  function isTomorrow(date: Date | number): boolean
-  namespace isTomorrow {}
+  function lastDayOfISOWeek(
+    date: Date | string | number,
+    options?: Options
+  ): Date
+  namespace lastDayOfISOWeek {
 
-  function isTuesday(date: Date | number): boolean
-  namespace isTuesday {}
+  }
 
-  function isValid(date: any): boolean
-  namespace isValid {}
+  function lastDayOfISOWeekYear(
+    date: Date | string | number,
+    options?: Options
+  ): Date
+  namespace lastDayOfISOWeekYear {
 
-  function isWednesday(date: Date | number): boolean
-  namespace isWednesday {}
+  }
 
-  function isWeekend(date: Date | number): boolean
-  namespace isWeekend {}
+  function lastDayOfMonth(date: Date | string | number, options?: Options): Date
+  namespace lastDayOfMonth {
 
-  function isWithinInterval(date: Date | number, interval: Interval): boolean
-  namespace isWithinInterval {}
-
-  function isYesterday(date: Date | number): boolean
-  namespace isYesterday {}
-
-  function lastDayOfDecade(date: Date | number): Date
-  namespace lastDayOfDecade {}
-
-  function lastDayOfISOWeek(date: Date | number): Date
-  namespace lastDayOfISOWeek {}
-
-  function lastDayOfISOWeekYear(date: Date | number): Date
-  namespace lastDayOfISOWeekYear {}
-
-  function lastDayOfMonth(date: Date | number): Date
-  namespace lastDayOfMonth {}
+  }
 
   function lastDayOfQuarter(
-    date: Date | number,
-    options?: {
-      additionalDigits?: 0 | 1 | 2
-    }
+    date: Date | string | number,
+    options?: Options
   ): Date
-  namespace lastDayOfQuarter {}
+  namespace lastDayOfQuarter {
 
-  function lastDayOfWeek(
-    date: Date | number,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-    }
-  ): Date
-  namespace lastDayOfWeek {}
+  }
 
-  function lastDayOfYear(date: Date | number): Date
-  namespace lastDayOfYear {}
+  function lastDayOfWeek(date: Date | string | number, options?: Options): Date
+  namespace lastDayOfWeek {
 
-  function lightFormat(date: Date | number, format: string): string
-  namespace lightFormat {}
+  }
 
-  function max(datesArray: (Date | number)[]): Date
-  namespace max {}
+  function lastDayOfYear(date: Date | string | number, options?: Options): Date
+  namespace lastDayOfYear {
 
-  function min(datesArray: (Date | number)[]): Date
-  namespace min {}
+  }
+
+  function max(datesArray: (Date | string | number)[], options?: Options): Date
+  namespace max {
+
+  }
+
+  function min(datesArray: (Date | string | number)[], options?: Options): Date
+  namespace min {
+
+  }
 
   function parse(
     dateString: string,
     formatString: string,
-    baseDate: Date | number,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-      firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7
-      useAdditionalWeekYearTokens?: boolean
-      useAdditionalDayOfYearTokens?: boolean
-    }
+    baseDate: Date | string | number,
+    options?: Options
   ): Date
-  namespace parse {}
+  namespace parse {
 
-  function parseISO(
-    argument: string,
-    options?: {
-      additionalDigits?: 0 | 1 | 2
-    }
-  ): Date
-  namespace parseISO {}
+  }
 
   function roundToNearestMinutes(
-    date: Date | number,
-    options?: {
-      nearestTo?: number
-    }
+    date: Date | string | number,
+    nearestTo?: number,
+    options?: Options
   ): Date
-  namespace roundToNearestMinutes {}
+  namespace roundToNearestMinutes {
 
-  function setDate(date: Date | number, dayOfMonth: number): Date
-  namespace setDate {}
+  }
+
+  function setDate(
+    date: Date | string | number,
+    dayOfMonth: number,
+    options?: Options
+  ): Date
+  namespace setDate {
+
+  }
 
   function setDay(
-    date: Date | number,
+    date: Date | string | number,
     day: number,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-    }
+    options?: Options
   ): Date
-  namespace setDay {}
+  namespace setDay {
 
-  function setDayOfYear(date: Date | number, dayOfYear: number): Date
-  namespace setDayOfYear {}
+  }
 
-  function setHours(date: Date | number, hours: number): Date
-  namespace setHours {}
+  function setDayOfYear(
+    date: Date | string | number,
+    dayOfYear: number,
+    options?: Options
+  ): Date
+  namespace setDayOfYear {
 
-  function setISODay(date: Date | number, day: number): Date
-  namespace setISODay {}
+  }
 
-  function setISOWeek(date: Date | number, isoWeek: number): Date
-  namespace setISOWeek {}
+  function setHours(
+    date: Date | string | number,
+    hours: number,
+    options?: Options
+  ): Date
+  namespace setHours {
 
-  function setISOWeekYear(date: Date | number, isoWeekYear: number): Date
-  namespace setISOWeekYear {}
+  }
 
-  function setMilliseconds(date: Date | number, milliseconds: number): Date
-  namespace setMilliseconds {}
+  function setISODay(
+    date: Date | string | number,
+    day: number,
+    options?: Options
+  ): Date
+  namespace setISODay {
 
-  function setMinutes(date: Date | number, minutes: number): Date
-  namespace setMinutes {}
+  }
 
-  function setMonth(date: Date | number, month: number): Date
-  namespace setMonth {}
+  function setISOWeek(
+    date: Date | string | number,
+    isoWeek: number,
+    options?: Options
+  ): Date
+  namespace setISOWeek {
 
-  function setQuarter(date: Date | number, quarter: number): Date
-  namespace setQuarter {}
+  }
 
-  function setSeconds(date: Date | number, seconds: number): Date
-  namespace setSeconds {}
+  function setISOWeekYear(
+    date: Date | string | number,
+    isoWeekYear: number,
+    options?: Options
+  ): Date
+  namespace setISOWeekYear {
+
+  }
+
+  function setMilliseconds(
+    date: Date | string | number,
+    milliseconds: number,
+    options?: Options
+  ): Date
+  namespace setMilliseconds {
+
+  }
+
+  function setMinutes(
+    date: Date | string | number,
+    minutes: number,
+    options?: Options
+  ): Date
+  namespace setMinutes {
+
+  }
+
+  function setMonth(
+    date: Date | string | number,
+    month: number,
+    options?: Options
+  ): Date
+  namespace setMonth {
+
+  }
+
+  function setQuarter(
+    date: Date | string | number,
+    quarter: number,
+    options?: Options
+  ): Date
+  namespace setQuarter {
+
+  }
+
+  function setSeconds(
+    date: Date | string | number,
+    seconds: number,
+    options?: Options
+  ): Date
+  namespace setSeconds {
+
+  }
 
   function setWeek(
-    date: Date | number,
+    date: Date | string | number,
     week: number,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-      firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7
-    }
+    options?: Options
   ): Date
-  namespace setWeek {}
+  namespace setWeek {
+
+  }
 
   function setWeekYear(
-    date: Date | number,
+    date: Date | string | number,
     weekYear: number,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-      firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7
-    }
+    options?: Options
   ): Date
-  namespace setWeekYear {}
+  namespace setWeekYear {
 
-  function setYear(date: Date | number, year: number): Date
-  namespace setYear {}
+  }
 
-  function startOfDay(date: Date | number): Date
-  namespace startOfDay {}
-
-  function startOfDecade(date: Date | number): Date
-  namespace startOfDecade {}
-
-  function startOfHour(date: Date | number): Date
-  namespace startOfHour {}
-
-  function startOfISOWeek(date: Date | number): Date
-  namespace startOfISOWeek {}
-
-  function startOfISOWeekYear(date: Date | number): Date
-  namespace startOfISOWeekYear {}
-
-  function startOfMinute(date: Date | number): Date
-  namespace startOfMinute {}
-
-  function startOfMonth(date: Date | number): Date
-  namespace startOfMonth {}
-
-  function startOfQuarter(date: Date | number): Date
-  namespace startOfQuarter {}
-
-  function startOfSecond(date: Date | number): Date
-  namespace startOfSecond {}
-
-  function startOfToday(): Date
-  namespace startOfToday {}
-
-  function startOfTomorrow(): Date
-  namespace startOfTomorrow {}
-
-  function startOfWeek(
-    date: Date | number,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-    }
+  function setYear(
+    date: Date | string | number,
+    year: number,
+    options?: Options
   ): Date
-  namespace startOfWeek {}
+  namespace setYear {
+
+  }
+
+  function startOfDay(date: Date | string | number, options?: Options): Date
+  namespace startOfDay {
+
+  }
+
+  function startOfDecade(date: Date | string | number, options?: Options): Date
+  namespace startOfDecade {
+
+  }
+
+  function startOfHour(date: Date | string | number, options?: Options): Date
+  namespace startOfHour {
+
+  }
+
+  function startOfISOWeek(date: Date | string | number, options?: Options): Date
+  namespace startOfISOWeek {
+
+  }
+
+  function startOfISOWeekYear(
+    date: Date | string | number,
+    options?: Options
+  ): Date
+  namespace startOfISOWeekYear {
+
+  }
+
+  function startOfMinute(date: Date | string | number, options?: Options): Date
+  namespace startOfMinute {
+
+  }
+
+  function startOfMonth(date: Date | string | number, options?: Options): Date
+  namespace startOfMonth {
+
+  }
+
+  function startOfQuarter(date: Date | string | number, options?: Options): Date
+  namespace startOfQuarter {
+
+  }
+
+  function startOfSecond(date: Date | string | number, options?: Options): Date
+  namespace startOfSecond {
+
+  }
+
+  function startOfWeek(date: Date | string | number, options?: Options): Date
+  namespace startOfWeek {
+
+  }
 
   function startOfWeekYear(
-    date: Date | number,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-      firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7
-    }
+    date: Date | string | number,
+    options?: Options
   ): Date
-  namespace startOfWeekYear {}
+  namespace startOfWeekYear {
 
-  function startOfYear(date: Date | number): Date
-  namespace startOfYear {}
+  }
 
-  function startOfYesterday(): Date
-  namespace startOfYesterday {}
+  function startOfYear(date: Date | string | number, options?: Options): Date
+  namespace startOfYear {
 
-  function subDays(date: Date | number, amount: number): Date
-  namespace subDays {}
+  }
 
-  function subHours(date: Date | number, amount: number): Date
-  namespace subHours {}
+  function subDays(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
+  namespace subDays {
 
-  function subISOWeekYears(date: Date | number, amount: number): Date
-  namespace subISOWeekYears {}
+  }
 
-  function subMilliseconds(date: Date | number, amount: number): Date
-  namespace subMilliseconds {}
+  function subHours(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
+  namespace subHours {
 
-  function subMinutes(date: Date | number, amount: number): Date
-  namespace subMinutes {}
+  }
 
-  function subMonths(date: Date | number, amount: number): Date
-  namespace subMonths {}
+  function subISOWeekYears(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
+  namespace subISOWeekYears {
 
-  function subQuarters(date: Date | number, amount: number): Date
-  namespace subQuarters {}
+  }
 
-  function subSeconds(date: Date | number, amount: number): Date
-  namespace subSeconds {}
+  function subMilliseconds(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
+  namespace subMilliseconds {
 
-  function subWeeks(date: Date | number, amount: number): Date
-  namespace subWeeks {}
+  }
 
-  function subYears(date: Date | number, amount: number): Date
-  namespace subYears {}
+  function subMinutes(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
+  namespace subMinutes {
 
-  function toDate(argument: Date | number): Date
-  namespace toDate {}
+  }
 
-  const maxTime: number
+  function subMonths(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
+  namespace subMonths {
 
-  const minTime: number
-}
+  }
 
-declare module 'date-fns/esm/addBusinessDays' {
-  import { addBusinessDays } from 'date-fns/esm'
-  export default addBusinessDays
+  function subQuarters(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
+  namespace subQuarters {
+
+  }
+
+  function subSeconds(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
+  namespace subSeconds {
+
+  }
+
+  function subWeeks(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
+  namespace subWeeks {
+
+  }
+
+  function subYears(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
+  namespace subYears {
+
+  }
+
+  function toDate(argument: Date | string | number, options?: Options): Date
+  namespace toDate {
+
+  }
 }
 
 declare module 'date-fns/esm/addDays' {
@@ -7756,11 +11600,6 @@ declare module 'date-fns/esm/compareAsc' {
 declare module 'date-fns/esm/compareDesc' {
   import { compareDesc } from 'date-fns/esm'
   export default compareDesc
-}
-
-declare module 'date-fns/esm/differenceInBusinessDays' {
-  import { differenceInBusinessDays } from 'date-fns/esm'
-  export default differenceInBusinessDays
 }
 
 declare module 'date-fns/esm/differenceInCalendarDays' {
@@ -7918,16 +11757,6 @@ declare module 'date-fns/esm/endOfSecond' {
   export default endOfSecond
 }
 
-declare module 'date-fns/esm/endOfToday' {
-  import { endOfToday } from 'date-fns/esm'
-  export default endOfToday
-}
-
-declare module 'date-fns/esm/endOfTomorrow' {
-  import { endOfTomorrow } from 'date-fns/esm'
-  export default endOfTomorrow
-}
-
 declare module 'date-fns/esm/endOfWeek' {
   import { endOfWeek } from 'date-fns/esm'
   export default endOfWeek
@@ -7936,11 +11765,6 @@ declare module 'date-fns/esm/endOfWeek' {
 declare module 'date-fns/esm/endOfYear' {
   import { endOfYear } from 'date-fns/esm'
   export default endOfYear
-}
-
-declare module 'date-fns/esm/endOfYesterday' {
-  import { endOfYesterday } from 'date-fns/esm'
-  export default endOfYesterday
 }
 
 declare module 'date-fns/esm/format' {
@@ -7956,11 +11780,6 @@ declare module 'date-fns/esm/formatDistance' {
 declare module 'date-fns/esm/formatDistanceStrict' {
   import { formatDistanceStrict } from 'date-fns/esm'
   export default formatDistanceStrict
-}
-
-declare module 'date-fns/esm/formatDistanceToNow' {
-  import { formatDistanceToNow } from 'date-fns/esm'
-  export default formatDistanceToNow
 }
 
 declare module 'date-fns/esm/formatRelative' {
@@ -8123,11 +11942,6 @@ declare module 'date-fns/esm/isFriday' {
   export default isFriday
 }
 
-declare module 'date-fns/esm/isFuture' {
-  import { isFuture } from 'date-fns/esm'
-  export default isFuture
-}
-
 declare module 'date-fns/esm/isLastDayOfMonth' {
   import { isLastDayOfMonth } from 'date-fns/esm'
   export default isLastDayOfMonth
@@ -8141,11 +11955,6 @@ declare module 'date-fns/esm/isLeapYear' {
 declare module 'date-fns/esm/isMonday' {
   import { isMonday } from 'date-fns/esm'
   export default isMonday
-}
-
-declare module 'date-fns/esm/isPast' {
-  import { isPast } from 'date-fns/esm'
-  export default isPast
 }
 
 declare module 'date-fns/esm/isSameDay' {
@@ -8208,59 +12017,9 @@ declare module 'date-fns/esm/isSunday' {
   export default isSunday
 }
 
-declare module 'date-fns/esm/isThisHour' {
-  import { isThisHour } from 'date-fns/esm'
-  export default isThisHour
-}
-
-declare module 'date-fns/esm/isThisISOWeek' {
-  import { isThisISOWeek } from 'date-fns/esm'
-  export default isThisISOWeek
-}
-
-declare module 'date-fns/esm/isThisMinute' {
-  import { isThisMinute } from 'date-fns/esm'
-  export default isThisMinute
-}
-
-declare module 'date-fns/esm/isThisMonth' {
-  import { isThisMonth } from 'date-fns/esm'
-  export default isThisMonth
-}
-
-declare module 'date-fns/esm/isThisQuarter' {
-  import { isThisQuarter } from 'date-fns/esm'
-  export default isThisQuarter
-}
-
-declare module 'date-fns/esm/isThisSecond' {
-  import { isThisSecond } from 'date-fns/esm'
-  export default isThisSecond
-}
-
-declare module 'date-fns/esm/isThisWeek' {
-  import { isThisWeek } from 'date-fns/esm'
-  export default isThisWeek
-}
-
-declare module 'date-fns/esm/isThisYear' {
-  import { isThisYear } from 'date-fns/esm'
-  export default isThisYear
-}
-
 declare module 'date-fns/esm/isThursday' {
   import { isThursday } from 'date-fns/esm'
   export default isThursday
-}
-
-declare module 'date-fns/esm/isToday' {
-  import { isToday } from 'date-fns/esm'
-  export default isToday
-}
-
-declare module 'date-fns/esm/isTomorrow' {
-  import { isTomorrow } from 'date-fns/esm'
-  export default isTomorrow
 }
 
 declare module 'date-fns/esm/isTuesday' {
@@ -8286,11 +12045,6 @@ declare module 'date-fns/esm/isWeekend' {
 declare module 'date-fns/esm/isWithinInterval' {
   import { isWithinInterval } from 'date-fns/esm'
   export default isWithinInterval
-}
-
-declare module 'date-fns/esm/isYesterday' {
-  import { isYesterday } from 'date-fns/esm'
-  export default isYesterday
 }
 
 declare module 'date-fns/esm/lastDayOfDecade' {
@@ -8328,11 +12082,6 @@ declare module 'date-fns/esm/lastDayOfYear' {
   export default lastDayOfYear
 }
 
-declare module 'date-fns/esm/lightFormat' {
-  import { lightFormat } from 'date-fns/esm'
-  export default lightFormat
-}
-
 declare module 'date-fns/esm/max' {
   import { max } from 'date-fns/esm'
   export default max
@@ -8346,11 +12095,6 @@ declare module 'date-fns/esm/min' {
 declare module 'date-fns/esm/parse' {
   import { parse } from 'date-fns/esm'
   export default parse
-}
-
-declare module 'date-fns/esm/parseISO' {
-  import { parseISO } from 'date-fns/esm'
-  export default parseISO
 }
 
 declare module 'date-fns/esm/roundToNearestMinutes' {
@@ -8478,16 +12222,6 @@ declare module 'date-fns/esm/startOfSecond' {
   export default startOfSecond
 }
 
-declare module 'date-fns/esm/startOfToday' {
-  import { startOfToday } from 'date-fns/esm'
-  export default startOfToday
-}
-
-declare module 'date-fns/esm/startOfTomorrow' {
-  import { startOfTomorrow } from 'date-fns/esm'
-  export default startOfTomorrow
-}
-
 declare module 'date-fns/esm/startOfWeek' {
   import { startOfWeek } from 'date-fns/esm'
   export default startOfWeek
@@ -8501,11 +12235,6 @@ declare module 'date-fns/esm/startOfWeekYear' {
 declare module 'date-fns/esm/startOfYear' {
   import { startOfYear } from 'date-fns/esm'
   export default startOfYear
-}
-
-declare module 'date-fns/esm/startOfYesterday' {
-  import { startOfYesterday } from 'date-fns/esm'
-  export default startOfYesterday
 }
 
 declare module 'date-fns/esm/subDays' {
@@ -8561,11 +12290,6 @@ declare module 'date-fns/esm/subYears' {
 declare module 'date-fns/esm/toDate' {
   import { toDate } from 'date-fns/esm'
   export default toDate
-}
-
-declare module 'date-fns/esm/addBusinessDays/index' {
-  import { addBusinessDays } from 'date-fns/esm'
-  export default addBusinessDays
 }
 
 declare module 'date-fns/esm/addDays/index' {
@@ -8641,11 +12365,6 @@ declare module 'date-fns/esm/compareAsc/index' {
 declare module 'date-fns/esm/compareDesc/index' {
   import { compareDesc } from 'date-fns/esm'
   export default compareDesc
-}
-
-declare module 'date-fns/esm/differenceInBusinessDays/index' {
-  import { differenceInBusinessDays } from 'date-fns/esm'
-  export default differenceInBusinessDays
 }
 
 declare module 'date-fns/esm/differenceInCalendarDays/index' {
@@ -8803,16 +12522,6 @@ declare module 'date-fns/esm/endOfSecond/index' {
   export default endOfSecond
 }
 
-declare module 'date-fns/esm/endOfToday/index' {
-  import { endOfToday } from 'date-fns/esm'
-  export default endOfToday
-}
-
-declare module 'date-fns/esm/endOfTomorrow/index' {
-  import { endOfTomorrow } from 'date-fns/esm'
-  export default endOfTomorrow
-}
-
 declare module 'date-fns/esm/endOfWeek/index' {
   import { endOfWeek } from 'date-fns/esm'
   export default endOfWeek
@@ -8821,11 +12530,6 @@ declare module 'date-fns/esm/endOfWeek/index' {
 declare module 'date-fns/esm/endOfYear/index' {
   import { endOfYear } from 'date-fns/esm'
   export default endOfYear
-}
-
-declare module 'date-fns/esm/endOfYesterday/index' {
-  import { endOfYesterday } from 'date-fns/esm'
-  export default endOfYesterday
 }
 
 declare module 'date-fns/esm/format/index' {
@@ -8841,11 +12545,6 @@ declare module 'date-fns/esm/formatDistance/index' {
 declare module 'date-fns/esm/formatDistanceStrict/index' {
   import { formatDistanceStrict } from 'date-fns/esm'
   export default formatDistanceStrict
-}
-
-declare module 'date-fns/esm/formatDistanceToNow/index' {
-  import { formatDistanceToNow } from 'date-fns/esm'
-  export default formatDistanceToNow
 }
 
 declare module 'date-fns/esm/formatRelative/index' {
@@ -9008,11 +12707,6 @@ declare module 'date-fns/esm/isFriday/index' {
   export default isFriday
 }
 
-declare module 'date-fns/esm/isFuture/index' {
-  import { isFuture } from 'date-fns/esm'
-  export default isFuture
-}
-
 declare module 'date-fns/esm/isLastDayOfMonth/index' {
   import { isLastDayOfMonth } from 'date-fns/esm'
   export default isLastDayOfMonth
@@ -9026,11 +12720,6 @@ declare module 'date-fns/esm/isLeapYear/index' {
 declare module 'date-fns/esm/isMonday/index' {
   import { isMonday } from 'date-fns/esm'
   export default isMonday
-}
-
-declare module 'date-fns/esm/isPast/index' {
-  import { isPast } from 'date-fns/esm'
-  export default isPast
 }
 
 declare module 'date-fns/esm/isSameDay/index' {
@@ -9093,59 +12782,9 @@ declare module 'date-fns/esm/isSunday/index' {
   export default isSunday
 }
 
-declare module 'date-fns/esm/isThisHour/index' {
-  import { isThisHour } from 'date-fns/esm'
-  export default isThisHour
-}
-
-declare module 'date-fns/esm/isThisISOWeek/index' {
-  import { isThisISOWeek } from 'date-fns/esm'
-  export default isThisISOWeek
-}
-
-declare module 'date-fns/esm/isThisMinute/index' {
-  import { isThisMinute } from 'date-fns/esm'
-  export default isThisMinute
-}
-
-declare module 'date-fns/esm/isThisMonth/index' {
-  import { isThisMonth } from 'date-fns/esm'
-  export default isThisMonth
-}
-
-declare module 'date-fns/esm/isThisQuarter/index' {
-  import { isThisQuarter } from 'date-fns/esm'
-  export default isThisQuarter
-}
-
-declare module 'date-fns/esm/isThisSecond/index' {
-  import { isThisSecond } from 'date-fns/esm'
-  export default isThisSecond
-}
-
-declare module 'date-fns/esm/isThisWeek/index' {
-  import { isThisWeek } from 'date-fns/esm'
-  export default isThisWeek
-}
-
-declare module 'date-fns/esm/isThisYear/index' {
-  import { isThisYear } from 'date-fns/esm'
-  export default isThisYear
-}
-
 declare module 'date-fns/esm/isThursday/index' {
   import { isThursday } from 'date-fns/esm'
   export default isThursday
-}
-
-declare module 'date-fns/esm/isToday/index' {
-  import { isToday } from 'date-fns/esm'
-  export default isToday
-}
-
-declare module 'date-fns/esm/isTomorrow/index' {
-  import { isTomorrow } from 'date-fns/esm'
-  export default isTomorrow
 }
 
 declare module 'date-fns/esm/isTuesday/index' {
@@ -9171,11 +12810,6 @@ declare module 'date-fns/esm/isWeekend/index' {
 declare module 'date-fns/esm/isWithinInterval/index' {
   import { isWithinInterval } from 'date-fns/esm'
   export default isWithinInterval
-}
-
-declare module 'date-fns/esm/isYesterday/index' {
-  import { isYesterday } from 'date-fns/esm'
-  export default isYesterday
 }
 
 declare module 'date-fns/esm/lastDayOfDecade/index' {
@@ -9213,11 +12847,6 @@ declare module 'date-fns/esm/lastDayOfYear/index' {
   export default lastDayOfYear
 }
 
-declare module 'date-fns/esm/lightFormat/index' {
-  import { lightFormat } from 'date-fns/esm'
-  export default lightFormat
-}
-
 declare module 'date-fns/esm/max/index' {
   import { max } from 'date-fns/esm'
   export default max
@@ -9231,11 +12860,6 @@ declare module 'date-fns/esm/min/index' {
 declare module 'date-fns/esm/parse/index' {
   import { parse } from 'date-fns/esm'
   export default parse
-}
-
-declare module 'date-fns/esm/parseISO/index' {
-  import { parseISO } from 'date-fns/esm'
-  export default parseISO
 }
 
 declare module 'date-fns/esm/roundToNearestMinutes/index' {
@@ -9363,16 +12987,6 @@ declare module 'date-fns/esm/startOfSecond/index' {
   export default startOfSecond
 }
 
-declare module 'date-fns/esm/startOfToday/index' {
-  import { startOfToday } from 'date-fns/esm'
-  export default startOfToday
-}
-
-declare module 'date-fns/esm/startOfTomorrow/index' {
-  import { startOfTomorrow } from 'date-fns/esm'
-  export default startOfTomorrow
-}
-
 declare module 'date-fns/esm/startOfWeek/index' {
   import { startOfWeek } from 'date-fns/esm'
   export default startOfWeek
@@ -9386,11 +13000,6 @@ declare module 'date-fns/esm/startOfWeekYear/index' {
 declare module 'date-fns/esm/startOfYear/index' {
   import { startOfYear } from 'date-fns/esm'
   export default startOfYear
-}
-
-declare module 'date-fns/esm/startOfYesterday/index' {
-  import { startOfYesterday } from 'date-fns/esm'
-  export default startOfYesterday
 }
 
 declare module 'date-fns/esm/subDays/index' {
@@ -9446,11 +13055,6 @@ declare module 'date-fns/esm/subYears/index' {
 declare module 'date-fns/esm/toDate/index' {
   import { toDate } from 'date-fns/esm'
   export default toDate
-}
-
-declare module 'date-fns/esm/addBusinessDays/index.js' {
-  import { addBusinessDays } from 'date-fns/esm'
-  export default addBusinessDays
 }
 
 declare module 'date-fns/esm/addDays/index.js' {
@@ -9526,11 +13130,6 @@ declare module 'date-fns/esm/compareAsc/index.js' {
 declare module 'date-fns/esm/compareDesc/index.js' {
   import { compareDesc } from 'date-fns/esm'
   export default compareDesc
-}
-
-declare module 'date-fns/esm/differenceInBusinessDays/index.js' {
-  import { differenceInBusinessDays } from 'date-fns/esm'
-  export default differenceInBusinessDays
 }
 
 declare module 'date-fns/esm/differenceInCalendarDays/index.js' {
@@ -9688,16 +13287,6 @@ declare module 'date-fns/esm/endOfSecond/index.js' {
   export default endOfSecond
 }
 
-declare module 'date-fns/esm/endOfToday/index.js' {
-  import { endOfToday } from 'date-fns/esm'
-  export default endOfToday
-}
-
-declare module 'date-fns/esm/endOfTomorrow/index.js' {
-  import { endOfTomorrow } from 'date-fns/esm'
-  export default endOfTomorrow
-}
-
 declare module 'date-fns/esm/endOfWeek/index.js' {
   import { endOfWeek } from 'date-fns/esm'
   export default endOfWeek
@@ -9706,11 +13295,6 @@ declare module 'date-fns/esm/endOfWeek/index.js' {
 declare module 'date-fns/esm/endOfYear/index.js' {
   import { endOfYear } from 'date-fns/esm'
   export default endOfYear
-}
-
-declare module 'date-fns/esm/endOfYesterday/index.js' {
-  import { endOfYesterday } from 'date-fns/esm'
-  export default endOfYesterday
 }
 
 declare module 'date-fns/esm/format/index.js' {
@@ -9726,11 +13310,6 @@ declare module 'date-fns/esm/formatDistance/index.js' {
 declare module 'date-fns/esm/formatDistanceStrict/index.js' {
   import { formatDistanceStrict } from 'date-fns/esm'
   export default formatDistanceStrict
-}
-
-declare module 'date-fns/esm/formatDistanceToNow/index.js' {
-  import { formatDistanceToNow } from 'date-fns/esm'
-  export default formatDistanceToNow
 }
 
 declare module 'date-fns/esm/formatRelative/index.js' {
@@ -9893,11 +13472,6 @@ declare module 'date-fns/esm/isFriday/index.js' {
   export default isFriday
 }
 
-declare module 'date-fns/esm/isFuture/index.js' {
-  import { isFuture } from 'date-fns/esm'
-  export default isFuture
-}
-
 declare module 'date-fns/esm/isLastDayOfMonth/index.js' {
   import { isLastDayOfMonth } from 'date-fns/esm'
   export default isLastDayOfMonth
@@ -9911,11 +13485,6 @@ declare module 'date-fns/esm/isLeapYear/index.js' {
 declare module 'date-fns/esm/isMonday/index.js' {
   import { isMonday } from 'date-fns/esm'
   export default isMonday
-}
-
-declare module 'date-fns/esm/isPast/index.js' {
-  import { isPast } from 'date-fns/esm'
-  export default isPast
 }
 
 declare module 'date-fns/esm/isSameDay/index.js' {
@@ -9978,59 +13547,9 @@ declare module 'date-fns/esm/isSunday/index.js' {
   export default isSunday
 }
 
-declare module 'date-fns/esm/isThisHour/index.js' {
-  import { isThisHour } from 'date-fns/esm'
-  export default isThisHour
-}
-
-declare module 'date-fns/esm/isThisISOWeek/index.js' {
-  import { isThisISOWeek } from 'date-fns/esm'
-  export default isThisISOWeek
-}
-
-declare module 'date-fns/esm/isThisMinute/index.js' {
-  import { isThisMinute } from 'date-fns/esm'
-  export default isThisMinute
-}
-
-declare module 'date-fns/esm/isThisMonth/index.js' {
-  import { isThisMonth } from 'date-fns/esm'
-  export default isThisMonth
-}
-
-declare module 'date-fns/esm/isThisQuarter/index.js' {
-  import { isThisQuarter } from 'date-fns/esm'
-  export default isThisQuarter
-}
-
-declare module 'date-fns/esm/isThisSecond/index.js' {
-  import { isThisSecond } from 'date-fns/esm'
-  export default isThisSecond
-}
-
-declare module 'date-fns/esm/isThisWeek/index.js' {
-  import { isThisWeek } from 'date-fns/esm'
-  export default isThisWeek
-}
-
-declare module 'date-fns/esm/isThisYear/index.js' {
-  import { isThisYear } from 'date-fns/esm'
-  export default isThisYear
-}
-
 declare module 'date-fns/esm/isThursday/index.js' {
   import { isThursday } from 'date-fns/esm'
   export default isThursday
-}
-
-declare module 'date-fns/esm/isToday/index.js' {
-  import { isToday } from 'date-fns/esm'
-  export default isToday
-}
-
-declare module 'date-fns/esm/isTomorrow/index.js' {
-  import { isTomorrow } from 'date-fns/esm'
-  export default isTomorrow
 }
 
 declare module 'date-fns/esm/isTuesday/index.js' {
@@ -10056,11 +13575,6 @@ declare module 'date-fns/esm/isWeekend/index.js' {
 declare module 'date-fns/esm/isWithinInterval/index.js' {
   import { isWithinInterval } from 'date-fns/esm'
   export default isWithinInterval
-}
-
-declare module 'date-fns/esm/isYesterday/index.js' {
-  import { isYesterday } from 'date-fns/esm'
-  export default isYesterday
 }
 
 declare module 'date-fns/esm/lastDayOfDecade/index.js' {
@@ -10098,11 +13612,6 @@ declare module 'date-fns/esm/lastDayOfYear/index.js' {
   export default lastDayOfYear
 }
 
-declare module 'date-fns/esm/lightFormat/index.js' {
-  import { lightFormat } from 'date-fns/esm'
-  export default lightFormat
-}
-
 declare module 'date-fns/esm/max/index.js' {
   import { max } from 'date-fns/esm'
   export default max
@@ -10116,11 +13625,6 @@ declare module 'date-fns/esm/min/index.js' {
 declare module 'date-fns/esm/parse/index.js' {
   import { parse } from 'date-fns/esm'
   export default parse
-}
-
-declare module 'date-fns/esm/parseISO/index.js' {
-  import { parseISO } from 'date-fns/esm'
-  export default parseISO
 }
 
 declare module 'date-fns/esm/roundToNearestMinutes/index.js' {
@@ -10248,16 +13752,6 @@ declare module 'date-fns/esm/startOfSecond/index.js' {
   export default startOfSecond
 }
 
-declare module 'date-fns/esm/startOfToday/index.js' {
-  import { startOfToday } from 'date-fns/esm'
-  export default startOfToday
-}
-
-declare module 'date-fns/esm/startOfTomorrow/index.js' {
-  import { startOfTomorrow } from 'date-fns/esm'
-  export default startOfTomorrow
-}
-
 declare module 'date-fns/esm/startOfWeek/index.js' {
   import { startOfWeek } from 'date-fns/esm'
   export default startOfWeek
@@ -10271,11 +13765,6 @@ declare module 'date-fns/esm/startOfWeekYear/index.js' {
 declare module 'date-fns/esm/startOfYear/index.js' {
   import { startOfYear } from 'date-fns/esm'
   export default startOfYear
-}
-
-declare module 'date-fns/esm/startOfYesterday/index.js' {
-  import { startOfYesterday } from 'date-fns/esm'
-  export default startOfYesterday
 }
 
 declare module 'date-fns/esm/subDays/index.js' {
@@ -10336,632 +13825,2286 @@ declare module 'date-fns/esm/toDate/index.js' {
 // ECMAScript Module FP Functions
 
 declare module 'date-fns/esm/fp' {
-  const addBusinessDays: CurriedFn2<number, Date | number, Date>
-  namespace addBusinessDays {}
+  const addDays: CurriedFn2<number, Date | string | number, Date>
+  namespace addDays {
 
-  const addDays: CurriedFn2<number, Date | number, Date>
-  namespace addDays {}
+  }
 
-  const addHours: CurriedFn2<number, Date | number, Date>
-  namespace addHours {}
+  const addDaysWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace addDaysWithOptions {
 
-  const addISOWeekYears: CurriedFn2<number, Date | number, Date>
-  namespace addISOWeekYears {}
+  }
 
-  const addMilliseconds: CurriedFn2<number, Date | number, Date>
-  namespace addMilliseconds {}
+  const addHours: CurriedFn2<number, Date | string | number, Date>
+  namespace addHours {
 
-  const addMinutes: CurriedFn2<number, Date | number, Date>
-  namespace addMinutes {}
+  }
 
-  const addMonths: CurriedFn2<number, Date | number, Date>
-  namespace addMonths {}
+  const addHoursWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace addHoursWithOptions {
 
-  const addQuarters: CurriedFn2<number, Date | number, Date>
-  namespace addQuarters {}
+  }
 
-  const addSeconds: CurriedFn2<number, Date | number, Date>
-  namespace addSeconds {}
+  const addISOWeekYears: CurriedFn2<number, Date | string | number, Date>
+  namespace addISOWeekYears {
 
-  const addWeeks: CurriedFn2<number, Date | number, Date>
-  namespace addWeeks {}
+  }
 
-  const addYears: CurriedFn2<number, Date | number, Date>
-  namespace addYears {}
+  const addISOWeekYearsWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace addISOWeekYearsWithOptions {
+
+  }
+
+  const addMilliseconds: CurriedFn2<number, Date | string | number, Date>
+  namespace addMilliseconds {
+
+  }
+
+  const addMillisecondsWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace addMillisecondsWithOptions {
+
+  }
+
+  const addMinutes: CurriedFn2<number, Date | string | number, Date>
+  namespace addMinutes {
+
+  }
+
+  const addMinutesWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace addMinutesWithOptions {
+
+  }
+
+  const addMonths: CurriedFn2<number, Date | string | number, Date>
+  namespace addMonths {
+
+  }
+
+  const addMonthsWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace addMonthsWithOptions {
+
+  }
+
+  const addQuarters: CurriedFn2<number, Date | string | number, Date>
+  namespace addQuarters {
+
+  }
+
+  const addQuartersWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace addQuartersWithOptions {
+
+  }
+
+  const addSeconds: CurriedFn2<number, Date | string | number, Date>
+  namespace addSeconds {
+
+  }
+
+  const addSecondsWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace addSecondsWithOptions {
+
+  }
+
+  const addWeeks: CurriedFn2<number, Date | string | number, Date>
+  namespace addWeeks {
+
+  }
+
+  const addWeeksWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace addWeeksWithOptions {
+
+  }
+
+  const addYears: CurriedFn2<number, Date | string | number, Date>
+  namespace addYears {
+
+  }
+
+  const addYearsWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace addYearsWithOptions {
+
+  }
 
   const areIntervalsOverlapping: CurriedFn2<Interval, Interval, boolean>
-  namespace areIntervalsOverlapping {}
+  namespace areIntervalsOverlapping {
 
-  const closestIndexTo: CurriedFn2<(Date | number)[], Date | number, number>
-  namespace closestIndexTo {}
+  }
 
-  const closestTo: CurriedFn2<(Date | number)[], Date | number, Date>
-  namespace closestTo {}
-
-  const compareAsc: CurriedFn2<Date | number, Date | number, number>
-  namespace compareAsc {}
-
-  const compareDesc: CurriedFn2<Date | number, Date | number, number>
-  namespace compareDesc {}
-
-  const differenceInBusinessDays: CurriedFn2<
-    Date | number,
-    Date | number,
-    number
-  >
-  namespace differenceInBusinessDays {}
-
-  const differenceInCalendarDays: CurriedFn2<
-    Date | number,
-    Date | number,
-    number
-  >
-  namespace differenceInCalendarDays {}
-
-  const differenceInCalendarISOWeeks: CurriedFn2<
-    Date | number,
-    Date | number,
-    number
-  >
-  namespace differenceInCalendarISOWeeks {}
-
-  const differenceInCalendarISOWeekYears: CurriedFn2<
-    Date | number,
-    Date | number,
-    number
-  >
-  namespace differenceInCalendarISOWeekYears {}
-
-  const differenceInCalendarMonths: CurriedFn2<
-    Date | number,
-    Date | number,
-    number
-  >
-  namespace differenceInCalendarMonths {}
-
-  const differenceInCalendarQuarters: CurriedFn2<
-    Date | number,
-    Date | number,
-    number
-  >
-  namespace differenceInCalendarQuarters {}
-
-  const differenceInCalendarWeeks: CurriedFn2<
-    Date | number,
-    Date | number,
-    number
-  >
-  namespace differenceInCalendarWeeks {}
-
-  const differenceInCalendarWeeksWithOptions: CurriedFn3<
-    Object,
-    Date | number,
-    Date | number,
-    number
-  >
-  namespace differenceInCalendarWeeksWithOptions {}
-
-  const differenceInCalendarYears: CurriedFn2<
-    Date | number,
-    Date | number,
-    number
-  >
-  namespace differenceInCalendarYears {}
-
-  const differenceInDays: CurriedFn2<Date | number, Date | number, number>
-  namespace differenceInDays {}
-
-  const differenceInHours: CurriedFn2<Date | number, Date | number, number>
-  namespace differenceInHours {}
-
-  const differenceInISOWeekYears: CurriedFn2<
-    Date | number,
-    Date | number,
-    number
-  >
-  namespace differenceInISOWeekYears {}
-
-  const differenceInMilliseconds: CurriedFn2<
-    Date | number,
-    Date | number,
-    number
-  >
-  namespace differenceInMilliseconds {}
-
-  const differenceInMinutes: CurriedFn2<Date | number, Date | number, number>
-  namespace differenceInMinutes {}
-
-  const differenceInMonths: CurriedFn2<Date | number, Date | number, number>
-  namespace differenceInMonths {}
-
-  const differenceInQuarters: CurriedFn2<Date | number, Date | number, number>
-  namespace differenceInQuarters {}
-
-  const differenceInSeconds: CurriedFn2<Date | number, Date | number, number>
-  namespace differenceInSeconds {}
-
-  const differenceInWeeks: CurriedFn2<Date | number, Date | number, number>
-  namespace differenceInWeeks {}
-
-  const differenceInYears: CurriedFn2<Date | number, Date | number, number>
-  namespace differenceInYears {}
-
-  const eachDayOfInterval: CurriedFn1<Interval, Date[]>
-  namespace eachDayOfInterval {}
-
-  const eachDayOfIntervalWithOptions: CurriedFn2<Object, Interval, Date[]>
-  namespace eachDayOfIntervalWithOptions {}
-
-  const eachWeekendOfInterval: CurriedFn1<Interval, Date[]>
-  namespace eachWeekendOfInterval {}
-
-  const eachWeekendOfMonth: CurriedFn1<Date | number, Date[]>
-  namespace eachWeekendOfMonth {}
-
-  const eachWeekendOfYear: CurriedFn1<Date | number, Date[]>
-  namespace eachWeekendOfYear {}
-
-  const eachWeekOfInterval: CurriedFn1<Interval, Date[]>
-  namespace eachWeekOfInterval {}
-
-  const eachWeekOfIntervalWithOptions: CurriedFn2<Object, Interval, Date[]>
-  namespace eachWeekOfIntervalWithOptions {}
-
-  const endOfDay: CurriedFn1<Date | number, Date>
-  namespace endOfDay {}
-
-  const endOfDecade: CurriedFn1<Date | number, Date>
-  namespace endOfDecade {}
-
-  const endOfDecadeWithOptions: CurriedFn2<Object, Date | number, Date>
-  namespace endOfDecadeWithOptions {}
-
-  const endOfHour: CurriedFn1<Date | number, Date>
-  namespace endOfHour {}
-
-  const endOfISOWeek: CurriedFn1<Date | number, Date>
-  namespace endOfISOWeek {}
-
-  const endOfISOWeekYear: CurriedFn1<Date | number, Date>
-  namespace endOfISOWeekYear {}
-
-  const endOfMinute: CurriedFn1<Date | number, Date>
-  namespace endOfMinute {}
-
-  const endOfMonth: CurriedFn1<Date | number, Date>
-  namespace endOfMonth {}
-
-  const endOfQuarter: CurriedFn1<Date | number, Date>
-  namespace endOfQuarter {}
-
-  const endOfSecond: CurriedFn1<Date | number, Date>
-  namespace endOfSecond {}
-
-  const endOfWeek: CurriedFn1<Date | number, Date>
-  namespace endOfWeek {}
-
-  const endOfWeekWithOptions: CurriedFn2<Object, Date | number, Date>
-  namespace endOfWeekWithOptions {}
-
-  const endOfYear: CurriedFn1<Date | number, Date>
-  namespace endOfYear {}
-
-  const format: CurriedFn2<string, Date | number, string>
-  namespace format {}
-
-  const formatDistance: CurriedFn2<Date | number, Date | number, string>
-  namespace formatDistance {}
-
-  const formatDistanceStrict: CurriedFn2<Date | number, Date | number, string>
-  namespace formatDistanceStrict {}
-
-  const formatDistanceStrictWithOptions: CurriedFn3<
-    Object,
-    Date | number,
-    Date | number,
-    string
-  >
-  namespace formatDistanceStrictWithOptions {}
-
-  const formatDistanceWithOptions: CurriedFn3<
-    Object,
-    Date | number,
-    Date | number,
-    string
-  >
-  namespace formatDistanceWithOptions {}
-
-  const formatRelative: CurriedFn2<Date | number, Date | number, string>
-  namespace formatRelative {}
-
-  const formatRelativeWithOptions: CurriedFn3<
-    Object,
-    Date | number,
-    Date | number,
-    string
-  >
-  namespace formatRelativeWithOptions {}
-
-  const formatWithOptions: CurriedFn3<Object, string, Date | number, string>
-  namespace formatWithOptions {}
-
-  const fromUnixTime: CurriedFn1<number, Date>
-  namespace fromUnixTime {}
-
-  const getDate: CurriedFn1<Date | number, number>
-  namespace getDate {}
-
-  const getDay: CurriedFn1<Date | number, number>
-  namespace getDay {}
-
-  const getDayOfYear: CurriedFn1<Date | number, number>
-  namespace getDayOfYear {}
-
-  const getDaysInMonth: CurriedFn1<Date | number, number>
-  namespace getDaysInMonth {}
-
-  const getDaysInYear: CurriedFn1<Date | number, number>
-  namespace getDaysInYear {}
-
-  const getDecade: CurriedFn1<Date | number, number>
-  namespace getDecade {}
-
-  const getHours: CurriedFn1<Date | number, number>
-  namespace getHours {}
-
-  const getISODay: CurriedFn1<Date | number, number>
-  namespace getISODay {}
-
-  const getISOWeek: CurriedFn1<Date | number, number>
-  namespace getISOWeek {}
-
-  const getISOWeeksInYear: CurriedFn1<Date | number, number>
-  namespace getISOWeeksInYear {}
-
-  const getISOWeekYear: CurriedFn1<Date | number, number>
-  namespace getISOWeekYear {}
-
-  const getMilliseconds: CurriedFn1<Date | number, number>
-  namespace getMilliseconds {}
-
-  const getMinutes: CurriedFn1<Date | number, number>
-  namespace getMinutes {}
-
-  const getMonth: CurriedFn1<Date | number, number>
-  namespace getMonth {}
-
-  const getOverlappingDaysInIntervals: CurriedFn2<Interval, Interval, number>
-  namespace getOverlappingDaysInIntervals {}
-
-  const getQuarter: CurriedFn1<Date | number, number>
-  namespace getQuarter {}
-
-  const getSeconds: CurriedFn1<Date | number, number>
-  namespace getSeconds {}
-
-  const getTime: CurriedFn1<Date | number, number>
-  namespace getTime {}
-
-  const getUnixTime: CurriedFn1<Date | number, number>
-  namespace getUnixTime {}
-
-  const getWeek: CurriedFn1<Date | number, number>
-  namespace getWeek {}
-
-  const getWeekOfMonth: CurriedFn1<Date | number, number>
-  namespace getWeekOfMonth {}
-
-  const getWeekOfMonthWithOptions: CurriedFn2<Object, Date | number, number>
-  namespace getWeekOfMonthWithOptions {}
-
-  const getWeeksInMonth: CurriedFn1<Date | number, number>
-  namespace getWeeksInMonth {}
-
-  const getWeeksInMonthWithOptions: CurriedFn2<Object, Date | number, number>
-  namespace getWeeksInMonthWithOptions {}
-
-  const getWeekWithOptions: CurriedFn2<Object, Date | number, number>
-  namespace getWeekWithOptions {}
-
-  const getWeekYear: CurriedFn1<Date | number, number>
-  namespace getWeekYear {}
-
-  const getWeekYearWithOptions: CurriedFn2<Object, Date | number, number>
-  namespace getWeekYearWithOptions {}
-
-  const getYear: CurriedFn1<Date | number, number>
-  namespace getYear {}
-
-  const isAfter: CurriedFn2<Date | number, Date | number, boolean>
-  namespace isAfter {}
-
-  const isBefore: CurriedFn2<Date | number, Date | number, boolean>
-  namespace isBefore {}
-
-  const isDate: CurriedFn1<any, boolean>
-  namespace isDate {}
-
-  const isEqual: CurriedFn2<Date | number, Date | number, boolean>
-  namespace isEqual {}
-
-  const isFirstDayOfMonth: CurriedFn1<Date | number, boolean>
-  namespace isFirstDayOfMonth {}
-
-  const isFriday: CurriedFn1<Date | number, boolean>
-  namespace isFriday {}
-
-  const isLastDayOfMonth: CurriedFn1<Date | number, boolean>
-  namespace isLastDayOfMonth {}
-
-  const isLeapYear: CurriedFn1<Date | number, boolean>
-  namespace isLeapYear {}
-
-  const isMonday: CurriedFn1<Date | number, boolean>
-  namespace isMonday {}
-
-  const isSameDay: CurriedFn2<Date | number, Date | number, boolean>
-  namespace isSameDay {}
-
-  const isSameHour: CurriedFn2<Date | number, Date | number, boolean>
-  namespace isSameHour {}
-
-  const isSameISOWeek: CurriedFn2<Date | number, Date | number, boolean>
-  namespace isSameISOWeek {}
-
-  const isSameISOWeekYear: CurriedFn2<Date | number, Date | number, boolean>
-  namespace isSameISOWeekYear {}
-
-  const isSameMinute: CurriedFn2<Date | number, Date | number, boolean>
-  namespace isSameMinute {}
-
-  const isSameMonth: CurriedFn2<Date | number, Date | number, boolean>
-  namespace isSameMonth {}
-
-  const isSameQuarter: CurriedFn2<Date | number, Date | number, boolean>
-  namespace isSameQuarter {}
-
-  const isSameSecond: CurriedFn2<Date | number, Date | number, boolean>
-  namespace isSameSecond {}
-
-  const isSameWeek: CurriedFn2<Date | number, Date | number, boolean>
-  namespace isSameWeek {}
-
-  const isSameWeekWithOptions: CurriedFn3<
-    Object,
-    Date | number,
-    Date | number,
+  const areIntervalsOverlappingWithOptions: CurriedFn3<
+    Options,
+    Interval,
+    Interval,
     boolean
   >
-  namespace isSameWeekWithOptions {}
+  namespace areIntervalsOverlappingWithOptions {
 
-  const isSameYear: CurriedFn2<Date | number, Date | number, boolean>
-  namespace isSameYear {}
+  }
 
-  const isSaturday: CurriedFn1<Date | number, boolean>
-  namespace isSaturday {}
+  const closestIndexTo: CurriedFn2<
+    (Date | string | number)[],
+    Date | string | number,
+    number
+  >
+  namespace closestIndexTo {
 
-  const isSunday: CurriedFn1<Date | number, boolean>
-  namespace isSunday {}
+  }
 
-  const isThursday: CurriedFn1<Date | number, boolean>
-  namespace isThursday {}
+  const closestIndexToWithOptions: CurriedFn3<
+    Options,
+    (Date | string | number)[],
+    Date | string | number,
+    number
+  >
+  namespace closestIndexToWithOptions {
 
-  const isTuesday: CurriedFn1<Date | number, boolean>
-  namespace isTuesday {}
+  }
+
+  const closestTo: CurriedFn2<
+    (Date | string | number)[],
+    Date | string | number,
+    Date
+  >
+  namespace closestTo {
+
+  }
+
+  const closestToWithOptions: CurriedFn3<
+    Options,
+    (Date | string | number)[],
+    Date | string | number,
+    Date
+  >
+  namespace closestToWithOptions {
+
+  }
+
+  const compareAsc: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace compareAsc {
+
+  }
+
+  const compareAscWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace compareAscWithOptions {
+
+  }
+
+  const compareDesc: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace compareDesc {
+
+  }
+
+  const compareDescWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace compareDescWithOptions {
+
+  }
+
+  const differenceInCalendarDays: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInCalendarDays {
+
+  }
+
+  const differenceInCalendarDaysWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInCalendarDaysWithOptions {
+
+  }
+
+  const differenceInCalendarISOWeeks: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInCalendarISOWeeks {
+
+  }
+
+  const differenceInCalendarISOWeeksWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInCalendarISOWeeksWithOptions {
+
+  }
+
+  const differenceInCalendarISOWeekYears: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInCalendarISOWeekYears {
+
+  }
+
+  const differenceInCalendarISOWeekYearsWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInCalendarISOWeekYearsWithOptions {
+
+  }
+
+  const differenceInCalendarMonths: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInCalendarMonths {
+
+  }
+
+  const differenceInCalendarMonthsWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInCalendarMonthsWithOptions {
+
+  }
+
+  const differenceInCalendarQuarters: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInCalendarQuarters {
+
+  }
+
+  const differenceInCalendarQuartersWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInCalendarQuartersWithOptions {
+
+  }
+
+  const differenceInCalendarWeeks: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInCalendarWeeks {
+
+  }
+
+  const differenceInCalendarWeeksWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInCalendarWeeksWithOptions {
+
+  }
+
+  const differenceInCalendarYears: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInCalendarYears {
+
+  }
+
+  const differenceInCalendarYearsWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInCalendarYearsWithOptions {
+
+  }
+
+  const differenceInDays: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInDays {
+
+  }
+
+  const differenceInDaysWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInDaysWithOptions {
+
+  }
+
+  const differenceInHours: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInHours {
+
+  }
+
+  const differenceInHoursWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInHoursWithOptions {
+
+  }
+
+  const differenceInISOWeekYears: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInISOWeekYears {
+
+  }
+
+  const differenceInISOWeekYearsWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInISOWeekYearsWithOptions {
+
+  }
+
+  const differenceInMilliseconds: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInMilliseconds {
+
+  }
+
+  const differenceInMillisecondsWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInMillisecondsWithOptions {
+
+  }
+
+  const differenceInMinutes: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInMinutes {
+
+  }
+
+  const differenceInMinutesWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInMinutesWithOptions {
+
+  }
+
+  const differenceInMonths: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInMonths {
+
+  }
+
+  const differenceInMonthsWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInMonthsWithOptions {
+
+  }
+
+  const differenceInQuarters: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInQuarters {
+
+  }
+
+  const differenceInQuartersWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInQuartersWithOptions {
+
+  }
+
+  const differenceInSeconds: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInSeconds {
+
+  }
+
+  const differenceInSecondsWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInSecondsWithOptions {
+
+  }
+
+  const differenceInWeeks: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInWeeks {
+
+  }
+
+  const differenceInWeeksWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInWeeksWithOptions {
+
+  }
+
+  const differenceInYears: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInYears {
+
+  }
+
+  const differenceInYearsWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    number
+  >
+  namespace differenceInYearsWithOptions {
+
+  }
+
+  const eachDayOfInterval: CurriedFn1<Interval, Date[]>
+  namespace eachDayOfInterval {
+
+  }
+
+  const eachDayOfIntervalWithOptions: CurriedFn2<Options, Interval, Date[]>
+  namespace eachDayOfIntervalWithOptions {
+
+  }
+
+  const eachWeekendOfInterval: CurriedFn1<Interval, Date[]>
+  namespace eachWeekendOfInterval {
+
+  }
+
+  const eachWeekendOfIntervalWithOptions: CurriedFn2<Options, Interval, Date[]>
+  namespace eachWeekendOfIntervalWithOptions {
+
+  }
+
+  const eachWeekendOfMonth: CurriedFn1<Date | string | number, Date[]>
+  namespace eachWeekendOfMonth {
+
+  }
+
+  const eachWeekendOfMonthWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date[]
+  >
+  namespace eachWeekendOfMonthWithOptions {
+
+  }
+
+  const eachWeekendOfYear: CurriedFn1<Date | string | number, Date[]>
+  namespace eachWeekendOfYear {
+
+  }
+
+  const eachWeekendOfYearWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date[]
+  >
+  namespace eachWeekendOfYearWithOptions {
+
+  }
+
+  const eachWeekOfInterval: CurriedFn1<Interval, Date[]>
+  namespace eachWeekOfInterval {
+
+  }
+
+  const eachWeekOfIntervalWithOptions: CurriedFn2<Options, Interval, Date[]>
+  namespace eachWeekOfIntervalWithOptions {
+
+  }
+
+  const endOfDay: CurriedFn1<Date | string | number, Date>
+  namespace endOfDay {
+
+  }
+
+  const endOfDayWithOptions: CurriedFn2<Options, Date | string | number, Date>
+  namespace endOfDayWithOptions {
+
+  }
+
+  const endOfDecade: CurriedFn1<Date | string | number, Date>
+  namespace endOfDecade {
+
+  }
+
+  const endOfDecadeWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date
+  >
+  namespace endOfDecadeWithOptions {
+
+  }
+
+  const endOfHour: CurriedFn1<Date | string | number, Date>
+  namespace endOfHour {
+
+  }
+
+  const endOfHourWithOptions: CurriedFn2<Options, Date | string | number, Date>
+  namespace endOfHourWithOptions {
+
+  }
+
+  const endOfISOWeek: CurriedFn1<Date | string | number, Date>
+  namespace endOfISOWeek {
+
+  }
+
+  const endOfISOWeekWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date
+  >
+  namespace endOfISOWeekWithOptions {
+
+  }
+
+  const endOfISOWeekYear: CurriedFn1<Date | string | number, Date>
+  namespace endOfISOWeekYear {
+
+  }
+
+  const endOfISOWeekYearWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date
+  >
+  namespace endOfISOWeekYearWithOptions {
+
+  }
+
+  const endOfMinute: CurriedFn1<Date | string | number, Date>
+  namespace endOfMinute {
+
+  }
+
+  const endOfMinuteWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date
+  >
+  namespace endOfMinuteWithOptions {
+
+  }
+
+  const endOfMonth: CurriedFn1<Date | string | number, Date>
+  namespace endOfMonth {
+
+  }
+
+  const endOfMonthWithOptions: CurriedFn2<Options, Date | string | number, Date>
+  namespace endOfMonthWithOptions {
+
+  }
+
+  const endOfQuarter: CurriedFn1<Date | string | number, Date>
+  namespace endOfQuarter {
+
+  }
+
+  const endOfQuarterWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date
+  >
+  namespace endOfQuarterWithOptions {
+
+  }
+
+  const endOfSecond: CurriedFn1<Date | string | number, Date>
+  namespace endOfSecond {
+
+  }
+
+  const endOfSecondWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date
+  >
+  namespace endOfSecondWithOptions {
+
+  }
+
+  const endOfWeek: CurriedFn1<Date | string | number, Date>
+  namespace endOfWeek {
+
+  }
+
+  const endOfWeekWithOptions: CurriedFn2<Options, Date | string | number, Date>
+  namespace endOfWeekWithOptions {
+
+  }
+
+  const endOfYear: CurriedFn1<Date | string | number, Date>
+  namespace endOfYear {
+
+  }
+
+  const endOfYearWithOptions: CurriedFn2<Options, Date | string | number, Date>
+  namespace endOfYearWithOptions {
+
+  }
+
+  const format: CurriedFn2<string, Date | string | number, string>
+  namespace format {
+
+  }
+
+  const formatDistance: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    string
+  >
+  namespace formatDistance {
+
+  }
+
+  const formatDistanceStrict: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    string
+  >
+  namespace formatDistanceStrict {
+
+  }
+
+  const formatDistanceStrictWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    string
+  >
+  namespace formatDistanceStrictWithOptions {
+
+  }
+
+  const formatDistanceWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    string
+  >
+  namespace formatDistanceWithOptions {
+
+  }
+
+  const formatRelative: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    string
+  >
+  namespace formatRelative {
+
+  }
+
+  const formatRelativeWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    string
+  >
+  namespace formatRelativeWithOptions {
+
+  }
+
+  const formatWithOptions: CurriedFn3<
+    Options,
+    string,
+    Date | string | number,
+    string
+  >
+  namespace formatWithOptions {
+
+  }
+
+  const fromUnixTime: CurriedFn1<number, Date>
+  namespace fromUnixTime {
+
+  }
+
+  const fromUnixTimeWithOptions: CurriedFn2<Options, number, Date>
+  namespace fromUnixTimeWithOptions {
+
+  }
+
+  const getDate: CurriedFn1<Date | string | number, number>
+  namespace getDate {
+
+  }
+
+  const getDateWithOptions: CurriedFn2<Options, Date | string | number, number>
+  namespace getDateWithOptions {
+
+  }
+
+  const getDay: CurriedFn1<Date | string | number, number>
+  namespace getDay {
+
+  }
+
+  const getDayOfYear: CurriedFn1<Date | string | number, number>
+  namespace getDayOfYear {
+
+  }
+
+  const getDayOfYearWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    number
+  >
+  namespace getDayOfYearWithOptions {
+
+  }
+
+  const getDaysInMonth: CurriedFn1<Date | string | number, number>
+  namespace getDaysInMonth {
+
+  }
+
+  const getDaysInMonthWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    number
+  >
+  namespace getDaysInMonthWithOptions {
+
+  }
+
+  const getDaysInYear: CurriedFn1<Date | string | number, number>
+  namespace getDaysInYear {
+
+  }
+
+  const getDaysInYearWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    number
+  >
+  namespace getDaysInYearWithOptions {
+
+  }
+
+  const getDayWithOptions: CurriedFn2<Options, Date | string | number, number>
+  namespace getDayWithOptions {
+
+  }
+
+  const getDecade: CurriedFn1<Date | string | number, number>
+  namespace getDecade {
+
+  }
+
+  const getDecadeWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    number
+  >
+  namespace getDecadeWithOptions {
+
+  }
+
+  const getHours: CurriedFn1<Date | string | number, number>
+  namespace getHours {
+
+  }
+
+  const getHoursWithOptions: CurriedFn2<Options, Date | string | number, number>
+  namespace getHoursWithOptions {
+
+  }
+
+  const getISODay: CurriedFn1<Date | string | number, number>
+  namespace getISODay {
+
+  }
+
+  const getISODayWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    number
+  >
+  namespace getISODayWithOptions {
+
+  }
+
+  const getISOWeek: CurriedFn1<Date | string | number, number>
+  namespace getISOWeek {
+
+  }
+
+  const getISOWeeksInYear: CurriedFn1<Date | string | number, number>
+  namespace getISOWeeksInYear {
+
+  }
+
+  const getISOWeeksInYearWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    number
+  >
+  namespace getISOWeeksInYearWithOptions {
+
+  }
+
+  const getISOWeekWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    number
+  >
+  namespace getISOWeekWithOptions {
+
+  }
+
+  const getISOWeekYear: CurriedFn1<Date | string | number, number>
+  namespace getISOWeekYear {
+
+  }
+
+  const getISOWeekYearWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    number
+  >
+  namespace getISOWeekYearWithOptions {
+
+  }
+
+  const getMilliseconds: CurriedFn1<Date | string | number, number>
+  namespace getMilliseconds {
+
+  }
+
+  const getMillisecondsWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    number
+  >
+  namespace getMillisecondsWithOptions {
+
+  }
+
+  const getMinutes: CurriedFn1<Date | string | number, number>
+  namespace getMinutes {
+
+  }
+
+  const getMinutesWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    number
+  >
+  namespace getMinutesWithOptions {
+
+  }
+
+  const getMonth: CurriedFn1<Date | string | number, number>
+  namespace getMonth {
+
+  }
+
+  const getMonthWithOptions: CurriedFn2<Options, Date | string | number, number>
+  namespace getMonthWithOptions {
+
+  }
+
+  const getOverlappingDaysInIntervals: CurriedFn2<Interval, Interval, number>
+  namespace getOverlappingDaysInIntervals {
+
+  }
+
+  const getOverlappingDaysInIntervalsWithOptions: CurriedFn3<
+    Options,
+    Interval,
+    Interval,
+    number
+  >
+  namespace getOverlappingDaysInIntervalsWithOptions {
+
+  }
+
+  const getQuarter: CurriedFn1<Date | string | number, number>
+  namespace getQuarter {
+
+  }
+
+  const getQuarterWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    number
+  >
+  namespace getQuarterWithOptions {
+
+  }
+
+  const getSeconds: CurriedFn1<Date | string | number, number>
+  namespace getSeconds {
+
+  }
+
+  const getSecondsWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    number
+  >
+  namespace getSecondsWithOptions {
+
+  }
+
+  const getTime: CurriedFn1<Date | string | number, number>
+  namespace getTime {
+
+  }
+
+  const getTimeWithOptions: CurriedFn2<Options, Date | string | number, number>
+  namespace getTimeWithOptions {
+
+  }
+
+  const getUnixTime: CurriedFn1<Date | string | number, number>
+  namespace getUnixTime {
+
+  }
+
+  const getUnixTimeWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    number
+  >
+  namespace getUnixTimeWithOptions {
+
+  }
+
+  const getWeek: CurriedFn1<Date | string | number, number>
+  namespace getWeek {
+
+  }
+
+  const getWeekOfMonth: CurriedFn1<Date | string | number, number>
+  namespace getWeekOfMonth {
+
+  }
+
+  const getWeekOfMonthWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    number
+  >
+  namespace getWeekOfMonthWithOptions {
+
+  }
+
+  const getWeeksInMonth: CurriedFn1<Date | string | number, number>
+  namespace getWeeksInMonth {
+
+  }
+
+  const getWeeksInMonthWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    number
+  >
+  namespace getWeeksInMonthWithOptions {
+
+  }
+
+  const getWeekWithOptions: CurriedFn2<Options, Date | string | number, number>
+  namespace getWeekWithOptions {
+
+  }
+
+  const getWeekYear: CurriedFn1<Date | string | number, number>
+  namespace getWeekYear {
+
+  }
+
+  const getWeekYearWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    number
+  >
+  namespace getWeekYearWithOptions {
+
+  }
+
+  const getYear: CurriedFn1<Date | string | number, number>
+  namespace getYear {
+
+  }
+
+  const getYearWithOptions: CurriedFn2<Options, Date | string | number, number>
+  namespace getYearWithOptions {
+
+  }
+
+  const isAfter: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isAfter {
+
+  }
+
+  const isAfterWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isAfterWithOptions {
+
+  }
+
+  const isBefore: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isBefore {
+
+  }
+
+  const isBeforeWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isBeforeWithOptions {
+
+  }
+
+  const isDate: CurriedFn1<any, boolean>
+  namespace isDate {
+
+  }
+
+  const isDateWithOptions: CurriedFn2<Options, any, boolean>
+  namespace isDateWithOptions {
+
+  }
+
+  const isEqual: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isEqual {
+
+  }
+
+  const isEqualWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isEqualWithOptions {
+
+  }
+
+  const isFirstDayOfMonth: CurriedFn1<Date | string | number, boolean>
+  namespace isFirstDayOfMonth {
+
+  }
+
+  const isFirstDayOfMonthWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    boolean
+  >
+  namespace isFirstDayOfMonthWithOptions {
+
+  }
+
+  const isFriday: CurriedFn1<Date | string | number, boolean>
+  namespace isFriday {
+
+  }
+
+  const isFridayWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    boolean
+  >
+  namespace isFridayWithOptions {
+
+  }
+
+  const isLastDayOfMonth: CurriedFn1<Date | string | number, boolean>
+  namespace isLastDayOfMonth {
+
+  }
+
+  const isLastDayOfMonthWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    boolean
+  >
+  namespace isLastDayOfMonthWithOptions {
+
+  }
+
+  const isLeapYear: CurriedFn1<Date | string | number, boolean>
+  namespace isLeapYear {
+
+  }
+
+  const isLeapYearWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    boolean
+  >
+  namespace isLeapYearWithOptions {
+
+  }
+
+  const isMonday: CurriedFn1<Date | string | number, boolean>
+  namespace isMonday {
+
+  }
+
+  const isMondayWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    boolean
+  >
+  namespace isMondayWithOptions {
+
+  }
+
+  const isSameDay: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isSameDay {
+
+  }
+
+  const isSameDayWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isSameDayWithOptions {
+
+  }
+
+  const isSameHour: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isSameHour {
+
+  }
+
+  const isSameHourWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isSameHourWithOptions {
+
+  }
+
+  const isSameISOWeek: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isSameISOWeek {
+
+  }
+
+  const isSameISOWeekWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isSameISOWeekWithOptions {
+
+  }
+
+  const isSameISOWeekYear: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isSameISOWeekYear {
+
+  }
+
+  const isSameISOWeekYearWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isSameISOWeekYearWithOptions {
+
+  }
+
+  const isSameMinute: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isSameMinute {
+
+  }
+
+  const isSameMinuteWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isSameMinuteWithOptions {
+
+  }
+
+  const isSameMonth: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isSameMonth {
+
+  }
+
+  const isSameMonthWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isSameMonthWithOptions {
+
+  }
+
+  const isSameQuarter: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isSameQuarter {
+
+  }
+
+  const isSameQuarterWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isSameQuarterWithOptions {
+
+  }
+
+  const isSameSecond: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isSameSecond {
+
+  }
+
+  const isSameSecondWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isSameSecondWithOptions {
+
+  }
+
+  const isSameWeek: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isSameWeek {
+
+  }
+
+  const isSameWeekWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isSameWeekWithOptions {
+
+  }
+
+  const isSameYear: CurriedFn2<
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isSameYear {
+
+  }
+
+  const isSameYearWithOptions: CurriedFn3<
+    Options,
+    Date | string | number,
+    Date | string | number,
+    boolean
+  >
+  namespace isSameYearWithOptions {
+
+  }
+
+  const isSaturday: CurriedFn1<Date | string | number, boolean>
+  namespace isSaturday {
+
+  }
+
+  const isSaturdayWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    boolean
+  >
+  namespace isSaturdayWithOptions {
+
+  }
+
+  const isSunday: CurriedFn1<Date | string | number, boolean>
+  namespace isSunday {
+
+  }
+
+  const isSundayWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    boolean
+  >
+  namespace isSundayWithOptions {
+
+  }
+
+  const isThursday: CurriedFn1<Date | string | number, boolean>
+  namespace isThursday {
+
+  }
+
+  const isThursdayWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    boolean
+  >
+  namespace isThursdayWithOptions {
+
+  }
+
+  const isTuesday: CurriedFn1<Date | string | number, boolean>
+  namespace isTuesday {
+
+  }
+
+  const isTuesdayWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    boolean
+  >
+  namespace isTuesdayWithOptions {
+
+  }
 
   const isValid: CurriedFn1<any, boolean>
-  namespace isValid {}
+  namespace isValid {
 
-  const isWednesday: CurriedFn1<Date | number, boolean>
-  namespace isWednesday {}
+  }
 
-  const isWeekend: CurriedFn1<Date | number, boolean>
-  namespace isWeekend {}
+  const isValidWithOptions: CurriedFn2<Options, any, boolean>
+  namespace isValidWithOptions {
 
-  const isWithinInterval: CurriedFn2<Interval, Date | number, boolean>
-  namespace isWithinInterval {}
+  }
 
-  const lastDayOfDecade: CurriedFn1<Date | number, Date>
-  namespace lastDayOfDecade {}
+  const isWednesday: CurriedFn1<Date | string | number, boolean>
+  namespace isWednesday {
 
-  const lastDayOfISOWeek: CurriedFn1<Date | number, Date>
-  namespace lastDayOfISOWeek {}
+  }
 
-  const lastDayOfISOWeekYear: CurriedFn1<Date | number, Date>
-  namespace lastDayOfISOWeekYear {}
+  const isWednesdayWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    boolean
+  >
+  namespace isWednesdayWithOptions {
 
-  const lastDayOfMonth: CurriedFn1<Date | number, Date>
-  namespace lastDayOfMonth {}
+  }
 
-  const lastDayOfQuarter: CurriedFn1<Date | number, Date>
-  namespace lastDayOfQuarter {}
+  const isWeekend: CurriedFn1<Date | string | number, boolean>
+  namespace isWeekend {
 
-  const lastDayOfQuarterWithOptions: CurriedFn2<Object, Date | number, Date>
-  namespace lastDayOfQuarterWithOptions {}
+  }
 
-  const lastDayOfWeek: CurriedFn1<Date | number, Date>
-  namespace lastDayOfWeek {}
+  const isWeekendWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    boolean
+  >
+  namespace isWeekendWithOptions {
 
-  const lastDayOfWeekWithOptions: CurriedFn2<Object, Date | number, Date>
-  namespace lastDayOfWeekWithOptions {}
+  }
 
-  const lastDayOfYear: CurriedFn1<Date | number, Date>
-  namespace lastDayOfYear {}
+  const isWithinInterval: CurriedFn2<Interval, Date | string | number, boolean>
+  namespace isWithinInterval {
 
-  const lightFormat: CurriedFn2<string, Date | number, string>
-  namespace lightFormat {}
+  }
 
-  const max: CurriedFn1<(Date | number)[], Date>
-  namespace max {}
+  const isWithinIntervalWithOptions: CurriedFn3<
+    Options,
+    Interval,
+    Date | string | number,
+    boolean
+  >
+  namespace isWithinIntervalWithOptions {
 
-  const min: CurriedFn1<(Date | number)[], Date>
-  namespace min {}
+  }
 
-  const parse: CurriedFn3<Date | number, string, string, Date>
-  namespace parse {}
+  const lastDayOfDecade: CurriedFn1<Date | string | number, Date>
+  namespace lastDayOfDecade {
 
-  const parseISO: CurriedFn1<string, Date>
-  namespace parseISO {}
+  }
 
-  const parseISOWithOptions: CurriedFn2<Object, string, Date>
-  namespace parseISOWithOptions {}
+  const lastDayOfDecadeWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date
+  >
+  namespace lastDayOfDecadeWithOptions {
+
+  }
+
+  const lastDayOfISOWeek: CurriedFn1<Date | string | number, Date>
+  namespace lastDayOfISOWeek {
+
+  }
+
+  const lastDayOfISOWeekWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date
+  >
+  namespace lastDayOfISOWeekWithOptions {
+
+  }
+
+  const lastDayOfISOWeekYear: CurriedFn1<Date | string | number, Date>
+  namespace lastDayOfISOWeekYear {
+
+  }
+
+  const lastDayOfISOWeekYearWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date
+  >
+  namespace lastDayOfISOWeekYearWithOptions {
+
+  }
+
+  const lastDayOfMonth: CurriedFn1<Date | string | number, Date>
+  namespace lastDayOfMonth {
+
+  }
+
+  const lastDayOfMonthWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date
+  >
+  namespace lastDayOfMonthWithOptions {
+
+  }
+
+  const lastDayOfQuarter: CurriedFn1<Date | string | number, Date>
+  namespace lastDayOfQuarter {
+
+  }
+
+  const lastDayOfQuarterWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date
+  >
+  namespace lastDayOfQuarterWithOptions {
+
+  }
+
+  const lastDayOfWeek: CurriedFn1<Date | string | number, Date>
+  namespace lastDayOfWeek {
+
+  }
+
+  const lastDayOfWeekWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date
+  >
+  namespace lastDayOfWeekWithOptions {
+
+  }
+
+  const lastDayOfYear: CurriedFn1<Date | string | number, Date>
+  namespace lastDayOfYear {
+
+  }
+
+  const lastDayOfYearWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date
+  >
+  namespace lastDayOfYearWithOptions {
+
+  }
+
+  const max: CurriedFn1<(Date | string | number)[], Date>
+  namespace max {
+
+  }
+
+  const maxWithOptions: CurriedFn2<Options, (Date | string | number)[], Date>
+  namespace maxWithOptions {
+
+  }
+
+  const min: CurriedFn1<(Date | string | number)[], Date>
+  namespace min {
+
+  }
+
+  const minWithOptions: CurriedFn2<Options, (Date | string | number)[], Date>
+  namespace minWithOptions {
+
+  }
+
+  const parse: CurriedFn3<Date | string | number, string, string, Date>
+  namespace parse {
+
+  }
 
   const parseWithOptions: CurriedFn4<
-    Object,
-    Date | number,
+    Options,
+    Date | string | number,
     string,
     string,
     Date
   >
-  namespace parseWithOptions {}
+  namespace parseWithOptions {
 
-  const roundToNearestMinutes: CurriedFn1<Date | number, Date>
-  namespace roundToNearestMinutes {}
+  }
 
-  const roundToNearestMinutesWithOptions: CurriedFn2<
-    Object,
-    Date | number,
+  const roundToNearestMinutes: CurriedFn2<number, Date | string | number, Date>
+  namespace roundToNearestMinutes {
+
+  }
+
+  const roundToNearestMinutesWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
     Date
   >
-  namespace roundToNearestMinutesWithOptions {}
+  namespace roundToNearestMinutesWithOptions {
 
-  const setDate: CurriedFn2<number, Date | number, Date>
-  namespace setDate {}
+  }
 
-  const setDay: CurriedFn2<number, Date | number, Date>
-  namespace setDay {}
+  const setDate: CurriedFn2<number, Date | string | number, Date>
+  namespace setDate {
 
-  const setDayOfYear: CurriedFn2<number, Date | number, Date>
-  namespace setDayOfYear {}
+  }
 
-  const setDayWithOptions: CurriedFn3<Object, number, Date | number, Date>
-  namespace setDayWithOptions {}
+  const setDateWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace setDateWithOptions {
 
-  const setHours: CurriedFn2<number, Date | number, Date>
-  namespace setHours {}
+  }
 
-  const setISODay: CurriedFn2<number, Date | number, Date>
-  namespace setISODay {}
+  const setDay: CurriedFn2<number, Date | string | number, Date>
+  namespace setDay {
 
-  const setISOWeek: CurriedFn2<number, Date | number, Date>
-  namespace setISOWeek {}
+  }
 
-  const setISOWeekYear: CurriedFn2<number, Date | number, Date>
-  namespace setISOWeekYear {}
+  const setDayOfYear: CurriedFn2<number, Date | string | number, Date>
+  namespace setDayOfYear {
 
-  const setMilliseconds: CurriedFn2<number, Date | number, Date>
-  namespace setMilliseconds {}
+  }
 
-  const setMinutes: CurriedFn2<number, Date | number, Date>
-  namespace setMinutes {}
+  const setDayOfYearWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace setDayOfYearWithOptions {
 
-  const setMonth: CurriedFn2<number, Date | number, Date>
-  namespace setMonth {}
+  }
 
-  const setQuarter: CurriedFn2<number, Date | number, Date>
-  namespace setQuarter {}
+  const setDayWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace setDayWithOptions {
 
-  const setSeconds: CurriedFn2<number, Date | number, Date>
-  namespace setSeconds {}
+  }
 
-  const setWeek: CurriedFn2<number, Date | number, Date>
-  namespace setWeek {}
+  const setHours: CurriedFn2<number, Date | string | number, Date>
+  namespace setHours {
 
-  const setWeekWithOptions: CurriedFn3<Object, number, Date | number, Date>
-  namespace setWeekWithOptions {}
+  }
 
-  const setWeekYear: CurriedFn2<number, Date | number, Date>
-  namespace setWeekYear {}
+  const setHoursWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace setHoursWithOptions {
 
-  const setWeekYearWithOptions: CurriedFn3<Object, number, Date | number, Date>
-  namespace setWeekYearWithOptions {}
+  }
 
-  const setYear: CurriedFn2<number, Date | number, Date>
-  namespace setYear {}
+  const setISODay: CurriedFn2<number, Date | string | number, Date>
+  namespace setISODay {
 
-  const startOfDay: CurriedFn1<Date | number, Date>
-  namespace startOfDay {}
+  }
 
-  const startOfDecade: CurriedFn1<Date | number, Date>
-  namespace startOfDecade {}
+  const setISODayWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace setISODayWithOptions {
 
-  const startOfHour: CurriedFn1<Date | number, Date>
-  namespace startOfHour {}
+  }
 
-  const startOfISOWeek: CurriedFn1<Date | number, Date>
-  namespace startOfISOWeek {}
+  const setISOWeek: CurriedFn2<number, Date | string | number, Date>
+  namespace setISOWeek {
 
-  const startOfISOWeekYear: CurriedFn1<Date | number, Date>
-  namespace startOfISOWeekYear {}
+  }
 
-  const startOfMinute: CurriedFn1<Date | number, Date>
-  namespace startOfMinute {}
+  const setISOWeekWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace setISOWeekWithOptions {
 
-  const startOfMonth: CurriedFn1<Date | number, Date>
-  namespace startOfMonth {}
+  }
 
-  const startOfQuarter: CurriedFn1<Date | number, Date>
-  namespace startOfQuarter {}
+  const setISOWeekYear: CurriedFn2<number, Date | string | number, Date>
+  namespace setISOWeekYear {
 
-  const startOfSecond: CurriedFn1<Date | number, Date>
-  namespace startOfSecond {}
+  }
 
-  const startOfWeek: CurriedFn1<Date | number, Date>
-  namespace startOfWeek {}
+  const setISOWeekYearWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace setISOWeekYearWithOptions {
 
-  const startOfWeekWithOptions: CurriedFn2<Object, Date | number, Date>
-  namespace startOfWeekWithOptions {}
+  }
 
-  const startOfWeekYear: CurriedFn1<Date | number, Date>
-  namespace startOfWeekYear {}
+  const setMilliseconds: CurriedFn2<number, Date | string | number, Date>
+  namespace setMilliseconds {
 
-  const startOfWeekYearWithOptions: CurriedFn2<Object, Date | number, Date>
-  namespace startOfWeekYearWithOptions {}
+  }
 
-  const startOfYear: CurriedFn1<Date | number, Date>
-  namespace startOfYear {}
+  const setMillisecondsWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace setMillisecondsWithOptions {
 
-  const subDays: CurriedFn2<number, Date | number, Date>
-  namespace subDays {}
+  }
 
-  const subHours: CurriedFn2<number, Date | number, Date>
-  namespace subHours {}
+  const setMinutes: CurriedFn2<number, Date | string | number, Date>
+  namespace setMinutes {
 
-  const subISOWeekYears: CurriedFn2<number, Date | number, Date>
-  namespace subISOWeekYears {}
+  }
 
-  const subMilliseconds: CurriedFn2<number, Date | number, Date>
-  namespace subMilliseconds {}
+  const setMinutesWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace setMinutesWithOptions {
 
-  const subMinutes: CurriedFn2<number, Date | number, Date>
-  namespace subMinutes {}
+  }
 
-  const subMonths: CurriedFn2<number, Date | number, Date>
-  namespace subMonths {}
+  const setMonth: CurriedFn2<number, Date | string | number, Date>
+  namespace setMonth {
 
-  const subQuarters: CurriedFn2<number, Date | number, Date>
-  namespace subQuarters {}
+  }
 
-  const subSeconds: CurriedFn2<number, Date | number, Date>
-  namespace subSeconds {}
+  const setMonthWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace setMonthWithOptions {
 
-  const subWeeks: CurriedFn2<number, Date | number, Date>
-  namespace subWeeks {}
+  }
 
-  const subYears: CurriedFn2<number, Date | number, Date>
-  namespace subYears {}
+  const setQuarter: CurriedFn2<number, Date | string | number, Date>
+  namespace setQuarter {
 
-  const toDate: CurriedFn1<Date | number, Date>
-  namespace toDate {}
+  }
 
-  const maxTime: number
+  const setQuarterWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace setQuarterWithOptions {
 
-  const minTime: number
-}
+  }
 
-declare module 'date-fns/esm/fp/addBusinessDays' {
-  import { addBusinessDays } from 'date-fns/esm/fp'
-  export default addBusinessDays
+  const setSeconds: CurriedFn2<number, Date | string | number, Date>
+  namespace setSeconds {
+
+  }
+
+  const setSecondsWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace setSecondsWithOptions {
+
+  }
+
+  const setWeek: CurriedFn2<number, Date | string | number, Date>
+  namespace setWeek {
+
+  }
+
+  const setWeekWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace setWeekWithOptions {
+
+  }
+
+  const setWeekYear: CurriedFn2<number, Date | string | number, Date>
+  namespace setWeekYear {
+
+  }
+
+  const setWeekYearWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace setWeekYearWithOptions {
+
+  }
+
+  const setYear: CurriedFn2<number, Date | string | number, Date>
+  namespace setYear {
+
+  }
+
+  const setYearWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace setYearWithOptions {
+
+  }
+
+  const startOfDay: CurriedFn1<Date | string | number, Date>
+  namespace startOfDay {
+
+  }
+
+  const startOfDayWithOptions: CurriedFn2<Options, Date | string | number, Date>
+  namespace startOfDayWithOptions {
+
+  }
+
+  const startOfDecade: CurriedFn1<Date | string | number, Date>
+  namespace startOfDecade {
+
+  }
+
+  const startOfDecadeWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date
+  >
+  namespace startOfDecadeWithOptions {
+
+  }
+
+  const startOfHour: CurriedFn1<Date | string | number, Date>
+  namespace startOfHour {
+
+  }
+
+  const startOfHourWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date
+  >
+  namespace startOfHourWithOptions {
+
+  }
+
+  const startOfISOWeek: CurriedFn1<Date | string | number, Date>
+  namespace startOfISOWeek {
+
+  }
+
+  const startOfISOWeekWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date
+  >
+  namespace startOfISOWeekWithOptions {
+
+  }
+
+  const startOfISOWeekYear: CurriedFn1<Date | string | number, Date>
+  namespace startOfISOWeekYear {
+
+  }
+
+  const startOfISOWeekYearWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date
+  >
+  namespace startOfISOWeekYearWithOptions {
+
+  }
+
+  const startOfMinute: CurriedFn1<Date | string | number, Date>
+  namespace startOfMinute {
+
+  }
+
+  const startOfMinuteWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date
+  >
+  namespace startOfMinuteWithOptions {
+
+  }
+
+  const startOfMonth: CurriedFn1<Date | string | number, Date>
+  namespace startOfMonth {
+
+  }
+
+  const startOfMonthWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date
+  >
+  namespace startOfMonthWithOptions {
+
+  }
+
+  const startOfQuarter: CurriedFn1<Date | string | number, Date>
+  namespace startOfQuarter {
+
+  }
+
+  const startOfQuarterWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date
+  >
+  namespace startOfQuarterWithOptions {
+
+  }
+
+  const startOfSecond: CurriedFn1<Date | string | number, Date>
+  namespace startOfSecond {
+
+  }
+
+  const startOfSecondWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date
+  >
+  namespace startOfSecondWithOptions {
+
+  }
+
+  const startOfWeek: CurriedFn1<Date | string | number, Date>
+  namespace startOfWeek {
+
+  }
+
+  const startOfWeekWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date
+  >
+  namespace startOfWeekWithOptions {
+
+  }
+
+  const startOfWeekYear: CurriedFn1<Date | string | number, Date>
+  namespace startOfWeekYear {
+
+  }
+
+  const startOfWeekYearWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date
+  >
+  namespace startOfWeekYearWithOptions {
+
+  }
+
+  const startOfYear: CurriedFn1<Date | string | number, Date>
+  namespace startOfYear {
+
+  }
+
+  const startOfYearWithOptions: CurriedFn2<
+    Options,
+    Date | string | number,
+    Date
+  >
+  namespace startOfYearWithOptions {
+
+  }
+
+  const subDays: CurriedFn2<number, Date | string | number, Date>
+  namespace subDays {
+
+  }
+
+  const subDaysWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace subDaysWithOptions {
+
+  }
+
+  const subHours: CurriedFn2<number, Date | string | number, Date>
+  namespace subHours {
+
+  }
+
+  const subHoursWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace subHoursWithOptions {
+
+  }
+
+  const subISOWeekYears: CurriedFn2<number, Date | string | number, Date>
+  namespace subISOWeekYears {
+
+  }
+
+  const subISOWeekYearsWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace subISOWeekYearsWithOptions {
+
+  }
+
+  const subMilliseconds: CurriedFn2<number, Date | string | number, Date>
+  namespace subMilliseconds {
+
+  }
+
+  const subMillisecondsWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace subMillisecondsWithOptions {
+
+  }
+
+  const subMinutes: CurriedFn2<number, Date | string | number, Date>
+  namespace subMinutes {
+
+  }
+
+  const subMinutesWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace subMinutesWithOptions {
+
+  }
+
+  const subMonths: CurriedFn2<number, Date | string | number, Date>
+  namespace subMonths {
+
+  }
+
+  const subMonthsWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace subMonthsWithOptions {
+
+  }
+
+  const subQuarters: CurriedFn2<number, Date | string | number, Date>
+  namespace subQuarters {
+
+  }
+
+  const subQuartersWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace subQuartersWithOptions {
+
+  }
+
+  const subSeconds: CurriedFn2<number, Date | string | number, Date>
+  namespace subSeconds {
+
+  }
+
+  const subSecondsWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace subSecondsWithOptions {
+
+  }
+
+  const subWeeks: CurriedFn2<number, Date | string | number, Date>
+  namespace subWeeks {
+
+  }
+
+  const subWeeksWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace subWeeksWithOptions {
+
+  }
+
+  const subYears: CurriedFn2<number, Date | string | number, Date>
+  namespace subYears {
+
+  }
+
+  const subYearsWithOptions: CurriedFn3<
+    Options,
+    number,
+    Date | string | number,
+    Date
+  >
+  namespace subYearsWithOptions {
+
+  }
+
+  const toDate: CurriedFn1<Date | string | number, Date>
+  namespace toDate {
+
+  }
+
+  const toDateWithOptions: CurriedFn2<Options, Date | string | number, Date>
+  namespace toDateWithOptions {
+
+  }
 }
 
 declare module 'date-fns/esm/fp/addDays' {
@@ -10969,9 +16112,19 @@ declare module 'date-fns/esm/fp/addDays' {
   export default addDays
 }
 
+declare module 'date-fns/esm/fp/addDaysWithOptions' {
+  import { addDaysWithOptions } from 'date-fns/esm/fp'
+  export default addDaysWithOptions
+}
+
 declare module 'date-fns/esm/fp/addHours' {
   import { addHours } from 'date-fns/esm/fp'
   export default addHours
+}
+
+declare module 'date-fns/esm/fp/addHoursWithOptions' {
+  import { addHoursWithOptions } from 'date-fns/esm/fp'
+  export default addHoursWithOptions
 }
 
 declare module 'date-fns/esm/fp/addISOWeekYears' {
@@ -10979,9 +16132,19 @@ declare module 'date-fns/esm/fp/addISOWeekYears' {
   export default addISOWeekYears
 }
 
+declare module 'date-fns/esm/fp/addISOWeekYearsWithOptions' {
+  import { addISOWeekYearsWithOptions } from 'date-fns/esm/fp'
+  export default addISOWeekYearsWithOptions
+}
+
 declare module 'date-fns/esm/fp/addMilliseconds' {
   import { addMilliseconds } from 'date-fns/esm/fp'
   export default addMilliseconds
+}
+
+declare module 'date-fns/esm/fp/addMillisecondsWithOptions' {
+  import { addMillisecondsWithOptions } from 'date-fns/esm/fp'
+  export default addMillisecondsWithOptions
 }
 
 declare module 'date-fns/esm/fp/addMinutes' {
@@ -10989,9 +16152,19 @@ declare module 'date-fns/esm/fp/addMinutes' {
   export default addMinutes
 }
 
+declare module 'date-fns/esm/fp/addMinutesWithOptions' {
+  import { addMinutesWithOptions } from 'date-fns/esm/fp'
+  export default addMinutesWithOptions
+}
+
 declare module 'date-fns/esm/fp/addMonths' {
   import { addMonths } from 'date-fns/esm/fp'
   export default addMonths
+}
+
+declare module 'date-fns/esm/fp/addMonthsWithOptions' {
+  import { addMonthsWithOptions } from 'date-fns/esm/fp'
+  export default addMonthsWithOptions
 }
 
 declare module 'date-fns/esm/fp/addQuarters' {
@@ -10999,9 +16172,19 @@ declare module 'date-fns/esm/fp/addQuarters' {
   export default addQuarters
 }
 
+declare module 'date-fns/esm/fp/addQuartersWithOptions' {
+  import { addQuartersWithOptions } from 'date-fns/esm/fp'
+  export default addQuartersWithOptions
+}
+
 declare module 'date-fns/esm/fp/addSeconds' {
   import { addSeconds } from 'date-fns/esm/fp'
   export default addSeconds
+}
+
+declare module 'date-fns/esm/fp/addSecondsWithOptions' {
+  import { addSecondsWithOptions } from 'date-fns/esm/fp'
+  export default addSecondsWithOptions
 }
 
 declare module 'date-fns/esm/fp/addWeeks' {
@@ -11009,9 +16192,19 @@ declare module 'date-fns/esm/fp/addWeeks' {
   export default addWeeks
 }
 
+declare module 'date-fns/esm/fp/addWeeksWithOptions' {
+  import { addWeeksWithOptions } from 'date-fns/esm/fp'
+  export default addWeeksWithOptions
+}
+
 declare module 'date-fns/esm/fp/addYears' {
   import { addYears } from 'date-fns/esm/fp'
   export default addYears
+}
+
+declare module 'date-fns/esm/fp/addYearsWithOptions' {
+  import { addYearsWithOptions } from 'date-fns/esm/fp'
+  export default addYearsWithOptions
 }
 
 declare module 'date-fns/esm/fp/areIntervalsOverlapping' {
@@ -11019,9 +16212,19 @@ declare module 'date-fns/esm/fp/areIntervalsOverlapping' {
   export default areIntervalsOverlapping
 }
 
+declare module 'date-fns/esm/fp/areIntervalsOverlappingWithOptions' {
+  import { areIntervalsOverlappingWithOptions } from 'date-fns/esm/fp'
+  export default areIntervalsOverlappingWithOptions
+}
+
 declare module 'date-fns/esm/fp/closestIndexTo' {
   import { closestIndexTo } from 'date-fns/esm/fp'
   export default closestIndexTo
+}
+
+declare module 'date-fns/esm/fp/closestIndexToWithOptions' {
+  import { closestIndexToWithOptions } from 'date-fns/esm/fp'
+  export default closestIndexToWithOptions
 }
 
 declare module 'date-fns/esm/fp/closestTo' {
@@ -11029,9 +16232,19 @@ declare module 'date-fns/esm/fp/closestTo' {
   export default closestTo
 }
 
+declare module 'date-fns/esm/fp/closestToWithOptions' {
+  import { closestToWithOptions } from 'date-fns/esm/fp'
+  export default closestToWithOptions
+}
+
 declare module 'date-fns/esm/fp/compareAsc' {
   import { compareAsc } from 'date-fns/esm/fp'
   export default compareAsc
+}
+
+declare module 'date-fns/esm/fp/compareAscWithOptions' {
+  import { compareAscWithOptions } from 'date-fns/esm/fp'
+  export default compareAscWithOptions
 }
 
 declare module 'date-fns/esm/fp/compareDesc' {
@@ -11039,9 +16252,9 @@ declare module 'date-fns/esm/fp/compareDesc' {
   export default compareDesc
 }
 
-declare module 'date-fns/esm/fp/differenceInBusinessDays' {
-  import { differenceInBusinessDays } from 'date-fns/esm/fp'
-  export default differenceInBusinessDays
+declare module 'date-fns/esm/fp/compareDescWithOptions' {
+  import { compareDescWithOptions } from 'date-fns/esm/fp'
+  export default compareDescWithOptions
 }
 
 declare module 'date-fns/esm/fp/differenceInCalendarDays' {
@@ -11049,9 +16262,19 @@ declare module 'date-fns/esm/fp/differenceInCalendarDays' {
   export default differenceInCalendarDays
 }
 
+declare module 'date-fns/esm/fp/differenceInCalendarDaysWithOptions' {
+  import { differenceInCalendarDaysWithOptions } from 'date-fns/esm/fp'
+  export default differenceInCalendarDaysWithOptions
+}
+
 declare module 'date-fns/esm/fp/differenceInCalendarISOWeeks' {
   import { differenceInCalendarISOWeeks } from 'date-fns/esm/fp'
   export default differenceInCalendarISOWeeks
+}
+
+declare module 'date-fns/esm/fp/differenceInCalendarISOWeeksWithOptions' {
+  import { differenceInCalendarISOWeeksWithOptions } from 'date-fns/esm/fp'
+  export default differenceInCalendarISOWeeksWithOptions
 }
 
 declare module 'date-fns/esm/fp/differenceInCalendarISOWeekYears' {
@@ -11059,14 +16282,29 @@ declare module 'date-fns/esm/fp/differenceInCalendarISOWeekYears' {
   export default differenceInCalendarISOWeekYears
 }
 
+declare module 'date-fns/esm/fp/differenceInCalendarISOWeekYearsWithOptions' {
+  import { differenceInCalendarISOWeekYearsWithOptions } from 'date-fns/esm/fp'
+  export default differenceInCalendarISOWeekYearsWithOptions
+}
+
 declare module 'date-fns/esm/fp/differenceInCalendarMonths' {
   import { differenceInCalendarMonths } from 'date-fns/esm/fp'
   export default differenceInCalendarMonths
 }
 
+declare module 'date-fns/esm/fp/differenceInCalendarMonthsWithOptions' {
+  import { differenceInCalendarMonthsWithOptions } from 'date-fns/esm/fp'
+  export default differenceInCalendarMonthsWithOptions
+}
+
 declare module 'date-fns/esm/fp/differenceInCalendarQuarters' {
   import { differenceInCalendarQuarters } from 'date-fns/esm/fp'
   export default differenceInCalendarQuarters
+}
+
+declare module 'date-fns/esm/fp/differenceInCalendarQuartersWithOptions' {
+  import { differenceInCalendarQuartersWithOptions } from 'date-fns/esm/fp'
+  export default differenceInCalendarQuartersWithOptions
 }
 
 declare module 'date-fns/esm/fp/differenceInCalendarWeeks' {
@@ -11084,9 +16322,19 @@ declare module 'date-fns/esm/fp/differenceInCalendarYears' {
   export default differenceInCalendarYears
 }
 
+declare module 'date-fns/esm/fp/differenceInCalendarYearsWithOptions' {
+  import { differenceInCalendarYearsWithOptions } from 'date-fns/esm/fp'
+  export default differenceInCalendarYearsWithOptions
+}
+
 declare module 'date-fns/esm/fp/differenceInDays' {
   import { differenceInDays } from 'date-fns/esm/fp'
   export default differenceInDays
+}
+
+declare module 'date-fns/esm/fp/differenceInDaysWithOptions' {
+  import { differenceInDaysWithOptions } from 'date-fns/esm/fp'
+  export default differenceInDaysWithOptions
 }
 
 declare module 'date-fns/esm/fp/differenceInHours' {
@@ -11094,9 +16342,19 @@ declare module 'date-fns/esm/fp/differenceInHours' {
   export default differenceInHours
 }
 
+declare module 'date-fns/esm/fp/differenceInHoursWithOptions' {
+  import { differenceInHoursWithOptions } from 'date-fns/esm/fp'
+  export default differenceInHoursWithOptions
+}
+
 declare module 'date-fns/esm/fp/differenceInISOWeekYears' {
   import { differenceInISOWeekYears } from 'date-fns/esm/fp'
   export default differenceInISOWeekYears
+}
+
+declare module 'date-fns/esm/fp/differenceInISOWeekYearsWithOptions' {
+  import { differenceInISOWeekYearsWithOptions } from 'date-fns/esm/fp'
+  export default differenceInISOWeekYearsWithOptions
 }
 
 declare module 'date-fns/esm/fp/differenceInMilliseconds' {
@@ -11104,9 +16362,19 @@ declare module 'date-fns/esm/fp/differenceInMilliseconds' {
   export default differenceInMilliseconds
 }
 
+declare module 'date-fns/esm/fp/differenceInMillisecondsWithOptions' {
+  import { differenceInMillisecondsWithOptions } from 'date-fns/esm/fp'
+  export default differenceInMillisecondsWithOptions
+}
+
 declare module 'date-fns/esm/fp/differenceInMinutes' {
   import { differenceInMinutes } from 'date-fns/esm/fp'
   export default differenceInMinutes
+}
+
+declare module 'date-fns/esm/fp/differenceInMinutesWithOptions' {
+  import { differenceInMinutesWithOptions } from 'date-fns/esm/fp'
+  export default differenceInMinutesWithOptions
 }
 
 declare module 'date-fns/esm/fp/differenceInMonths' {
@@ -11114,9 +16382,19 @@ declare module 'date-fns/esm/fp/differenceInMonths' {
   export default differenceInMonths
 }
 
+declare module 'date-fns/esm/fp/differenceInMonthsWithOptions' {
+  import { differenceInMonthsWithOptions } from 'date-fns/esm/fp'
+  export default differenceInMonthsWithOptions
+}
+
 declare module 'date-fns/esm/fp/differenceInQuarters' {
   import { differenceInQuarters } from 'date-fns/esm/fp'
   export default differenceInQuarters
+}
+
+declare module 'date-fns/esm/fp/differenceInQuartersWithOptions' {
+  import { differenceInQuartersWithOptions } from 'date-fns/esm/fp'
+  export default differenceInQuartersWithOptions
 }
 
 declare module 'date-fns/esm/fp/differenceInSeconds' {
@@ -11124,14 +16402,29 @@ declare module 'date-fns/esm/fp/differenceInSeconds' {
   export default differenceInSeconds
 }
 
+declare module 'date-fns/esm/fp/differenceInSecondsWithOptions' {
+  import { differenceInSecondsWithOptions } from 'date-fns/esm/fp'
+  export default differenceInSecondsWithOptions
+}
+
 declare module 'date-fns/esm/fp/differenceInWeeks' {
   import { differenceInWeeks } from 'date-fns/esm/fp'
   export default differenceInWeeks
 }
 
+declare module 'date-fns/esm/fp/differenceInWeeksWithOptions' {
+  import { differenceInWeeksWithOptions } from 'date-fns/esm/fp'
+  export default differenceInWeeksWithOptions
+}
+
 declare module 'date-fns/esm/fp/differenceInYears' {
   import { differenceInYears } from 'date-fns/esm/fp'
   export default differenceInYears
+}
+
+declare module 'date-fns/esm/fp/differenceInYearsWithOptions' {
+  import { differenceInYearsWithOptions } from 'date-fns/esm/fp'
+  export default differenceInYearsWithOptions
 }
 
 declare module 'date-fns/esm/fp/eachDayOfInterval' {
@@ -11149,14 +16442,29 @@ declare module 'date-fns/esm/fp/eachWeekendOfInterval' {
   export default eachWeekendOfInterval
 }
 
+declare module 'date-fns/esm/fp/eachWeekendOfIntervalWithOptions' {
+  import { eachWeekendOfIntervalWithOptions } from 'date-fns/esm/fp'
+  export default eachWeekendOfIntervalWithOptions
+}
+
 declare module 'date-fns/esm/fp/eachWeekendOfMonth' {
   import { eachWeekendOfMonth } from 'date-fns/esm/fp'
   export default eachWeekendOfMonth
 }
 
+declare module 'date-fns/esm/fp/eachWeekendOfMonthWithOptions' {
+  import { eachWeekendOfMonthWithOptions } from 'date-fns/esm/fp'
+  export default eachWeekendOfMonthWithOptions
+}
+
 declare module 'date-fns/esm/fp/eachWeekendOfYear' {
   import { eachWeekendOfYear } from 'date-fns/esm/fp'
   export default eachWeekendOfYear
+}
+
+declare module 'date-fns/esm/fp/eachWeekendOfYearWithOptions' {
+  import { eachWeekendOfYearWithOptions } from 'date-fns/esm/fp'
+  export default eachWeekendOfYearWithOptions
 }
 
 declare module 'date-fns/esm/fp/eachWeekOfInterval' {
@@ -11174,6 +16482,11 @@ declare module 'date-fns/esm/fp/endOfDay' {
   export default endOfDay
 }
 
+declare module 'date-fns/esm/fp/endOfDayWithOptions' {
+  import { endOfDayWithOptions } from 'date-fns/esm/fp'
+  export default endOfDayWithOptions
+}
+
 declare module 'date-fns/esm/fp/endOfDecade' {
   import { endOfDecade } from 'date-fns/esm/fp'
   export default endOfDecade
@@ -11189,9 +16502,19 @@ declare module 'date-fns/esm/fp/endOfHour' {
   export default endOfHour
 }
 
+declare module 'date-fns/esm/fp/endOfHourWithOptions' {
+  import { endOfHourWithOptions } from 'date-fns/esm/fp'
+  export default endOfHourWithOptions
+}
+
 declare module 'date-fns/esm/fp/endOfISOWeek' {
   import { endOfISOWeek } from 'date-fns/esm/fp'
   export default endOfISOWeek
+}
+
+declare module 'date-fns/esm/fp/endOfISOWeekWithOptions' {
+  import { endOfISOWeekWithOptions } from 'date-fns/esm/fp'
+  export default endOfISOWeekWithOptions
 }
 
 declare module 'date-fns/esm/fp/endOfISOWeekYear' {
@@ -11199,9 +16522,19 @@ declare module 'date-fns/esm/fp/endOfISOWeekYear' {
   export default endOfISOWeekYear
 }
 
+declare module 'date-fns/esm/fp/endOfISOWeekYearWithOptions' {
+  import { endOfISOWeekYearWithOptions } from 'date-fns/esm/fp'
+  export default endOfISOWeekYearWithOptions
+}
+
 declare module 'date-fns/esm/fp/endOfMinute' {
   import { endOfMinute } from 'date-fns/esm/fp'
   export default endOfMinute
+}
+
+declare module 'date-fns/esm/fp/endOfMinuteWithOptions' {
+  import { endOfMinuteWithOptions } from 'date-fns/esm/fp'
+  export default endOfMinuteWithOptions
 }
 
 declare module 'date-fns/esm/fp/endOfMonth' {
@@ -11209,14 +16542,29 @@ declare module 'date-fns/esm/fp/endOfMonth' {
   export default endOfMonth
 }
 
+declare module 'date-fns/esm/fp/endOfMonthWithOptions' {
+  import { endOfMonthWithOptions } from 'date-fns/esm/fp'
+  export default endOfMonthWithOptions
+}
+
 declare module 'date-fns/esm/fp/endOfQuarter' {
   import { endOfQuarter } from 'date-fns/esm/fp'
   export default endOfQuarter
 }
 
+declare module 'date-fns/esm/fp/endOfQuarterWithOptions' {
+  import { endOfQuarterWithOptions } from 'date-fns/esm/fp'
+  export default endOfQuarterWithOptions
+}
+
 declare module 'date-fns/esm/fp/endOfSecond' {
   import { endOfSecond } from 'date-fns/esm/fp'
   export default endOfSecond
+}
+
+declare module 'date-fns/esm/fp/endOfSecondWithOptions' {
+  import { endOfSecondWithOptions } from 'date-fns/esm/fp'
+  export default endOfSecondWithOptions
 }
 
 declare module 'date-fns/esm/fp/endOfWeek' {
@@ -11232,6 +16580,11 @@ declare module 'date-fns/esm/fp/endOfWeekWithOptions' {
 declare module 'date-fns/esm/fp/endOfYear' {
   import { endOfYear } from 'date-fns/esm/fp'
   export default endOfYear
+}
+
+declare module 'date-fns/esm/fp/endOfYearWithOptions' {
+  import { endOfYearWithOptions } from 'date-fns/esm/fp'
+  export default endOfYearWithOptions
 }
 
 declare module 'date-fns/esm/fp/format' {
@@ -11279,9 +16632,19 @@ declare module 'date-fns/esm/fp/fromUnixTime' {
   export default fromUnixTime
 }
 
+declare module 'date-fns/esm/fp/fromUnixTimeWithOptions' {
+  import { fromUnixTimeWithOptions } from 'date-fns/esm/fp'
+  export default fromUnixTimeWithOptions
+}
+
 declare module 'date-fns/esm/fp/getDate' {
   import { getDate } from 'date-fns/esm/fp'
   export default getDate
+}
+
+declare module 'date-fns/esm/fp/getDateWithOptions' {
+  import { getDateWithOptions } from 'date-fns/esm/fp'
+  export default getDateWithOptions
 }
 
 declare module 'date-fns/esm/fp/getDay' {
@@ -11294,9 +16657,19 @@ declare module 'date-fns/esm/fp/getDayOfYear' {
   export default getDayOfYear
 }
 
+declare module 'date-fns/esm/fp/getDayOfYearWithOptions' {
+  import { getDayOfYearWithOptions } from 'date-fns/esm/fp'
+  export default getDayOfYearWithOptions
+}
+
 declare module 'date-fns/esm/fp/getDaysInMonth' {
   import { getDaysInMonth } from 'date-fns/esm/fp'
   export default getDaysInMonth
+}
+
+declare module 'date-fns/esm/fp/getDaysInMonthWithOptions' {
+  import { getDaysInMonthWithOptions } from 'date-fns/esm/fp'
+  export default getDaysInMonthWithOptions
 }
 
 declare module 'date-fns/esm/fp/getDaysInYear' {
@@ -11304,9 +16677,24 @@ declare module 'date-fns/esm/fp/getDaysInYear' {
   export default getDaysInYear
 }
 
+declare module 'date-fns/esm/fp/getDaysInYearWithOptions' {
+  import { getDaysInYearWithOptions } from 'date-fns/esm/fp'
+  export default getDaysInYearWithOptions
+}
+
+declare module 'date-fns/esm/fp/getDayWithOptions' {
+  import { getDayWithOptions } from 'date-fns/esm/fp'
+  export default getDayWithOptions
+}
+
 declare module 'date-fns/esm/fp/getDecade' {
   import { getDecade } from 'date-fns/esm/fp'
   export default getDecade
+}
+
+declare module 'date-fns/esm/fp/getDecadeWithOptions' {
+  import { getDecadeWithOptions } from 'date-fns/esm/fp'
+  export default getDecadeWithOptions
 }
 
 declare module 'date-fns/esm/fp/getHours' {
@@ -11314,9 +16702,19 @@ declare module 'date-fns/esm/fp/getHours' {
   export default getHours
 }
 
+declare module 'date-fns/esm/fp/getHoursWithOptions' {
+  import { getHoursWithOptions } from 'date-fns/esm/fp'
+  export default getHoursWithOptions
+}
+
 declare module 'date-fns/esm/fp/getISODay' {
   import { getISODay } from 'date-fns/esm/fp'
   export default getISODay
+}
+
+declare module 'date-fns/esm/fp/getISODayWithOptions' {
+  import { getISODayWithOptions } from 'date-fns/esm/fp'
+  export default getISODayWithOptions
 }
 
 declare module 'date-fns/esm/fp/getISOWeek' {
@@ -11329,9 +16727,24 @@ declare module 'date-fns/esm/fp/getISOWeeksInYear' {
   export default getISOWeeksInYear
 }
 
+declare module 'date-fns/esm/fp/getISOWeeksInYearWithOptions' {
+  import { getISOWeeksInYearWithOptions } from 'date-fns/esm/fp'
+  export default getISOWeeksInYearWithOptions
+}
+
+declare module 'date-fns/esm/fp/getISOWeekWithOptions' {
+  import { getISOWeekWithOptions } from 'date-fns/esm/fp'
+  export default getISOWeekWithOptions
+}
+
 declare module 'date-fns/esm/fp/getISOWeekYear' {
   import { getISOWeekYear } from 'date-fns/esm/fp'
   export default getISOWeekYear
+}
+
+declare module 'date-fns/esm/fp/getISOWeekYearWithOptions' {
+  import { getISOWeekYearWithOptions } from 'date-fns/esm/fp'
+  export default getISOWeekYearWithOptions
 }
 
 declare module 'date-fns/esm/fp/getMilliseconds' {
@@ -11339,9 +16752,19 @@ declare module 'date-fns/esm/fp/getMilliseconds' {
   export default getMilliseconds
 }
 
+declare module 'date-fns/esm/fp/getMillisecondsWithOptions' {
+  import { getMillisecondsWithOptions } from 'date-fns/esm/fp'
+  export default getMillisecondsWithOptions
+}
+
 declare module 'date-fns/esm/fp/getMinutes' {
   import { getMinutes } from 'date-fns/esm/fp'
   export default getMinutes
+}
+
+declare module 'date-fns/esm/fp/getMinutesWithOptions' {
+  import { getMinutesWithOptions } from 'date-fns/esm/fp'
+  export default getMinutesWithOptions
 }
 
 declare module 'date-fns/esm/fp/getMonth' {
@@ -11349,9 +16772,19 @@ declare module 'date-fns/esm/fp/getMonth' {
   export default getMonth
 }
 
+declare module 'date-fns/esm/fp/getMonthWithOptions' {
+  import { getMonthWithOptions } from 'date-fns/esm/fp'
+  export default getMonthWithOptions
+}
+
 declare module 'date-fns/esm/fp/getOverlappingDaysInIntervals' {
   import { getOverlappingDaysInIntervals } from 'date-fns/esm/fp'
   export default getOverlappingDaysInIntervals
+}
+
+declare module 'date-fns/esm/fp/getOverlappingDaysInIntervalsWithOptions' {
+  import { getOverlappingDaysInIntervalsWithOptions } from 'date-fns/esm/fp'
+  export default getOverlappingDaysInIntervalsWithOptions
 }
 
 declare module 'date-fns/esm/fp/getQuarter' {
@@ -11359,9 +16792,19 @@ declare module 'date-fns/esm/fp/getQuarter' {
   export default getQuarter
 }
 
+declare module 'date-fns/esm/fp/getQuarterWithOptions' {
+  import { getQuarterWithOptions } from 'date-fns/esm/fp'
+  export default getQuarterWithOptions
+}
+
 declare module 'date-fns/esm/fp/getSeconds' {
   import { getSeconds } from 'date-fns/esm/fp'
   export default getSeconds
+}
+
+declare module 'date-fns/esm/fp/getSecondsWithOptions' {
+  import { getSecondsWithOptions } from 'date-fns/esm/fp'
+  export default getSecondsWithOptions
 }
 
 declare module 'date-fns/esm/fp/getTime' {
@@ -11369,9 +16812,19 @@ declare module 'date-fns/esm/fp/getTime' {
   export default getTime
 }
 
+declare module 'date-fns/esm/fp/getTimeWithOptions' {
+  import { getTimeWithOptions } from 'date-fns/esm/fp'
+  export default getTimeWithOptions
+}
+
 declare module 'date-fns/esm/fp/getUnixTime' {
   import { getUnixTime } from 'date-fns/esm/fp'
   export default getUnixTime
+}
+
+declare module 'date-fns/esm/fp/getUnixTimeWithOptions' {
+  import { getUnixTimeWithOptions } from 'date-fns/esm/fp'
+  export default getUnixTimeWithOptions
 }
 
 declare module 'date-fns/esm/fp/getWeek' {
@@ -11419,9 +16872,19 @@ declare module 'date-fns/esm/fp/getYear' {
   export default getYear
 }
 
+declare module 'date-fns/esm/fp/getYearWithOptions' {
+  import { getYearWithOptions } from 'date-fns/esm/fp'
+  export default getYearWithOptions
+}
+
 declare module 'date-fns/esm/fp/isAfter' {
   import { isAfter } from 'date-fns/esm/fp'
   export default isAfter
+}
+
+declare module 'date-fns/esm/fp/isAfterWithOptions' {
+  import { isAfterWithOptions } from 'date-fns/esm/fp'
+  export default isAfterWithOptions
 }
 
 declare module 'date-fns/esm/fp/isBefore' {
@@ -11429,9 +16892,19 @@ declare module 'date-fns/esm/fp/isBefore' {
   export default isBefore
 }
 
+declare module 'date-fns/esm/fp/isBeforeWithOptions' {
+  import { isBeforeWithOptions } from 'date-fns/esm/fp'
+  export default isBeforeWithOptions
+}
+
 declare module 'date-fns/esm/fp/isDate' {
   import { isDate } from 'date-fns/esm/fp'
   export default isDate
+}
+
+declare module 'date-fns/esm/fp/isDateWithOptions' {
+  import { isDateWithOptions } from 'date-fns/esm/fp'
+  export default isDateWithOptions
 }
 
 declare module 'date-fns/esm/fp/isEqual' {
@@ -11439,9 +16912,19 @@ declare module 'date-fns/esm/fp/isEqual' {
   export default isEqual
 }
 
+declare module 'date-fns/esm/fp/isEqualWithOptions' {
+  import { isEqualWithOptions } from 'date-fns/esm/fp'
+  export default isEqualWithOptions
+}
+
 declare module 'date-fns/esm/fp/isFirstDayOfMonth' {
   import { isFirstDayOfMonth } from 'date-fns/esm/fp'
   export default isFirstDayOfMonth
+}
+
+declare module 'date-fns/esm/fp/isFirstDayOfMonthWithOptions' {
+  import { isFirstDayOfMonthWithOptions } from 'date-fns/esm/fp'
+  export default isFirstDayOfMonthWithOptions
 }
 
 declare module 'date-fns/esm/fp/isFriday' {
@@ -11449,9 +16932,19 @@ declare module 'date-fns/esm/fp/isFriday' {
   export default isFriday
 }
 
+declare module 'date-fns/esm/fp/isFridayWithOptions' {
+  import { isFridayWithOptions } from 'date-fns/esm/fp'
+  export default isFridayWithOptions
+}
+
 declare module 'date-fns/esm/fp/isLastDayOfMonth' {
   import { isLastDayOfMonth } from 'date-fns/esm/fp'
   export default isLastDayOfMonth
+}
+
+declare module 'date-fns/esm/fp/isLastDayOfMonthWithOptions' {
+  import { isLastDayOfMonthWithOptions } from 'date-fns/esm/fp'
+  export default isLastDayOfMonthWithOptions
 }
 
 declare module 'date-fns/esm/fp/isLeapYear' {
@@ -11459,9 +16952,19 @@ declare module 'date-fns/esm/fp/isLeapYear' {
   export default isLeapYear
 }
 
+declare module 'date-fns/esm/fp/isLeapYearWithOptions' {
+  import { isLeapYearWithOptions } from 'date-fns/esm/fp'
+  export default isLeapYearWithOptions
+}
+
 declare module 'date-fns/esm/fp/isMonday' {
   import { isMonday } from 'date-fns/esm/fp'
   export default isMonday
+}
+
+declare module 'date-fns/esm/fp/isMondayWithOptions' {
+  import { isMondayWithOptions } from 'date-fns/esm/fp'
+  export default isMondayWithOptions
 }
 
 declare module 'date-fns/esm/fp/isSameDay' {
@@ -11469,9 +16972,19 @@ declare module 'date-fns/esm/fp/isSameDay' {
   export default isSameDay
 }
 
+declare module 'date-fns/esm/fp/isSameDayWithOptions' {
+  import { isSameDayWithOptions } from 'date-fns/esm/fp'
+  export default isSameDayWithOptions
+}
+
 declare module 'date-fns/esm/fp/isSameHour' {
   import { isSameHour } from 'date-fns/esm/fp'
   export default isSameHour
+}
+
+declare module 'date-fns/esm/fp/isSameHourWithOptions' {
+  import { isSameHourWithOptions } from 'date-fns/esm/fp'
+  export default isSameHourWithOptions
 }
 
 declare module 'date-fns/esm/fp/isSameISOWeek' {
@@ -11479,9 +16992,19 @@ declare module 'date-fns/esm/fp/isSameISOWeek' {
   export default isSameISOWeek
 }
 
+declare module 'date-fns/esm/fp/isSameISOWeekWithOptions' {
+  import { isSameISOWeekWithOptions } from 'date-fns/esm/fp'
+  export default isSameISOWeekWithOptions
+}
+
 declare module 'date-fns/esm/fp/isSameISOWeekYear' {
   import { isSameISOWeekYear } from 'date-fns/esm/fp'
   export default isSameISOWeekYear
+}
+
+declare module 'date-fns/esm/fp/isSameISOWeekYearWithOptions' {
+  import { isSameISOWeekYearWithOptions } from 'date-fns/esm/fp'
+  export default isSameISOWeekYearWithOptions
 }
 
 declare module 'date-fns/esm/fp/isSameMinute' {
@@ -11489,9 +17012,19 @@ declare module 'date-fns/esm/fp/isSameMinute' {
   export default isSameMinute
 }
 
+declare module 'date-fns/esm/fp/isSameMinuteWithOptions' {
+  import { isSameMinuteWithOptions } from 'date-fns/esm/fp'
+  export default isSameMinuteWithOptions
+}
+
 declare module 'date-fns/esm/fp/isSameMonth' {
   import { isSameMonth } from 'date-fns/esm/fp'
   export default isSameMonth
+}
+
+declare module 'date-fns/esm/fp/isSameMonthWithOptions' {
+  import { isSameMonthWithOptions } from 'date-fns/esm/fp'
+  export default isSameMonthWithOptions
 }
 
 declare module 'date-fns/esm/fp/isSameQuarter' {
@@ -11499,9 +17032,19 @@ declare module 'date-fns/esm/fp/isSameQuarter' {
   export default isSameQuarter
 }
 
+declare module 'date-fns/esm/fp/isSameQuarterWithOptions' {
+  import { isSameQuarterWithOptions } from 'date-fns/esm/fp'
+  export default isSameQuarterWithOptions
+}
+
 declare module 'date-fns/esm/fp/isSameSecond' {
   import { isSameSecond } from 'date-fns/esm/fp'
   export default isSameSecond
+}
+
+declare module 'date-fns/esm/fp/isSameSecondWithOptions' {
+  import { isSameSecondWithOptions } from 'date-fns/esm/fp'
+  export default isSameSecondWithOptions
 }
 
 declare module 'date-fns/esm/fp/isSameWeek' {
@@ -11519,9 +17062,19 @@ declare module 'date-fns/esm/fp/isSameYear' {
   export default isSameYear
 }
 
+declare module 'date-fns/esm/fp/isSameYearWithOptions' {
+  import { isSameYearWithOptions } from 'date-fns/esm/fp'
+  export default isSameYearWithOptions
+}
+
 declare module 'date-fns/esm/fp/isSaturday' {
   import { isSaturday } from 'date-fns/esm/fp'
   export default isSaturday
+}
+
+declare module 'date-fns/esm/fp/isSaturdayWithOptions' {
+  import { isSaturdayWithOptions } from 'date-fns/esm/fp'
+  export default isSaturdayWithOptions
 }
 
 declare module 'date-fns/esm/fp/isSunday' {
@@ -11529,9 +17082,19 @@ declare module 'date-fns/esm/fp/isSunday' {
   export default isSunday
 }
 
+declare module 'date-fns/esm/fp/isSundayWithOptions' {
+  import { isSundayWithOptions } from 'date-fns/esm/fp'
+  export default isSundayWithOptions
+}
+
 declare module 'date-fns/esm/fp/isThursday' {
   import { isThursday } from 'date-fns/esm/fp'
   export default isThursday
+}
+
+declare module 'date-fns/esm/fp/isThursdayWithOptions' {
+  import { isThursdayWithOptions } from 'date-fns/esm/fp'
+  export default isThursdayWithOptions
 }
 
 declare module 'date-fns/esm/fp/isTuesday' {
@@ -11539,9 +17102,19 @@ declare module 'date-fns/esm/fp/isTuesday' {
   export default isTuesday
 }
 
+declare module 'date-fns/esm/fp/isTuesdayWithOptions' {
+  import { isTuesdayWithOptions } from 'date-fns/esm/fp'
+  export default isTuesdayWithOptions
+}
+
 declare module 'date-fns/esm/fp/isValid' {
   import { isValid } from 'date-fns/esm/fp'
   export default isValid
+}
+
+declare module 'date-fns/esm/fp/isValidWithOptions' {
+  import { isValidWithOptions } from 'date-fns/esm/fp'
+  export default isValidWithOptions
 }
 
 declare module 'date-fns/esm/fp/isWednesday' {
@@ -11549,9 +17122,19 @@ declare module 'date-fns/esm/fp/isWednesday' {
   export default isWednesday
 }
 
+declare module 'date-fns/esm/fp/isWednesdayWithOptions' {
+  import { isWednesdayWithOptions } from 'date-fns/esm/fp'
+  export default isWednesdayWithOptions
+}
+
 declare module 'date-fns/esm/fp/isWeekend' {
   import { isWeekend } from 'date-fns/esm/fp'
   export default isWeekend
+}
+
+declare module 'date-fns/esm/fp/isWeekendWithOptions' {
+  import { isWeekendWithOptions } from 'date-fns/esm/fp'
+  export default isWeekendWithOptions
 }
 
 declare module 'date-fns/esm/fp/isWithinInterval' {
@@ -11559,9 +17142,19 @@ declare module 'date-fns/esm/fp/isWithinInterval' {
   export default isWithinInterval
 }
 
+declare module 'date-fns/esm/fp/isWithinIntervalWithOptions' {
+  import { isWithinIntervalWithOptions } from 'date-fns/esm/fp'
+  export default isWithinIntervalWithOptions
+}
+
 declare module 'date-fns/esm/fp/lastDayOfDecade' {
   import { lastDayOfDecade } from 'date-fns/esm/fp'
   export default lastDayOfDecade
+}
+
+declare module 'date-fns/esm/fp/lastDayOfDecadeWithOptions' {
+  import { lastDayOfDecadeWithOptions } from 'date-fns/esm/fp'
+  export default lastDayOfDecadeWithOptions
 }
 
 declare module 'date-fns/esm/fp/lastDayOfISOWeek' {
@@ -11569,14 +17162,29 @@ declare module 'date-fns/esm/fp/lastDayOfISOWeek' {
   export default lastDayOfISOWeek
 }
 
+declare module 'date-fns/esm/fp/lastDayOfISOWeekWithOptions' {
+  import { lastDayOfISOWeekWithOptions } from 'date-fns/esm/fp'
+  export default lastDayOfISOWeekWithOptions
+}
+
 declare module 'date-fns/esm/fp/lastDayOfISOWeekYear' {
   import { lastDayOfISOWeekYear } from 'date-fns/esm/fp'
   export default lastDayOfISOWeekYear
 }
 
+declare module 'date-fns/esm/fp/lastDayOfISOWeekYearWithOptions' {
+  import { lastDayOfISOWeekYearWithOptions } from 'date-fns/esm/fp'
+  export default lastDayOfISOWeekYearWithOptions
+}
+
 declare module 'date-fns/esm/fp/lastDayOfMonth' {
   import { lastDayOfMonth } from 'date-fns/esm/fp'
   export default lastDayOfMonth
+}
+
+declare module 'date-fns/esm/fp/lastDayOfMonthWithOptions' {
+  import { lastDayOfMonthWithOptions } from 'date-fns/esm/fp'
+  export default lastDayOfMonthWithOptions
 }
 
 declare module 'date-fns/esm/fp/lastDayOfQuarter' {
@@ -11604,9 +17212,9 @@ declare module 'date-fns/esm/fp/lastDayOfYear' {
   export default lastDayOfYear
 }
 
-declare module 'date-fns/esm/fp/lightFormat' {
-  import { lightFormat } from 'date-fns/esm/fp'
-  export default lightFormat
+declare module 'date-fns/esm/fp/lastDayOfYearWithOptions' {
+  import { lastDayOfYearWithOptions } from 'date-fns/esm/fp'
+  export default lastDayOfYearWithOptions
 }
 
 declare module 'date-fns/esm/fp/max' {
@@ -11614,24 +17222,24 @@ declare module 'date-fns/esm/fp/max' {
   export default max
 }
 
+declare module 'date-fns/esm/fp/maxWithOptions' {
+  import { maxWithOptions } from 'date-fns/esm/fp'
+  export default maxWithOptions
+}
+
 declare module 'date-fns/esm/fp/min' {
   import { min } from 'date-fns/esm/fp'
   export default min
 }
 
+declare module 'date-fns/esm/fp/minWithOptions' {
+  import { minWithOptions } from 'date-fns/esm/fp'
+  export default minWithOptions
+}
+
 declare module 'date-fns/esm/fp/parse' {
   import { parse } from 'date-fns/esm/fp'
   export default parse
-}
-
-declare module 'date-fns/esm/fp/parseISO' {
-  import { parseISO } from 'date-fns/esm/fp'
-  export default parseISO
-}
-
-declare module 'date-fns/esm/fp/parseISOWithOptions' {
-  import { parseISOWithOptions } from 'date-fns/esm/fp'
-  export default parseISOWithOptions
 }
 
 declare module 'date-fns/esm/fp/parseWithOptions' {
@@ -11654,6 +17262,11 @@ declare module 'date-fns/esm/fp/setDate' {
   export default setDate
 }
 
+declare module 'date-fns/esm/fp/setDateWithOptions' {
+  import { setDateWithOptions } from 'date-fns/esm/fp'
+  export default setDateWithOptions
+}
+
 declare module 'date-fns/esm/fp/setDay' {
   import { setDay } from 'date-fns/esm/fp'
   export default setDay
@@ -11662,6 +17275,11 @@ declare module 'date-fns/esm/fp/setDay' {
 declare module 'date-fns/esm/fp/setDayOfYear' {
   import { setDayOfYear } from 'date-fns/esm/fp'
   export default setDayOfYear
+}
+
+declare module 'date-fns/esm/fp/setDayOfYearWithOptions' {
+  import { setDayOfYearWithOptions } from 'date-fns/esm/fp'
+  export default setDayOfYearWithOptions
 }
 
 declare module 'date-fns/esm/fp/setDayWithOptions' {
@@ -11674,9 +17292,19 @@ declare module 'date-fns/esm/fp/setHours' {
   export default setHours
 }
 
+declare module 'date-fns/esm/fp/setHoursWithOptions' {
+  import { setHoursWithOptions } from 'date-fns/esm/fp'
+  export default setHoursWithOptions
+}
+
 declare module 'date-fns/esm/fp/setISODay' {
   import { setISODay } from 'date-fns/esm/fp'
   export default setISODay
+}
+
+declare module 'date-fns/esm/fp/setISODayWithOptions' {
+  import { setISODayWithOptions } from 'date-fns/esm/fp'
+  export default setISODayWithOptions
 }
 
 declare module 'date-fns/esm/fp/setISOWeek' {
@@ -11684,9 +17312,19 @@ declare module 'date-fns/esm/fp/setISOWeek' {
   export default setISOWeek
 }
 
+declare module 'date-fns/esm/fp/setISOWeekWithOptions' {
+  import { setISOWeekWithOptions } from 'date-fns/esm/fp'
+  export default setISOWeekWithOptions
+}
+
 declare module 'date-fns/esm/fp/setISOWeekYear' {
   import { setISOWeekYear } from 'date-fns/esm/fp'
   export default setISOWeekYear
+}
+
+declare module 'date-fns/esm/fp/setISOWeekYearWithOptions' {
+  import { setISOWeekYearWithOptions } from 'date-fns/esm/fp'
+  export default setISOWeekYearWithOptions
 }
 
 declare module 'date-fns/esm/fp/setMilliseconds' {
@@ -11694,9 +17332,19 @@ declare module 'date-fns/esm/fp/setMilliseconds' {
   export default setMilliseconds
 }
 
+declare module 'date-fns/esm/fp/setMillisecondsWithOptions' {
+  import { setMillisecondsWithOptions } from 'date-fns/esm/fp'
+  export default setMillisecondsWithOptions
+}
+
 declare module 'date-fns/esm/fp/setMinutes' {
   import { setMinutes } from 'date-fns/esm/fp'
   export default setMinutes
+}
+
+declare module 'date-fns/esm/fp/setMinutesWithOptions' {
+  import { setMinutesWithOptions } from 'date-fns/esm/fp'
+  export default setMinutesWithOptions
 }
 
 declare module 'date-fns/esm/fp/setMonth' {
@@ -11704,14 +17352,29 @@ declare module 'date-fns/esm/fp/setMonth' {
   export default setMonth
 }
 
+declare module 'date-fns/esm/fp/setMonthWithOptions' {
+  import { setMonthWithOptions } from 'date-fns/esm/fp'
+  export default setMonthWithOptions
+}
+
 declare module 'date-fns/esm/fp/setQuarter' {
   import { setQuarter } from 'date-fns/esm/fp'
   export default setQuarter
 }
 
+declare module 'date-fns/esm/fp/setQuarterWithOptions' {
+  import { setQuarterWithOptions } from 'date-fns/esm/fp'
+  export default setQuarterWithOptions
+}
+
 declare module 'date-fns/esm/fp/setSeconds' {
   import { setSeconds } from 'date-fns/esm/fp'
   export default setSeconds
+}
+
+declare module 'date-fns/esm/fp/setSecondsWithOptions' {
+  import { setSecondsWithOptions } from 'date-fns/esm/fp'
+  export default setSecondsWithOptions
 }
 
 declare module 'date-fns/esm/fp/setWeek' {
@@ -11739,9 +17402,19 @@ declare module 'date-fns/esm/fp/setYear' {
   export default setYear
 }
 
+declare module 'date-fns/esm/fp/setYearWithOptions' {
+  import { setYearWithOptions } from 'date-fns/esm/fp'
+  export default setYearWithOptions
+}
+
 declare module 'date-fns/esm/fp/startOfDay' {
   import { startOfDay } from 'date-fns/esm/fp'
   export default startOfDay
+}
+
+declare module 'date-fns/esm/fp/startOfDayWithOptions' {
+  import { startOfDayWithOptions } from 'date-fns/esm/fp'
+  export default startOfDayWithOptions
 }
 
 declare module 'date-fns/esm/fp/startOfDecade' {
@@ -11749,9 +17422,19 @@ declare module 'date-fns/esm/fp/startOfDecade' {
   export default startOfDecade
 }
 
+declare module 'date-fns/esm/fp/startOfDecadeWithOptions' {
+  import { startOfDecadeWithOptions } from 'date-fns/esm/fp'
+  export default startOfDecadeWithOptions
+}
+
 declare module 'date-fns/esm/fp/startOfHour' {
   import { startOfHour } from 'date-fns/esm/fp'
   export default startOfHour
+}
+
+declare module 'date-fns/esm/fp/startOfHourWithOptions' {
+  import { startOfHourWithOptions } from 'date-fns/esm/fp'
+  export default startOfHourWithOptions
 }
 
 declare module 'date-fns/esm/fp/startOfISOWeek' {
@@ -11759,9 +17442,19 @@ declare module 'date-fns/esm/fp/startOfISOWeek' {
   export default startOfISOWeek
 }
 
+declare module 'date-fns/esm/fp/startOfISOWeekWithOptions' {
+  import { startOfISOWeekWithOptions } from 'date-fns/esm/fp'
+  export default startOfISOWeekWithOptions
+}
+
 declare module 'date-fns/esm/fp/startOfISOWeekYear' {
   import { startOfISOWeekYear } from 'date-fns/esm/fp'
   export default startOfISOWeekYear
+}
+
+declare module 'date-fns/esm/fp/startOfISOWeekYearWithOptions' {
+  import { startOfISOWeekYearWithOptions } from 'date-fns/esm/fp'
+  export default startOfISOWeekYearWithOptions
 }
 
 declare module 'date-fns/esm/fp/startOfMinute' {
@@ -11769,9 +17462,19 @@ declare module 'date-fns/esm/fp/startOfMinute' {
   export default startOfMinute
 }
 
+declare module 'date-fns/esm/fp/startOfMinuteWithOptions' {
+  import { startOfMinuteWithOptions } from 'date-fns/esm/fp'
+  export default startOfMinuteWithOptions
+}
+
 declare module 'date-fns/esm/fp/startOfMonth' {
   import { startOfMonth } from 'date-fns/esm/fp'
   export default startOfMonth
+}
+
+declare module 'date-fns/esm/fp/startOfMonthWithOptions' {
+  import { startOfMonthWithOptions } from 'date-fns/esm/fp'
+  export default startOfMonthWithOptions
 }
 
 declare module 'date-fns/esm/fp/startOfQuarter' {
@@ -11779,9 +17482,19 @@ declare module 'date-fns/esm/fp/startOfQuarter' {
   export default startOfQuarter
 }
 
+declare module 'date-fns/esm/fp/startOfQuarterWithOptions' {
+  import { startOfQuarterWithOptions } from 'date-fns/esm/fp'
+  export default startOfQuarterWithOptions
+}
+
 declare module 'date-fns/esm/fp/startOfSecond' {
   import { startOfSecond } from 'date-fns/esm/fp'
   export default startOfSecond
+}
+
+declare module 'date-fns/esm/fp/startOfSecondWithOptions' {
+  import { startOfSecondWithOptions } from 'date-fns/esm/fp'
+  export default startOfSecondWithOptions
 }
 
 declare module 'date-fns/esm/fp/startOfWeek' {
@@ -11809,9 +17522,19 @@ declare module 'date-fns/esm/fp/startOfYear' {
   export default startOfYear
 }
 
+declare module 'date-fns/esm/fp/startOfYearWithOptions' {
+  import { startOfYearWithOptions } from 'date-fns/esm/fp'
+  export default startOfYearWithOptions
+}
+
 declare module 'date-fns/esm/fp/subDays' {
   import { subDays } from 'date-fns/esm/fp'
   export default subDays
+}
+
+declare module 'date-fns/esm/fp/subDaysWithOptions' {
+  import { subDaysWithOptions } from 'date-fns/esm/fp'
+  export default subDaysWithOptions
 }
 
 declare module 'date-fns/esm/fp/subHours' {
@@ -11819,9 +17542,19 @@ declare module 'date-fns/esm/fp/subHours' {
   export default subHours
 }
 
+declare module 'date-fns/esm/fp/subHoursWithOptions' {
+  import { subHoursWithOptions } from 'date-fns/esm/fp'
+  export default subHoursWithOptions
+}
+
 declare module 'date-fns/esm/fp/subISOWeekYears' {
   import { subISOWeekYears } from 'date-fns/esm/fp'
   export default subISOWeekYears
+}
+
+declare module 'date-fns/esm/fp/subISOWeekYearsWithOptions' {
+  import { subISOWeekYearsWithOptions } from 'date-fns/esm/fp'
+  export default subISOWeekYearsWithOptions
 }
 
 declare module 'date-fns/esm/fp/subMilliseconds' {
@@ -11829,9 +17562,19 @@ declare module 'date-fns/esm/fp/subMilliseconds' {
   export default subMilliseconds
 }
 
+declare module 'date-fns/esm/fp/subMillisecondsWithOptions' {
+  import { subMillisecondsWithOptions } from 'date-fns/esm/fp'
+  export default subMillisecondsWithOptions
+}
+
 declare module 'date-fns/esm/fp/subMinutes' {
   import { subMinutes } from 'date-fns/esm/fp'
   export default subMinutes
+}
+
+declare module 'date-fns/esm/fp/subMinutesWithOptions' {
+  import { subMinutesWithOptions } from 'date-fns/esm/fp'
+  export default subMinutesWithOptions
 }
 
 declare module 'date-fns/esm/fp/subMonths' {
@@ -11839,9 +17582,19 @@ declare module 'date-fns/esm/fp/subMonths' {
   export default subMonths
 }
 
+declare module 'date-fns/esm/fp/subMonthsWithOptions' {
+  import { subMonthsWithOptions } from 'date-fns/esm/fp'
+  export default subMonthsWithOptions
+}
+
 declare module 'date-fns/esm/fp/subQuarters' {
   import { subQuarters } from 'date-fns/esm/fp'
   export default subQuarters
+}
+
+declare module 'date-fns/esm/fp/subQuartersWithOptions' {
+  import { subQuartersWithOptions } from 'date-fns/esm/fp'
+  export default subQuartersWithOptions
 }
 
 declare module 'date-fns/esm/fp/subSeconds' {
@@ -11849,9 +17602,19 @@ declare module 'date-fns/esm/fp/subSeconds' {
   export default subSeconds
 }
 
+declare module 'date-fns/esm/fp/subSecondsWithOptions' {
+  import { subSecondsWithOptions } from 'date-fns/esm/fp'
+  export default subSecondsWithOptions
+}
+
 declare module 'date-fns/esm/fp/subWeeks' {
   import { subWeeks } from 'date-fns/esm/fp'
   export default subWeeks
+}
+
+declare module 'date-fns/esm/fp/subWeeksWithOptions' {
+  import { subWeeksWithOptions } from 'date-fns/esm/fp'
+  export default subWeeksWithOptions
 }
 
 declare module 'date-fns/esm/fp/subYears' {
@@ -11859,14 +17622,19 @@ declare module 'date-fns/esm/fp/subYears' {
   export default subYears
 }
 
+declare module 'date-fns/esm/fp/subYearsWithOptions' {
+  import { subYearsWithOptions } from 'date-fns/esm/fp'
+  export default subYearsWithOptions
+}
+
 declare module 'date-fns/esm/fp/toDate' {
   import { toDate } from 'date-fns/esm/fp'
   export default toDate
 }
 
-declare module 'date-fns/esm/fp/addBusinessDays/index' {
-  import { addBusinessDays } from 'date-fns/esm/fp'
-  export default addBusinessDays
+declare module 'date-fns/esm/fp/toDateWithOptions' {
+  import { toDateWithOptions } from 'date-fns/esm/fp'
+  export default toDateWithOptions
 }
 
 declare module 'date-fns/esm/fp/addDays/index' {
@@ -11874,9 +17642,19 @@ declare module 'date-fns/esm/fp/addDays/index' {
   export default addDays
 }
 
+declare module 'date-fns/esm/fp/addDaysWithOptions/index' {
+  import { addDaysWithOptions } from 'date-fns/esm/fp'
+  export default addDaysWithOptions
+}
+
 declare module 'date-fns/esm/fp/addHours/index' {
   import { addHours } from 'date-fns/esm/fp'
   export default addHours
+}
+
+declare module 'date-fns/esm/fp/addHoursWithOptions/index' {
+  import { addHoursWithOptions } from 'date-fns/esm/fp'
+  export default addHoursWithOptions
 }
 
 declare module 'date-fns/esm/fp/addISOWeekYears/index' {
@@ -11884,9 +17662,19 @@ declare module 'date-fns/esm/fp/addISOWeekYears/index' {
   export default addISOWeekYears
 }
 
+declare module 'date-fns/esm/fp/addISOWeekYearsWithOptions/index' {
+  import { addISOWeekYearsWithOptions } from 'date-fns/esm/fp'
+  export default addISOWeekYearsWithOptions
+}
+
 declare module 'date-fns/esm/fp/addMilliseconds/index' {
   import { addMilliseconds } from 'date-fns/esm/fp'
   export default addMilliseconds
+}
+
+declare module 'date-fns/esm/fp/addMillisecondsWithOptions/index' {
+  import { addMillisecondsWithOptions } from 'date-fns/esm/fp'
+  export default addMillisecondsWithOptions
 }
 
 declare module 'date-fns/esm/fp/addMinutes/index' {
@@ -11894,9 +17682,19 @@ declare module 'date-fns/esm/fp/addMinutes/index' {
   export default addMinutes
 }
 
+declare module 'date-fns/esm/fp/addMinutesWithOptions/index' {
+  import { addMinutesWithOptions } from 'date-fns/esm/fp'
+  export default addMinutesWithOptions
+}
+
 declare module 'date-fns/esm/fp/addMonths/index' {
   import { addMonths } from 'date-fns/esm/fp'
   export default addMonths
+}
+
+declare module 'date-fns/esm/fp/addMonthsWithOptions/index' {
+  import { addMonthsWithOptions } from 'date-fns/esm/fp'
+  export default addMonthsWithOptions
 }
 
 declare module 'date-fns/esm/fp/addQuarters/index' {
@@ -11904,9 +17702,19 @@ declare module 'date-fns/esm/fp/addQuarters/index' {
   export default addQuarters
 }
 
+declare module 'date-fns/esm/fp/addQuartersWithOptions/index' {
+  import { addQuartersWithOptions } from 'date-fns/esm/fp'
+  export default addQuartersWithOptions
+}
+
 declare module 'date-fns/esm/fp/addSeconds/index' {
   import { addSeconds } from 'date-fns/esm/fp'
   export default addSeconds
+}
+
+declare module 'date-fns/esm/fp/addSecondsWithOptions/index' {
+  import { addSecondsWithOptions } from 'date-fns/esm/fp'
+  export default addSecondsWithOptions
 }
 
 declare module 'date-fns/esm/fp/addWeeks/index' {
@@ -11914,9 +17722,19 @@ declare module 'date-fns/esm/fp/addWeeks/index' {
   export default addWeeks
 }
 
+declare module 'date-fns/esm/fp/addWeeksWithOptions/index' {
+  import { addWeeksWithOptions } from 'date-fns/esm/fp'
+  export default addWeeksWithOptions
+}
+
 declare module 'date-fns/esm/fp/addYears/index' {
   import { addYears } from 'date-fns/esm/fp'
   export default addYears
+}
+
+declare module 'date-fns/esm/fp/addYearsWithOptions/index' {
+  import { addYearsWithOptions } from 'date-fns/esm/fp'
+  export default addYearsWithOptions
 }
 
 declare module 'date-fns/esm/fp/areIntervalsOverlapping/index' {
@@ -11924,9 +17742,19 @@ declare module 'date-fns/esm/fp/areIntervalsOverlapping/index' {
   export default areIntervalsOverlapping
 }
 
+declare module 'date-fns/esm/fp/areIntervalsOverlappingWithOptions/index' {
+  import { areIntervalsOverlappingWithOptions } from 'date-fns/esm/fp'
+  export default areIntervalsOverlappingWithOptions
+}
+
 declare module 'date-fns/esm/fp/closestIndexTo/index' {
   import { closestIndexTo } from 'date-fns/esm/fp'
   export default closestIndexTo
+}
+
+declare module 'date-fns/esm/fp/closestIndexToWithOptions/index' {
+  import { closestIndexToWithOptions } from 'date-fns/esm/fp'
+  export default closestIndexToWithOptions
 }
 
 declare module 'date-fns/esm/fp/closestTo/index' {
@@ -11934,9 +17762,19 @@ declare module 'date-fns/esm/fp/closestTo/index' {
   export default closestTo
 }
 
+declare module 'date-fns/esm/fp/closestToWithOptions/index' {
+  import { closestToWithOptions } from 'date-fns/esm/fp'
+  export default closestToWithOptions
+}
+
 declare module 'date-fns/esm/fp/compareAsc/index' {
   import { compareAsc } from 'date-fns/esm/fp'
   export default compareAsc
+}
+
+declare module 'date-fns/esm/fp/compareAscWithOptions/index' {
+  import { compareAscWithOptions } from 'date-fns/esm/fp'
+  export default compareAscWithOptions
 }
 
 declare module 'date-fns/esm/fp/compareDesc/index' {
@@ -11944,9 +17782,9 @@ declare module 'date-fns/esm/fp/compareDesc/index' {
   export default compareDesc
 }
 
-declare module 'date-fns/esm/fp/differenceInBusinessDays/index' {
-  import { differenceInBusinessDays } from 'date-fns/esm/fp'
-  export default differenceInBusinessDays
+declare module 'date-fns/esm/fp/compareDescWithOptions/index' {
+  import { compareDescWithOptions } from 'date-fns/esm/fp'
+  export default compareDescWithOptions
 }
 
 declare module 'date-fns/esm/fp/differenceInCalendarDays/index' {
@@ -11954,9 +17792,19 @@ declare module 'date-fns/esm/fp/differenceInCalendarDays/index' {
   export default differenceInCalendarDays
 }
 
+declare module 'date-fns/esm/fp/differenceInCalendarDaysWithOptions/index' {
+  import { differenceInCalendarDaysWithOptions } from 'date-fns/esm/fp'
+  export default differenceInCalendarDaysWithOptions
+}
+
 declare module 'date-fns/esm/fp/differenceInCalendarISOWeeks/index' {
   import { differenceInCalendarISOWeeks } from 'date-fns/esm/fp'
   export default differenceInCalendarISOWeeks
+}
+
+declare module 'date-fns/esm/fp/differenceInCalendarISOWeeksWithOptions/index' {
+  import { differenceInCalendarISOWeeksWithOptions } from 'date-fns/esm/fp'
+  export default differenceInCalendarISOWeeksWithOptions
 }
 
 declare module 'date-fns/esm/fp/differenceInCalendarISOWeekYears/index' {
@@ -11964,14 +17812,29 @@ declare module 'date-fns/esm/fp/differenceInCalendarISOWeekYears/index' {
   export default differenceInCalendarISOWeekYears
 }
 
+declare module 'date-fns/esm/fp/differenceInCalendarISOWeekYearsWithOptions/index' {
+  import { differenceInCalendarISOWeekYearsWithOptions } from 'date-fns/esm/fp'
+  export default differenceInCalendarISOWeekYearsWithOptions
+}
+
 declare module 'date-fns/esm/fp/differenceInCalendarMonths/index' {
   import { differenceInCalendarMonths } from 'date-fns/esm/fp'
   export default differenceInCalendarMonths
 }
 
+declare module 'date-fns/esm/fp/differenceInCalendarMonthsWithOptions/index' {
+  import { differenceInCalendarMonthsWithOptions } from 'date-fns/esm/fp'
+  export default differenceInCalendarMonthsWithOptions
+}
+
 declare module 'date-fns/esm/fp/differenceInCalendarQuarters/index' {
   import { differenceInCalendarQuarters } from 'date-fns/esm/fp'
   export default differenceInCalendarQuarters
+}
+
+declare module 'date-fns/esm/fp/differenceInCalendarQuartersWithOptions/index' {
+  import { differenceInCalendarQuartersWithOptions } from 'date-fns/esm/fp'
+  export default differenceInCalendarQuartersWithOptions
 }
 
 declare module 'date-fns/esm/fp/differenceInCalendarWeeks/index' {
@@ -11989,9 +17852,19 @@ declare module 'date-fns/esm/fp/differenceInCalendarYears/index' {
   export default differenceInCalendarYears
 }
 
+declare module 'date-fns/esm/fp/differenceInCalendarYearsWithOptions/index' {
+  import { differenceInCalendarYearsWithOptions } from 'date-fns/esm/fp'
+  export default differenceInCalendarYearsWithOptions
+}
+
 declare module 'date-fns/esm/fp/differenceInDays/index' {
   import { differenceInDays } from 'date-fns/esm/fp'
   export default differenceInDays
+}
+
+declare module 'date-fns/esm/fp/differenceInDaysWithOptions/index' {
+  import { differenceInDaysWithOptions } from 'date-fns/esm/fp'
+  export default differenceInDaysWithOptions
 }
 
 declare module 'date-fns/esm/fp/differenceInHours/index' {
@@ -11999,9 +17872,19 @@ declare module 'date-fns/esm/fp/differenceInHours/index' {
   export default differenceInHours
 }
 
+declare module 'date-fns/esm/fp/differenceInHoursWithOptions/index' {
+  import { differenceInHoursWithOptions } from 'date-fns/esm/fp'
+  export default differenceInHoursWithOptions
+}
+
 declare module 'date-fns/esm/fp/differenceInISOWeekYears/index' {
   import { differenceInISOWeekYears } from 'date-fns/esm/fp'
   export default differenceInISOWeekYears
+}
+
+declare module 'date-fns/esm/fp/differenceInISOWeekYearsWithOptions/index' {
+  import { differenceInISOWeekYearsWithOptions } from 'date-fns/esm/fp'
+  export default differenceInISOWeekYearsWithOptions
 }
 
 declare module 'date-fns/esm/fp/differenceInMilliseconds/index' {
@@ -12009,9 +17892,19 @@ declare module 'date-fns/esm/fp/differenceInMilliseconds/index' {
   export default differenceInMilliseconds
 }
 
+declare module 'date-fns/esm/fp/differenceInMillisecondsWithOptions/index' {
+  import { differenceInMillisecondsWithOptions } from 'date-fns/esm/fp'
+  export default differenceInMillisecondsWithOptions
+}
+
 declare module 'date-fns/esm/fp/differenceInMinutes/index' {
   import { differenceInMinutes } from 'date-fns/esm/fp'
   export default differenceInMinutes
+}
+
+declare module 'date-fns/esm/fp/differenceInMinutesWithOptions/index' {
+  import { differenceInMinutesWithOptions } from 'date-fns/esm/fp'
+  export default differenceInMinutesWithOptions
 }
 
 declare module 'date-fns/esm/fp/differenceInMonths/index' {
@@ -12019,9 +17912,19 @@ declare module 'date-fns/esm/fp/differenceInMonths/index' {
   export default differenceInMonths
 }
 
+declare module 'date-fns/esm/fp/differenceInMonthsWithOptions/index' {
+  import { differenceInMonthsWithOptions } from 'date-fns/esm/fp'
+  export default differenceInMonthsWithOptions
+}
+
 declare module 'date-fns/esm/fp/differenceInQuarters/index' {
   import { differenceInQuarters } from 'date-fns/esm/fp'
   export default differenceInQuarters
+}
+
+declare module 'date-fns/esm/fp/differenceInQuartersWithOptions/index' {
+  import { differenceInQuartersWithOptions } from 'date-fns/esm/fp'
+  export default differenceInQuartersWithOptions
 }
 
 declare module 'date-fns/esm/fp/differenceInSeconds/index' {
@@ -12029,14 +17932,29 @@ declare module 'date-fns/esm/fp/differenceInSeconds/index' {
   export default differenceInSeconds
 }
 
+declare module 'date-fns/esm/fp/differenceInSecondsWithOptions/index' {
+  import { differenceInSecondsWithOptions } from 'date-fns/esm/fp'
+  export default differenceInSecondsWithOptions
+}
+
 declare module 'date-fns/esm/fp/differenceInWeeks/index' {
   import { differenceInWeeks } from 'date-fns/esm/fp'
   export default differenceInWeeks
 }
 
+declare module 'date-fns/esm/fp/differenceInWeeksWithOptions/index' {
+  import { differenceInWeeksWithOptions } from 'date-fns/esm/fp'
+  export default differenceInWeeksWithOptions
+}
+
 declare module 'date-fns/esm/fp/differenceInYears/index' {
   import { differenceInYears } from 'date-fns/esm/fp'
   export default differenceInYears
+}
+
+declare module 'date-fns/esm/fp/differenceInYearsWithOptions/index' {
+  import { differenceInYearsWithOptions } from 'date-fns/esm/fp'
+  export default differenceInYearsWithOptions
 }
 
 declare module 'date-fns/esm/fp/eachDayOfInterval/index' {
@@ -12054,14 +17972,29 @@ declare module 'date-fns/esm/fp/eachWeekendOfInterval/index' {
   export default eachWeekendOfInterval
 }
 
+declare module 'date-fns/esm/fp/eachWeekendOfIntervalWithOptions/index' {
+  import { eachWeekendOfIntervalWithOptions } from 'date-fns/esm/fp'
+  export default eachWeekendOfIntervalWithOptions
+}
+
 declare module 'date-fns/esm/fp/eachWeekendOfMonth/index' {
   import { eachWeekendOfMonth } from 'date-fns/esm/fp'
   export default eachWeekendOfMonth
 }
 
+declare module 'date-fns/esm/fp/eachWeekendOfMonthWithOptions/index' {
+  import { eachWeekendOfMonthWithOptions } from 'date-fns/esm/fp'
+  export default eachWeekendOfMonthWithOptions
+}
+
 declare module 'date-fns/esm/fp/eachWeekendOfYear/index' {
   import { eachWeekendOfYear } from 'date-fns/esm/fp'
   export default eachWeekendOfYear
+}
+
+declare module 'date-fns/esm/fp/eachWeekendOfYearWithOptions/index' {
+  import { eachWeekendOfYearWithOptions } from 'date-fns/esm/fp'
+  export default eachWeekendOfYearWithOptions
 }
 
 declare module 'date-fns/esm/fp/eachWeekOfInterval/index' {
@@ -12079,6 +18012,11 @@ declare module 'date-fns/esm/fp/endOfDay/index' {
   export default endOfDay
 }
 
+declare module 'date-fns/esm/fp/endOfDayWithOptions/index' {
+  import { endOfDayWithOptions } from 'date-fns/esm/fp'
+  export default endOfDayWithOptions
+}
+
 declare module 'date-fns/esm/fp/endOfDecade/index' {
   import { endOfDecade } from 'date-fns/esm/fp'
   export default endOfDecade
@@ -12094,9 +18032,19 @@ declare module 'date-fns/esm/fp/endOfHour/index' {
   export default endOfHour
 }
 
+declare module 'date-fns/esm/fp/endOfHourWithOptions/index' {
+  import { endOfHourWithOptions } from 'date-fns/esm/fp'
+  export default endOfHourWithOptions
+}
+
 declare module 'date-fns/esm/fp/endOfISOWeek/index' {
   import { endOfISOWeek } from 'date-fns/esm/fp'
   export default endOfISOWeek
+}
+
+declare module 'date-fns/esm/fp/endOfISOWeekWithOptions/index' {
+  import { endOfISOWeekWithOptions } from 'date-fns/esm/fp'
+  export default endOfISOWeekWithOptions
 }
 
 declare module 'date-fns/esm/fp/endOfISOWeekYear/index' {
@@ -12104,9 +18052,19 @@ declare module 'date-fns/esm/fp/endOfISOWeekYear/index' {
   export default endOfISOWeekYear
 }
 
+declare module 'date-fns/esm/fp/endOfISOWeekYearWithOptions/index' {
+  import { endOfISOWeekYearWithOptions } from 'date-fns/esm/fp'
+  export default endOfISOWeekYearWithOptions
+}
+
 declare module 'date-fns/esm/fp/endOfMinute/index' {
   import { endOfMinute } from 'date-fns/esm/fp'
   export default endOfMinute
+}
+
+declare module 'date-fns/esm/fp/endOfMinuteWithOptions/index' {
+  import { endOfMinuteWithOptions } from 'date-fns/esm/fp'
+  export default endOfMinuteWithOptions
 }
 
 declare module 'date-fns/esm/fp/endOfMonth/index' {
@@ -12114,14 +18072,29 @@ declare module 'date-fns/esm/fp/endOfMonth/index' {
   export default endOfMonth
 }
 
+declare module 'date-fns/esm/fp/endOfMonthWithOptions/index' {
+  import { endOfMonthWithOptions } from 'date-fns/esm/fp'
+  export default endOfMonthWithOptions
+}
+
 declare module 'date-fns/esm/fp/endOfQuarter/index' {
   import { endOfQuarter } from 'date-fns/esm/fp'
   export default endOfQuarter
 }
 
+declare module 'date-fns/esm/fp/endOfQuarterWithOptions/index' {
+  import { endOfQuarterWithOptions } from 'date-fns/esm/fp'
+  export default endOfQuarterWithOptions
+}
+
 declare module 'date-fns/esm/fp/endOfSecond/index' {
   import { endOfSecond } from 'date-fns/esm/fp'
   export default endOfSecond
+}
+
+declare module 'date-fns/esm/fp/endOfSecondWithOptions/index' {
+  import { endOfSecondWithOptions } from 'date-fns/esm/fp'
+  export default endOfSecondWithOptions
 }
 
 declare module 'date-fns/esm/fp/endOfWeek/index' {
@@ -12137,6 +18110,11 @@ declare module 'date-fns/esm/fp/endOfWeekWithOptions/index' {
 declare module 'date-fns/esm/fp/endOfYear/index' {
   import { endOfYear } from 'date-fns/esm/fp'
   export default endOfYear
+}
+
+declare module 'date-fns/esm/fp/endOfYearWithOptions/index' {
+  import { endOfYearWithOptions } from 'date-fns/esm/fp'
+  export default endOfYearWithOptions
 }
 
 declare module 'date-fns/esm/fp/format/index' {
@@ -12184,9 +18162,19 @@ declare module 'date-fns/esm/fp/fromUnixTime/index' {
   export default fromUnixTime
 }
 
+declare module 'date-fns/esm/fp/fromUnixTimeWithOptions/index' {
+  import { fromUnixTimeWithOptions } from 'date-fns/esm/fp'
+  export default fromUnixTimeWithOptions
+}
+
 declare module 'date-fns/esm/fp/getDate/index' {
   import { getDate } from 'date-fns/esm/fp'
   export default getDate
+}
+
+declare module 'date-fns/esm/fp/getDateWithOptions/index' {
+  import { getDateWithOptions } from 'date-fns/esm/fp'
+  export default getDateWithOptions
 }
 
 declare module 'date-fns/esm/fp/getDay/index' {
@@ -12199,9 +18187,19 @@ declare module 'date-fns/esm/fp/getDayOfYear/index' {
   export default getDayOfYear
 }
 
+declare module 'date-fns/esm/fp/getDayOfYearWithOptions/index' {
+  import { getDayOfYearWithOptions } from 'date-fns/esm/fp'
+  export default getDayOfYearWithOptions
+}
+
 declare module 'date-fns/esm/fp/getDaysInMonth/index' {
   import { getDaysInMonth } from 'date-fns/esm/fp'
   export default getDaysInMonth
+}
+
+declare module 'date-fns/esm/fp/getDaysInMonthWithOptions/index' {
+  import { getDaysInMonthWithOptions } from 'date-fns/esm/fp'
+  export default getDaysInMonthWithOptions
 }
 
 declare module 'date-fns/esm/fp/getDaysInYear/index' {
@@ -12209,9 +18207,24 @@ declare module 'date-fns/esm/fp/getDaysInYear/index' {
   export default getDaysInYear
 }
 
+declare module 'date-fns/esm/fp/getDaysInYearWithOptions/index' {
+  import { getDaysInYearWithOptions } from 'date-fns/esm/fp'
+  export default getDaysInYearWithOptions
+}
+
+declare module 'date-fns/esm/fp/getDayWithOptions/index' {
+  import { getDayWithOptions } from 'date-fns/esm/fp'
+  export default getDayWithOptions
+}
+
 declare module 'date-fns/esm/fp/getDecade/index' {
   import { getDecade } from 'date-fns/esm/fp'
   export default getDecade
+}
+
+declare module 'date-fns/esm/fp/getDecadeWithOptions/index' {
+  import { getDecadeWithOptions } from 'date-fns/esm/fp'
+  export default getDecadeWithOptions
 }
 
 declare module 'date-fns/esm/fp/getHours/index' {
@@ -12219,9 +18232,19 @@ declare module 'date-fns/esm/fp/getHours/index' {
   export default getHours
 }
 
+declare module 'date-fns/esm/fp/getHoursWithOptions/index' {
+  import { getHoursWithOptions } from 'date-fns/esm/fp'
+  export default getHoursWithOptions
+}
+
 declare module 'date-fns/esm/fp/getISODay/index' {
   import { getISODay } from 'date-fns/esm/fp'
   export default getISODay
+}
+
+declare module 'date-fns/esm/fp/getISODayWithOptions/index' {
+  import { getISODayWithOptions } from 'date-fns/esm/fp'
+  export default getISODayWithOptions
 }
 
 declare module 'date-fns/esm/fp/getISOWeek/index' {
@@ -12234,9 +18257,24 @@ declare module 'date-fns/esm/fp/getISOWeeksInYear/index' {
   export default getISOWeeksInYear
 }
 
+declare module 'date-fns/esm/fp/getISOWeeksInYearWithOptions/index' {
+  import { getISOWeeksInYearWithOptions } from 'date-fns/esm/fp'
+  export default getISOWeeksInYearWithOptions
+}
+
+declare module 'date-fns/esm/fp/getISOWeekWithOptions/index' {
+  import { getISOWeekWithOptions } from 'date-fns/esm/fp'
+  export default getISOWeekWithOptions
+}
+
 declare module 'date-fns/esm/fp/getISOWeekYear/index' {
   import { getISOWeekYear } from 'date-fns/esm/fp'
   export default getISOWeekYear
+}
+
+declare module 'date-fns/esm/fp/getISOWeekYearWithOptions/index' {
+  import { getISOWeekYearWithOptions } from 'date-fns/esm/fp'
+  export default getISOWeekYearWithOptions
 }
 
 declare module 'date-fns/esm/fp/getMilliseconds/index' {
@@ -12244,9 +18282,19 @@ declare module 'date-fns/esm/fp/getMilliseconds/index' {
   export default getMilliseconds
 }
 
+declare module 'date-fns/esm/fp/getMillisecondsWithOptions/index' {
+  import { getMillisecondsWithOptions } from 'date-fns/esm/fp'
+  export default getMillisecondsWithOptions
+}
+
 declare module 'date-fns/esm/fp/getMinutes/index' {
   import { getMinutes } from 'date-fns/esm/fp'
   export default getMinutes
+}
+
+declare module 'date-fns/esm/fp/getMinutesWithOptions/index' {
+  import { getMinutesWithOptions } from 'date-fns/esm/fp'
+  export default getMinutesWithOptions
 }
 
 declare module 'date-fns/esm/fp/getMonth/index' {
@@ -12254,9 +18302,19 @@ declare module 'date-fns/esm/fp/getMonth/index' {
   export default getMonth
 }
 
+declare module 'date-fns/esm/fp/getMonthWithOptions/index' {
+  import { getMonthWithOptions } from 'date-fns/esm/fp'
+  export default getMonthWithOptions
+}
+
 declare module 'date-fns/esm/fp/getOverlappingDaysInIntervals/index' {
   import { getOverlappingDaysInIntervals } from 'date-fns/esm/fp'
   export default getOverlappingDaysInIntervals
+}
+
+declare module 'date-fns/esm/fp/getOverlappingDaysInIntervalsWithOptions/index' {
+  import { getOverlappingDaysInIntervalsWithOptions } from 'date-fns/esm/fp'
+  export default getOverlappingDaysInIntervalsWithOptions
 }
 
 declare module 'date-fns/esm/fp/getQuarter/index' {
@@ -12264,9 +18322,19 @@ declare module 'date-fns/esm/fp/getQuarter/index' {
   export default getQuarter
 }
 
+declare module 'date-fns/esm/fp/getQuarterWithOptions/index' {
+  import { getQuarterWithOptions } from 'date-fns/esm/fp'
+  export default getQuarterWithOptions
+}
+
 declare module 'date-fns/esm/fp/getSeconds/index' {
   import { getSeconds } from 'date-fns/esm/fp'
   export default getSeconds
+}
+
+declare module 'date-fns/esm/fp/getSecondsWithOptions/index' {
+  import { getSecondsWithOptions } from 'date-fns/esm/fp'
+  export default getSecondsWithOptions
 }
 
 declare module 'date-fns/esm/fp/getTime/index' {
@@ -12274,9 +18342,19 @@ declare module 'date-fns/esm/fp/getTime/index' {
   export default getTime
 }
 
+declare module 'date-fns/esm/fp/getTimeWithOptions/index' {
+  import { getTimeWithOptions } from 'date-fns/esm/fp'
+  export default getTimeWithOptions
+}
+
 declare module 'date-fns/esm/fp/getUnixTime/index' {
   import { getUnixTime } from 'date-fns/esm/fp'
   export default getUnixTime
+}
+
+declare module 'date-fns/esm/fp/getUnixTimeWithOptions/index' {
+  import { getUnixTimeWithOptions } from 'date-fns/esm/fp'
+  export default getUnixTimeWithOptions
 }
 
 declare module 'date-fns/esm/fp/getWeek/index' {
@@ -12324,9 +18402,19 @@ declare module 'date-fns/esm/fp/getYear/index' {
   export default getYear
 }
 
+declare module 'date-fns/esm/fp/getYearWithOptions/index' {
+  import { getYearWithOptions } from 'date-fns/esm/fp'
+  export default getYearWithOptions
+}
+
 declare module 'date-fns/esm/fp/isAfter/index' {
   import { isAfter } from 'date-fns/esm/fp'
   export default isAfter
+}
+
+declare module 'date-fns/esm/fp/isAfterWithOptions/index' {
+  import { isAfterWithOptions } from 'date-fns/esm/fp'
+  export default isAfterWithOptions
 }
 
 declare module 'date-fns/esm/fp/isBefore/index' {
@@ -12334,9 +18422,19 @@ declare module 'date-fns/esm/fp/isBefore/index' {
   export default isBefore
 }
 
+declare module 'date-fns/esm/fp/isBeforeWithOptions/index' {
+  import { isBeforeWithOptions } from 'date-fns/esm/fp'
+  export default isBeforeWithOptions
+}
+
 declare module 'date-fns/esm/fp/isDate/index' {
   import { isDate } from 'date-fns/esm/fp'
   export default isDate
+}
+
+declare module 'date-fns/esm/fp/isDateWithOptions/index' {
+  import { isDateWithOptions } from 'date-fns/esm/fp'
+  export default isDateWithOptions
 }
 
 declare module 'date-fns/esm/fp/isEqual/index' {
@@ -12344,9 +18442,19 @@ declare module 'date-fns/esm/fp/isEqual/index' {
   export default isEqual
 }
 
+declare module 'date-fns/esm/fp/isEqualWithOptions/index' {
+  import { isEqualWithOptions } from 'date-fns/esm/fp'
+  export default isEqualWithOptions
+}
+
 declare module 'date-fns/esm/fp/isFirstDayOfMonth/index' {
   import { isFirstDayOfMonth } from 'date-fns/esm/fp'
   export default isFirstDayOfMonth
+}
+
+declare module 'date-fns/esm/fp/isFirstDayOfMonthWithOptions/index' {
+  import { isFirstDayOfMonthWithOptions } from 'date-fns/esm/fp'
+  export default isFirstDayOfMonthWithOptions
 }
 
 declare module 'date-fns/esm/fp/isFriday/index' {
@@ -12354,9 +18462,19 @@ declare module 'date-fns/esm/fp/isFriday/index' {
   export default isFriday
 }
 
+declare module 'date-fns/esm/fp/isFridayWithOptions/index' {
+  import { isFridayWithOptions } from 'date-fns/esm/fp'
+  export default isFridayWithOptions
+}
+
 declare module 'date-fns/esm/fp/isLastDayOfMonth/index' {
   import { isLastDayOfMonth } from 'date-fns/esm/fp'
   export default isLastDayOfMonth
+}
+
+declare module 'date-fns/esm/fp/isLastDayOfMonthWithOptions/index' {
+  import { isLastDayOfMonthWithOptions } from 'date-fns/esm/fp'
+  export default isLastDayOfMonthWithOptions
 }
 
 declare module 'date-fns/esm/fp/isLeapYear/index' {
@@ -12364,9 +18482,19 @@ declare module 'date-fns/esm/fp/isLeapYear/index' {
   export default isLeapYear
 }
 
+declare module 'date-fns/esm/fp/isLeapYearWithOptions/index' {
+  import { isLeapYearWithOptions } from 'date-fns/esm/fp'
+  export default isLeapYearWithOptions
+}
+
 declare module 'date-fns/esm/fp/isMonday/index' {
   import { isMonday } from 'date-fns/esm/fp'
   export default isMonday
+}
+
+declare module 'date-fns/esm/fp/isMondayWithOptions/index' {
+  import { isMondayWithOptions } from 'date-fns/esm/fp'
+  export default isMondayWithOptions
 }
 
 declare module 'date-fns/esm/fp/isSameDay/index' {
@@ -12374,9 +18502,19 @@ declare module 'date-fns/esm/fp/isSameDay/index' {
   export default isSameDay
 }
 
+declare module 'date-fns/esm/fp/isSameDayWithOptions/index' {
+  import { isSameDayWithOptions } from 'date-fns/esm/fp'
+  export default isSameDayWithOptions
+}
+
 declare module 'date-fns/esm/fp/isSameHour/index' {
   import { isSameHour } from 'date-fns/esm/fp'
   export default isSameHour
+}
+
+declare module 'date-fns/esm/fp/isSameHourWithOptions/index' {
+  import { isSameHourWithOptions } from 'date-fns/esm/fp'
+  export default isSameHourWithOptions
 }
 
 declare module 'date-fns/esm/fp/isSameISOWeek/index' {
@@ -12384,9 +18522,19 @@ declare module 'date-fns/esm/fp/isSameISOWeek/index' {
   export default isSameISOWeek
 }
 
+declare module 'date-fns/esm/fp/isSameISOWeekWithOptions/index' {
+  import { isSameISOWeekWithOptions } from 'date-fns/esm/fp'
+  export default isSameISOWeekWithOptions
+}
+
 declare module 'date-fns/esm/fp/isSameISOWeekYear/index' {
   import { isSameISOWeekYear } from 'date-fns/esm/fp'
   export default isSameISOWeekYear
+}
+
+declare module 'date-fns/esm/fp/isSameISOWeekYearWithOptions/index' {
+  import { isSameISOWeekYearWithOptions } from 'date-fns/esm/fp'
+  export default isSameISOWeekYearWithOptions
 }
 
 declare module 'date-fns/esm/fp/isSameMinute/index' {
@@ -12394,9 +18542,19 @@ declare module 'date-fns/esm/fp/isSameMinute/index' {
   export default isSameMinute
 }
 
+declare module 'date-fns/esm/fp/isSameMinuteWithOptions/index' {
+  import { isSameMinuteWithOptions } from 'date-fns/esm/fp'
+  export default isSameMinuteWithOptions
+}
+
 declare module 'date-fns/esm/fp/isSameMonth/index' {
   import { isSameMonth } from 'date-fns/esm/fp'
   export default isSameMonth
+}
+
+declare module 'date-fns/esm/fp/isSameMonthWithOptions/index' {
+  import { isSameMonthWithOptions } from 'date-fns/esm/fp'
+  export default isSameMonthWithOptions
 }
 
 declare module 'date-fns/esm/fp/isSameQuarter/index' {
@@ -12404,9 +18562,19 @@ declare module 'date-fns/esm/fp/isSameQuarter/index' {
   export default isSameQuarter
 }
 
+declare module 'date-fns/esm/fp/isSameQuarterWithOptions/index' {
+  import { isSameQuarterWithOptions } from 'date-fns/esm/fp'
+  export default isSameQuarterWithOptions
+}
+
 declare module 'date-fns/esm/fp/isSameSecond/index' {
   import { isSameSecond } from 'date-fns/esm/fp'
   export default isSameSecond
+}
+
+declare module 'date-fns/esm/fp/isSameSecondWithOptions/index' {
+  import { isSameSecondWithOptions } from 'date-fns/esm/fp'
+  export default isSameSecondWithOptions
 }
 
 declare module 'date-fns/esm/fp/isSameWeek/index' {
@@ -12424,9 +18592,19 @@ declare module 'date-fns/esm/fp/isSameYear/index' {
   export default isSameYear
 }
 
+declare module 'date-fns/esm/fp/isSameYearWithOptions/index' {
+  import { isSameYearWithOptions } from 'date-fns/esm/fp'
+  export default isSameYearWithOptions
+}
+
 declare module 'date-fns/esm/fp/isSaturday/index' {
   import { isSaturday } from 'date-fns/esm/fp'
   export default isSaturday
+}
+
+declare module 'date-fns/esm/fp/isSaturdayWithOptions/index' {
+  import { isSaturdayWithOptions } from 'date-fns/esm/fp'
+  export default isSaturdayWithOptions
 }
 
 declare module 'date-fns/esm/fp/isSunday/index' {
@@ -12434,9 +18612,19 @@ declare module 'date-fns/esm/fp/isSunday/index' {
   export default isSunday
 }
 
+declare module 'date-fns/esm/fp/isSundayWithOptions/index' {
+  import { isSundayWithOptions } from 'date-fns/esm/fp'
+  export default isSundayWithOptions
+}
+
 declare module 'date-fns/esm/fp/isThursday/index' {
   import { isThursday } from 'date-fns/esm/fp'
   export default isThursday
+}
+
+declare module 'date-fns/esm/fp/isThursdayWithOptions/index' {
+  import { isThursdayWithOptions } from 'date-fns/esm/fp'
+  export default isThursdayWithOptions
 }
 
 declare module 'date-fns/esm/fp/isTuesday/index' {
@@ -12444,9 +18632,19 @@ declare module 'date-fns/esm/fp/isTuesday/index' {
   export default isTuesday
 }
 
+declare module 'date-fns/esm/fp/isTuesdayWithOptions/index' {
+  import { isTuesdayWithOptions } from 'date-fns/esm/fp'
+  export default isTuesdayWithOptions
+}
+
 declare module 'date-fns/esm/fp/isValid/index' {
   import { isValid } from 'date-fns/esm/fp'
   export default isValid
+}
+
+declare module 'date-fns/esm/fp/isValidWithOptions/index' {
+  import { isValidWithOptions } from 'date-fns/esm/fp'
+  export default isValidWithOptions
 }
 
 declare module 'date-fns/esm/fp/isWednesday/index' {
@@ -12454,9 +18652,19 @@ declare module 'date-fns/esm/fp/isWednesday/index' {
   export default isWednesday
 }
 
+declare module 'date-fns/esm/fp/isWednesdayWithOptions/index' {
+  import { isWednesdayWithOptions } from 'date-fns/esm/fp'
+  export default isWednesdayWithOptions
+}
+
 declare module 'date-fns/esm/fp/isWeekend/index' {
   import { isWeekend } from 'date-fns/esm/fp'
   export default isWeekend
+}
+
+declare module 'date-fns/esm/fp/isWeekendWithOptions/index' {
+  import { isWeekendWithOptions } from 'date-fns/esm/fp'
+  export default isWeekendWithOptions
 }
 
 declare module 'date-fns/esm/fp/isWithinInterval/index' {
@@ -12464,9 +18672,19 @@ declare module 'date-fns/esm/fp/isWithinInterval/index' {
   export default isWithinInterval
 }
 
+declare module 'date-fns/esm/fp/isWithinIntervalWithOptions/index' {
+  import { isWithinIntervalWithOptions } from 'date-fns/esm/fp'
+  export default isWithinIntervalWithOptions
+}
+
 declare module 'date-fns/esm/fp/lastDayOfDecade/index' {
   import { lastDayOfDecade } from 'date-fns/esm/fp'
   export default lastDayOfDecade
+}
+
+declare module 'date-fns/esm/fp/lastDayOfDecadeWithOptions/index' {
+  import { lastDayOfDecadeWithOptions } from 'date-fns/esm/fp'
+  export default lastDayOfDecadeWithOptions
 }
 
 declare module 'date-fns/esm/fp/lastDayOfISOWeek/index' {
@@ -12474,14 +18692,29 @@ declare module 'date-fns/esm/fp/lastDayOfISOWeek/index' {
   export default lastDayOfISOWeek
 }
 
+declare module 'date-fns/esm/fp/lastDayOfISOWeekWithOptions/index' {
+  import { lastDayOfISOWeekWithOptions } from 'date-fns/esm/fp'
+  export default lastDayOfISOWeekWithOptions
+}
+
 declare module 'date-fns/esm/fp/lastDayOfISOWeekYear/index' {
   import { lastDayOfISOWeekYear } from 'date-fns/esm/fp'
   export default lastDayOfISOWeekYear
 }
 
+declare module 'date-fns/esm/fp/lastDayOfISOWeekYearWithOptions/index' {
+  import { lastDayOfISOWeekYearWithOptions } from 'date-fns/esm/fp'
+  export default lastDayOfISOWeekYearWithOptions
+}
+
 declare module 'date-fns/esm/fp/lastDayOfMonth/index' {
   import { lastDayOfMonth } from 'date-fns/esm/fp'
   export default lastDayOfMonth
+}
+
+declare module 'date-fns/esm/fp/lastDayOfMonthWithOptions/index' {
+  import { lastDayOfMonthWithOptions } from 'date-fns/esm/fp'
+  export default lastDayOfMonthWithOptions
 }
 
 declare module 'date-fns/esm/fp/lastDayOfQuarter/index' {
@@ -12509,9 +18742,9 @@ declare module 'date-fns/esm/fp/lastDayOfYear/index' {
   export default lastDayOfYear
 }
 
-declare module 'date-fns/esm/fp/lightFormat/index' {
-  import { lightFormat } from 'date-fns/esm/fp'
-  export default lightFormat
+declare module 'date-fns/esm/fp/lastDayOfYearWithOptions/index' {
+  import { lastDayOfYearWithOptions } from 'date-fns/esm/fp'
+  export default lastDayOfYearWithOptions
 }
 
 declare module 'date-fns/esm/fp/max/index' {
@@ -12519,24 +18752,24 @@ declare module 'date-fns/esm/fp/max/index' {
   export default max
 }
 
+declare module 'date-fns/esm/fp/maxWithOptions/index' {
+  import { maxWithOptions } from 'date-fns/esm/fp'
+  export default maxWithOptions
+}
+
 declare module 'date-fns/esm/fp/min/index' {
   import { min } from 'date-fns/esm/fp'
   export default min
 }
 
+declare module 'date-fns/esm/fp/minWithOptions/index' {
+  import { minWithOptions } from 'date-fns/esm/fp'
+  export default minWithOptions
+}
+
 declare module 'date-fns/esm/fp/parse/index' {
   import { parse } from 'date-fns/esm/fp'
   export default parse
-}
-
-declare module 'date-fns/esm/fp/parseISO/index' {
-  import { parseISO } from 'date-fns/esm/fp'
-  export default parseISO
-}
-
-declare module 'date-fns/esm/fp/parseISOWithOptions/index' {
-  import { parseISOWithOptions } from 'date-fns/esm/fp'
-  export default parseISOWithOptions
 }
 
 declare module 'date-fns/esm/fp/parseWithOptions/index' {
@@ -12559,6 +18792,11 @@ declare module 'date-fns/esm/fp/setDate/index' {
   export default setDate
 }
 
+declare module 'date-fns/esm/fp/setDateWithOptions/index' {
+  import { setDateWithOptions } from 'date-fns/esm/fp'
+  export default setDateWithOptions
+}
+
 declare module 'date-fns/esm/fp/setDay/index' {
   import { setDay } from 'date-fns/esm/fp'
   export default setDay
@@ -12567,6 +18805,11 @@ declare module 'date-fns/esm/fp/setDay/index' {
 declare module 'date-fns/esm/fp/setDayOfYear/index' {
   import { setDayOfYear } from 'date-fns/esm/fp'
   export default setDayOfYear
+}
+
+declare module 'date-fns/esm/fp/setDayOfYearWithOptions/index' {
+  import { setDayOfYearWithOptions } from 'date-fns/esm/fp'
+  export default setDayOfYearWithOptions
 }
 
 declare module 'date-fns/esm/fp/setDayWithOptions/index' {
@@ -12579,9 +18822,19 @@ declare module 'date-fns/esm/fp/setHours/index' {
   export default setHours
 }
 
+declare module 'date-fns/esm/fp/setHoursWithOptions/index' {
+  import { setHoursWithOptions } from 'date-fns/esm/fp'
+  export default setHoursWithOptions
+}
+
 declare module 'date-fns/esm/fp/setISODay/index' {
   import { setISODay } from 'date-fns/esm/fp'
   export default setISODay
+}
+
+declare module 'date-fns/esm/fp/setISODayWithOptions/index' {
+  import { setISODayWithOptions } from 'date-fns/esm/fp'
+  export default setISODayWithOptions
 }
 
 declare module 'date-fns/esm/fp/setISOWeek/index' {
@@ -12589,9 +18842,19 @@ declare module 'date-fns/esm/fp/setISOWeek/index' {
   export default setISOWeek
 }
 
+declare module 'date-fns/esm/fp/setISOWeekWithOptions/index' {
+  import { setISOWeekWithOptions } from 'date-fns/esm/fp'
+  export default setISOWeekWithOptions
+}
+
 declare module 'date-fns/esm/fp/setISOWeekYear/index' {
   import { setISOWeekYear } from 'date-fns/esm/fp'
   export default setISOWeekYear
+}
+
+declare module 'date-fns/esm/fp/setISOWeekYearWithOptions/index' {
+  import { setISOWeekYearWithOptions } from 'date-fns/esm/fp'
+  export default setISOWeekYearWithOptions
 }
 
 declare module 'date-fns/esm/fp/setMilliseconds/index' {
@@ -12599,9 +18862,19 @@ declare module 'date-fns/esm/fp/setMilliseconds/index' {
   export default setMilliseconds
 }
 
+declare module 'date-fns/esm/fp/setMillisecondsWithOptions/index' {
+  import { setMillisecondsWithOptions } from 'date-fns/esm/fp'
+  export default setMillisecondsWithOptions
+}
+
 declare module 'date-fns/esm/fp/setMinutes/index' {
   import { setMinutes } from 'date-fns/esm/fp'
   export default setMinutes
+}
+
+declare module 'date-fns/esm/fp/setMinutesWithOptions/index' {
+  import { setMinutesWithOptions } from 'date-fns/esm/fp'
+  export default setMinutesWithOptions
 }
 
 declare module 'date-fns/esm/fp/setMonth/index' {
@@ -12609,14 +18882,29 @@ declare module 'date-fns/esm/fp/setMonth/index' {
   export default setMonth
 }
 
+declare module 'date-fns/esm/fp/setMonthWithOptions/index' {
+  import { setMonthWithOptions } from 'date-fns/esm/fp'
+  export default setMonthWithOptions
+}
+
 declare module 'date-fns/esm/fp/setQuarter/index' {
   import { setQuarter } from 'date-fns/esm/fp'
   export default setQuarter
 }
 
+declare module 'date-fns/esm/fp/setQuarterWithOptions/index' {
+  import { setQuarterWithOptions } from 'date-fns/esm/fp'
+  export default setQuarterWithOptions
+}
+
 declare module 'date-fns/esm/fp/setSeconds/index' {
   import { setSeconds } from 'date-fns/esm/fp'
   export default setSeconds
+}
+
+declare module 'date-fns/esm/fp/setSecondsWithOptions/index' {
+  import { setSecondsWithOptions } from 'date-fns/esm/fp'
+  export default setSecondsWithOptions
 }
 
 declare module 'date-fns/esm/fp/setWeek/index' {
@@ -12644,9 +18932,19 @@ declare module 'date-fns/esm/fp/setYear/index' {
   export default setYear
 }
 
+declare module 'date-fns/esm/fp/setYearWithOptions/index' {
+  import { setYearWithOptions } from 'date-fns/esm/fp'
+  export default setYearWithOptions
+}
+
 declare module 'date-fns/esm/fp/startOfDay/index' {
   import { startOfDay } from 'date-fns/esm/fp'
   export default startOfDay
+}
+
+declare module 'date-fns/esm/fp/startOfDayWithOptions/index' {
+  import { startOfDayWithOptions } from 'date-fns/esm/fp'
+  export default startOfDayWithOptions
 }
 
 declare module 'date-fns/esm/fp/startOfDecade/index' {
@@ -12654,9 +18952,19 @@ declare module 'date-fns/esm/fp/startOfDecade/index' {
   export default startOfDecade
 }
 
+declare module 'date-fns/esm/fp/startOfDecadeWithOptions/index' {
+  import { startOfDecadeWithOptions } from 'date-fns/esm/fp'
+  export default startOfDecadeWithOptions
+}
+
 declare module 'date-fns/esm/fp/startOfHour/index' {
   import { startOfHour } from 'date-fns/esm/fp'
   export default startOfHour
+}
+
+declare module 'date-fns/esm/fp/startOfHourWithOptions/index' {
+  import { startOfHourWithOptions } from 'date-fns/esm/fp'
+  export default startOfHourWithOptions
 }
 
 declare module 'date-fns/esm/fp/startOfISOWeek/index' {
@@ -12664,9 +18972,19 @@ declare module 'date-fns/esm/fp/startOfISOWeek/index' {
   export default startOfISOWeek
 }
 
+declare module 'date-fns/esm/fp/startOfISOWeekWithOptions/index' {
+  import { startOfISOWeekWithOptions } from 'date-fns/esm/fp'
+  export default startOfISOWeekWithOptions
+}
+
 declare module 'date-fns/esm/fp/startOfISOWeekYear/index' {
   import { startOfISOWeekYear } from 'date-fns/esm/fp'
   export default startOfISOWeekYear
+}
+
+declare module 'date-fns/esm/fp/startOfISOWeekYearWithOptions/index' {
+  import { startOfISOWeekYearWithOptions } from 'date-fns/esm/fp'
+  export default startOfISOWeekYearWithOptions
 }
 
 declare module 'date-fns/esm/fp/startOfMinute/index' {
@@ -12674,9 +18992,19 @@ declare module 'date-fns/esm/fp/startOfMinute/index' {
   export default startOfMinute
 }
 
+declare module 'date-fns/esm/fp/startOfMinuteWithOptions/index' {
+  import { startOfMinuteWithOptions } from 'date-fns/esm/fp'
+  export default startOfMinuteWithOptions
+}
+
 declare module 'date-fns/esm/fp/startOfMonth/index' {
   import { startOfMonth } from 'date-fns/esm/fp'
   export default startOfMonth
+}
+
+declare module 'date-fns/esm/fp/startOfMonthWithOptions/index' {
+  import { startOfMonthWithOptions } from 'date-fns/esm/fp'
+  export default startOfMonthWithOptions
 }
 
 declare module 'date-fns/esm/fp/startOfQuarter/index' {
@@ -12684,9 +19012,19 @@ declare module 'date-fns/esm/fp/startOfQuarter/index' {
   export default startOfQuarter
 }
 
+declare module 'date-fns/esm/fp/startOfQuarterWithOptions/index' {
+  import { startOfQuarterWithOptions } from 'date-fns/esm/fp'
+  export default startOfQuarterWithOptions
+}
+
 declare module 'date-fns/esm/fp/startOfSecond/index' {
   import { startOfSecond } from 'date-fns/esm/fp'
   export default startOfSecond
+}
+
+declare module 'date-fns/esm/fp/startOfSecondWithOptions/index' {
+  import { startOfSecondWithOptions } from 'date-fns/esm/fp'
+  export default startOfSecondWithOptions
 }
 
 declare module 'date-fns/esm/fp/startOfWeek/index' {
@@ -12714,9 +19052,19 @@ declare module 'date-fns/esm/fp/startOfYear/index' {
   export default startOfYear
 }
 
+declare module 'date-fns/esm/fp/startOfYearWithOptions/index' {
+  import { startOfYearWithOptions } from 'date-fns/esm/fp'
+  export default startOfYearWithOptions
+}
+
 declare module 'date-fns/esm/fp/subDays/index' {
   import { subDays } from 'date-fns/esm/fp'
   export default subDays
+}
+
+declare module 'date-fns/esm/fp/subDaysWithOptions/index' {
+  import { subDaysWithOptions } from 'date-fns/esm/fp'
+  export default subDaysWithOptions
 }
 
 declare module 'date-fns/esm/fp/subHours/index' {
@@ -12724,9 +19072,19 @@ declare module 'date-fns/esm/fp/subHours/index' {
   export default subHours
 }
 
+declare module 'date-fns/esm/fp/subHoursWithOptions/index' {
+  import { subHoursWithOptions } from 'date-fns/esm/fp'
+  export default subHoursWithOptions
+}
+
 declare module 'date-fns/esm/fp/subISOWeekYears/index' {
   import { subISOWeekYears } from 'date-fns/esm/fp'
   export default subISOWeekYears
+}
+
+declare module 'date-fns/esm/fp/subISOWeekYearsWithOptions/index' {
+  import { subISOWeekYearsWithOptions } from 'date-fns/esm/fp'
+  export default subISOWeekYearsWithOptions
 }
 
 declare module 'date-fns/esm/fp/subMilliseconds/index' {
@@ -12734,9 +19092,19 @@ declare module 'date-fns/esm/fp/subMilliseconds/index' {
   export default subMilliseconds
 }
 
+declare module 'date-fns/esm/fp/subMillisecondsWithOptions/index' {
+  import { subMillisecondsWithOptions } from 'date-fns/esm/fp'
+  export default subMillisecondsWithOptions
+}
+
 declare module 'date-fns/esm/fp/subMinutes/index' {
   import { subMinutes } from 'date-fns/esm/fp'
   export default subMinutes
+}
+
+declare module 'date-fns/esm/fp/subMinutesWithOptions/index' {
+  import { subMinutesWithOptions } from 'date-fns/esm/fp'
+  export default subMinutesWithOptions
 }
 
 declare module 'date-fns/esm/fp/subMonths/index' {
@@ -12744,9 +19112,19 @@ declare module 'date-fns/esm/fp/subMonths/index' {
   export default subMonths
 }
 
+declare module 'date-fns/esm/fp/subMonthsWithOptions/index' {
+  import { subMonthsWithOptions } from 'date-fns/esm/fp'
+  export default subMonthsWithOptions
+}
+
 declare module 'date-fns/esm/fp/subQuarters/index' {
   import { subQuarters } from 'date-fns/esm/fp'
   export default subQuarters
+}
+
+declare module 'date-fns/esm/fp/subQuartersWithOptions/index' {
+  import { subQuartersWithOptions } from 'date-fns/esm/fp'
+  export default subQuartersWithOptions
 }
 
 declare module 'date-fns/esm/fp/subSeconds/index' {
@@ -12754,9 +19132,19 @@ declare module 'date-fns/esm/fp/subSeconds/index' {
   export default subSeconds
 }
 
+declare module 'date-fns/esm/fp/subSecondsWithOptions/index' {
+  import { subSecondsWithOptions } from 'date-fns/esm/fp'
+  export default subSecondsWithOptions
+}
+
 declare module 'date-fns/esm/fp/subWeeks/index' {
   import { subWeeks } from 'date-fns/esm/fp'
   export default subWeeks
+}
+
+declare module 'date-fns/esm/fp/subWeeksWithOptions/index' {
+  import { subWeeksWithOptions } from 'date-fns/esm/fp'
+  export default subWeeksWithOptions
 }
 
 declare module 'date-fns/esm/fp/subYears/index' {
@@ -12764,14 +19152,19 @@ declare module 'date-fns/esm/fp/subYears/index' {
   export default subYears
 }
 
+declare module 'date-fns/esm/fp/subYearsWithOptions/index' {
+  import { subYearsWithOptions } from 'date-fns/esm/fp'
+  export default subYearsWithOptions
+}
+
 declare module 'date-fns/esm/fp/toDate/index' {
   import { toDate } from 'date-fns/esm/fp'
   export default toDate
 }
 
-declare module 'date-fns/esm/fp/addBusinessDays/index.js' {
-  import { addBusinessDays } from 'date-fns/esm/fp'
-  export default addBusinessDays
+declare module 'date-fns/esm/fp/toDateWithOptions/index' {
+  import { toDateWithOptions } from 'date-fns/esm/fp'
+  export default toDateWithOptions
 }
 
 declare module 'date-fns/esm/fp/addDays/index.js' {
@@ -12779,9 +19172,19 @@ declare module 'date-fns/esm/fp/addDays/index.js' {
   export default addDays
 }
 
+declare module 'date-fns/esm/fp/addDaysWithOptions/index.js' {
+  import { addDaysWithOptions } from 'date-fns/esm/fp'
+  export default addDaysWithOptions
+}
+
 declare module 'date-fns/esm/fp/addHours/index.js' {
   import { addHours } from 'date-fns/esm/fp'
   export default addHours
+}
+
+declare module 'date-fns/esm/fp/addHoursWithOptions/index.js' {
+  import { addHoursWithOptions } from 'date-fns/esm/fp'
+  export default addHoursWithOptions
 }
 
 declare module 'date-fns/esm/fp/addISOWeekYears/index.js' {
@@ -12789,9 +19192,19 @@ declare module 'date-fns/esm/fp/addISOWeekYears/index.js' {
   export default addISOWeekYears
 }
 
+declare module 'date-fns/esm/fp/addISOWeekYearsWithOptions/index.js' {
+  import { addISOWeekYearsWithOptions } from 'date-fns/esm/fp'
+  export default addISOWeekYearsWithOptions
+}
+
 declare module 'date-fns/esm/fp/addMilliseconds/index.js' {
   import { addMilliseconds } from 'date-fns/esm/fp'
   export default addMilliseconds
+}
+
+declare module 'date-fns/esm/fp/addMillisecondsWithOptions/index.js' {
+  import { addMillisecondsWithOptions } from 'date-fns/esm/fp'
+  export default addMillisecondsWithOptions
 }
 
 declare module 'date-fns/esm/fp/addMinutes/index.js' {
@@ -12799,9 +19212,19 @@ declare module 'date-fns/esm/fp/addMinutes/index.js' {
   export default addMinutes
 }
 
+declare module 'date-fns/esm/fp/addMinutesWithOptions/index.js' {
+  import { addMinutesWithOptions } from 'date-fns/esm/fp'
+  export default addMinutesWithOptions
+}
+
 declare module 'date-fns/esm/fp/addMonths/index.js' {
   import { addMonths } from 'date-fns/esm/fp'
   export default addMonths
+}
+
+declare module 'date-fns/esm/fp/addMonthsWithOptions/index.js' {
+  import { addMonthsWithOptions } from 'date-fns/esm/fp'
+  export default addMonthsWithOptions
 }
 
 declare module 'date-fns/esm/fp/addQuarters/index.js' {
@@ -12809,9 +19232,19 @@ declare module 'date-fns/esm/fp/addQuarters/index.js' {
   export default addQuarters
 }
 
+declare module 'date-fns/esm/fp/addQuartersWithOptions/index.js' {
+  import { addQuartersWithOptions } from 'date-fns/esm/fp'
+  export default addQuartersWithOptions
+}
+
 declare module 'date-fns/esm/fp/addSeconds/index.js' {
   import { addSeconds } from 'date-fns/esm/fp'
   export default addSeconds
+}
+
+declare module 'date-fns/esm/fp/addSecondsWithOptions/index.js' {
+  import { addSecondsWithOptions } from 'date-fns/esm/fp'
+  export default addSecondsWithOptions
 }
 
 declare module 'date-fns/esm/fp/addWeeks/index.js' {
@@ -12819,9 +19252,19 @@ declare module 'date-fns/esm/fp/addWeeks/index.js' {
   export default addWeeks
 }
 
+declare module 'date-fns/esm/fp/addWeeksWithOptions/index.js' {
+  import { addWeeksWithOptions } from 'date-fns/esm/fp'
+  export default addWeeksWithOptions
+}
+
 declare module 'date-fns/esm/fp/addYears/index.js' {
   import { addYears } from 'date-fns/esm/fp'
   export default addYears
+}
+
+declare module 'date-fns/esm/fp/addYearsWithOptions/index.js' {
+  import { addYearsWithOptions } from 'date-fns/esm/fp'
+  export default addYearsWithOptions
 }
 
 declare module 'date-fns/esm/fp/areIntervalsOverlapping/index.js' {
@@ -12829,9 +19272,19 @@ declare module 'date-fns/esm/fp/areIntervalsOverlapping/index.js' {
   export default areIntervalsOverlapping
 }
 
+declare module 'date-fns/esm/fp/areIntervalsOverlappingWithOptions/index.js' {
+  import { areIntervalsOverlappingWithOptions } from 'date-fns/esm/fp'
+  export default areIntervalsOverlappingWithOptions
+}
+
 declare module 'date-fns/esm/fp/closestIndexTo/index.js' {
   import { closestIndexTo } from 'date-fns/esm/fp'
   export default closestIndexTo
+}
+
+declare module 'date-fns/esm/fp/closestIndexToWithOptions/index.js' {
+  import { closestIndexToWithOptions } from 'date-fns/esm/fp'
+  export default closestIndexToWithOptions
 }
 
 declare module 'date-fns/esm/fp/closestTo/index.js' {
@@ -12839,9 +19292,19 @@ declare module 'date-fns/esm/fp/closestTo/index.js' {
   export default closestTo
 }
 
+declare module 'date-fns/esm/fp/closestToWithOptions/index.js' {
+  import { closestToWithOptions } from 'date-fns/esm/fp'
+  export default closestToWithOptions
+}
+
 declare module 'date-fns/esm/fp/compareAsc/index.js' {
   import { compareAsc } from 'date-fns/esm/fp'
   export default compareAsc
+}
+
+declare module 'date-fns/esm/fp/compareAscWithOptions/index.js' {
+  import { compareAscWithOptions } from 'date-fns/esm/fp'
+  export default compareAscWithOptions
 }
 
 declare module 'date-fns/esm/fp/compareDesc/index.js' {
@@ -12849,9 +19312,9 @@ declare module 'date-fns/esm/fp/compareDesc/index.js' {
   export default compareDesc
 }
 
-declare module 'date-fns/esm/fp/differenceInBusinessDays/index.js' {
-  import { differenceInBusinessDays } from 'date-fns/esm/fp'
-  export default differenceInBusinessDays
+declare module 'date-fns/esm/fp/compareDescWithOptions/index.js' {
+  import { compareDescWithOptions } from 'date-fns/esm/fp'
+  export default compareDescWithOptions
 }
 
 declare module 'date-fns/esm/fp/differenceInCalendarDays/index.js' {
@@ -12859,9 +19322,19 @@ declare module 'date-fns/esm/fp/differenceInCalendarDays/index.js' {
   export default differenceInCalendarDays
 }
 
+declare module 'date-fns/esm/fp/differenceInCalendarDaysWithOptions/index.js' {
+  import { differenceInCalendarDaysWithOptions } from 'date-fns/esm/fp'
+  export default differenceInCalendarDaysWithOptions
+}
+
 declare module 'date-fns/esm/fp/differenceInCalendarISOWeeks/index.js' {
   import { differenceInCalendarISOWeeks } from 'date-fns/esm/fp'
   export default differenceInCalendarISOWeeks
+}
+
+declare module 'date-fns/esm/fp/differenceInCalendarISOWeeksWithOptions/index.js' {
+  import { differenceInCalendarISOWeeksWithOptions } from 'date-fns/esm/fp'
+  export default differenceInCalendarISOWeeksWithOptions
 }
 
 declare module 'date-fns/esm/fp/differenceInCalendarISOWeekYears/index.js' {
@@ -12869,14 +19342,29 @@ declare module 'date-fns/esm/fp/differenceInCalendarISOWeekYears/index.js' {
   export default differenceInCalendarISOWeekYears
 }
 
+declare module 'date-fns/esm/fp/differenceInCalendarISOWeekYearsWithOptions/index.js' {
+  import { differenceInCalendarISOWeekYearsWithOptions } from 'date-fns/esm/fp'
+  export default differenceInCalendarISOWeekYearsWithOptions
+}
+
 declare module 'date-fns/esm/fp/differenceInCalendarMonths/index.js' {
   import { differenceInCalendarMonths } from 'date-fns/esm/fp'
   export default differenceInCalendarMonths
 }
 
+declare module 'date-fns/esm/fp/differenceInCalendarMonthsWithOptions/index.js' {
+  import { differenceInCalendarMonthsWithOptions } from 'date-fns/esm/fp'
+  export default differenceInCalendarMonthsWithOptions
+}
+
 declare module 'date-fns/esm/fp/differenceInCalendarQuarters/index.js' {
   import { differenceInCalendarQuarters } from 'date-fns/esm/fp'
   export default differenceInCalendarQuarters
+}
+
+declare module 'date-fns/esm/fp/differenceInCalendarQuartersWithOptions/index.js' {
+  import { differenceInCalendarQuartersWithOptions } from 'date-fns/esm/fp'
+  export default differenceInCalendarQuartersWithOptions
 }
 
 declare module 'date-fns/esm/fp/differenceInCalendarWeeks/index.js' {
@@ -12894,9 +19382,19 @@ declare module 'date-fns/esm/fp/differenceInCalendarYears/index.js' {
   export default differenceInCalendarYears
 }
 
+declare module 'date-fns/esm/fp/differenceInCalendarYearsWithOptions/index.js' {
+  import { differenceInCalendarYearsWithOptions } from 'date-fns/esm/fp'
+  export default differenceInCalendarYearsWithOptions
+}
+
 declare module 'date-fns/esm/fp/differenceInDays/index.js' {
   import { differenceInDays } from 'date-fns/esm/fp'
   export default differenceInDays
+}
+
+declare module 'date-fns/esm/fp/differenceInDaysWithOptions/index.js' {
+  import { differenceInDaysWithOptions } from 'date-fns/esm/fp'
+  export default differenceInDaysWithOptions
 }
 
 declare module 'date-fns/esm/fp/differenceInHours/index.js' {
@@ -12904,9 +19402,19 @@ declare module 'date-fns/esm/fp/differenceInHours/index.js' {
   export default differenceInHours
 }
 
+declare module 'date-fns/esm/fp/differenceInHoursWithOptions/index.js' {
+  import { differenceInHoursWithOptions } from 'date-fns/esm/fp'
+  export default differenceInHoursWithOptions
+}
+
 declare module 'date-fns/esm/fp/differenceInISOWeekYears/index.js' {
   import { differenceInISOWeekYears } from 'date-fns/esm/fp'
   export default differenceInISOWeekYears
+}
+
+declare module 'date-fns/esm/fp/differenceInISOWeekYearsWithOptions/index.js' {
+  import { differenceInISOWeekYearsWithOptions } from 'date-fns/esm/fp'
+  export default differenceInISOWeekYearsWithOptions
 }
 
 declare module 'date-fns/esm/fp/differenceInMilliseconds/index.js' {
@@ -12914,9 +19422,19 @@ declare module 'date-fns/esm/fp/differenceInMilliseconds/index.js' {
   export default differenceInMilliseconds
 }
 
+declare module 'date-fns/esm/fp/differenceInMillisecondsWithOptions/index.js' {
+  import { differenceInMillisecondsWithOptions } from 'date-fns/esm/fp'
+  export default differenceInMillisecondsWithOptions
+}
+
 declare module 'date-fns/esm/fp/differenceInMinutes/index.js' {
   import { differenceInMinutes } from 'date-fns/esm/fp'
   export default differenceInMinutes
+}
+
+declare module 'date-fns/esm/fp/differenceInMinutesWithOptions/index.js' {
+  import { differenceInMinutesWithOptions } from 'date-fns/esm/fp'
+  export default differenceInMinutesWithOptions
 }
 
 declare module 'date-fns/esm/fp/differenceInMonths/index.js' {
@@ -12924,9 +19442,19 @@ declare module 'date-fns/esm/fp/differenceInMonths/index.js' {
   export default differenceInMonths
 }
 
+declare module 'date-fns/esm/fp/differenceInMonthsWithOptions/index.js' {
+  import { differenceInMonthsWithOptions } from 'date-fns/esm/fp'
+  export default differenceInMonthsWithOptions
+}
+
 declare module 'date-fns/esm/fp/differenceInQuarters/index.js' {
   import { differenceInQuarters } from 'date-fns/esm/fp'
   export default differenceInQuarters
+}
+
+declare module 'date-fns/esm/fp/differenceInQuartersWithOptions/index.js' {
+  import { differenceInQuartersWithOptions } from 'date-fns/esm/fp'
+  export default differenceInQuartersWithOptions
 }
 
 declare module 'date-fns/esm/fp/differenceInSeconds/index.js' {
@@ -12934,14 +19462,29 @@ declare module 'date-fns/esm/fp/differenceInSeconds/index.js' {
   export default differenceInSeconds
 }
 
+declare module 'date-fns/esm/fp/differenceInSecondsWithOptions/index.js' {
+  import { differenceInSecondsWithOptions } from 'date-fns/esm/fp'
+  export default differenceInSecondsWithOptions
+}
+
 declare module 'date-fns/esm/fp/differenceInWeeks/index.js' {
   import { differenceInWeeks } from 'date-fns/esm/fp'
   export default differenceInWeeks
 }
 
+declare module 'date-fns/esm/fp/differenceInWeeksWithOptions/index.js' {
+  import { differenceInWeeksWithOptions } from 'date-fns/esm/fp'
+  export default differenceInWeeksWithOptions
+}
+
 declare module 'date-fns/esm/fp/differenceInYears/index.js' {
   import { differenceInYears } from 'date-fns/esm/fp'
   export default differenceInYears
+}
+
+declare module 'date-fns/esm/fp/differenceInYearsWithOptions/index.js' {
+  import { differenceInYearsWithOptions } from 'date-fns/esm/fp'
+  export default differenceInYearsWithOptions
 }
 
 declare module 'date-fns/esm/fp/eachDayOfInterval/index.js' {
@@ -12959,14 +19502,29 @@ declare module 'date-fns/esm/fp/eachWeekendOfInterval/index.js' {
   export default eachWeekendOfInterval
 }
 
+declare module 'date-fns/esm/fp/eachWeekendOfIntervalWithOptions/index.js' {
+  import { eachWeekendOfIntervalWithOptions } from 'date-fns/esm/fp'
+  export default eachWeekendOfIntervalWithOptions
+}
+
 declare module 'date-fns/esm/fp/eachWeekendOfMonth/index.js' {
   import { eachWeekendOfMonth } from 'date-fns/esm/fp'
   export default eachWeekendOfMonth
 }
 
+declare module 'date-fns/esm/fp/eachWeekendOfMonthWithOptions/index.js' {
+  import { eachWeekendOfMonthWithOptions } from 'date-fns/esm/fp'
+  export default eachWeekendOfMonthWithOptions
+}
+
 declare module 'date-fns/esm/fp/eachWeekendOfYear/index.js' {
   import { eachWeekendOfYear } from 'date-fns/esm/fp'
   export default eachWeekendOfYear
+}
+
+declare module 'date-fns/esm/fp/eachWeekendOfYearWithOptions/index.js' {
+  import { eachWeekendOfYearWithOptions } from 'date-fns/esm/fp'
+  export default eachWeekendOfYearWithOptions
 }
 
 declare module 'date-fns/esm/fp/eachWeekOfInterval/index.js' {
@@ -12984,6 +19542,11 @@ declare module 'date-fns/esm/fp/endOfDay/index.js' {
   export default endOfDay
 }
 
+declare module 'date-fns/esm/fp/endOfDayWithOptions/index.js' {
+  import { endOfDayWithOptions } from 'date-fns/esm/fp'
+  export default endOfDayWithOptions
+}
+
 declare module 'date-fns/esm/fp/endOfDecade/index.js' {
   import { endOfDecade } from 'date-fns/esm/fp'
   export default endOfDecade
@@ -12999,9 +19562,19 @@ declare module 'date-fns/esm/fp/endOfHour/index.js' {
   export default endOfHour
 }
 
+declare module 'date-fns/esm/fp/endOfHourWithOptions/index.js' {
+  import { endOfHourWithOptions } from 'date-fns/esm/fp'
+  export default endOfHourWithOptions
+}
+
 declare module 'date-fns/esm/fp/endOfISOWeek/index.js' {
   import { endOfISOWeek } from 'date-fns/esm/fp'
   export default endOfISOWeek
+}
+
+declare module 'date-fns/esm/fp/endOfISOWeekWithOptions/index.js' {
+  import { endOfISOWeekWithOptions } from 'date-fns/esm/fp'
+  export default endOfISOWeekWithOptions
 }
 
 declare module 'date-fns/esm/fp/endOfISOWeekYear/index.js' {
@@ -13009,9 +19582,19 @@ declare module 'date-fns/esm/fp/endOfISOWeekYear/index.js' {
   export default endOfISOWeekYear
 }
 
+declare module 'date-fns/esm/fp/endOfISOWeekYearWithOptions/index.js' {
+  import { endOfISOWeekYearWithOptions } from 'date-fns/esm/fp'
+  export default endOfISOWeekYearWithOptions
+}
+
 declare module 'date-fns/esm/fp/endOfMinute/index.js' {
   import { endOfMinute } from 'date-fns/esm/fp'
   export default endOfMinute
+}
+
+declare module 'date-fns/esm/fp/endOfMinuteWithOptions/index.js' {
+  import { endOfMinuteWithOptions } from 'date-fns/esm/fp'
+  export default endOfMinuteWithOptions
 }
 
 declare module 'date-fns/esm/fp/endOfMonth/index.js' {
@@ -13019,14 +19602,29 @@ declare module 'date-fns/esm/fp/endOfMonth/index.js' {
   export default endOfMonth
 }
 
+declare module 'date-fns/esm/fp/endOfMonthWithOptions/index.js' {
+  import { endOfMonthWithOptions } from 'date-fns/esm/fp'
+  export default endOfMonthWithOptions
+}
+
 declare module 'date-fns/esm/fp/endOfQuarter/index.js' {
   import { endOfQuarter } from 'date-fns/esm/fp'
   export default endOfQuarter
 }
 
+declare module 'date-fns/esm/fp/endOfQuarterWithOptions/index.js' {
+  import { endOfQuarterWithOptions } from 'date-fns/esm/fp'
+  export default endOfQuarterWithOptions
+}
+
 declare module 'date-fns/esm/fp/endOfSecond/index.js' {
   import { endOfSecond } from 'date-fns/esm/fp'
   export default endOfSecond
+}
+
+declare module 'date-fns/esm/fp/endOfSecondWithOptions/index.js' {
+  import { endOfSecondWithOptions } from 'date-fns/esm/fp'
+  export default endOfSecondWithOptions
 }
 
 declare module 'date-fns/esm/fp/endOfWeek/index.js' {
@@ -13042,6 +19640,11 @@ declare module 'date-fns/esm/fp/endOfWeekWithOptions/index.js' {
 declare module 'date-fns/esm/fp/endOfYear/index.js' {
   import { endOfYear } from 'date-fns/esm/fp'
   export default endOfYear
+}
+
+declare module 'date-fns/esm/fp/endOfYearWithOptions/index.js' {
+  import { endOfYearWithOptions } from 'date-fns/esm/fp'
+  export default endOfYearWithOptions
 }
 
 declare module 'date-fns/esm/fp/format/index.js' {
@@ -13089,9 +19692,19 @@ declare module 'date-fns/esm/fp/fromUnixTime/index.js' {
   export default fromUnixTime
 }
 
+declare module 'date-fns/esm/fp/fromUnixTimeWithOptions/index.js' {
+  import { fromUnixTimeWithOptions } from 'date-fns/esm/fp'
+  export default fromUnixTimeWithOptions
+}
+
 declare module 'date-fns/esm/fp/getDate/index.js' {
   import { getDate } from 'date-fns/esm/fp'
   export default getDate
+}
+
+declare module 'date-fns/esm/fp/getDateWithOptions/index.js' {
+  import { getDateWithOptions } from 'date-fns/esm/fp'
+  export default getDateWithOptions
 }
 
 declare module 'date-fns/esm/fp/getDay/index.js' {
@@ -13104,9 +19717,19 @@ declare module 'date-fns/esm/fp/getDayOfYear/index.js' {
   export default getDayOfYear
 }
 
+declare module 'date-fns/esm/fp/getDayOfYearWithOptions/index.js' {
+  import { getDayOfYearWithOptions } from 'date-fns/esm/fp'
+  export default getDayOfYearWithOptions
+}
+
 declare module 'date-fns/esm/fp/getDaysInMonth/index.js' {
   import { getDaysInMonth } from 'date-fns/esm/fp'
   export default getDaysInMonth
+}
+
+declare module 'date-fns/esm/fp/getDaysInMonthWithOptions/index.js' {
+  import { getDaysInMonthWithOptions } from 'date-fns/esm/fp'
+  export default getDaysInMonthWithOptions
 }
 
 declare module 'date-fns/esm/fp/getDaysInYear/index.js' {
@@ -13114,9 +19737,24 @@ declare module 'date-fns/esm/fp/getDaysInYear/index.js' {
   export default getDaysInYear
 }
 
+declare module 'date-fns/esm/fp/getDaysInYearWithOptions/index.js' {
+  import { getDaysInYearWithOptions } from 'date-fns/esm/fp'
+  export default getDaysInYearWithOptions
+}
+
+declare module 'date-fns/esm/fp/getDayWithOptions/index.js' {
+  import { getDayWithOptions } from 'date-fns/esm/fp'
+  export default getDayWithOptions
+}
+
 declare module 'date-fns/esm/fp/getDecade/index.js' {
   import { getDecade } from 'date-fns/esm/fp'
   export default getDecade
+}
+
+declare module 'date-fns/esm/fp/getDecadeWithOptions/index.js' {
+  import { getDecadeWithOptions } from 'date-fns/esm/fp'
+  export default getDecadeWithOptions
 }
 
 declare module 'date-fns/esm/fp/getHours/index.js' {
@@ -13124,9 +19762,19 @@ declare module 'date-fns/esm/fp/getHours/index.js' {
   export default getHours
 }
 
+declare module 'date-fns/esm/fp/getHoursWithOptions/index.js' {
+  import { getHoursWithOptions } from 'date-fns/esm/fp'
+  export default getHoursWithOptions
+}
+
 declare module 'date-fns/esm/fp/getISODay/index.js' {
   import { getISODay } from 'date-fns/esm/fp'
   export default getISODay
+}
+
+declare module 'date-fns/esm/fp/getISODayWithOptions/index.js' {
+  import { getISODayWithOptions } from 'date-fns/esm/fp'
+  export default getISODayWithOptions
 }
 
 declare module 'date-fns/esm/fp/getISOWeek/index.js' {
@@ -13139,9 +19787,24 @@ declare module 'date-fns/esm/fp/getISOWeeksInYear/index.js' {
   export default getISOWeeksInYear
 }
 
+declare module 'date-fns/esm/fp/getISOWeeksInYearWithOptions/index.js' {
+  import { getISOWeeksInYearWithOptions } from 'date-fns/esm/fp'
+  export default getISOWeeksInYearWithOptions
+}
+
+declare module 'date-fns/esm/fp/getISOWeekWithOptions/index.js' {
+  import { getISOWeekWithOptions } from 'date-fns/esm/fp'
+  export default getISOWeekWithOptions
+}
+
 declare module 'date-fns/esm/fp/getISOWeekYear/index.js' {
   import { getISOWeekYear } from 'date-fns/esm/fp'
   export default getISOWeekYear
+}
+
+declare module 'date-fns/esm/fp/getISOWeekYearWithOptions/index.js' {
+  import { getISOWeekYearWithOptions } from 'date-fns/esm/fp'
+  export default getISOWeekYearWithOptions
 }
 
 declare module 'date-fns/esm/fp/getMilliseconds/index.js' {
@@ -13149,9 +19812,19 @@ declare module 'date-fns/esm/fp/getMilliseconds/index.js' {
   export default getMilliseconds
 }
 
+declare module 'date-fns/esm/fp/getMillisecondsWithOptions/index.js' {
+  import { getMillisecondsWithOptions } from 'date-fns/esm/fp'
+  export default getMillisecondsWithOptions
+}
+
 declare module 'date-fns/esm/fp/getMinutes/index.js' {
   import { getMinutes } from 'date-fns/esm/fp'
   export default getMinutes
+}
+
+declare module 'date-fns/esm/fp/getMinutesWithOptions/index.js' {
+  import { getMinutesWithOptions } from 'date-fns/esm/fp'
+  export default getMinutesWithOptions
 }
 
 declare module 'date-fns/esm/fp/getMonth/index.js' {
@@ -13159,9 +19832,19 @@ declare module 'date-fns/esm/fp/getMonth/index.js' {
   export default getMonth
 }
 
+declare module 'date-fns/esm/fp/getMonthWithOptions/index.js' {
+  import { getMonthWithOptions } from 'date-fns/esm/fp'
+  export default getMonthWithOptions
+}
+
 declare module 'date-fns/esm/fp/getOverlappingDaysInIntervals/index.js' {
   import { getOverlappingDaysInIntervals } from 'date-fns/esm/fp'
   export default getOverlappingDaysInIntervals
+}
+
+declare module 'date-fns/esm/fp/getOverlappingDaysInIntervalsWithOptions/index.js' {
+  import { getOverlappingDaysInIntervalsWithOptions } from 'date-fns/esm/fp'
+  export default getOverlappingDaysInIntervalsWithOptions
 }
 
 declare module 'date-fns/esm/fp/getQuarter/index.js' {
@@ -13169,9 +19852,19 @@ declare module 'date-fns/esm/fp/getQuarter/index.js' {
   export default getQuarter
 }
 
+declare module 'date-fns/esm/fp/getQuarterWithOptions/index.js' {
+  import { getQuarterWithOptions } from 'date-fns/esm/fp'
+  export default getQuarterWithOptions
+}
+
 declare module 'date-fns/esm/fp/getSeconds/index.js' {
   import { getSeconds } from 'date-fns/esm/fp'
   export default getSeconds
+}
+
+declare module 'date-fns/esm/fp/getSecondsWithOptions/index.js' {
+  import { getSecondsWithOptions } from 'date-fns/esm/fp'
+  export default getSecondsWithOptions
 }
 
 declare module 'date-fns/esm/fp/getTime/index.js' {
@@ -13179,9 +19872,19 @@ declare module 'date-fns/esm/fp/getTime/index.js' {
   export default getTime
 }
 
+declare module 'date-fns/esm/fp/getTimeWithOptions/index.js' {
+  import { getTimeWithOptions } from 'date-fns/esm/fp'
+  export default getTimeWithOptions
+}
+
 declare module 'date-fns/esm/fp/getUnixTime/index.js' {
   import { getUnixTime } from 'date-fns/esm/fp'
   export default getUnixTime
+}
+
+declare module 'date-fns/esm/fp/getUnixTimeWithOptions/index.js' {
+  import { getUnixTimeWithOptions } from 'date-fns/esm/fp'
+  export default getUnixTimeWithOptions
 }
 
 declare module 'date-fns/esm/fp/getWeek/index.js' {
@@ -13229,9 +19932,19 @@ declare module 'date-fns/esm/fp/getYear/index.js' {
   export default getYear
 }
 
+declare module 'date-fns/esm/fp/getYearWithOptions/index.js' {
+  import { getYearWithOptions } from 'date-fns/esm/fp'
+  export default getYearWithOptions
+}
+
 declare module 'date-fns/esm/fp/isAfter/index.js' {
   import { isAfter } from 'date-fns/esm/fp'
   export default isAfter
+}
+
+declare module 'date-fns/esm/fp/isAfterWithOptions/index.js' {
+  import { isAfterWithOptions } from 'date-fns/esm/fp'
+  export default isAfterWithOptions
 }
 
 declare module 'date-fns/esm/fp/isBefore/index.js' {
@@ -13239,9 +19952,19 @@ declare module 'date-fns/esm/fp/isBefore/index.js' {
   export default isBefore
 }
 
+declare module 'date-fns/esm/fp/isBeforeWithOptions/index.js' {
+  import { isBeforeWithOptions } from 'date-fns/esm/fp'
+  export default isBeforeWithOptions
+}
+
 declare module 'date-fns/esm/fp/isDate/index.js' {
   import { isDate } from 'date-fns/esm/fp'
   export default isDate
+}
+
+declare module 'date-fns/esm/fp/isDateWithOptions/index.js' {
+  import { isDateWithOptions } from 'date-fns/esm/fp'
+  export default isDateWithOptions
 }
 
 declare module 'date-fns/esm/fp/isEqual/index.js' {
@@ -13249,9 +19972,19 @@ declare module 'date-fns/esm/fp/isEqual/index.js' {
   export default isEqual
 }
 
+declare module 'date-fns/esm/fp/isEqualWithOptions/index.js' {
+  import { isEqualWithOptions } from 'date-fns/esm/fp'
+  export default isEqualWithOptions
+}
+
 declare module 'date-fns/esm/fp/isFirstDayOfMonth/index.js' {
   import { isFirstDayOfMonth } from 'date-fns/esm/fp'
   export default isFirstDayOfMonth
+}
+
+declare module 'date-fns/esm/fp/isFirstDayOfMonthWithOptions/index.js' {
+  import { isFirstDayOfMonthWithOptions } from 'date-fns/esm/fp'
+  export default isFirstDayOfMonthWithOptions
 }
 
 declare module 'date-fns/esm/fp/isFriday/index.js' {
@@ -13259,9 +19992,19 @@ declare module 'date-fns/esm/fp/isFriday/index.js' {
   export default isFriday
 }
 
+declare module 'date-fns/esm/fp/isFridayWithOptions/index.js' {
+  import { isFridayWithOptions } from 'date-fns/esm/fp'
+  export default isFridayWithOptions
+}
+
 declare module 'date-fns/esm/fp/isLastDayOfMonth/index.js' {
   import { isLastDayOfMonth } from 'date-fns/esm/fp'
   export default isLastDayOfMonth
+}
+
+declare module 'date-fns/esm/fp/isLastDayOfMonthWithOptions/index.js' {
+  import { isLastDayOfMonthWithOptions } from 'date-fns/esm/fp'
+  export default isLastDayOfMonthWithOptions
 }
 
 declare module 'date-fns/esm/fp/isLeapYear/index.js' {
@@ -13269,9 +20012,19 @@ declare module 'date-fns/esm/fp/isLeapYear/index.js' {
   export default isLeapYear
 }
 
+declare module 'date-fns/esm/fp/isLeapYearWithOptions/index.js' {
+  import { isLeapYearWithOptions } from 'date-fns/esm/fp'
+  export default isLeapYearWithOptions
+}
+
 declare module 'date-fns/esm/fp/isMonday/index.js' {
   import { isMonday } from 'date-fns/esm/fp'
   export default isMonday
+}
+
+declare module 'date-fns/esm/fp/isMondayWithOptions/index.js' {
+  import { isMondayWithOptions } from 'date-fns/esm/fp'
+  export default isMondayWithOptions
 }
 
 declare module 'date-fns/esm/fp/isSameDay/index.js' {
@@ -13279,9 +20032,19 @@ declare module 'date-fns/esm/fp/isSameDay/index.js' {
   export default isSameDay
 }
 
+declare module 'date-fns/esm/fp/isSameDayWithOptions/index.js' {
+  import { isSameDayWithOptions } from 'date-fns/esm/fp'
+  export default isSameDayWithOptions
+}
+
 declare module 'date-fns/esm/fp/isSameHour/index.js' {
   import { isSameHour } from 'date-fns/esm/fp'
   export default isSameHour
+}
+
+declare module 'date-fns/esm/fp/isSameHourWithOptions/index.js' {
+  import { isSameHourWithOptions } from 'date-fns/esm/fp'
+  export default isSameHourWithOptions
 }
 
 declare module 'date-fns/esm/fp/isSameISOWeek/index.js' {
@@ -13289,9 +20052,19 @@ declare module 'date-fns/esm/fp/isSameISOWeek/index.js' {
   export default isSameISOWeek
 }
 
+declare module 'date-fns/esm/fp/isSameISOWeekWithOptions/index.js' {
+  import { isSameISOWeekWithOptions } from 'date-fns/esm/fp'
+  export default isSameISOWeekWithOptions
+}
+
 declare module 'date-fns/esm/fp/isSameISOWeekYear/index.js' {
   import { isSameISOWeekYear } from 'date-fns/esm/fp'
   export default isSameISOWeekYear
+}
+
+declare module 'date-fns/esm/fp/isSameISOWeekYearWithOptions/index.js' {
+  import { isSameISOWeekYearWithOptions } from 'date-fns/esm/fp'
+  export default isSameISOWeekYearWithOptions
 }
 
 declare module 'date-fns/esm/fp/isSameMinute/index.js' {
@@ -13299,9 +20072,19 @@ declare module 'date-fns/esm/fp/isSameMinute/index.js' {
   export default isSameMinute
 }
 
+declare module 'date-fns/esm/fp/isSameMinuteWithOptions/index.js' {
+  import { isSameMinuteWithOptions } from 'date-fns/esm/fp'
+  export default isSameMinuteWithOptions
+}
+
 declare module 'date-fns/esm/fp/isSameMonth/index.js' {
   import { isSameMonth } from 'date-fns/esm/fp'
   export default isSameMonth
+}
+
+declare module 'date-fns/esm/fp/isSameMonthWithOptions/index.js' {
+  import { isSameMonthWithOptions } from 'date-fns/esm/fp'
+  export default isSameMonthWithOptions
 }
 
 declare module 'date-fns/esm/fp/isSameQuarter/index.js' {
@@ -13309,9 +20092,19 @@ declare module 'date-fns/esm/fp/isSameQuarter/index.js' {
   export default isSameQuarter
 }
 
+declare module 'date-fns/esm/fp/isSameQuarterWithOptions/index.js' {
+  import { isSameQuarterWithOptions } from 'date-fns/esm/fp'
+  export default isSameQuarterWithOptions
+}
+
 declare module 'date-fns/esm/fp/isSameSecond/index.js' {
   import { isSameSecond } from 'date-fns/esm/fp'
   export default isSameSecond
+}
+
+declare module 'date-fns/esm/fp/isSameSecondWithOptions/index.js' {
+  import { isSameSecondWithOptions } from 'date-fns/esm/fp'
+  export default isSameSecondWithOptions
 }
 
 declare module 'date-fns/esm/fp/isSameWeek/index.js' {
@@ -13329,9 +20122,19 @@ declare module 'date-fns/esm/fp/isSameYear/index.js' {
   export default isSameYear
 }
 
+declare module 'date-fns/esm/fp/isSameYearWithOptions/index.js' {
+  import { isSameYearWithOptions } from 'date-fns/esm/fp'
+  export default isSameYearWithOptions
+}
+
 declare module 'date-fns/esm/fp/isSaturday/index.js' {
   import { isSaturday } from 'date-fns/esm/fp'
   export default isSaturday
+}
+
+declare module 'date-fns/esm/fp/isSaturdayWithOptions/index.js' {
+  import { isSaturdayWithOptions } from 'date-fns/esm/fp'
+  export default isSaturdayWithOptions
 }
 
 declare module 'date-fns/esm/fp/isSunday/index.js' {
@@ -13339,9 +20142,19 @@ declare module 'date-fns/esm/fp/isSunday/index.js' {
   export default isSunday
 }
 
+declare module 'date-fns/esm/fp/isSundayWithOptions/index.js' {
+  import { isSundayWithOptions } from 'date-fns/esm/fp'
+  export default isSundayWithOptions
+}
+
 declare module 'date-fns/esm/fp/isThursday/index.js' {
   import { isThursday } from 'date-fns/esm/fp'
   export default isThursday
+}
+
+declare module 'date-fns/esm/fp/isThursdayWithOptions/index.js' {
+  import { isThursdayWithOptions } from 'date-fns/esm/fp'
+  export default isThursdayWithOptions
 }
 
 declare module 'date-fns/esm/fp/isTuesday/index.js' {
@@ -13349,9 +20162,19 @@ declare module 'date-fns/esm/fp/isTuesday/index.js' {
   export default isTuesday
 }
 
+declare module 'date-fns/esm/fp/isTuesdayWithOptions/index.js' {
+  import { isTuesdayWithOptions } from 'date-fns/esm/fp'
+  export default isTuesdayWithOptions
+}
+
 declare module 'date-fns/esm/fp/isValid/index.js' {
   import { isValid } from 'date-fns/esm/fp'
   export default isValid
+}
+
+declare module 'date-fns/esm/fp/isValidWithOptions/index.js' {
+  import { isValidWithOptions } from 'date-fns/esm/fp'
+  export default isValidWithOptions
 }
 
 declare module 'date-fns/esm/fp/isWednesday/index.js' {
@@ -13359,9 +20182,19 @@ declare module 'date-fns/esm/fp/isWednesday/index.js' {
   export default isWednesday
 }
 
+declare module 'date-fns/esm/fp/isWednesdayWithOptions/index.js' {
+  import { isWednesdayWithOptions } from 'date-fns/esm/fp'
+  export default isWednesdayWithOptions
+}
+
 declare module 'date-fns/esm/fp/isWeekend/index.js' {
   import { isWeekend } from 'date-fns/esm/fp'
   export default isWeekend
+}
+
+declare module 'date-fns/esm/fp/isWeekendWithOptions/index.js' {
+  import { isWeekendWithOptions } from 'date-fns/esm/fp'
+  export default isWeekendWithOptions
 }
 
 declare module 'date-fns/esm/fp/isWithinInterval/index.js' {
@@ -13369,9 +20202,19 @@ declare module 'date-fns/esm/fp/isWithinInterval/index.js' {
   export default isWithinInterval
 }
 
+declare module 'date-fns/esm/fp/isWithinIntervalWithOptions/index.js' {
+  import { isWithinIntervalWithOptions } from 'date-fns/esm/fp'
+  export default isWithinIntervalWithOptions
+}
+
 declare module 'date-fns/esm/fp/lastDayOfDecade/index.js' {
   import { lastDayOfDecade } from 'date-fns/esm/fp'
   export default lastDayOfDecade
+}
+
+declare module 'date-fns/esm/fp/lastDayOfDecadeWithOptions/index.js' {
+  import { lastDayOfDecadeWithOptions } from 'date-fns/esm/fp'
+  export default lastDayOfDecadeWithOptions
 }
 
 declare module 'date-fns/esm/fp/lastDayOfISOWeek/index.js' {
@@ -13379,14 +20222,29 @@ declare module 'date-fns/esm/fp/lastDayOfISOWeek/index.js' {
   export default lastDayOfISOWeek
 }
 
+declare module 'date-fns/esm/fp/lastDayOfISOWeekWithOptions/index.js' {
+  import { lastDayOfISOWeekWithOptions } from 'date-fns/esm/fp'
+  export default lastDayOfISOWeekWithOptions
+}
+
 declare module 'date-fns/esm/fp/lastDayOfISOWeekYear/index.js' {
   import { lastDayOfISOWeekYear } from 'date-fns/esm/fp'
   export default lastDayOfISOWeekYear
 }
 
+declare module 'date-fns/esm/fp/lastDayOfISOWeekYearWithOptions/index.js' {
+  import { lastDayOfISOWeekYearWithOptions } from 'date-fns/esm/fp'
+  export default lastDayOfISOWeekYearWithOptions
+}
+
 declare module 'date-fns/esm/fp/lastDayOfMonth/index.js' {
   import { lastDayOfMonth } from 'date-fns/esm/fp'
   export default lastDayOfMonth
+}
+
+declare module 'date-fns/esm/fp/lastDayOfMonthWithOptions/index.js' {
+  import { lastDayOfMonthWithOptions } from 'date-fns/esm/fp'
+  export default lastDayOfMonthWithOptions
 }
 
 declare module 'date-fns/esm/fp/lastDayOfQuarter/index.js' {
@@ -13414,9 +20272,9 @@ declare module 'date-fns/esm/fp/lastDayOfYear/index.js' {
   export default lastDayOfYear
 }
 
-declare module 'date-fns/esm/fp/lightFormat/index.js' {
-  import { lightFormat } from 'date-fns/esm/fp'
-  export default lightFormat
+declare module 'date-fns/esm/fp/lastDayOfYearWithOptions/index.js' {
+  import { lastDayOfYearWithOptions } from 'date-fns/esm/fp'
+  export default lastDayOfYearWithOptions
 }
 
 declare module 'date-fns/esm/fp/max/index.js' {
@@ -13424,24 +20282,24 @@ declare module 'date-fns/esm/fp/max/index.js' {
   export default max
 }
 
+declare module 'date-fns/esm/fp/maxWithOptions/index.js' {
+  import { maxWithOptions } from 'date-fns/esm/fp'
+  export default maxWithOptions
+}
+
 declare module 'date-fns/esm/fp/min/index.js' {
   import { min } from 'date-fns/esm/fp'
   export default min
 }
 
+declare module 'date-fns/esm/fp/minWithOptions/index.js' {
+  import { minWithOptions } from 'date-fns/esm/fp'
+  export default minWithOptions
+}
+
 declare module 'date-fns/esm/fp/parse/index.js' {
   import { parse } from 'date-fns/esm/fp'
   export default parse
-}
-
-declare module 'date-fns/esm/fp/parseISO/index.js' {
-  import { parseISO } from 'date-fns/esm/fp'
-  export default parseISO
-}
-
-declare module 'date-fns/esm/fp/parseISOWithOptions/index.js' {
-  import { parseISOWithOptions } from 'date-fns/esm/fp'
-  export default parseISOWithOptions
 }
 
 declare module 'date-fns/esm/fp/parseWithOptions/index.js' {
@@ -13464,6 +20322,11 @@ declare module 'date-fns/esm/fp/setDate/index.js' {
   export default setDate
 }
 
+declare module 'date-fns/esm/fp/setDateWithOptions/index.js' {
+  import { setDateWithOptions } from 'date-fns/esm/fp'
+  export default setDateWithOptions
+}
+
 declare module 'date-fns/esm/fp/setDay/index.js' {
   import { setDay } from 'date-fns/esm/fp'
   export default setDay
@@ -13472,6 +20335,11 @@ declare module 'date-fns/esm/fp/setDay/index.js' {
 declare module 'date-fns/esm/fp/setDayOfYear/index.js' {
   import { setDayOfYear } from 'date-fns/esm/fp'
   export default setDayOfYear
+}
+
+declare module 'date-fns/esm/fp/setDayOfYearWithOptions/index.js' {
+  import { setDayOfYearWithOptions } from 'date-fns/esm/fp'
+  export default setDayOfYearWithOptions
 }
 
 declare module 'date-fns/esm/fp/setDayWithOptions/index.js' {
@@ -13484,9 +20352,19 @@ declare module 'date-fns/esm/fp/setHours/index.js' {
   export default setHours
 }
 
+declare module 'date-fns/esm/fp/setHoursWithOptions/index.js' {
+  import { setHoursWithOptions } from 'date-fns/esm/fp'
+  export default setHoursWithOptions
+}
+
 declare module 'date-fns/esm/fp/setISODay/index.js' {
   import { setISODay } from 'date-fns/esm/fp'
   export default setISODay
+}
+
+declare module 'date-fns/esm/fp/setISODayWithOptions/index.js' {
+  import { setISODayWithOptions } from 'date-fns/esm/fp'
+  export default setISODayWithOptions
 }
 
 declare module 'date-fns/esm/fp/setISOWeek/index.js' {
@@ -13494,9 +20372,19 @@ declare module 'date-fns/esm/fp/setISOWeek/index.js' {
   export default setISOWeek
 }
 
+declare module 'date-fns/esm/fp/setISOWeekWithOptions/index.js' {
+  import { setISOWeekWithOptions } from 'date-fns/esm/fp'
+  export default setISOWeekWithOptions
+}
+
 declare module 'date-fns/esm/fp/setISOWeekYear/index.js' {
   import { setISOWeekYear } from 'date-fns/esm/fp'
   export default setISOWeekYear
+}
+
+declare module 'date-fns/esm/fp/setISOWeekYearWithOptions/index.js' {
+  import { setISOWeekYearWithOptions } from 'date-fns/esm/fp'
+  export default setISOWeekYearWithOptions
 }
 
 declare module 'date-fns/esm/fp/setMilliseconds/index.js' {
@@ -13504,9 +20392,19 @@ declare module 'date-fns/esm/fp/setMilliseconds/index.js' {
   export default setMilliseconds
 }
 
+declare module 'date-fns/esm/fp/setMillisecondsWithOptions/index.js' {
+  import { setMillisecondsWithOptions } from 'date-fns/esm/fp'
+  export default setMillisecondsWithOptions
+}
+
 declare module 'date-fns/esm/fp/setMinutes/index.js' {
   import { setMinutes } from 'date-fns/esm/fp'
   export default setMinutes
+}
+
+declare module 'date-fns/esm/fp/setMinutesWithOptions/index.js' {
+  import { setMinutesWithOptions } from 'date-fns/esm/fp'
+  export default setMinutesWithOptions
 }
 
 declare module 'date-fns/esm/fp/setMonth/index.js' {
@@ -13514,14 +20412,29 @@ declare module 'date-fns/esm/fp/setMonth/index.js' {
   export default setMonth
 }
 
+declare module 'date-fns/esm/fp/setMonthWithOptions/index.js' {
+  import { setMonthWithOptions } from 'date-fns/esm/fp'
+  export default setMonthWithOptions
+}
+
 declare module 'date-fns/esm/fp/setQuarter/index.js' {
   import { setQuarter } from 'date-fns/esm/fp'
   export default setQuarter
 }
 
+declare module 'date-fns/esm/fp/setQuarterWithOptions/index.js' {
+  import { setQuarterWithOptions } from 'date-fns/esm/fp'
+  export default setQuarterWithOptions
+}
+
 declare module 'date-fns/esm/fp/setSeconds/index.js' {
   import { setSeconds } from 'date-fns/esm/fp'
   export default setSeconds
+}
+
+declare module 'date-fns/esm/fp/setSecondsWithOptions/index.js' {
+  import { setSecondsWithOptions } from 'date-fns/esm/fp'
+  export default setSecondsWithOptions
 }
 
 declare module 'date-fns/esm/fp/setWeek/index.js' {
@@ -13549,9 +20462,19 @@ declare module 'date-fns/esm/fp/setYear/index.js' {
   export default setYear
 }
 
+declare module 'date-fns/esm/fp/setYearWithOptions/index.js' {
+  import { setYearWithOptions } from 'date-fns/esm/fp'
+  export default setYearWithOptions
+}
+
 declare module 'date-fns/esm/fp/startOfDay/index.js' {
   import { startOfDay } from 'date-fns/esm/fp'
   export default startOfDay
+}
+
+declare module 'date-fns/esm/fp/startOfDayWithOptions/index.js' {
+  import { startOfDayWithOptions } from 'date-fns/esm/fp'
+  export default startOfDayWithOptions
 }
 
 declare module 'date-fns/esm/fp/startOfDecade/index.js' {
@@ -13559,9 +20482,19 @@ declare module 'date-fns/esm/fp/startOfDecade/index.js' {
   export default startOfDecade
 }
 
+declare module 'date-fns/esm/fp/startOfDecadeWithOptions/index.js' {
+  import { startOfDecadeWithOptions } from 'date-fns/esm/fp'
+  export default startOfDecadeWithOptions
+}
+
 declare module 'date-fns/esm/fp/startOfHour/index.js' {
   import { startOfHour } from 'date-fns/esm/fp'
   export default startOfHour
+}
+
+declare module 'date-fns/esm/fp/startOfHourWithOptions/index.js' {
+  import { startOfHourWithOptions } from 'date-fns/esm/fp'
+  export default startOfHourWithOptions
 }
 
 declare module 'date-fns/esm/fp/startOfISOWeek/index.js' {
@@ -13569,9 +20502,19 @@ declare module 'date-fns/esm/fp/startOfISOWeek/index.js' {
   export default startOfISOWeek
 }
 
+declare module 'date-fns/esm/fp/startOfISOWeekWithOptions/index.js' {
+  import { startOfISOWeekWithOptions } from 'date-fns/esm/fp'
+  export default startOfISOWeekWithOptions
+}
+
 declare module 'date-fns/esm/fp/startOfISOWeekYear/index.js' {
   import { startOfISOWeekYear } from 'date-fns/esm/fp'
   export default startOfISOWeekYear
+}
+
+declare module 'date-fns/esm/fp/startOfISOWeekYearWithOptions/index.js' {
+  import { startOfISOWeekYearWithOptions } from 'date-fns/esm/fp'
+  export default startOfISOWeekYearWithOptions
 }
 
 declare module 'date-fns/esm/fp/startOfMinute/index.js' {
@@ -13579,9 +20522,19 @@ declare module 'date-fns/esm/fp/startOfMinute/index.js' {
   export default startOfMinute
 }
 
+declare module 'date-fns/esm/fp/startOfMinuteWithOptions/index.js' {
+  import { startOfMinuteWithOptions } from 'date-fns/esm/fp'
+  export default startOfMinuteWithOptions
+}
+
 declare module 'date-fns/esm/fp/startOfMonth/index.js' {
   import { startOfMonth } from 'date-fns/esm/fp'
   export default startOfMonth
+}
+
+declare module 'date-fns/esm/fp/startOfMonthWithOptions/index.js' {
+  import { startOfMonthWithOptions } from 'date-fns/esm/fp'
+  export default startOfMonthWithOptions
 }
 
 declare module 'date-fns/esm/fp/startOfQuarter/index.js' {
@@ -13589,9 +20542,19 @@ declare module 'date-fns/esm/fp/startOfQuarter/index.js' {
   export default startOfQuarter
 }
 
+declare module 'date-fns/esm/fp/startOfQuarterWithOptions/index.js' {
+  import { startOfQuarterWithOptions } from 'date-fns/esm/fp'
+  export default startOfQuarterWithOptions
+}
+
 declare module 'date-fns/esm/fp/startOfSecond/index.js' {
   import { startOfSecond } from 'date-fns/esm/fp'
   export default startOfSecond
+}
+
+declare module 'date-fns/esm/fp/startOfSecondWithOptions/index.js' {
+  import { startOfSecondWithOptions } from 'date-fns/esm/fp'
+  export default startOfSecondWithOptions
 }
 
 declare module 'date-fns/esm/fp/startOfWeek/index.js' {
@@ -13619,9 +20582,19 @@ declare module 'date-fns/esm/fp/startOfYear/index.js' {
   export default startOfYear
 }
 
+declare module 'date-fns/esm/fp/startOfYearWithOptions/index.js' {
+  import { startOfYearWithOptions } from 'date-fns/esm/fp'
+  export default startOfYearWithOptions
+}
+
 declare module 'date-fns/esm/fp/subDays/index.js' {
   import { subDays } from 'date-fns/esm/fp'
   export default subDays
+}
+
+declare module 'date-fns/esm/fp/subDaysWithOptions/index.js' {
+  import { subDaysWithOptions } from 'date-fns/esm/fp'
+  export default subDaysWithOptions
 }
 
 declare module 'date-fns/esm/fp/subHours/index.js' {
@@ -13629,9 +20602,19 @@ declare module 'date-fns/esm/fp/subHours/index.js' {
   export default subHours
 }
 
+declare module 'date-fns/esm/fp/subHoursWithOptions/index.js' {
+  import { subHoursWithOptions } from 'date-fns/esm/fp'
+  export default subHoursWithOptions
+}
+
 declare module 'date-fns/esm/fp/subISOWeekYears/index.js' {
   import { subISOWeekYears } from 'date-fns/esm/fp'
   export default subISOWeekYears
+}
+
+declare module 'date-fns/esm/fp/subISOWeekYearsWithOptions/index.js' {
+  import { subISOWeekYearsWithOptions } from 'date-fns/esm/fp'
+  export default subISOWeekYearsWithOptions
 }
 
 declare module 'date-fns/esm/fp/subMilliseconds/index.js' {
@@ -13639,9 +20622,19 @@ declare module 'date-fns/esm/fp/subMilliseconds/index.js' {
   export default subMilliseconds
 }
 
+declare module 'date-fns/esm/fp/subMillisecondsWithOptions/index.js' {
+  import { subMillisecondsWithOptions } from 'date-fns/esm/fp'
+  export default subMillisecondsWithOptions
+}
+
 declare module 'date-fns/esm/fp/subMinutes/index.js' {
   import { subMinutes } from 'date-fns/esm/fp'
   export default subMinutes
+}
+
+declare module 'date-fns/esm/fp/subMinutesWithOptions/index.js' {
+  import { subMinutesWithOptions } from 'date-fns/esm/fp'
+  export default subMinutesWithOptions
 }
 
 declare module 'date-fns/esm/fp/subMonths/index.js' {
@@ -13649,9 +20642,19 @@ declare module 'date-fns/esm/fp/subMonths/index.js' {
   export default subMonths
 }
 
+declare module 'date-fns/esm/fp/subMonthsWithOptions/index.js' {
+  import { subMonthsWithOptions } from 'date-fns/esm/fp'
+  export default subMonthsWithOptions
+}
+
 declare module 'date-fns/esm/fp/subQuarters/index.js' {
   import { subQuarters } from 'date-fns/esm/fp'
   export default subQuarters
+}
+
+declare module 'date-fns/esm/fp/subQuartersWithOptions/index.js' {
+  import { subQuartersWithOptions } from 'date-fns/esm/fp'
+  export default subQuartersWithOptions
 }
 
 declare module 'date-fns/esm/fp/subSeconds/index.js' {
@@ -13659,9 +20662,19 @@ declare module 'date-fns/esm/fp/subSeconds/index.js' {
   export default subSeconds
 }
 
+declare module 'date-fns/esm/fp/subSecondsWithOptions/index.js' {
+  import { subSecondsWithOptions } from 'date-fns/esm/fp'
+  export default subSecondsWithOptions
+}
+
 declare module 'date-fns/esm/fp/subWeeks/index.js' {
   import { subWeeks } from 'date-fns/esm/fp'
   export default subWeeks
+}
+
+declare module 'date-fns/esm/fp/subWeeksWithOptions/index.js' {
+  import { subWeeksWithOptions } from 'date-fns/esm/fp'
+  export default subWeeksWithOptions
 }
 
 declare module 'date-fns/esm/fp/subYears/index.js' {
@@ -13669,184 +20682,278 @@ declare module 'date-fns/esm/fp/subYears/index.js' {
   export default subYears
 }
 
+declare module 'date-fns/esm/fp/subYearsWithOptions/index.js' {
+  import { subYearsWithOptions } from 'date-fns/esm/fp'
+  export default subYearsWithOptions
+}
+
 declare module 'date-fns/esm/fp/toDate/index.js' {
   import { toDate } from 'date-fns/esm/fp'
   export default toDate
+}
+
+declare module 'date-fns/esm/fp/toDateWithOptions/index.js' {
+  import { toDateWithOptions } from 'date-fns/esm/fp'
+  export default toDateWithOptions
 }
 
 // Regular Locales
 
 declare module 'date-fns/locale' {
   const af: Locale
-  namespace af {}
+  namespace af {
+
+  }
 
   const ar: Locale
-  namespace ar {}
+  namespace ar {
+
+  }
 
   const arDZ: Locale
-  namespace arDZ {}
+  namespace arDZ {
+
+  }
 
   const arSA: Locale
-  namespace arSA {}
+  namespace arSA {
 
-  const be: Locale
-  namespace be {}
+  }
 
   const bg: Locale
-  namespace bg {}
+  namespace bg {
+
+  }
 
   const bn: Locale
-  namespace bn {}
+  namespace bn {
+
+  }
 
   const ca: Locale
-  namespace ca {}
+  namespace ca {
+
+  }
 
   const cs: Locale
-  namespace cs {}
+  namespace cs {
+
+  }
 
   const da: Locale
-  namespace da {}
+  namespace da {
+
+  }
 
   const de: Locale
-  namespace de {}
+  namespace de {
+
+  }
 
   const el: Locale
-  namespace el {}
+  namespace el {
+
+  }
 
   const enCA: Locale
-  namespace enCA {}
+  namespace enCA {
+
+  }
 
   const enGB: Locale
-  namespace enGB {}
+  namespace enGB {
+
+  }
 
   const enUS: Locale
-  namespace enUS {}
+  namespace enUS {
+
+  }
 
   const eo: Locale
-  namespace eo {}
+  namespace eo {
+
+  }
 
   const es: Locale
-  namespace es {}
+  namespace es {
+
+  }
 
   const et: Locale
-  namespace et {}
+  namespace et {
 
-  const faIR: Locale
-  namespace faIR {}
+  }
 
   const fi: Locale
-  namespace fi {}
+  namespace fi {
+
+  }
 
   const fil: Locale
-  namespace fil {}
+  namespace fil {
+
+  }
 
   const fr: Locale
-  namespace fr {}
+  namespace fr {
+
+  }
 
   const frCH: Locale
-  namespace frCH {}
+  namespace frCH {
+
+  }
 
   const gl: Locale
-  namespace gl {}
+  namespace gl {
+
+  }
 
   const he: Locale
-  namespace he {}
+  namespace he {
+
+  }
 
   const hr: Locale
-  namespace hr {}
+  namespace hr {
+
+  }
 
   const hu: Locale
-  namespace hu {}
+  namespace hu {
+
+  }
 
   const id: Locale
-  namespace id {}
+  namespace id {
+
+  }
 
   const is: Locale
-  namespace is {}
+  namespace is {
+
+  }
 
   const it: Locale
-  namespace it {}
+  namespace it {
+
+  }
 
   const ja: Locale
-  namespace ja {}
+  namespace ja {
+
+  }
 
   const ka: Locale
-  namespace ka {}
+  namespace ka {
+
+  }
 
   const ko: Locale
-  namespace ko {}
+  namespace ko {
+
+  }
 
   const lt: Locale
-  namespace lt {}
+  namespace lt {
 
-  const lv: Locale
-  namespace lv {}
+  }
 
   const mk: Locale
-  namespace mk {}
+  namespace mk {
+
+  }
 
   const ms: Locale
-  namespace ms {}
+  namespace ms {
+
+  }
 
   const nb: Locale
-  namespace nb {}
+  namespace nb {
+
+  }
 
   const nl: Locale
-  namespace nl {}
+  namespace nl {
+
+  }
 
   const nlBE: Locale
-  namespace nlBE {}
+  namespace nlBE {
 
-  const nn: Locale
-  namespace nn {}
+  }
 
   const pl: Locale
-  namespace pl {}
+  namespace pl {
+
+  }
 
   const pt: Locale
-  namespace pt {}
+  namespace pt {
+
+  }
 
   const ptBR: Locale
-  namespace ptBR {}
+  namespace ptBR {
+
+  }
 
   const ro: Locale
-  namespace ro {}
+  namespace ro {
+
+  }
 
   const ru: Locale
-  namespace ru {}
+  namespace ru {
+
+  }
 
   const sk: Locale
-  namespace sk {}
+  namespace sk {
 
-  const sl: Locale
-  namespace sl {}
+  }
 
   const sr: Locale
-  namespace sr {}
+  namespace sr {
+
+  }
 
   const sv: Locale
-  namespace sv {}
+  namespace sv {
+
+  }
 
   const th: Locale
-  namespace th {}
+  namespace th {
+
+  }
 
   const tr: Locale
-  namespace tr {}
+  namespace tr {
 
-  const ug: Locale
-  namespace ug {}
+  }
 
   const uk: Locale
-  namespace uk {}
+  namespace uk {
+
+  }
 
   const vi: Locale
-  namespace vi {}
+  namespace vi {
+
+  }
 
   const zhCN: Locale
-  namespace zhCN {}
+  namespace zhCN {
+
+  }
 
   const zhTW: Locale
-  namespace zhTW {}
+  namespace zhTW {
+
+  }
 }
 
 declare module 'date-fns/locale/af' {
@@ -13867,11 +20974,6 @@ declare module 'date-fns/locale/ar-DZ' {
 declare module 'date-fns/locale/ar-SA' {
   import { arSA } from 'date-fns/locale'
   export = arSA
-}
-
-declare module 'date-fns/locale/be' {
-  import { be } from 'date-fns/locale'
-  export = be
 }
 
 declare module 'date-fns/locale/bg' {
@@ -13937,11 +21039,6 @@ declare module 'date-fns/locale/es' {
 declare module 'date-fns/locale/et' {
   import { et } from 'date-fns/locale'
   export = et
-}
-
-declare module 'date-fns/locale/fa-IR' {
-  import { faIR } from 'date-fns/locale'
-  export = faIR
 }
 
 declare module 'date-fns/locale/fi' {
@@ -14019,11 +21116,6 @@ declare module 'date-fns/locale/lt' {
   export = lt
 }
 
-declare module 'date-fns/locale/lv' {
-  import { lv } from 'date-fns/locale'
-  export = lv
-}
-
 declare module 'date-fns/locale/mk' {
   import { mk } from 'date-fns/locale'
   export = mk
@@ -14047,11 +21139,6 @@ declare module 'date-fns/locale/nl' {
 declare module 'date-fns/locale/nl-BE' {
   import { nlBE } from 'date-fns/locale'
   export = nlBE
-}
-
-declare module 'date-fns/locale/nn' {
-  import { nn } from 'date-fns/locale'
-  export = nn
 }
 
 declare module 'date-fns/locale/pl' {
@@ -14084,11 +21171,6 @@ declare module 'date-fns/locale/sk' {
   export = sk
 }
 
-declare module 'date-fns/locale/sl' {
-  import { sl } from 'date-fns/locale'
-  export = sl
-}
-
 declare module 'date-fns/locale/sr' {
   import { sr } from 'date-fns/locale'
   export = sr
@@ -14107,11 +21189,6 @@ declare module 'date-fns/locale/th' {
 declare module 'date-fns/locale/tr' {
   import { tr } from 'date-fns/locale'
   export = tr
-}
-
-declare module 'date-fns/locale/ug' {
-  import { ug } from 'date-fns/locale'
-  export = ug
 }
 
 declare module 'date-fns/locale/uk' {
@@ -14152,11 +21229,6 @@ declare module 'date-fns/locale/ar-DZ/index' {
 declare module 'date-fns/locale/ar-SA/index' {
   import { arSA } from 'date-fns/locale'
   export = arSA
-}
-
-declare module 'date-fns/locale/be/index' {
-  import { be } from 'date-fns/locale'
-  export = be
 }
 
 declare module 'date-fns/locale/bg/index' {
@@ -14222,11 +21294,6 @@ declare module 'date-fns/locale/es/index' {
 declare module 'date-fns/locale/et/index' {
   import { et } from 'date-fns/locale'
   export = et
-}
-
-declare module 'date-fns/locale/fa-IR/index' {
-  import { faIR } from 'date-fns/locale'
-  export = faIR
 }
 
 declare module 'date-fns/locale/fi/index' {
@@ -14304,11 +21371,6 @@ declare module 'date-fns/locale/lt/index' {
   export = lt
 }
 
-declare module 'date-fns/locale/lv/index' {
-  import { lv } from 'date-fns/locale'
-  export = lv
-}
-
 declare module 'date-fns/locale/mk/index' {
   import { mk } from 'date-fns/locale'
   export = mk
@@ -14332,11 +21394,6 @@ declare module 'date-fns/locale/nl/index' {
 declare module 'date-fns/locale/nl-BE/index' {
   import { nlBE } from 'date-fns/locale'
   export = nlBE
-}
-
-declare module 'date-fns/locale/nn/index' {
-  import { nn } from 'date-fns/locale'
-  export = nn
 }
 
 declare module 'date-fns/locale/pl/index' {
@@ -14369,11 +21426,6 @@ declare module 'date-fns/locale/sk/index' {
   export = sk
 }
 
-declare module 'date-fns/locale/sl/index' {
-  import { sl } from 'date-fns/locale'
-  export = sl
-}
-
 declare module 'date-fns/locale/sr/index' {
   import { sr } from 'date-fns/locale'
   export = sr
@@ -14392,11 +21444,6 @@ declare module 'date-fns/locale/th/index' {
 declare module 'date-fns/locale/tr/index' {
   import { tr } from 'date-fns/locale'
   export = tr
-}
-
-declare module 'date-fns/locale/ug/index' {
-  import { ug } from 'date-fns/locale'
-  export = ug
 }
 
 declare module 'date-fns/locale/uk/index' {
@@ -14437,11 +21484,6 @@ declare module 'date-fns/locale/ar-DZ/index.js' {
 declare module 'date-fns/locale/ar-SA/index.js' {
   import { arSA } from 'date-fns/locale'
   export = arSA
-}
-
-declare module 'date-fns/locale/be/index.js' {
-  import { be } from 'date-fns/locale'
-  export = be
 }
 
 declare module 'date-fns/locale/bg/index.js' {
@@ -14507,11 +21549,6 @@ declare module 'date-fns/locale/es/index.js' {
 declare module 'date-fns/locale/et/index.js' {
   import { et } from 'date-fns/locale'
   export = et
-}
-
-declare module 'date-fns/locale/fa-IR/index.js' {
-  import { faIR } from 'date-fns/locale'
-  export = faIR
 }
 
 declare module 'date-fns/locale/fi/index.js' {
@@ -14589,11 +21626,6 @@ declare module 'date-fns/locale/lt/index.js' {
   export = lt
 }
 
-declare module 'date-fns/locale/lv/index.js' {
-  import { lv } from 'date-fns/locale'
-  export = lv
-}
-
 declare module 'date-fns/locale/mk/index.js' {
   import { mk } from 'date-fns/locale'
   export = mk
@@ -14617,11 +21649,6 @@ declare module 'date-fns/locale/nl/index.js' {
 declare module 'date-fns/locale/nl-BE/index.js' {
   import { nlBE } from 'date-fns/locale'
   export = nlBE
-}
-
-declare module 'date-fns/locale/nn/index.js' {
-  import { nn } from 'date-fns/locale'
-  export = nn
 }
 
 declare module 'date-fns/locale/pl/index.js' {
@@ -14654,11 +21681,6 @@ declare module 'date-fns/locale/sk/index.js' {
   export = sk
 }
 
-declare module 'date-fns/locale/sl/index.js' {
-  import { sl } from 'date-fns/locale'
-  export = sl
-}
-
 declare module 'date-fns/locale/sr/index.js' {
   import { sr } from 'date-fns/locale'
   export = sr
@@ -14677,11 +21699,6 @@ declare module 'date-fns/locale/th/index.js' {
 declare module 'date-fns/locale/tr/index.js' {
   import { tr } from 'date-fns/locale'
   export = tr
-}
-
-declare module 'date-fns/locale/ug/index.js' {
-  import { ug } from 'date-fns/locale'
-  export = ug
 }
 
 declare module 'date-fns/locale/uk/index.js' {
@@ -14708,175 +21725,259 @@ declare module 'date-fns/locale/zh-TW/index.js' {
 
 declare module 'date-fns/esm/locale' {
   const af: Locale
-  namespace af {}
+  namespace af {
+
+  }
 
   const ar: Locale
-  namespace ar {}
+  namespace ar {
+
+  }
 
   const arDZ: Locale
-  namespace arDZ {}
+  namespace arDZ {
+
+  }
 
   const arSA: Locale
-  namespace arSA {}
+  namespace arSA {
 
-  const be: Locale
-  namespace be {}
+  }
 
   const bg: Locale
-  namespace bg {}
+  namespace bg {
+
+  }
 
   const bn: Locale
-  namespace bn {}
+  namespace bn {
+
+  }
 
   const ca: Locale
-  namespace ca {}
+  namespace ca {
+
+  }
 
   const cs: Locale
-  namespace cs {}
+  namespace cs {
+
+  }
 
   const da: Locale
-  namespace da {}
+  namespace da {
+
+  }
 
   const de: Locale
-  namespace de {}
+  namespace de {
+
+  }
 
   const el: Locale
-  namespace el {}
+  namespace el {
+
+  }
 
   const enCA: Locale
-  namespace enCA {}
+  namespace enCA {
+
+  }
 
   const enGB: Locale
-  namespace enGB {}
+  namespace enGB {
+
+  }
 
   const enUS: Locale
-  namespace enUS {}
+  namespace enUS {
+
+  }
 
   const eo: Locale
-  namespace eo {}
+  namespace eo {
+
+  }
 
   const es: Locale
-  namespace es {}
+  namespace es {
+
+  }
 
   const et: Locale
-  namespace et {}
+  namespace et {
 
-  const faIR: Locale
-  namespace faIR {}
+  }
 
   const fi: Locale
-  namespace fi {}
+  namespace fi {
+
+  }
 
   const fil: Locale
-  namespace fil {}
+  namespace fil {
+
+  }
 
   const fr: Locale
-  namespace fr {}
+  namespace fr {
+
+  }
 
   const frCH: Locale
-  namespace frCH {}
+  namespace frCH {
+
+  }
 
   const gl: Locale
-  namespace gl {}
+  namespace gl {
+
+  }
 
   const he: Locale
-  namespace he {}
+  namespace he {
+
+  }
 
   const hr: Locale
-  namespace hr {}
+  namespace hr {
+
+  }
 
   const hu: Locale
-  namespace hu {}
+  namespace hu {
+
+  }
 
   const id: Locale
-  namespace id {}
+  namespace id {
+
+  }
 
   const is: Locale
-  namespace is {}
+  namespace is {
+
+  }
 
   const it: Locale
-  namespace it {}
+  namespace it {
+
+  }
 
   const ja: Locale
-  namespace ja {}
+  namespace ja {
+
+  }
 
   const ka: Locale
-  namespace ka {}
+  namespace ka {
+
+  }
 
   const ko: Locale
-  namespace ko {}
+  namespace ko {
+
+  }
 
   const lt: Locale
-  namespace lt {}
+  namespace lt {
 
-  const lv: Locale
-  namespace lv {}
+  }
 
   const mk: Locale
-  namespace mk {}
+  namespace mk {
+
+  }
 
   const ms: Locale
-  namespace ms {}
+  namespace ms {
+
+  }
 
   const nb: Locale
-  namespace nb {}
+  namespace nb {
+
+  }
 
   const nl: Locale
-  namespace nl {}
+  namespace nl {
+
+  }
 
   const nlBE: Locale
-  namespace nlBE {}
+  namespace nlBE {
 
-  const nn: Locale
-  namespace nn {}
+  }
 
   const pl: Locale
-  namespace pl {}
+  namespace pl {
+
+  }
 
   const pt: Locale
-  namespace pt {}
+  namespace pt {
+
+  }
 
   const ptBR: Locale
-  namespace ptBR {}
+  namespace ptBR {
+
+  }
 
   const ro: Locale
-  namespace ro {}
+  namespace ro {
+
+  }
 
   const ru: Locale
-  namespace ru {}
+  namespace ru {
+
+  }
 
   const sk: Locale
-  namespace sk {}
+  namespace sk {
 
-  const sl: Locale
-  namespace sl {}
+  }
 
   const sr: Locale
-  namespace sr {}
+  namespace sr {
+
+  }
 
   const sv: Locale
-  namespace sv {}
+  namespace sv {
+
+  }
 
   const th: Locale
-  namespace th {}
+  namespace th {
+
+  }
 
   const tr: Locale
-  namespace tr {}
+  namespace tr {
 
-  const ug: Locale
-  namespace ug {}
+  }
 
   const uk: Locale
-  namespace uk {}
+  namespace uk {
+
+  }
 
   const vi: Locale
-  namespace vi {}
+  namespace vi {
+
+  }
 
   const zhCN: Locale
-  namespace zhCN {}
+  namespace zhCN {
+
+  }
 
   const zhTW: Locale
-  namespace zhTW {}
+  namespace zhTW {
+
+  }
 }
 
 declare module 'date-fns/esm/locale/af' {
@@ -14897,11 +21998,6 @@ declare module 'date-fns/esm/locale/ar-DZ' {
 declare module 'date-fns/esm/locale/ar-SA' {
   import { arSA } from 'date-fns/esm/locale'
   export default arSA
-}
-
-declare module 'date-fns/esm/locale/be' {
-  import { be } from 'date-fns/esm/locale'
-  export default be
 }
 
 declare module 'date-fns/esm/locale/bg' {
@@ -14967,11 +22063,6 @@ declare module 'date-fns/esm/locale/es' {
 declare module 'date-fns/esm/locale/et' {
   import { et } from 'date-fns/esm/locale'
   export default et
-}
-
-declare module 'date-fns/esm/locale/fa-IR' {
-  import { faIR } from 'date-fns/esm/locale'
-  export default faIR
 }
 
 declare module 'date-fns/esm/locale/fi' {
@@ -15049,11 +22140,6 @@ declare module 'date-fns/esm/locale/lt' {
   export default lt
 }
 
-declare module 'date-fns/esm/locale/lv' {
-  import { lv } from 'date-fns/esm/locale'
-  export default lv
-}
-
 declare module 'date-fns/esm/locale/mk' {
   import { mk } from 'date-fns/esm/locale'
   export default mk
@@ -15077,11 +22163,6 @@ declare module 'date-fns/esm/locale/nl' {
 declare module 'date-fns/esm/locale/nl-BE' {
   import { nlBE } from 'date-fns/esm/locale'
   export default nlBE
-}
-
-declare module 'date-fns/esm/locale/nn' {
-  import { nn } from 'date-fns/esm/locale'
-  export default nn
 }
 
 declare module 'date-fns/esm/locale/pl' {
@@ -15114,11 +22195,6 @@ declare module 'date-fns/esm/locale/sk' {
   export default sk
 }
 
-declare module 'date-fns/esm/locale/sl' {
-  import { sl } from 'date-fns/esm/locale'
-  export default sl
-}
-
 declare module 'date-fns/esm/locale/sr' {
   import { sr } from 'date-fns/esm/locale'
   export default sr
@@ -15137,11 +22213,6 @@ declare module 'date-fns/esm/locale/th' {
 declare module 'date-fns/esm/locale/tr' {
   import { tr } from 'date-fns/esm/locale'
   export default tr
-}
-
-declare module 'date-fns/esm/locale/ug' {
-  import { ug } from 'date-fns/esm/locale'
-  export default ug
 }
 
 declare module 'date-fns/esm/locale/uk' {
@@ -15182,11 +22253,6 @@ declare module 'date-fns/esm/locale/ar-DZ/index' {
 declare module 'date-fns/esm/locale/ar-SA/index' {
   import { arSA } from 'date-fns/esm/locale'
   export default arSA
-}
-
-declare module 'date-fns/esm/locale/be/index' {
-  import { be } from 'date-fns/esm/locale'
-  export default be
 }
 
 declare module 'date-fns/esm/locale/bg/index' {
@@ -15252,11 +22318,6 @@ declare module 'date-fns/esm/locale/es/index' {
 declare module 'date-fns/esm/locale/et/index' {
   import { et } from 'date-fns/esm/locale'
   export default et
-}
-
-declare module 'date-fns/esm/locale/fa-IR/index' {
-  import { faIR } from 'date-fns/esm/locale'
-  export default faIR
 }
 
 declare module 'date-fns/esm/locale/fi/index' {
@@ -15334,11 +22395,6 @@ declare module 'date-fns/esm/locale/lt/index' {
   export default lt
 }
 
-declare module 'date-fns/esm/locale/lv/index' {
-  import { lv } from 'date-fns/esm/locale'
-  export default lv
-}
-
 declare module 'date-fns/esm/locale/mk/index' {
   import { mk } from 'date-fns/esm/locale'
   export default mk
@@ -15362,11 +22418,6 @@ declare module 'date-fns/esm/locale/nl/index' {
 declare module 'date-fns/esm/locale/nl-BE/index' {
   import { nlBE } from 'date-fns/esm/locale'
   export default nlBE
-}
-
-declare module 'date-fns/esm/locale/nn/index' {
-  import { nn } from 'date-fns/esm/locale'
-  export default nn
 }
 
 declare module 'date-fns/esm/locale/pl/index' {
@@ -15399,11 +22450,6 @@ declare module 'date-fns/esm/locale/sk/index' {
   export default sk
 }
 
-declare module 'date-fns/esm/locale/sl/index' {
-  import { sl } from 'date-fns/esm/locale'
-  export default sl
-}
-
 declare module 'date-fns/esm/locale/sr/index' {
   import { sr } from 'date-fns/esm/locale'
   export default sr
@@ -15422,11 +22468,6 @@ declare module 'date-fns/esm/locale/th/index' {
 declare module 'date-fns/esm/locale/tr/index' {
   import { tr } from 'date-fns/esm/locale'
   export default tr
-}
-
-declare module 'date-fns/esm/locale/ug/index' {
-  import { ug } from 'date-fns/esm/locale'
-  export default ug
 }
 
 declare module 'date-fns/esm/locale/uk/index' {
@@ -15467,11 +22508,6 @@ declare module 'date-fns/esm/locale/ar-DZ/index.js' {
 declare module 'date-fns/esm/locale/ar-SA/index.js' {
   import { arSA } from 'date-fns/esm/locale'
   export default arSA
-}
-
-declare module 'date-fns/esm/locale/be/index.js' {
-  import { be } from 'date-fns/esm/locale'
-  export default be
 }
 
 declare module 'date-fns/esm/locale/bg/index.js' {
@@ -15537,11 +22573,6 @@ declare module 'date-fns/esm/locale/es/index.js' {
 declare module 'date-fns/esm/locale/et/index.js' {
   import { et } from 'date-fns/esm/locale'
   export default et
-}
-
-declare module 'date-fns/esm/locale/fa-IR/index.js' {
-  import { faIR } from 'date-fns/esm/locale'
-  export default faIR
 }
 
 declare module 'date-fns/esm/locale/fi/index.js' {
@@ -15619,11 +22650,6 @@ declare module 'date-fns/esm/locale/lt/index.js' {
   export default lt
 }
 
-declare module 'date-fns/esm/locale/lv/index.js' {
-  import { lv } from 'date-fns/esm/locale'
-  export default lv
-}
-
 declare module 'date-fns/esm/locale/mk/index.js' {
   import { mk } from 'date-fns/esm/locale'
   export default mk
@@ -15647,11 +22673,6 @@ declare module 'date-fns/esm/locale/nl/index.js' {
 declare module 'date-fns/esm/locale/nl-BE/index.js' {
   import { nlBE } from 'date-fns/esm/locale'
   export default nlBE
-}
-
-declare module 'date-fns/esm/locale/nn/index.js' {
-  import { nn } from 'date-fns/esm/locale'
-  export default nn
 }
 
 declare module 'date-fns/esm/locale/pl/index.js' {
@@ -15684,11 +22705,6 @@ declare module 'date-fns/esm/locale/sk/index.js' {
   export default sk
 }
 
-declare module 'date-fns/esm/locale/sl/index.js' {
-  import { sl } from 'date-fns/esm/locale'
-  export default sl
-}
-
 declare module 'date-fns/esm/locale/sr/index.js' {
   import { sr } from 'date-fns/esm/locale'
   export default sr
@@ -15707,11 +22723,6 @@ declare module 'date-fns/esm/locale/th/index.js' {
 declare module 'date-fns/esm/locale/tr/index.js' {
   import { tr } from 'date-fns/esm/locale'
   export default tr
-}
-
-declare module 'date-fns/esm/locale/ug/index.js' {
-  import { ug } from 'date-fns/esm/locale'
-  export default ug
 }
 
 declare module 'date-fns/esm/locale/uk/index.js' {
@@ -15737,577 +22748,590 @@ declare module 'date-fns/esm/locale/zh-TW/index.js' {
 // dateFns Global Interface
 
 interface dateFns {
-  addBusinessDays(date: Date | number, amount: number): Date
+  addDays(date: Date | string | number, amount: number, options?: Options): Date
 
-  addDays(date: Date | number, amount: number): Date
+  addHours(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
 
-  addHours(date: Date | number, amount: number): Date
+  addISOWeekYears(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
 
-  addISOWeekYears(date: Date | number, amount: number): Date
+  addMilliseconds(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
 
-  addMilliseconds(date: Date | number, amount: number): Date
+  addMinutes(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
 
-  addMinutes(date: Date | number, amount: number): Date
+  addMonths(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
 
-  addMonths(date: Date | number, amount: number): Date
+  addQuarters(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
 
-  addQuarters(date: Date | number, amount: number): Date
+  addSeconds(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
 
-  addSeconds(date: Date | number, amount: number): Date
+  addWeeks(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
 
-  addWeeks(date: Date | number, amount: number): Date
-
-  addYears(date: Date | number, amount: number): Date
+  addYears(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
 
   areIntervalsOverlapping(
     intervalLeft: Interval,
-    intervalRight: Interval
+    intervalRight: Interval,
+    options?: Options
   ): boolean
 
   closestIndexTo(
-    dateToCompare: Date | number,
-    datesArray: (Date | number)[]
+    dateToCompare: Date | string | number,
+    datesArray: (Date | string | number)[],
+    options?: Options
   ): number
 
-  closestTo(dateToCompare: Date | number, datesArray: (Date | number)[]): Date
+  closestTo(
+    dateToCompare: Date | string | number,
+    datesArray: (Date | string | number)[],
+    options?: Options
+  ): Date
 
-  compareAsc(dateLeft: Date | number, dateRight: Date | number): number
+  compareAsc(
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
+  ): number
 
-  compareDesc(dateLeft: Date | number, dateRight: Date | number): number
-
-  differenceInBusinessDays(
-    dateLeft: Date | number,
-    dateRight: Date | number
+  compareDesc(
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): number
 
   differenceInCalendarDays(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): number
 
   differenceInCalendarISOWeeks(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): number
 
   differenceInCalendarISOWeekYears(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): number
 
   differenceInCalendarMonths(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): number
 
   differenceInCalendarQuarters(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): number
 
   differenceInCalendarWeeks(
-    dateLeft: Date | number,
-    dateRight: Date | number,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-    }
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): number
 
   differenceInCalendarYears(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): number
 
-  differenceInDays(dateLeft: Date | number, dateRight: Date | number): number
+  differenceInDays(
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
+  ): number
 
-  differenceInHours(dateLeft: Date | number, dateRight: Date | number): number
+  differenceInHours(
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
+  ): number
 
   differenceInISOWeekYears(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): number
 
   differenceInMilliseconds(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): number
 
-  differenceInMinutes(dateLeft: Date | number, dateRight: Date | number): number
+  differenceInMinutes(
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
+  ): number
 
-  differenceInMonths(dateLeft: Date | number, dateRight: Date | number): number
+  differenceInMonths(
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
+  ): number
 
   differenceInQuarters(
-    dateLeft: Date | number,
-    dateRight: Date | number
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): number
 
-  differenceInSeconds(dateLeft: Date | number, dateRight: Date | number): number
+  differenceInSeconds(
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
+  ): number
 
-  differenceInWeeks(dateLeft: Date | number, dateRight: Date | number): number
+  differenceInWeeks(
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
+  ): number
 
-  differenceInYears(dateLeft: Date | number, dateRight: Date | number): number
+  differenceInYears(
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
+  ): number
 
-  eachDayOfInterval(
-    interval: Interval,
-    options?: {
-      step?: number
-    }
-  ): Date[]
+  eachDayOfInterval(interval: Interval, options?: Options): Date[]
 
-  eachWeekendOfInterval(interval: Interval): Date[]
+  eachWeekendOfInterval(interval: Interval, options?: Options): Date[]
 
-  eachWeekendOfMonth(date: Date | number): Date[]
+  eachWeekendOfMonth(date: Date | string | number, options?: Options): Date[]
 
-  eachWeekendOfYear(date: Date | number): Date[]
+  eachWeekendOfYear(date: Date | string | number, options?: Options): Date[]
 
-  eachWeekOfInterval(
-    interval: Interval,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-    }
-  ): Date[]
+  eachWeekOfInterval(interval: Interval, options?: Options): Date[]
 
-  endOfDay(date: Date | number): Date
+  endOfDay(date: Date | string | number, options?: Options): Date
 
-  endOfDecade(
-    date: Date | number,
-    options?: {
-      additionalDigits?: 0 | 1 | 2
-    }
-  ): Date
+  endOfDecade(date: Date | string | number, options?: Options): Date
 
-  endOfHour(date: Date | number): Date
+  endOfHour(date: Date | string | number, options?: Options): Date
 
-  endOfISOWeek(date: Date | number): Date
+  endOfISOWeek(date: Date | string | number, options?: Options): Date
 
-  endOfISOWeekYear(date: Date | number): Date
+  endOfISOWeekYear(date: Date | string | number, options?: Options): Date
 
-  endOfMinute(date: Date | number): Date
+  endOfMinute(date: Date | string | number, options?: Options): Date
 
-  endOfMonth(date: Date | number): Date
+  endOfMonth(date: Date | string | number, options?: Options): Date
 
-  endOfQuarter(date: Date | number): Date
+  endOfQuarter(date: Date | string | number, options?: Options): Date
 
-  endOfSecond(date: Date | number): Date
+  endOfSecond(date: Date | string | number, options?: Options): Date
 
-  endOfToday(): Date
+  endOfWeek(date: Date | string | number, options?: Options): Date
 
-  endOfTomorrow(): Date
-
-  endOfWeek(
-    date: Date | number,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-    }
-  ): Date
-
-  endOfYear(date: Date | number): Date
-
-  endOfYesterday(): Date
+  endOfYear(date: Date | string | number, options?: Options): Date
 
   format(
-    date: Date | number,
+    date: Date | string | number,
     format: string,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-      firstWeekContainsDate?: number
-      useAdditionalWeekYearTokens?: boolean
-      useAdditionalDayOfYearTokens?: boolean
-    }
+    options?: Options
   ): string
 
   formatDistance(
-    date: Date | number,
-    baseDate: Date | number,
-    options?: {
-      includeSeconds?: boolean
-      addSuffix?: boolean
-      locale?: Locale
-    }
+    date: Date | string | number,
+    baseDate: Date | string | number,
+    options?: Options
   ): string
 
   formatDistanceStrict(
-    date: Date | number,
-    baseDate: Date | number,
-    options?: {
-      addSuffix?: boolean
-      unit?: 'second' | 'minute' | 'hour' | 'day' | 'month' | 'year'
-      roundingMethod?: 'floor' | 'ceil' | 'round'
-      locale?: Locale
-    }
-  ): string
-
-  formatDistanceToNow(
-    date: Date | number,
-    options?: {
-      includeSeconds?: boolean
-      addSuffix?: boolean
-      locale?: Locale
-    }
+    date: Date | string | number,
+    baseDate: Date | string | number,
+    options?: Options
   ): string
 
   formatRelative(
-    date: Date | number,
-    baseDate: Date | number,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-    }
+    date: Date | string | number,
+    baseDate: Date | string | number,
+    options?: Options
   ): string
 
-  fromUnixTime(unixTime: number): Date
+  fromUnixTime(unixTime: number, options?: Options): Date
 
-  getDate(date: Date | number): number
+  getDate(date: Date | string | number, options?: Options): number
 
-  getDay(date: Date | number): number
+  getDay(date: Date | string | number, options?: Options): number
 
-  getDayOfYear(date: Date | number): number
+  getDayOfYear(date: Date | string | number, options?: Options): number
 
-  getDaysInMonth(date: Date | number): number
+  getDaysInMonth(date: Date | string | number, options?: Options): number
 
-  getDaysInYear(date: Date | number): number
+  getDaysInYear(date: Date | string | number, options?: Options): number
 
-  getDecade(date: Date | number): number
+  getDecade(date: Date | string | number, options?: Options): number
 
-  getHours(date: Date | number): number
+  getHours(date: Date | string | number, options?: Options): number
 
-  getISODay(date: Date | number): number
+  getISODay(date: Date | string | number, options?: Options): number
 
-  getISOWeek(date: Date | number): number
+  getISOWeek(date: Date | string | number, options?: Options): number
 
-  getISOWeeksInYear(date: Date | number): number
+  getISOWeeksInYear(date: Date | string | number, options?: Options): number
 
-  getISOWeekYear(date: Date | number): number
+  getISOWeekYear(date: Date | string | number, options?: Options): number
 
-  getMilliseconds(date: Date | number): number
+  getMilliseconds(date: Date | string | number, options?: Options): number
 
-  getMinutes(date: Date | number): number
+  getMinutes(date: Date | string | number, options?: Options): number
 
-  getMonth(date: Date | number): number
+  getMonth(date: Date | string | number, options?: Options): number
 
   getOverlappingDaysInIntervals(
     intervalLeft: Interval,
-    intervalRight: Interval
+    intervalRight: Interval,
+    options?: Options
   ): number
 
-  getQuarter(date: Date | number): number
+  getQuarter(date: Date | string | number, options?: Options): number
 
-  getSeconds(date: Date | number): number
+  getSeconds(date: Date | string | number, options?: Options): number
 
-  getTime(date: Date | number): number
+  getTime(date: Date | string | number, options?: Options): number
 
-  getUnixTime(date: Date | number): number
+  getUnixTime(date: Date | string | number, options?: Options): number
 
-  getWeek(
-    date: Date | number,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-      firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7
-    }
-  ): number
+  getWeek(date: Date | string | number, options?: Options): number
 
-  getWeekOfMonth(
-    date: Date | number,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-    }
-  ): number
+  getWeekOfMonth(date: Date | string | number, options?: Options): number
 
-  getWeeksInMonth(
-    date: Date | number,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-    }
-  ): number
+  getWeeksInMonth(date: Date | string | number, options?: Options): number
 
-  getWeekYear(
-    date: Date | number,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-      firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7
-    }
-  ): number
+  getWeekYear(date: Date | string | number, options?: Options): number
 
-  getYear(date: Date | number): number
+  getYear(date: Date | string | number, options?: Options): number
 
-  isAfter(date: Date | number, dateToCompare: Date | number): boolean
+  isAfter(
+    date: Date | string | number,
+    dateToCompare: Date | string | number,
+    options?: Options
+  ): boolean
 
-  isBefore(date: Date | number, dateToCompare: Date | number): boolean
+  isBefore(
+    date: Date | string | number,
+    dateToCompare: Date | string | number,
+    options?: Options
+  ): boolean
 
-  isDate(value: any): boolean
+  isDate(value: any, options?: Options): boolean
 
-  isEqual(dateLeft: Date | number, dateRight: Date | number): boolean
+  isEqual(
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
+  ): boolean
 
-  isFirstDayOfMonth(date: Date | number): boolean
+  isFirstDayOfMonth(date: Date | string | number, options?: Options): boolean
 
-  isFriday(date: Date | number): boolean
+  isFriday(date: Date | string | number, options?: Options): boolean
 
-  isFuture(date: Date | number): boolean
+  isLastDayOfMonth(date: Date | string | number, options?: Options): boolean
 
-  isLastDayOfMonth(date: Date | number): boolean
+  isLeapYear(date: Date | string | number, options?: Options): boolean
 
-  isLeapYear(date: Date | number): boolean
+  isMonday(date: Date | string | number, options?: Options): boolean
 
-  isMonday(date: Date | number): boolean
+  isSameDay(
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
+  ): boolean
 
-  isPast(date: Date | number): boolean
+  isSameHour(
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
+  ): boolean
 
-  isSameDay(dateLeft: Date | number, dateRight: Date | number): boolean
+  isSameISOWeek(
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
+  ): boolean
 
-  isSameHour(dateLeft: Date | number, dateRight: Date | number): boolean
+  isSameISOWeekYear(
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
+  ): boolean
 
-  isSameISOWeek(dateLeft: Date | number, dateRight: Date | number): boolean
+  isSameMinute(
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
+  ): boolean
 
-  isSameISOWeekYear(dateLeft: Date | number, dateRight: Date | number): boolean
+  isSameMonth(
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
+  ): boolean
 
-  isSameMinute(dateLeft: Date | number, dateRight: Date | number): boolean
+  isSameQuarter(
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
+  ): boolean
 
-  isSameMonth(dateLeft: Date | number, dateRight: Date | number): boolean
-
-  isSameQuarter(dateLeft: Date | number, dateRight: Date | number): boolean
-
-  isSameSecond(dateLeft: Date | number, dateRight: Date | number): boolean
+  isSameSecond(
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
+  ): boolean
 
   isSameWeek(
-    dateLeft: Date | number,
-    dateRight: Date | number,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-    }
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): boolean
 
-  isSameYear(dateLeft: Date | number, dateRight: Date | number): boolean
-
-  isSaturday(date: Date | number): boolean
-
-  isSunday(date: Date | number): boolean
-
-  isThisHour(date: Date | number): boolean
-
-  isThisISOWeek(date: Date | number): boolean
-
-  isThisMinute(date: Date | number): boolean
-
-  isThisMonth(date: Date | number): boolean
-
-  isThisQuarter(date: Date | number): boolean
-
-  isThisSecond(date: Date | number): boolean
-
-  isThisWeek(
-    date: Date | number,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-    }
+  isSameYear(
+    dateLeft: Date | string | number,
+    dateRight: Date | string | number,
+    options?: Options
   ): boolean
 
-  isThisYear(date: Date | number): boolean
+  isSaturday(date: Date | string | number, options?: Options): boolean
 
-  isThursday(date: Date | number): boolean
+  isSunday(date: Date | string | number, options?: Options): boolean
 
-  isToday(date: Date | number): boolean
+  isThursday(date: Date | string | number, options?: Options): boolean
 
-  isTomorrow(date: Date | number): boolean
+  isTuesday(date: Date | string | number, options?: Options): boolean
 
-  isTuesday(date: Date | number): boolean
+  isValid(date: any, options?: Options): boolean
 
-  isValid(date: any): boolean
+  isWednesday(date: Date | string | number, options?: Options): boolean
 
-  isWednesday(date: Date | number): boolean
+  isWeekend(date: Date | string | number, options?: Options): boolean
 
-  isWeekend(date: Date | number): boolean
+  isWithinInterval(
+    date: Date | string | number,
+    interval: Interval,
+    options?: Options
+  ): boolean
 
-  isWithinInterval(date: Date | number, interval: Interval): boolean
+  lastDayOfDecade(date: Date | string | number, options?: Options): Date
 
-  isYesterday(date: Date | number): boolean
+  lastDayOfISOWeek(date: Date | string | number, options?: Options): Date
 
-  lastDayOfDecade(date: Date | number): Date
+  lastDayOfISOWeekYear(date: Date | string | number, options?: Options): Date
 
-  lastDayOfISOWeek(date: Date | number): Date
+  lastDayOfMonth(date: Date | string | number, options?: Options): Date
 
-  lastDayOfISOWeekYear(date: Date | number): Date
+  lastDayOfQuarter(date: Date | string | number, options?: Options): Date
 
-  lastDayOfMonth(date: Date | number): Date
+  lastDayOfWeek(date: Date | string | number, options?: Options): Date
 
-  lastDayOfQuarter(
-    date: Date | number,
-    options?: {
-      additionalDigits?: 0 | 1 | 2
-    }
-  ): Date
+  lastDayOfYear(date: Date | string | number, options?: Options): Date
 
-  lastDayOfWeek(
-    date: Date | number,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-    }
-  ): Date
+  max(datesArray: (Date | string | number)[], options?: Options): Date
 
-  lastDayOfYear(date: Date | number): Date
-
-  lightFormat(date: Date | number, format: string): string
-
-  max(datesArray: (Date | number)[]): Date
-
-  min(datesArray: (Date | number)[]): Date
+  min(datesArray: (Date | string | number)[], options?: Options): Date
 
   parse(
     dateString: string,
     formatString: string,
-    baseDate: Date | number,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-      firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7
-      useAdditionalWeekYearTokens?: boolean
-      useAdditionalDayOfYearTokens?: boolean
-    }
-  ): Date
-
-  parseISO(
-    argument: string,
-    options?: {
-      additionalDigits?: 0 | 1 | 2
-    }
+    baseDate: Date | string | number,
+    options?: Options
   ): Date
 
   roundToNearestMinutes(
-    date: Date | number,
-    options?: {
-      nearestTo?: number
-    }
+    date: Date | string | number,
+    nearestTo?: number,
+    options?: Options
   ): Date
 
-  setDate(date: Date | number, dayOfMonth: number): Date
-
-  setDay(
-    date: Date | number,
-    day: number,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-    }
+  setDate(
+    date: Date | string | number,
+    dayOfMonth: number,
+    options?: Options
   ): Date
 
-  setDayOfYear(date: Date | number, dayOfYear: number): Date
+  setDay(date: Date | string | number, day: number, options?: Options): Date
 
-  setHours(date: Date | number, hours: number): Date
-
-  setISODay(date: Date | number, day: number): Date
-
-  setISOWeek(date: Date | number, isoWeek: number): Date
-
-  setISOWeekYear(date: Date | number, isoWeekYear: number): Date
-
-  setMilliseconds(date: Date | number, milliseconds: number): Date
-
-  setMinutes(date: Date | number, minutes: number): Date
-
-  setMonth(date: Date | number, month: number): Date
-
-  setQuarter(date: Date | number, quarter: number): Date
-
-  setSeconds(date: Date | number, seconds: number): Date
-
-  setWeek(
-    date: Date | number,
-    week: number,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-      firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7
-    }
+  setDayOfYear(
+    date: Date | string | number,
+    dayOfYear: number,
+    options?: Options
   ): Date
+
+  setHours(date: Date | string | number, hours: number, options?: Options): Date
+
+  setISODay(date: Date | string | number, day: number, options?: Options): Date
+
+  setISOWeek(
+    date: Date | string | number,
+    isoWeek: number,
+    options?: Options
+  ): Date
+
+  setISOWeekYear(
+    date: Date | string | number,
+    isoWeekYear: number,
+    options?: Options
+  ): Date
+
+  setMilliseconds(
+    date: Date | string | number,
+    milliseconds: number,
+    options?: Options
+  ): Date
+
+  setMinutes(
+    date: Date | string | number,
+    minutes: number,
+    options?: Options
+  ): Date
+
+  setMonth(date: Date | string | number, month: number, options?: Options): Date
+
+  setQuarter(
+    date: Date | string | number,
+    quarter: number,
+    options?: Options
+  ): Date
+
+  setSeconds(
+    date: Date | string | number,
+    seconds: number,
+    options?: Options
+  ): Date
+
+  setWeek(date: Date | string | number, week: number, options?: Options): Date
 
   setWeekYear(
-    date: Date | number,
+    date: Date | string | number,
     weekYear: number,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-      firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7
-    }
+    options?: Options
   ): Date
 
-  setYear(date: Date | number, year: number): Date
+  setYear(date: Date | string | number, year: number, options?: Options): Date
 
-  startOfDay(date: Date | number): Date
+  startOfDay(date: Date | string | number, options?: Options): Date
 
-  startOfDecade(date: Date | number): Date
+  startOfDecade(date: Date | string | number, options?: Options): Date
 
-  startOfHour(date: Date | number): Date
+  startOfHour(date: Date | string | number, options?: Options): Date
 
-  startOfISOWeek(date: Date | number): Date
+  startOfISOWeek(date: Date | string | number, options?: Options): Date
 
-  startOfISOWeekYear(date: Date | number): Date
+  startOfISOWeekYear(date: Date | string | number, options?: Options): Date
 
-  startOfMinute(date: Date | number): Date
+  startOfMinute(date: Date | string | number, options?: Options): Date
 
-  startOfMonth(date: Date | number): Date
+  startOfMonth(date: Date | string | number, options?: Options): Date
 
-  startOfQuarter(date: Date | number): Date
+  startOfQuarter(date: Date | string | number, options?: Options): Date
 
-  startOfSecond(date: Date | number): Date
+  startOfSecond(date: Date | string | number, options?: Options): Date
 
-  startOfToday(): Date
+  startOfWeek(date: Date | string | number, options?: Options): Date
 
-  startOfTomorrow(): Date
+  startOfWeekYear(date: Date | string | number, options?: Options): Date
 
-  startOfWeek(
-    date: Date | number,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-    }
+  startOfYear(date: Date | string | number, options?: Options): Date
+
+  subDays(date: Date | string | number, amount: number, options?: Options): Date
+
+  subHours(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
   ): Date
 
-  startOfWeekYear(
-    date: Date | number,
-    options?: {
-      locale?: Locale
-      weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
-      firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7
-    }
+  subISOWeekYears(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
   ): Date
 
-  startOfYear(date: Date | number): Date
+  subMilliseconds(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
 
-  startOfYesterday(): Date
+  subMinutes(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
 
-  subDays(date: Date | number, amount: number): Date
+  subMonths(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
 
-  subHours(date: Date | number, amount: number): Date
+  subQuarters(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
 
-  subISOWeekYears(date: Date | number, amount: number): Date
+  subSeconds(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
 
-  subMilliseconds(date: Date | number, amount: number): Date
+  subWeeks(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
 
-  subMinutes(date: Date | number, amount: number): Date
+  subYears(
+    date: Date | string | number,
+    amount: number,
+    options?: Options
+  ): Date
 
-  subMonths(date: Date | number, amount: number): Date
-
-  subQuarters(date: Date | number, amount: number): Date
-
-  subSeconds(date: Date | number, amount: number): Date
-
-  subWeeks(date: Date | number, amount: number): Date
-
-  subYears(date: Date | number, amount: number): Date
-
-  toDate(argument: Date | number): Date
-
-  maxTime: number
-
-  minTime: number
+  toDate(argument: Date | string | number, options?: Options): Date
 }
